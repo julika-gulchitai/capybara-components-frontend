@@ -10,22 +10,16 @@ const ModalWindow = ({ open, onClose, children }) => {
     }
   }
 
-  // useEffect(() => {
-  //   const handleKeyDown = (e) => {
-  //     if (e.key === 'Escape') {
-  //       onClose()
-  //     }
-  //   }
-  //   document.addEventListener('keydown', handleKeyDown)
-  //   return (() =>
-  //     document.removeEventListener('keydown', handleKeyDown)
-  //   )
-  // }, [onClose])
   return ReactDom.createPortal(
     <ModalWrapper onClick={clickOutside}>
       <ModalContent >
         {children}
-        <ModalButtonClose onClick={onClose}>X</ModalButtonClose>
+        <ModalButtonClose onClick={onClose}>
+          X
+          {/* <svg onClick={onClose}>
+            <use href="../../assets/sprite.svg#arrow-left"></use>
+          </svg> */}
+        </ModalButtonClose>
       </ModalContent>
     </ModalWrapper>,
     document.getElementById('portal')
