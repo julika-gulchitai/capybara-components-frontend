@@ -18,7 +18,7 @@ function App() {
           <Route path="/second" element={<HomePage />}>
             <Route path=":half" element={<HalfPage />} />
           </Route>
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<WelcomePage />} />
         </Route>
       </Routes>
     </AppWrapper>
