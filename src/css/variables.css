@@ -2,4 +2,10 @@
   --white: #ffffff;
   --black: #2f2f2f;
   --blue: #407bff;
+  --secondary-white: #ecf2ff;
+  --secondary-red: #ef5050;
+  --secondary-blue: #9ebbff;
+  --secondary-orange: #ff9d43;
+  --secondary-lightblue: #d7e3ff;
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
