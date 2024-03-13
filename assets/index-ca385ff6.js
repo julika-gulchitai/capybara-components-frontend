@@ -306,6 +306,7 @@ color: #fff;
   width: 100%;
   height: 100vh;
   background-image: url(${zv});
+  background-color: var(--white)
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100% 100%;
