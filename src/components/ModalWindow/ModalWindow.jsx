@@ -1,4 +1,8 @@
-import { ModalButtonClose, ModalContent, ModalWrapper } from './ModalWindow.styled'
+import {
+  ModalButtonClose,
+  ModalContent,
+  ModalWrapper,
+} from './ModalWindow.styled';
 import ReactDom from 'react-dom';
 
 const ModalWindow = ({ open, onClose, children }) => {
@@ -6,13 +10,13 @@ const ModalWindow = ({ open, onClose, children }) => {
 
   const clickOutside = (e) => {
     if (e.target === e.currentTarget) {
-      onClose()
+      onClose();
     }
-  }
+  };
 
   return ReactDom.createPortal(
     <ModalWrapper onClick={clickOutside}>
-      <ModalContent >
+      <ModalContent>
         {children}
         <ModalButtonClose onClick={onClose}>
           X
@@ -23,7 +27,7 @@ const ModalWindow = ({ open, onClose, children }) => {
       </ModalContent>
     </ModalWrapper>,
     document.getElementById('portal')
-  )
-}
+  );
+};
 
-export default ModalWindow
+export default ModalWindow;

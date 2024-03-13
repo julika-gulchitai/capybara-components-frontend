@@ -1,13 +1,10 @@
-import { Container, Block, Title, StyledLink } from './HomePage.styled';
+import DailyNorma from '../../components/DailyNorma/DailyNorma';
 
 const SecondPage = () => {
   return (
-    <Container>
-      <Block>
-        <Title>Home</Title>
-        <StyledLink to="/second/5">Half</StyledLink>
-      </Block>
-    </Container>
+    <>
+      <DailyNorma></DailyNorma>
+    </>
   );
 };
 

@@ -4,6 +4,8 @@ import WelcomePage from './pages/WelcomePage/WelcomePage';
 import HomePage from './pages/HomePage/HomePage';
 import HalfPage from 'pages/HalfPage/HalfPage';
 import { AppWrapper } from './App.styled';
+// import DailyNormaModal from './components/DailyNormaModal/DailyNormaModal';
+// import DailyNorma from './components/DailyNorma/DailyNorma';
 
 const test = import.meta.env.VITE_API_TEST;
 
