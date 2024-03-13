@@ -7,7 +7,6 @@ import {
 import sprite from 'assets/sprite.svg';
 
 export const Header = () => {
-
   return (
     <HeaderContainer>
       <Navigation>
@@ -15,13 +14,13 @@ export const Header = () => {
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
-          First
+          Welcome
         </StyledLink>
         <StyledLink to="/second">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
-          Second
+          Home
         </StyledLink>
       </Navigation>
     </HeaderContainer>
