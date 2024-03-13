@@ -43,4 +43,4 @@ const WelcomePage = () => {
   );
 };
 
-export default FirstPage;
+export default WelcomePage;
