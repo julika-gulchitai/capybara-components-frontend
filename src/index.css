@@ -1,7 +1,7 @@
 @import-normalize;
 @import url('./css/variables.css');
 body {
-  background-color: #000;
+  background-color: #111111;
   /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
   background-position: center center;
