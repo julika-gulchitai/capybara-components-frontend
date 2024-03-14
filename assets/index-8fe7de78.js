@@ -114,7 +114,7 @@ Error generating stack: `+i.message+`
     0 0 20px #00baff,
     0 0 40px #00baff,
     0 0 80px #00baff;
-`,xr="/capybara-components-frontend/assets/sprite-489999c6.svg",w_=()=>_.jsx(v_,{children:_.jsxs(x_,{children:[_.jsxs(Hm,{to:"/welcome",children:[_.jsx(Km,{children:_.jsx("use",{href:`${xr}#icon-logo`})}),"Welcome"]}),_.jsxs(Hm,{to:"/home",children:[_.jsx(Km,{children:_.jsx("use",{href:`${xr}#icon-logo`})}),"Home"]})]})}),S_=()=>_.jsxs(_.Fragment,{children:[_.jsx(w_,{}),_.jsx(C.Suspense,{fallback:null,children:_.jsx(Ak,{})})]}),Gm="/capybara-components-frontend/assets/botle-home-screen-480ee697.svg",b_="/capybara-components-frontend/assets/background-wave-right-44c34fbb.svg",k_="/capybara-components-frontend/assets/background-wave-left-032252f7.svg",__=se.div`
+`,xr="/capybara-components-frontend/assets/sprite-2096fd02.svg",w_=()=>_.jsx(v_,{children:_.jsxs(x_,{children:[_.jsxs(Hm,{to:"/welcome",children:[_.jsx(Km,{children:_.jsx("use",{href:`${xr}#icon-logo`})}),"Welcome"]}),_.jsxs(Hm,{to:"/home",children:[_.jsx(Km,{children:_.jsx("use",{href:`${xr}#icon-logo`})}),"Home"]})]})}),S_=()=>_.jsxs(_.Fragment,{children:[_.jsx(w_,{}),_.jsx(C.Suspense,{fallback:null,children:_.jsx(Ak,{})})]}),Gm="/capybara-components-frontend/assets/botle-home-screen-480ee697.svg",b_="/capybara-components-frontend/assets/background-wave-right-44c34fbb.svg",k_="/capybara-components-frontend/assets/background-wave-left-032252f7.svg",__=se.div`
 height: 100vh;
 
 display: flex;
