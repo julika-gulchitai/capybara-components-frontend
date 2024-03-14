@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import setToken from '../../utils/setToken.js';
-import {
-  registerThunk,
-  loginThunk,
-  updateUserThunk,
-  getCurrentThunk,
-  logoutThunk,
-} from './UserThunks.js';
+import { registerThunk } from './UserThunks.js';
 const initialState = {
   user: {
     name: '',
@@ -18,8 +12,6 @@ const initialState = {
   token: '',
   isLoggIn: false,
 };
-
-const rejectedAuthCase = () => ({ ...initialState });
 
 const userSlices = createSlice({
   name: 'user',
