@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {RadioGroup} from '@mui/material';
+import {ButtonStyled} from '../CommonStyledComponents/CommonButton.styled.jsx';
 
 export const SettingsContainer = styled.div`
   h2{
@@ -13,7 +14,15 @@ export const SettingsContainer = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 960px;
+  width: 256px;
+
+  @media only screen and (min-width: 768px) {
+    width: 656px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    width: 960px;
+  }
   
   label{
     display: flex;
@@ -39,28 +48,44 @@ export const Form = styled.form`
 
 export const InfoWrapper = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 12px;
   margin-top: 24px;
+  flex-direction: column;
+
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 24px;
+  }
 `
 export const LeftContainer = styled.div`
   height: 272px;
-  width: 392px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 12px;
+
+  @media only screen and (min-width: 768px) {
+    width: 392px;
+  }
 `
 
 export const GenderLabel = styled.label`
-  margin-bottom: 20px;
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+  }
 `
 
 export const RightContainer = styled.div`
   height: 272px;
-  width: 392px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media only screen and (min-width: 768px) {
+    width: 392px;
+  }
   
   span {
     font-size: 16px;
@@ -107,21 +132,13 @@ export const Avatar = styled.div`
   }
 `
 
-export const SaveButton = styled.button`
-  width: 160px;
-  height: 44px;
-  border-radius: 10px;
-  padding: 10px 30px;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-  border: none;
-  background-color: var(--blue);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33;
-  text-align: center;
-  color: var(--white);
-  margin-top: 24px;
-  align-self: end;
+export const SaveButton = styled(ButtonStyled)`
+  width: 100%;
+
+  @media only screen and (min-width: 768px) { 
+    width: 160px;
+    align-self: end;
+  }
 `
 
 export const GenderRadio = styled(RadioGroup)`

@@ -16,6 +16,7 @@ import {Controller, useForm} from 'react-hook-form';
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import TextInput from '../TextInput.jsx';
+import { useMediaQuery } from 'react-responsive';
 
 
 function Settings({close}) {
@@ -25,13 +26,16 @@ function Settings({close}) {
   const {name, email, gender} = user;
   const userData = {};
 
+  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+
   const schema = yup
     .object({
       name: yup
         .string()
         .test('len', 'Mux length 32 characters', val => (val?.length <= 32)),
       email: yup
-        .string(),
+        .string()
+        .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , 'Please enter valid e-mail'),
       new_password: yup.string().test('len', 'Must be at least 8 characters', val => ((val.length >= 8 && val.length <= 64) || val.length === 0))
     })
     .required();
@@ -46,7 +50,8 @@ function Settings({close}) {
 
   const inputRef = useRef(null);
 
-  function handleClick() {
+  function handleClick(event) {
+    console.log(event.target);
     inputRef.current.click();
   }
 
@@ -149,7 +154,7 @@ function Settings({close}) {
                 error={errors.name}
                 register={register}
                 id='name'
-                width={392}
+                width={isTabletOrDesktop? 392 : '100%'}
                 defaultValue={name}
                 placeholder='Name'
                 type='text'/>
@@ -160,7 +165,7 @@ function Settings({close}) {
                 error={errors.email}
                 register={register}
                 id='email'
-                width={392}
+                width={isTabletOrDesktop? 392 : '100%'}
                 type='email'
                 defaultValue={email}
                 placeholder='E-mail'/>
@@ -174,7 +179,7 @@ function Settings({close}) {
               <PasswordInput
                 register={register}
                 id='old_password'
-                width={392}/>
+                width={isTabletOrDesktop? 392 : '100%'}/>
             </label>
             <label>
               <span>New Password:</span>
@@ -182,7 +187,7 @@ function Settings({close}) {
                 error={errors.new_password}
                 register={register}
                 id='new_password'
-                width={392}/>
+                width={isTabletOrDesktop? 392 : '100%'}/>
             </label>
             <label>
               <span>Repeat new password:</span>
@@ -190,12 +195,12 @@ function Settings({close}) {
                 error={errors.repeat_new_password}
                 register={register}
                 id='repeat_new_password'
-                width={392}/>
+                width={isTabletOrDesktop? 392 : '100%'}/>
             </label>
           </RightContainer>
         </InfoWrapper>
 
-        <SaveButton type='submit'>Save</SaveButton>
+        <SaveButton type='submit' >Save</SaveButton>
       </Form>
 
     </SettingsContainer>
@@ -203,3 +208,7 @@ function Settings({close}) {
 }
 
 export default Settings;
+
+/*
+my.svtoy@ukr.net
+CAPYBARA-components-8*/
