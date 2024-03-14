@@ -7,7 +7,6 @@ import { AppWrapper } from './App.styled';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 
-
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
@@ -17,10 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route path="/first" element={<WelcomePage />} />
-          <Route path="/second" element={<HomePage />}>
-            
-          </Route>
-          <Route path="/register" element={<SignUp />}/>
+          <Route path="/second" element={<HomePage />}></Route>
+          <Route path="/register" element={<SignUp />} />
           <Route path="/sign_in" element={<SignIn />}></Route>
           <Route path="*" element={<WelcomePage />} />
         </Route>
