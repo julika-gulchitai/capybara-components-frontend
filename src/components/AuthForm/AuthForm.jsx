@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { StyledInput } from './AuthForm.styled';
 
 const AuthForm = () => {
   const { register, handleSubmit } = useForm();
@@ -9,22 +10,12 @@ const AuthForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
-        <input
-          {...register('name')}
-          type="text"
-          placeholder="Enter your name"
-        />
-
-        <input
-          {...register('password')}
-          type="text"
-          placeholder="Enter your password"
-        />
-        <input
-          {...register('password')}
-          type="text"
-          placeholder="Repeat password"
-        />
+        <label htmlFor="name">Enter your name</label>
+        <StyledInput {...register('name')} type="text" />
+        <label htmlFor="password1">Enter your password</label>
+        <StyledInput {...register('password1')} type="text" />
+        <label htmlFor="password2">Repeat password</label>
+        <StyledInput {...register('password2')} type="text" />
         <button>Sign up</button>
       </form>
     </div>
