@@ -14,14 +14,18 @@ export const DailyNormaContainer = styled.div`
     line-height: 1.33;
     color: var(--black);
     min-width: 124px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   p {
     font-weight: 700;
     font-size: 22px;
+    line-height: 1;
     color: var(--blue);
     margin-bottom: 0;
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
   }
 
   button {

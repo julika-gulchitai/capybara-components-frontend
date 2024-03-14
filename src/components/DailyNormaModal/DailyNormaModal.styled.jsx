@@ -2,9 +2,17 @@ import styled from 'styled-components';
 
 export const DailyNormaContainer = styled.div`
   /* padding: 24px 12px; */
-  width: 280px;
+  /* width: 280px; */
+  /* display: flex; */
+  /* flex-direction: column; */
   width: 256px;
   overflow: auto;
+  @media (min-width: 768px) {
+    width: 656px;
+  }
+  @media (min-width: 1440px) {
+    width: 544px;
+  }
   h2 {
     font-weight: 500;
     font-size: 26px;
@@ -17,9 +25,10 @@ export const DailyNormaContainer = styled.div`
     font-size: 18px;
     line-height: 1.11;
     color: var(--black);
+    margin-bottom: 16px;
   }
   button {
-    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+    /* box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
     background: var(--blue);
     border-radius: 10px;
     padding: 8px 30px;
@@ -28,15 +37,19 @@ export const DailyNormaContainer = styled.div`
     line-height: 1.25;
     text-align: center;
     color: var(--white);
-    border: none;
+    border: none; */
     width: 256px;
-    &:hover,
+    @media (min-width: 768px) {
+      width: 160px;
+      align-self: flex-end;
+    }
+    /* &:hover,
     &:focus {
       box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
-    }
-    &:active {
+    } */
+    /* &:active {
       box-shadow: none;
-    }
+    } */
   }
   label {
     line-height: 1.25;
@@ -59,6 +72,10 @@ export const Formula = styled.div`
   flex-direction: column;
   gap: 16px;
   margin-bottom: 12px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 24px;
+  }
   P {
     line-height: 1.25;
     color: var(--black);
@@ -76,6 +93,7 @@ export const Explanation = styled.p`
   border-radius: 10px;
   padding: 10px;
   font-size: 12px;
+  line-height: 1.33;
   color: #8f8f8f;
   margin-bottom: 24px;
   span {
@@ -86,8 +104,14 @@ export const Explanation = styled.p`
 export const RequiredNorma = styled.div`
   display: flex;
   align-items: center;
+  @media (min-width: 768px) {
+    gap: 6px;
+  }
   p {
     max-width: 190px;
+    @media (min-width: 768px) {
+      max-width: 328px;
+    }
   }
   span {
     line-height: 1.33;
@@ -97,14 +121,14 @@ export const RequiredNorma = styled.div`
   }
 `;
 
-export const RadioBtns = styled.div`
-  display: flex;
-  gap: 24px;
-  margin-bottom: 16px;
-  input {
-    width: auto;
-  }
-`;
+// export const RadioBtns = styled.div`
+//   display: flex;
+//   gap: 24px;
+//   margin-bottom: 16px;
+//   input {
+//     width: auto;
+//   }
+// `;
 
 export const WeightAndSports = styled.div`
   display: flex;
@@ -130,5 +154,12 @@ export const DailyNorma = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 1.11;
+  }
+`;
+
+export const BtnWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
   }
 `;
