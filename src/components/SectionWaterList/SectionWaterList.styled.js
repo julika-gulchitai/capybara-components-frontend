@@ -1,0 +1,22 @@
+import styled from 'styled-components';
+
+export const StyledSectionWaterList = styled.div`
+  margin-bottom: 40px;
+  padding: 24px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  border-radius: 10px;
+  background: --secondary-lightblue;
+  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 44px;
+    padding: 32px 24px;
+    height: 688px;
+  }
+  @media only screen and (min-width: 1440px) {
+    height: 680px;
+  }
+`;
