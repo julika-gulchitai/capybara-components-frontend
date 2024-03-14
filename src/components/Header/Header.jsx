@@ -10,13 +10,13 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-        <StyledLink to="/first">
+        <StyledLink to="/welcome">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
           Welcome
         </StyledLink>
-        <StyledLink to="/second">
+        <StyledLink to="/home">
           <IconWrapper>
             <use href={`${sprite}#icon-logo`} />
           </IconWrapper>
