@@ -1,11 +1,21 @@
 import styled from "styled-components";
+import bottleImg from '../../assets/desktop/botle-home-screen.svg';
+import waveRight from '../../assets/desktop/background-wave-right.svg';
+import waveLeft from '../../assets/desktop/background-wave-left.svg'
 
 export const StyledFullPage = styled.div`
 height: 100vh;
+
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
+/* background-image: url(${bottleImg}),url(${waveRight}), url(${waveLeft}) ; */
+background-image: url(${bottleImg}) ;
+background-repeat: no-repeat;
+background-position: right bottom;
+  background-size: 35% 35%;
+  
 @media (max-width: 768px) {
    
   }
@@ -20,6 +30,7 @@ align-items: flex-end;
 justify-content: space-between;
 width: 1014px;
 height: 366px;
+margin-bottom: 125px ;
 @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -59,16 +70,28 @@ font-weight: 400;
 font-size: 26px;
 line-height: 1.23077;
 color: #2f2f2f;
+margin: 1.5rem 0;
 `
 export const StyledListLeft = styled.ul`
-list-style: ${(props) => props.$url} inside;
 margin: 0;
 padding: 0;
 text-align: left;
-/* li::before{
-  ${(props) => props.$url};
-} */
+
+li{
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
 `
+
+export const StyledIconWrapper = styled.svg`
+width: ${(props) => props.size || '40px'};
+height: ${(props) => props.size || '40px'};
+fill: ${(props) => props.color || '#ffffff'};
+display: inline - block;
+margin-right: 5px;
+`;
+
 export const StyledInnerContainerRight = styled.div`
 border-radius: 10px;
 box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
@@ -79,27 +102,30 @@ display: flex;
 height: 332px;
 `
 export const StyledNameList = styled.h3`
-font-family: "Roboto", sans-serif;
+font-family: "Roboto", sans - serif;
 font-size: 18px;
 line-height: 1.11111;
 color: #2f2f2f;
 margin: 0;
-
 `
 
 export const StyledListRight = styled.ul`
-width: 494px;
 padding: 32px 24px;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-margin: 0;
+li{
+  &:before{
+content: '●';
+color: #407BFF;
+margin-right: 6px;
+}
+}
 `
-
-
 export const StyledWelcomeButton = styled.button`
 border-radius: 10px;
 padding: 10px 30px;
+margin-top: 1.5rem;
 width: 384px;
 box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
 background: #407bff;
@@ -110,3 +136,4 @@ line-height: 1.33333;
 text-align: center;
 color: #fff;
 `
+
