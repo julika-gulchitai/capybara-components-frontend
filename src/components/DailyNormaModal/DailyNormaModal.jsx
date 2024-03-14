@@ -10,9 +10,9 @@ import {
   RequiredNorma,
   WeightAndSports,
 } from './DailyNormaModal.styled';
-import ModalWindow from '../ModalWindow/ModalWindow';
+// import ModalWindow from '../ModalWindow/ModalWindow';
 
-const DailyNormaModal = ({ open, onClose }) => {
+const DailyNormaModal = ({ onClose }) => {
   const [weight, setWeight] = useState(0);
   const [sports, setSports] = useState(0);
   const [dailyNorma, setDailyNorma] = useState(1.8);
@@ -39,7 +39,6 @@ const DailyNormaModal = ({ open, onClose }) => {
   }, [weight, sports, dailyNorma, isFemale]);
 
   return (
-    // <ModalWindow open={open} onClose={onClose}>
     <DailyNormaContainer>
       <h2>My daily norma</h2>
       <Formula>
@@ -133,10 +132,11 @@ const DailyNormaModal = ({ open, onClose }) => {
             placeholder="0"
           />
         </DailyNorma>
-        <button type="submit">Save</button>
+        <button type="submit" onClick={onClose}>
+          Save
+        </button>
       </form>
     </DailyNormaContainer>
-    // </ModalWindow>
   );
 };
 

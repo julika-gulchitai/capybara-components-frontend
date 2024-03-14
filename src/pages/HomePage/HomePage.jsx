@@ -1,6 +1,6 @@
 import DailyNorma from '../../components/DailyNorma/DailyNorma';
 
-const SecondPage = () => {
+const HomePage = () => {
   return (
     <>
       <DailyNorma></DailyNorma>
@@ -8,4 +8,4 @@ const SecondPage = () => {
   );
 };
 
-export default SecondPage;
+export default HomePage;

@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const DailyNormaContainer = styled.div`
-  padding: 24px 12px;
+  /* padding: 24px 12px; */
+  width: 280px;
+  width: 256px;
+  overflow: auto;
   h2 {
     font-weight: 500;
     font-size: 26px;

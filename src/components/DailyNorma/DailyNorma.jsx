@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { DailyNormaContainer, NormaWrapper } from './DailyNorma.styled';
 import DailyNormaModal from '../DailyNormaModal/DailyNormaModal';
+import ModalWindow from '../ModalWindow/ModalWindow';
 
 const DailyNorma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,10 +15,11 @@ const DailyNorma = () => {
         </NormaWrapper>
       </DailyNormaContainer>
       {isModalOpen && (
-        <DailyNormaModal
-          open={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        ></DailyNormaModal>
+        <ModalWindow open={open} onClose={() => setIsModalOpen(false)}>
+          <DailyNormaModal
+            onClose={() => setIsModalOpen(false)}
+          ></DailyNormaModal>
+        </ModalWindow>
       )}
     </>
   );
