@@ -1,139 +1,186 @@
 import styled from "styled-components";
-import bottleImg from '../../assets/desktop/botle-home-screen.svg';
-import waveRight from '../../assets/desktop/background-wave-right.svg';
-import waveLeft from '../../assets/desktop/background-wave-left.svg'
+import bgMainDesctop from '../../assets/desktop/background-main-page-layers.svg'
+import waveRight from '../../assets/mobile/background-wave-right.svg';
+import waveLeft from '../../assets/mobile/background-wave-left.svg';
+import bgMain from '../../assets/tablet/background-main-page-f.svg'
 
 export const StyledFullPage = styled.div`
-height: 100vh;
-
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-/* background-image: url(${bottleImg}),url(${waveRight}), url(${waveLeft}) ; */
-background-image: url(${bottleImg}) ;
-background-repeat: no-repeat;
-background-position: right bottom;
-  background-size: 35% 35%;
-  
-@media (max-width: 768px) {
-   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:url(${waveRight}), url(${waveLeft});
+  background-repeat: no-repeat;
+  background-position:bottom -75px left -916px, bottom right -1650px;
+  background-size:3271px 1134px, 2725px 658px;
+    @media only screen and (min-width: 768px) {
+      justify-content: space-between;
+      background-image:url(${bgMain});
+      background-position: bottom;
+      background-size: 100%;
   }
-  @media (max-width: 320px) {
+    @media only screen and (min-width: 1440px) {
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-image: url(${bgMainDesctop}) ;
+      background-repeat: no-repeat;
+      background-position: bottom;
   }
 `
 
 export const StyledMainContainer = styled.div`
-display: flex;
-flex-direction: row;
-align-items: flex-end;
-justify-content: space-between;
-width: 1014px;
-height: 366px;
-margin-bottom: 125px ;
-@media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin:1rem 1.25rem 2.5rem 1.25rem;
+    @media only screen and (min-width: 768px) {
+      margin: 1.5rem 2rem;
+      align-items: flex-start;
   }
-  @media (max-width: 320px) {
-    max-width: 100%;
-  }
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    margin: 4.2rem 6.5rem;
+    gap: 5rem;
+     }
 `
 export const StyledInnerContainerLeft = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: space-between;
-width: 439px;
-height: 366px;
-@media (max-width: 768px) {
-    
-  }
-  @media (max-width: 320px) {
-    max-width: 90%;
-  }
+h3{
+  font-size: 18px;
+  line-height: 1.11111;
+  @media only screen and (min-width: 1440px) {
+    margin-top: .5rem;
+}
+}
 `
 
 export const StyledMainTitle = styled.h1`
-font-family: "Roboto", sans-serif;
-font-weight: 700;
-font-size: 36px;
-line-height: 1.16667;
-color: #2f2f2f;
-text-align: left;
 margin: 0;
+@media only screen and (min-width: 768px) {
+  font-size: 2.25rem;
+  line-height: 1.16667;
+  }
+@media only screen and (min-width: 1440px) {
+  line-height: 1.16667;
+  }
 `
 export const StyledTitle = styled.h2`
-font-family: "Roboto", sans-serif;
 font-weight: 400;
-font-size: 26px;
-line-height: 1.23077;
-color: #2f2f2f;
-margin: 1.5rem 0;
+line-height: 1.25;
+margin: 1rem 0;
+@media only screen and (min-width: 768px) {
+    letter-spacing: 1px;
+}
 `
 export const StyledListLeft = styled.ul`
 margin: 0;
 padding: 0;
 text-align: left;
-
+@media only screen and (min-width: 768px) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+  @media only screen and (min-width: 1440px) {
+    flex-direction: column;
+  }
 li{
   display: flex;
   align-items: center;
   margin-top: 1rem;
+  @media only screen and (min-width: 768px) {
+    min-width: 224px;
+    gap: 1rem;
+  }
+  @media only screen and (min-width: 1440px) {
+    gap:.25rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
 }
 `
 
 export const StyledIconWrapper = styled.svg`
-width: ${(props) => props.size || '40px'};
-height: ${(props) => props.size || '40px'};
-fill: ${(props) => props.color || '#ffffff'};
+width: ${(props) => props.size || '32px'};
+height: ${(props) => props.size || '32px'};
+fill: ${(props) => props.color || '#fffff'};
 display: inline - block;
 margin-right: 5px;
+@media only screen and (min-width: 768px) {
+  width: ${(props) => props.size || '40px'};
+height: ${(props) => props.size || '40px'};
+  }
 `;
 
 export const StyledInnerContainerRight = styled.div`
 border-radius: 10px;
 box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
-background: #ecf2ff;
+background: var(--secondary-white);
 text-align: left;
 list-style-position: inside;
 display: flex;
-height: 332px;
+@media only screen and (min-width: 768px) {
+  margin-top: 1.25rem;
+
+}
 `
 export const StyledNameList = styled.h3`
-font-family: "Roboto", sans - serif;
 font-size: 18px;
 line-height: 1.11111;
-color: #2f2f2f;
-margin: 0;
-`
+margin: 0 -1rem;
+@media only screen and (min-width: 1440px) {
+  margin-top: .5rem;
+}`
 
 export const StyledListRight = styled.ul`
-padding: 32px 24px;
+padding: 1.5rem 1rem 1.5rem 2rem;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+list-style-position: outside;
+@media only screen and (min-width: 768px) {
+  padding: 2rem 2.5rem;
+}
 li{
+  margin: 1rem 0 0;
+  line-height: 1.25;
+  text-indent:-1rem;
   &:before{
-content: '●';
-color: #407BFF;
-margin-right: 6px;
+    content: '';
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color: var(--blue);
+    margin-right: 6px;
 }
 }
 `
 export const StyledWelcomeButton = styled.button`
 border-radius: 10px;
-padding: 10px 30px;
+border: none;
+padding: .5rem;
 margin-top: 1.5rem;
-width: 384px;
+margin-bottom: 2.5rem;
 box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-background: #407bff;
-font-family: "Roboto", sans-serif;
+background: var(--blue);
 font-weight: 500;
 font-size: 18px;
 line-height: 1.33333;
-text-align: center;
-color: #fff;
+color: var(--white);
+width: 100%;
+@media only screen and (min-width: 768px) {
+  width: 50%;
+}
+@media only screen and (min-width: 1440px) {
+  width: 24rem;
+  margin-top: .5rem;
+}
+
 `
 

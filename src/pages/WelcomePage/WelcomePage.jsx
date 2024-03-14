@@ -18,8 +18,8 @@ const WelcomePage = () => {
         <StyledInnerContainerLeft>
           <StyledMainTitle>Water consumption tracker</StyledMainTitle>
           <StyledTitle>Record daily water intake and track</StyledTitle>
+          <h3 >Tracker Benefits</h3>
           <StyledListLeft>
-            <StyledNameList >Tracker Benefits</StyledNameList>
             <li> <StyledIconWrapper><use href={`${sprite}#calendar`} /></StyledIconWrapper>
               Habit drive</li>
             <li> <StyledIconWrapper><use href={`${sprite}#presentation-chart-bar`} /></StyledIconWrapper>View statistics</li>
@@ -32,7 +32,7 @@ const WelcomePage = () => {
             <StyledNameList>Why drink water</StyledNameList>
             <li>Supply of nutrients to all organs</li>
             <li>Providing oxygen to the lungs</li>
-            <li>Maintaining the work of the heart</li>
+            <li><span>Maintaining the work of the heart</span></li>
             <li>Release of processed substances</li>
             <li>Ensuring the stability of the internal environment</li>
             <li>Maintaining within the normal temperature</li>
