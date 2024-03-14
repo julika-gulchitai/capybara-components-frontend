@@ -20,7 +20,12 @@ const AuthForm = () => {
           type="text"
           placeholder="Enter your password"
         />
-        <button>Register</button>
+        <input
+          {...register('password')}
+          type="text"
+          placeholder="Repeat password"
+        />
+        <button>Sign up</button>
       </form>
     </div>
   );
