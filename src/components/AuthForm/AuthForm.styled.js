@@ -1,10 +1,15 @@
 import styled from '@emotion/styled';
 
-export const StyledInput = styled.input`
-  border: 1px solid var(--secondary-color-blue);
-  border-radius: 6px;
-  padding: 12px 10px;
-  width: 280px;
-  height: 44px;
-  background: var(--primery-color-white);
+export const WrapForm = styled.div`
+  padding: 0 20px;
+  display: block;
+  margin: 0 auto;
+`;
+
+export const LabelStyled = styled.div`
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 8px;
+  line-height: 1.33333;
+  color: var(--black);
 `;

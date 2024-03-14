@@ -1,15 +1,12 @@
-import { useForm, Controller } from 'react-hook-form';
-import { StyledInput } from './AuthForm.styled';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { LabelStyled, WrapForm } from './AuthForm.styled';
+
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
 
 const AuthForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const schema = yup
     .object({
       email: yup.string(),
@@ -37,7 +34,6 @@ const AuthForm = () => {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
@@ -45,9 +41,9 @@ const AuthForm = () => {
   });
 
   return (
-    <div>
+    <WrapForm>
       <form onSubmit={handleSubmit(submit)}>
-        <label htmlFor="name">Enter your name</label>
+        <LabelStyled htmlFor="name">Enter your email</LabelStyled>
         <TextInput
           register={register}
           error={errors.email}
@@ -56,7 +52,7 @@ const AuthForm = () => {
           type="email"
           placeholder="E-mail"
         />
-        <label htmlFor="password">Enter your password</label>
+        <LabelStyled htmlFor="password">Enter your password</LabelStyled>
         <PasswordInput
           error={errors.password}
           register={register}
@@ -65,7 +61,7 @@ const AuthForm = () => {
           type="password"
           placeholder="Password"
         />
-        <label htmlFor="repeat_password">Repeat password</label>
+        <LabelStyled htmlFor="repeat_password">Repeat password</LabelStyled>
         <PasswordInput
           error={errors.repeat_password}
           register={register}
@@ -76,7 +72,7 @@ const AuthForm = () => {
         />
         <button type="submit">Sign up</button>
       </form>
-    </div>
+    </WrapForm>
   );
 };
 
