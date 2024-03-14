@@ -14,7 +14,15 @@ export const SettingsContainer = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 960px;
+  width: 256px;
+
+  @media only screen and (min-width: 768px) {
+    width: 656px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    width: 960px;
+  }
   
   label{
     display: flex;
@@ -40,28 +48,44 @@ export const Form = styled.form`
 
 export const InfoWrapper = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 12px;
   margin-top: 24px;
+  flex-direction: column;
+
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 24px;
+  }
 `
 export const LeftContainer = styled.div`
   height: 272px;
-  width: 392px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 12px;
+
+  @media only screen and (min-width: 768px) {
+    width: 392px;
+  }
 `
 
 export const GenderLabel = styled.label`
-  margin-bottom: 20px;
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+  }
 `
 
 export const RightContainer = styled.div`
   height: 272px;
-  width: 392px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media only screen and (min-width: 768px) {
+    width: 392px;
+  }
   
   span {
     font-size: 16px;
@@ -109,7 +133,12 @@ export const Avatar = styled.div`
 `
 
 export const SaveButton = styled(ButtonStyled)`
-  align-self: end;
+  width: 100%;
+
+  @media only screen and (min-width: 768px) { 
+    width: 160px;
+    align-self: end;
+  }
 `
 
 export const GenderRadio = styled(RadioGroup)`
