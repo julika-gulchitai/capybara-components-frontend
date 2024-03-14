@@ -26,6 +26,7 @@ function TextInput({
             height: '53px',
             top: '-10px',
             m: 0,
+            backgroundColor:'#fff'
           },
           '&:hover fieldset': {
             border: '1px solid',

@@ -1,28 +1,19 @@
-import {
-  HeaderContainer,
-  Navigation,
-  StyledLink,
-  IconWrapper,
-} from './Header.styled';
-import sprite from 'assets/sprite.svg';
+import {HeaderContainer, Navigation} from './Header.styled';
+import Logo from '../Logo/Logo.jsx';
+import UserLogo from '../UserLogo/UserLogo.jsx';
+import UserAuth from '../UserAuth/UserAuth.jsx';
 
-export const Header = () => {
+const Header = () => {
+
   return (
     <HeaderContainer>
       <Navigation>
-        <StyledLink to="/welcome">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Welcome
-        </StyledLink>
-        <StyledLink to="/home">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Home
-        </StyledLink>
+        <Logo/>
+        <UserAuth/>
+        <UserLogo/>
       </Navigation>
     </HeaderContainer>
   );
 };
+
+export default Header;
