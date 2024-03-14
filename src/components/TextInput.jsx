@@ -1,7 +1,15 @@
 import React from 'react';
-import {FormControl, FormHelperText, OutlinedInput} from '@mui/material';
+import { FormControl, FormHelperText, OutlinedInput } from '@mui/material';
 
-function TextInput({type, id, width, register, error, placeholder, defaultValue}) {
+function TextInput({
+  type,
+  id,
+  width,
+  register,
+  error,
+  placeholder,
+  defaultValue,
+}) {
   return (
     <FormControl
       sx={{
@@ -17,16 +25,16 @@ function TextInput({type, id, width, register, error, placeholder, defaultValue}
             borderColor: error ? '#ef5050' : '#d7e3ff',
             height: '53px',
             top: '-10px',
-            m: 0
+            m: 0,
           },
           '&:hover fieldset': {
             border: '1px solid',
-            borderColor: error ? '#ef5050' : '#d7e3ff'
+            borderColor: error ? '#ef5050' : '#d7e3ff',
           },
           '&.Mui-focused fieldset': {
             border: '1px solid',
-            borderColor: error ? '#ef5050' : '#d7e3ff'
-          }
+            borderColor: error ? '#ef5050' : '#d7e3ff',
+          },
         },
 
         '& .MuiInputBase-input': {
@@ -38,9 +46,11 @@ function TextInput({type, id, width, register, error, placeholder, defaultValue}
           height: '44px',
           padding: '12px 10px',
           fontFamily: [].join(','),
-        }
+          backgroundColor: 'white',
+        },
       }}
-      variant='outlined'>
+      variant="outlined"
+    >
       <OutlinedInput
         {...register(id)}
         placeholder={placeholder}
@@ -52,13 +62,14 @@ function TextInput({type, id, width, register, error, placeholder, defaultValue}
       <FormHelperText
         id={`${id}-helper-text`}
         sx={{
-          '&.MuiFormHelperText-root' : {
+          '&.MuiFormHelperText-root': {
             margin: '0px',
             color: '#ef5050',
             height: '15px',
-            marginTop: '-3px'
-          }
-        }}>
+            marginTop: '-3px',
+          },
+        }}
+      >
         {error?.message}
       </FormHelperText>
     </FormControl>
