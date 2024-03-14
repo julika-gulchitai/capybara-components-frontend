@@ -58,9 +58,14 @@ export const ModalButtonClose = styled.button`
   border:none;
   position: absolute;
   color: #407bff;
-  right: 10px;
-  top: 5px;
-  @media (max-width: 767px) {
-    margin-bottom: 20px;
-  }
+  padding: 0;
+  right: 24px;
+  top: 36px;
+  `;
+
+export const StyledIconWrapper = styled.svg`
+width: ${(props) => props.size || '24px'};
+height: ${(props) => props.size || '24px'};
+display: inline - block;
+padding:0;
 `;

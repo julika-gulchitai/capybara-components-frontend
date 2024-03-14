@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { StyledFullPage, StyledMainContainer, StyledInnerContainerLeft, StyledMainTitle, StyledTitle, StyledListLeft, StyledNameList, StyledWelcomeButton, StyledInnerContainerRight, StyledListRight } from './WelcomePage.styled';
+import { StyledFullPage, StyledMainContainer, StyledInnerContainerLeft, StyledMainTitle, StyledTitle, StyledListLeft, StyledNameList, StyledWelcomeButton, StyledInnerContainerRight, StyledListRight, StyledIconWrapper } from './WelcomePage.styled';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
+import sprite from '../../assets/sprite.svg';
 
 const WelcomePage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -18,10 +19,11 @@ const WelcomePage = () => {
           <StyledMainTitle>Water consumption tracker</StyledMainTitle>
           <StyledTitle>Record daily water intake and track</StyledTitle>
           <StyledListLeft>
-            <StyledNameList $url='img.svg'>Tracker Benefits</StyledNameList>
-            <li>Habit drive</li>
-            <li>View statistics</li>
-            <li>Personal rate setting</li>
+            <StyledNameList >Tracker Benefits</StyledNameList>
+            <li> <StyledIconWrapper><use href={`${sprite}#calendar`} /></StyledIconWrapper>
+              Habit drive</li>
+            <li> <StyledIconWrapper><use href={`${sprite}#presentation-chart-bar`} /></StyledIconWrapper>View statistics</li>
+            <li> <StyledIconWrapper><use href={`${sprite}#wrench-schewdriver`} /></StyledIconWrapper>Personal rate setting</li>
           </StyledListLeft>
           <StyledWelcomeButton onClick={handleShowModal}>Try tracker</StyledWelcomeButton>
         </StyledInnerContainerLeft>
