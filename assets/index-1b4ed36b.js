@@ -106,7 +106,7 @@ Error generating stack: `+o.message+`
     0 0 20px #00baff,
     0 0 40px #00baff,
     0 0 80px #00baff;
-`,vr="/capybara-components-frontend/assets/sprite-489999c6.svg",Yv=()=>P.jsx(Qv,{children:P.jsxs(Kv,{children:[P.jsxs(_f,{to:"/first",children:[P.jsx(Pf,{children:P.jsx("use",{href:`${vr}#icon-logo`})}),"Welcome"]}),P.jsxs(_f,{to:"/second",children:[P.jsx(Pf,{children:P.jsx("use",{href:`${vr}#icon-logo`})}),"Home"]})]})}),Gv=()=>P.jsxs(P.Fragment,{children:[P.jsx(Yv,{}),P.jsx(T.Suspense,{fallback:null,children:P.jsx($0,{})})]}),Rf="/capybara-components-frontend/assets/botle-home-screen-480ee697.svg",Xv="/capybara-components-frontend/assets/background-wave-right-44c34fbb.svg",Zv="/capybara-components-frontend/assets/background-wave-left-032252f7.svg",qv=q.div`
+`,vr="/capybara-components-frontend/assets/sprite-489999c6.svg",Yv=()=>P.jsx(Qv,{children:P.jsxs(Kv,{children:[P.jsxs(_f,{to:"/welcome",children:[P.jsx(Pf,{children:P.jsx("use",{href:`${vr}#icon-logo`})}),"Welcome"]}),P.jsxs(_f,{to:"/home",children:[P.jsx(Pf,{children:P.jsx("use",{href:`${vr}#icon-logo`})}),"Home"]})]})}),Gv=()=>P.jsxs(P.Fragment,{children:[P.jsx(Yv,{}),P.jsx(T.Suspense,{fallback:null,children:P.jsx($0,{})})]}),Rf="/capybara-components-frontend/assets/botle-home-screen-480ee697.svg",Xv="/capybara-components-frontend/assets/background-wave-right-44c34fbb.svg",Zv="/capybara-components-frontend/assets/background-wave-left-032252f7.svg",qv=q.div`
 height: 100vh;
 
 display: flex;
@@ -442,4 +442,4 @@ padding:0;
 
 `,Bw=hl.div`
   width: 218px;
-`,Ww=()=>P.jsx(Bw,{children:"SignUp"}),Hw=()=>P.jsx("div",{children:"SignIn"}),bw="";function Qw(){return console.log(bw),P.jsx(Uw,{children:P.jsx(L0,{children:P.jsxs($n,{path:"/",element:P.jsx(Gv,{}),children:[P.jsx($n,{path:"/first",element:P.jsx(Tf,{})}),P.jsx($n,{path:"/second",element:P.jsx(W1,{})}),P.jsx($n,{path:"/register",element:P.jsx(Ww,{})}),P.jsx($n,{path:"/sign_in",element:P.jsx(Hw,{})}),P.jsx($n,{path:"*",element:P.jsx(Tf,{})})]})})})}Ea.createRoot(document.getElementById("root")).render(P.jsx(Se.StrictMode,{children:P.jsx(M0,{basename:"/capybara-components-frontend",children:P.jsx(Qw,{})})}));
+`,Ww=()=>P.jsx(Bw,{children:"SignUp"}),Hw=()=>P.jsx("div",{children:"SignIn"}),bw="";function Qw(){return console.log(bw),P.jsx(Uw,{children:P.jsx(L0,{children:P.jsxs($n,{path:"/",element:P.jsx(Gv,{}),children:[P.jsx($n,{path:"/welcome",element:P.jsx(Tf,{})}),P.jsx($n,{path:"/home",element:P.jsx(W1,{})}),P.jsx($n,{path:"/register",element:P.jsx(Ww,{})}),P.jsx($n,{path:"/sign_in",element:P.jsx(Hw,{})}),P.jsx($n,{path:"*",element:P.jsx(Tf,{})})]})})})}Ea.createRoot(document.getElementById("root")).render(P.jsx(Se.StrictMode,{children:P.jsx(M0,{basename:"/capybara-components-frontend",children:P.jsx(Qw,{})})}));
