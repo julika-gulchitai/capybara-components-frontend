@@ -22,11 +22,12 @@ import {
 import { useState } from 'react';
 
 import ModalWindow from '../../../components/ModalWindow/ModalWindow';
+import TodayListModal from 'components/TodayListModal/TodayListModal';
 
 const TodayWaterList = () => {
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
-  const [setCurrentItem] = useState(null);
-  const [setIsEditing] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   const [dayList] = useState([]);
 
@@ -37,15 +38,17 @@ const TodayWaterList = () => {
     });
   };
 
-  const handleOpenModalTodayListEdit = (item) => {
+  const handleOpenModalTodayListEdit = (item, event) => {
     setCurrentItem(item);
     setOpenModalTodayList(true);
     setIsEditing(true);
+    event.stopPropagation(); // Зупиняє подальше спливання подій
   };
 
-  const handleOpenModalTodayListAdd = () => {
+  const handleOpenModalTodayListAdd = (event) => {
     setOpenModalTodayList(true);
     setIsEditing(false);
+    event.stopPropagation(); // Зупиняє подальше спливання подій
   };
 
   const handleModalDel = (item) => {
@@ -64,7 +67,7 @@ const TodayWaterList = () => {
       </InfoWrap>
 
       <WrapBtn>
-        <EditBtn onClick={() => handleOpenModalTodayListEdit(item)}>
+        <EditBtn onClick={(event) => handleOpenModalTodayListEdit(item, event)}>
           <FaRegEdit />
         </EditBtn>
         <DeleteBtn onClick={() => handleModalDel(item)}>
@@ -87,7 +90,7 @@ const TodayWaterList = () => {
             </li>
           )}
         </UlStyle>
-        <AddBtnStyle onClick={handleOpenModalTodayListAdd}>
+        <AddBtnStyle onClick={(event) => handleOpenModalTodayListAdd(event)}>
           <FaPlus />
           Add water
         </AddBtnStyle>
@@ -95,9 +98,15 @@ const TodayWaterList = () => {
       {openModalTodayList && (
         <ModalWindow
           $position={'center'}
-          openModal={openModalTodayList}
+          open={openModalTodayList}
           setOpenModal={setOpenModalTodayList}
-        ></ModalWindow>
+        >
+          <TodayListModal
+            onClose={setOpenModalTodayList}
+            isEditing={isEditing}
+            data={currentItem}
+          />
+        </ModalWindow>
       )}
     </TodayStyledDiv>
   );
