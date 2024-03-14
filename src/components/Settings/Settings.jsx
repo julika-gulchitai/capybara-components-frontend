@@ -31,7 +31,8 @@ function Settings({close}) {
         .string()
         .test('len', 'Mux length 32 characters', val => (val?.length <= 32)),
       email: yup
-        .string(),
+        .string()
+        .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , 'Please enter valid e-mail'),
       new_password: yup.string().test('len', 'Must be at least 8 characters', val => ((val.length >= 8 && val.length <= 64) || val.length === 0))
     })
     .required();
@@ -46,7 +47,8 @@ function Settings({close}) {
 
   const inputRef = useRef(null);
 
-  function handleClick() {
+  function handleClick(event) {
+    console.log(event.target);
     inputRef.current.click();
   }
 
@@ -195,7 +197,7 @@ function Settings({close}) {
           </RightContainer>
         </InfoWrapper>
 
-        <SaveButton type='submit'>Save</SaveButton>
+        <SaveButton type='submit' $width='160px'>Save</SaveButton>
       </Form>
 
     </SettingsContainer>
@@ -203,3 +205,7 @@ function Settings({close}) {
 }
 
 export default Settings;
+
+/*
+my.svtoy@ukr.net
+CAPYBARA-components-8*/
