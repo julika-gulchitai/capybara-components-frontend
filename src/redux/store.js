@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { useReducer } from './User/UserSlices';
+import { userReduser } from './User/UserSlices';
 import { waterReducer } from './Water/WaterSlices';
 
 const persistUserConfig = {
@@ -20,7 +20,7 @@ const persistUserConfig = {
   whitelist: ['token'],
 };
 
-const persistedUser = persistReducer(persistUserConfig, useReducer);
+const persistedUser = persistReducer(persistUserConfig, userReduser);
 
 const store = configureStore({
   reducer: {
