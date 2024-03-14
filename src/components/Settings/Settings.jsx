@@ -16,6 +16,7 @@ import {Controller, useForm} from 'react-hook-form';
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import TextInput from '../TextInput.jsx';
+import { useMediaQuery } from 'react-responsive';
 
 
 function Settings({close}) {
@@ -24,6 +25,8 @@ function Settings({close}) {
   const [avatar, setAvatar] = useState('');
   const {name, email, gender} = user;
   const userData = {};
+
+  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
   const schema = yup
     .object({
@@ -151,7 +154,7 @@ function Settings({close}) {
                 error={errors.name}
                 register={register}
                 id='name'
-                width={392}
+                width={isTabletOrDesktop? 392 : '100%'}
                 defaultValue={name}
                 placeholder='Name'
                 type='text'/>
@@ -162,7 +165,7 @@ function Settings({close}) {
                 error={errors.email}
                 register={register}
                 id='email'
-                width={392}
+                width={isTabletOrDesktop? 392 : '100%'}
                 type='email'
                 defaultValue={email}
                 placeholder='E-mail'/>
@@ -176,7 +179,7 @@ function Settings({close}) {
               <PasswordInput
                 register={register}
                 id='old_password'
-                width={392}/>
+                width={isTabletOrDesktop? 392 : '100%'}/>
             </label>
             <label>
               <span>New Password:</span>
@@ -184,7 +187,7 @@ function Settings({close}) {
                 error={errors.new_password}
                 register={register}
                 id='new_password'
-                width={392}/>
+                width={isTabletOrDesktop? 392 : '100%'}/>
             </label>
             <label>
               <span>Repeat new password:</span>
@@ -192,12 +195,12 @@ function Settings({close}) {
                 error={errors.repeat_new_password}
                 register={register}
                 id='repeat_new_password'
-                width={392}/>
+                width={isTabletOrDesktop? 392 : '100%'}/>
             </label>
           </RightContainer>
         </InfoWrapper>
 
-        <SaveButton type='submit' $width='160px'>Save</SaveButton>
+        <SaveButton type='submit' >Save</SaveButton>
       </Form>
 
     </SettingsContainer>
