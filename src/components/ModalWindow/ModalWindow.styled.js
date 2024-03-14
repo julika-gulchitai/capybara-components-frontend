@@ -5,23 +5,26 @@ export const ModalWrapper = styled.div`
   inset: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   background: rgba(0, 0, 0, 0.8);
   z-index: 100;
+  @media only screen and (min-width: 1440px) {
+    align-items: center;
+      }
   `;
 
 export const ModalContent = styled.div`
   position: relative;
   border-radius: 10px;
-  padding: 32px 24px;
-  max-width: 1008px;
+  padding: 24px 12px;
+  margin: 40px 20px;
   background-color: #fff;
-  @media (max-width: 767px) {
-    max-width: 704px;
+  overflow: auto;
+  @media only screen and (min-width: 768px) {
+     padding: 32px 24px;
+     margin: 40px 32px;
   }
-  @media (max-width:320px) {
-    padding: 24px 12px;
-    max-width: 280px;
+  @media only screen and (min-width: 1440px) {
+    max-width: 592px;
   }
 `;
 
@@ -31,8 +34,15 @@ export const ModalButtonClose = styled.button`
   position: absolute;
   color: #407bff;
   padding: 0;
-  right: 24px;
-  top: 36px;
+  right: 12px;
+  top: 24px;
+  @media only screen and (min-width: 768px) {
+    right: 24px;
+    top: 32px;
+  }
+  @media only screen and (min-width: 1440px) {
+       top: 36px;
+  }
   `;
 
 export const StyledIconWrapper = styled.svg`
