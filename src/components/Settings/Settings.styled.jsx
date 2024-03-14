@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {RadioGroup} from '@mui/material';
+import {ButtonStyled} from '../CommonStyledComponents/CommonButton.styled.jsx';
 
 export const SettingsContainer = styled.div`
   h2{
@@ -107,20 +108,7 @@ export const Avatar = styled.div`
   }
 `
 
-export const SaveButton = styled.button`
-  width: 160px;
-  height: 44px;
-  border-radius: 10px;
-  padding: 10px 30px;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-  border: none;
-  background-color: var(--blue);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33;
-  text-align: center;
-  color: var(--white);
-  margin-top: 24px;
+export const SaveButton = styled(ButtonStyled)`
   align-self: end;
 `
 
