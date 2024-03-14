@@ -7,7 +7,7 @@ import 'normalize.css';
 export const AppWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-image: url(${deskImg});
+  /* background-image: url(${deskImg}); */
   background-color: var(--white)
   background-repeat: no-repeat;
   background-position: left top;
