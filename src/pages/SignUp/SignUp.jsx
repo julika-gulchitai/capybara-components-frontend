@@ -1,11 +1,15 @@
 import AuthForm from '../../components/AuthForm/AuthForm';
-import { Wrapper } from './SignUp.styled';
+
+import { MarginBetween, StyledNavlink, Title, Wrapper } from './SignUp.styled';
 
 const SignUp = () => {
   return (
     <Wrapper>
-      SignUp
-      <AuthForm />
+      <Title>Sign Up</Title>
+
+      <AuthForm signUp={false} />
+      <MarginBetween></MarginBetween>
+      <StyledNavlink to="/signin">Sign In</StyledNavlink>
     </Wrapper>
   );
 };

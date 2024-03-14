@@ -17,8 +17,8 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/home" element={<HomePage />}></Route>
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/sign_in" element={<SignIn />}></Route>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />}></Route>
           <Route path="*" element={<WelcomePage />} />
         </Route>
       </Routes>
