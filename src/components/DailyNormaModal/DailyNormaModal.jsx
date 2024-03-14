@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
+
 import {
+  BtnWrapper,
   DailyNorma,
   DailyNormaContainer,
   Explanation,
   Formula,
   InputWrapper,
-  RadioBtns,
   RequiredNorma,
   WeightAndSports,
 } from './DailyNormaModal.styled';
-// import ModalWindow from '../ModalWindow/ModalWindow';
+import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 
 const DailyNormaModal = ({ onClose }) => {
   const [weight, setWeight] = useState(0);
@@ -20,11 +23,11 @@ const DailyNormaModal = ({ onClose }) => {
 
   const { register, handleSubmit } = useForm({
     mode: 'onChange',
-    defaultValues: {
-      weight: 0,
-      sports: 0,
-      norma: dailyNorma,
-    },
+    // defaultValues: {
+    //   weight: 0,
+    //   sports: 0,
+    //   norma: dailyNorma,
+    // },
   });
 
   useEffect(() => {
@@ -62,7 +65,59 @@ const DailyNormaModal = ({ onClose }) => {
           console.log(data);
         })}
       >
-        <RadioBtns>
+        <RadioGroup
+          defaultValue="female"
+          name="radio-buttons-group"
+          row
+          sx={{
+            marginBottom: '16px',
+          }}
+        >
+          <FormControlLabel
+            value="female"
+            control={<Radio />}
+            label="For woman"
+            onChange={() => setIsFemale(true)}
+            sx={{
+              '& .MuiSvgIcon-root': {
+                fontSize: 18,
+              },
+              '& .MuiFormControlLabel-label': {
+                fontSize: 16,
+                lineHeight: 1.25,
+                letterSpacing: '0',
+              },
+              '& .MuiRadio-colorPrimary': {
+                color: '#407bff',
+              },
+              '& .MuiRadio-colorPrimary.Mui-checked': {
+                color: '#407bff',
+              },
+            }}
+          />
+          <FormControlLabel
+            value="male"
+            control={<Radio />}
+            label="For man"
+            onChange={() => setIsFemale(false)}
+            sx={{
+              '& .MuiSvgIcon-root': {
+                fontSize: 18,
+              },
+              '& .MuiFormControlLabel-label': {
+                fontSize: 16,
+                lineHeight: 1.25,
+              },
+              '& .MuiRadio-colorPrimary': {
+                color: '#407bff',
+              },
+              '& .MuiRadio-colorPrimary.Mui-checked': {
+                color: '#407bff',
+              },
+            }}
+          />
+        </RadioGroup>
+        {/* <RadioBtns>
           <label htmlFor="gender-choice-female">
             <input
               type="radio"
@@ -86,7 +141,7 @@ const DailyNormaModal = ({ onClose }) => {
             />
             For man
           </label>
-        </RadioBtns>
+        </RadioBtns> */}
         <WeightAndSports>
           <InputWrapper>
             <label htmlFor="weight">Your weight in kilograms:</label>
@@ -97,6 +152,9 @@ const DailyNormaModal = ({ onClose }) => {
               id="weight"
               placeholder="0"
               onChange={(e) => setWeight(e.target.value)}
+              onFocus={(e) => (e.target.placeholder = '')}
+              onBlur={(e) => (e.target.placeholder = '0')}
+              autoComplete="off"
             />
           </InputWrapper>
           <InputWrapper>
@@ -111,6 +169,9 @@ const DailyNormaModal = ({ onClose }) => {
               id="sports-time"
               placeholder="0"
               onChange={(e) => setSports(e.target.value)}
+              onFocus={(e) => (e.target.placeholder = '')}
+              onBlur={(e) => (e.target.placeholder = '0')}
+              autoComplete="off"
             />
           </InputWrapper>
         </WeightAndSports>
@@ -130,11 +191,16 @@ const DailyNormaModal = ({ onClose }) => {
             name="norma"
             id="norma"
             placeholder="0"
+            onFocus={(e) => (e.target.placeholder = '')}
+            onBlur={(e) => (e.target.placeholder = '0')}
+            autoComplete="off"
           />
         </DailyNorma>
-        <button type="submit" onClick={onClose}>
-          Save
-        </button>
+        <BtnWrapper>
+          <ButtonStyled type="submit" onClick={onClose}>
+            Save
+          </ButtonStyled>
+        </BtnWrapper>
       </form>
     </DailyNormaContainer>
   );
