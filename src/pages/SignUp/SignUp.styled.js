@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  width: 218px;
-  padding: 0px 20px;
+  width: 280px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`

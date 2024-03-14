@@ -15,6 +15,7 @@ export const LabelStyled = styled.div`
 `;
 export const SignButton = styled(ButtonStyled)`
   width: 280px;
+  margin: 0;
 `;
 export const WrapInput = styled.div`
   margin-bottom: 6px;

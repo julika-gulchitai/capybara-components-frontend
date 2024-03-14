@@ -7,6 +7,6 @@ export const Title = styled.h1`
   color: var(--black);
 `;
 export const Wrapper = styled.div`
-  width: 218px;
-  padding: 0 20px;
+  width: 280px;
+  margin: 0 auto;
 `;

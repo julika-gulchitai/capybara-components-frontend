@@ -13,7 +13,8 @@ import TextInput from '../TextInput';
 
 const AuthForm = ({ signUp }) => {
   const schema = yup
-    .object({
+    .object()
+    .shape({
       email: yup.string(),
       password: yup
         .string()
@@ -22,13 +23,15 @@ const AuthForm = ({ signUp }) => {
           'Must be at least 8 characters',
           (val) => (val.length >= 8 && val.length <= 64) || val.length === 0
         ),
-      repeat_password: yup
-        .string()
-        .test(
-          'len',
-          'Must be at least 8 characters',
-          (val) => (val.length >= 8 && val.length <= 64) || val.length === 0
-        ),
+      ...(signUp && {
+        repeat_password: yup
+          .string()
+          .test(
+            'len',
+            'Must be at least 8 characters',
+            (val) => (val.length >= 8 && val.length <= 64) || val.length === 0
+          ),
+      }),
     })
     .required();
 
@@ -36,6 +39,7 @@ const AuthForm = ({ signUp }) => {
     console.log(data);
     //dispatch(registerThunk(data));
   };
+
   const {
     register,
     handleSubmit,
@@ -49,7 +53,7 @@ const AuthForm = ({ signUp }) => {
     <WrapForm>
       <form onSubmit={handleSubmit(submit)}>
         <WrapInput>
-          <LabelStyled htmlFor="name">Enter your email</LabelStyled>
+          <LabelStyled>Enter your email</LabelStyled>
           <TextInput
             register={register}
             error={errors.email}
@@ -61,7 +65,7 @@ const AuthForm = ({ signUp }) => {
         </WrapInput>
 
         <WrapInput>
-          <LabelStyled htmlFor="password">Enter your password</LabelStyled>
+          <LabelStyled>Enter your password</LabelStyled>
           <PasswordInput
             error={errors.password}
             register={register}
@@ -72,19 +76,21 @@ const AuthForm = ({ signUp }) => {
           />
         </WrapInput>
 
-        <WrapInput>
-          <LabelStyled htmlFor="repeat_password">Repeat password</LabelStyled>
-          <PasswordInput
-            error={errors.repeat_password}
-            register={register}
-            id="repeat_password"
-            width={280}
-            type="repeat_password"
-            placeholder="Password"
-          />
-        </WrapInput>
+        {signUp && (
+          <WrapInput>
+            <LabelStyled>Repeat password</LabelStyled>
+            <PasswordInput
+              error={errors.repeat_password}
+              register={register}
+              id="repeat_password"
+              width={280}
+              type="repeat_password"
+              placeholder="Password"
+            />
+          </WrapInput>
+        )}
 
-        <SignButton type="submit">Sign up</SignButton>
+        <SignButton type="submit">{signUp ? 'Sign Up' : 'Sign In'}</SignButton>
       </form>
     </WrapForm>
   );
