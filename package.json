@@ -24,7 +24,11 @@
     "react-router-dom": "^6.15.0",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.0.7",
-    "vite-plugin-svgr": "^3.2.0"
+    "vite-plugin-svgr": "^3.2.0",
+    "@hookform/resolvers": "^3.3.4",
+    "@mui/icons-material": "^5.15.12",
+    "@mui/material": "^5.15.12",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",
