@@ -53,7 +53,7 @@ function UserLogo() {
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'right'
+          horizontal: 'left'
         }}
       >
         <UserLogoModal
