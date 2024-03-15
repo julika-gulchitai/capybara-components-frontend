@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../css/VariablesJSX.jsx';
 
 export const LogOutWindow = styled.div`
-  background-color: ${theme.colors.primaryLight};
+  background-color: ${theme.colors.white};
   position: absolute;
   top: 50%;
   left: 50%;
@@ -54,9 +54,12 @@ export const LogOutBtn = styled.button`
   align-items: center;
   border-radius: 10px;
   background-color: ${theme.colors.secondaryRed};
-  color: ${theme.colors.primaryLight};
+  color: ${theme.colors.white};
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    width 0.3s ease;
   width: 232px;
   height: 36px;
   padding: 8px 30px;
@@ -65,7 +68,7 @@ export const LogOutBtn = styled.button`
   }
   &:not(:last-child) {
     background-color: ${theme.colors.secondaryLightBlue};
-    color: ${theme.colors.primaryAccent};
+    color: ${theme.colors.blue};
   }
   &:hover {
     box-shadow: 0px 8px 16px 0px rgba(64, 123, 255, 0.5);
@@ -87,7 +90,7 @@ export const LogOutBtn = styled.button`
 `;
 
 export const LogOutClose = styled.button`
-  background-color: ${theme.colors.primaryLight};
+  background-color: ${theme.colors.white};
   transition: transform 0.5s ease-out;
   padding: 4px;
   width: 32px;
@@ -98,8 +101,8 @@ export const LogOutClose = styled.button`
   svg {
     width: 24px;
     height: 24px;
-    fill: ${theme.colors.primaryLight};
-    stroke: ${theme.colors.primaryAccent};
+    fill: ${theme.colors.white};
+    stroke: ${theme.colors.blue};
   }
   &:active {
     svg {
@@ -117,7 +120,7 @@ font-size: 16px;
 line-height: calc(20 / 16);
 font-weight: 500;
 text-align: center;
-color: ${theme.colors.primaryAccent};
+color: ${theme.colors.blue};
 width: 100%;
 padding: 8px 30px;
 
@@ -153,7 +156,7 @@ svg {
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: ${theme.colors.primaryLight};
+  stroke: ${theme.colors.white};
 }
 `;
 
@@ -166,7 +169,7 @@ font-size: 16px;
 line-height: calc(20 / 16);
 font-weight: 500;
 text-align: center;
-color: ${theme.colors.primaryLight};
+color: ${theme.colors.white};
 width: 100%;
 padding: 8px 30px;
 
@@ -202,7 +205,7 @@ svg {
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: ${theme.colors.primaryLight};
+  stroke: ${theme.colors.white};
 }
 `;
 export const HoverCloseBtn = styled.div`
