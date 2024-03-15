@@ -57,17 +57,17 @@ const AuthForm = ({ signUp }) => {
         .catch((err) => {
           Notify.warning(err);
         });
+    } else {
+      dispatch(loginThunk(user))
+        .unwrap()
+        .then(() => {
+          navigate('/');
+          Notify.success('Welcome!');
+        })
+        .catch((err) => {
+          Notify.warning(err);
+        });
     }
-
-    dispatch(loginThunk(user))
-      .unwrap()
-      .then(() => {
-        navigate('/');
-        Notify.success('Welcome!');
-      })
-      .catch((err) => {
-        Notify.warning(err);
-      });
   };
 
   const {

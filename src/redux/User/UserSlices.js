@@ -8,10 +8,10 @@ import {
 } from './UserThunks.js';
 const initialState = {
   user: {
-    name: '',
+    username: '',
     email: '',
     gender: '',
-    avatar: '',
+    avatarURL: '',
     waterRate: '',
   },
   token: '',
