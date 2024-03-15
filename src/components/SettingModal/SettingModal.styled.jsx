@@ -8,6 +8,7 @@ export const SettingsContainer = styled.div`
     font-size: 26px;
     line-height: 1.23;
     color: var(--black);
+    margin-bottom: 24px;
   }
 `
 

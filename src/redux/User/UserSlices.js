@@ -5,6 +5,7 @@ import {
   loginThunk,
   logoutThunk,
   registerThunk,
+  updateUserThunk
 } from './UserThunks.js';
 const initialState = {
   user: {
@@ -15,7 +16,7 @@ const initialState = {
     waterRate: '',
   },
   token: '',
-  isLoggIn: false,
+  isLoggedIn: false,
   isRefresh: false,
   isLoading: false,
   isError: null,
@@ -54,6 +55,13 @@ const userSlices = createSlice({
         state.user = initialState.user;
         state.isLoggedIn = false;
         state.token = '';
+      })
+      .addCase(updateUserThunk.fulfilled, (state, { payload }) => {
+        const {username, email, gender, avatarURL} = payload?.user
+        state.user.username = username;
+        state.user.email = email;
+        state.user.gender = gender;
+        state.user.avatarURL = avatarURL;
       })
       .addMatcher(
         isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),

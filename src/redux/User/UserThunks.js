@@ -29,7 +29,16 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-export const updateUserThunk = createAsyncThunk();
+export const updateUserThunk = createAsyncThunk(
+  'user/update',
+  async (newUserData, ThunkAPI) => {
+    try {
+      const { data } = await api.patch(`users/update`, newUserData);
+      return data;
+    } catch (error) {
+      return ThunkAPI.rejectWithValue(error.message);
+    }
+  });
 
 export const getCurrentThunk = createAsyncThunk(
   'auth/refresh',

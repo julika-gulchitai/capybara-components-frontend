@@ -17,13 +17,20 @@ import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import TextInput from '../TextInput.jsx';
 import { useMediaQuery } from 'react-responsive';
+import Notiflix from 'notiflix';
+import theme from '../../css/VariablesJSX.jsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectUser} from '../../redux/User/selectors.js';
+import {updateUserThunk} from '../../redux/User/UserThunks.js';
+import {paramsForNotify} from '../../constants/notifications.js';
 
 function SettingModal({close}) {
-  const user = {username: 'Alejandro', email: 'alejandro@hmail.com', gender: 'man', avatarURL: 'http://res.cloudinary.com/dooyixxpr/image/upload/v1710449074/avatars/r1ssxvpja8byyihes4t8.png'};
-
   const [avatar, setAvatar] = useState('');
-  const {username, email, gender, avatarURL} = user;
-  const userData = {};
+  const dispatch = useDispatch();
+  const {username, email, gender, avatarURL} = useSelector(selectUser);
+  const [photo, setPhoto] = useState(null);
+
+  const userData = new FormData();
 
   useEffect(() => {
     if (avatarURL) {
@@ -38,7 +45,7 @@ function SettingModal({close}) {
     .object({
       username: yup
         .string()
-        .test('len', 'Mux length 32 characters', val => (val?.length <= 32)),
+        .test('len', 'Max length 32 characters', val => (val?.length <= 32)),
       email: yup
         .string()
         .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , 'Please enter valid e-mail'),
@@ -48,7 +55,7 @@ function SettingModal({close}) {
 
   const {register, handleSubmit, control, formState: {errors}} = useForm({
     defaultValues: {
-      gender: gender === 'male' ? 'man' : 'woman'
+      gender: gender
     },
     mode: 'onChange',
     resolver: yupResolver(schema)
@@ -61,7 +68,7 @@ function SettingModal({close}) {
   }
 
   function handleFileChange(event) {
-    const file = event.target.files && event.target.files[0];
+    const file = event.target.files[0];
     if (!file) {
       return;
     }
@@ -72,23 +79,65 @@ function SettingModal({close}) {
 
     const urlImage = URL.createObjectURL(file);
     setAvatar(urlImage);
-    console.log(urlImage);
-    userData.avatar = file;
+    setPhoto(file)
+
   }
 
   async function onSubmit(data) {
-
-    if (data.name !== name) {
-      userData.name = data.name;
+    if (data.username !== username) {
+      userData.append('username', data.username);
     }
 
     if (data.email !== email) {
-      userData.email = data.email;
+      userData.append('email', data.email);
     }
 
-    /*changeUserData(userData)*/
+    if(data.old_password) {
+      if (!data.new_password) {
+        Notiflix.Notify.warning(
+          'Please enter new password',
+          paramsForNotify
+        );
+        return;
+      }
 
-    close();
+      if (!data.repeat_new_password) {
+        Notiflix.Notify.warning(
+          'Please repeat new password',
+          paramsForNotify
+        );
+        return;
+      }
+
+      if (data.new_password !== data.repeat_new_password) {
+        Notiflix.Notify.warning(
+          'New password and repeated password are different',
+          paramsForNotify
+        );
+        return;
+      }
+
+      userData.append('password', data.old_password);
+      userData.append('new_password', data.new_password);
+    }
+
+    if (photo) {
+      userData.append('avatarURL', photo);
+    }
+
+    dispatch(updateUserThunk(userData))
+      .unwrap()
+      .then(() => {
+
+        close();
+      })
+      .catch((error) => {
+        console.log(error);
+        Notiflix.Notify.failure(
+          error.message,
+          paramsForNotify
+        );
+      });
   }
 
   return (
@@ -138,14 +187,14 @@ function SettingModal({close}) {
                                  row
                                  aria-labelledby='gender select'
                     >
-                      <FormControlLabel value='woman' control={<Radio/>} label='Woman' labelPlacement='end' sx={{
+                      <FormControlLabel value='female' control={<Radio/>} label='Woman' labelPlacement='end' sx={{
                         '&.Mui-checked': {
-                          color: '#407BFF'
+                          color: theme.colors.blue
                         }
                       }}/>
-                      <FormControlLabel value='man' control={<Radio/>} label='Man' labelPlacement='end' sx={{
+                      <FormControlLabel value='male' control={<Radio/>} label='Man' labelPlacement='end' sx={{
                         '&.Mui-checked': {
-                          color: '#407BFF'
+                          color: theme.colors.blue
                         }
                       }}/>
                     </GenderRadio>
