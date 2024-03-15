@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Notiflix from 'notiflix';
-import { paramsForNotify } from '../../redux/notifications';
+import { paramsForNotify } from '../../constants/notifications';
 
 import {
   AddWater,
