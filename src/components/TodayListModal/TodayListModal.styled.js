@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { ReactComponent as PlusIcon } from '../../assets/icon/plus.svg';
+import { ReactComponent as MinusIcon } from '../../assets/icon/minus.svg';
+import { ReactComponent as Glass } from '../../assets/icon/glass.svg';
 
 export const StyledAddWaterModal = styled.div`
   width: 100vw;
@@ -20,14 +23,14 @@ export const AddWater = styled.h2`
   margin-bottom: 24px;
 `;
 
-export const ChooseText = styled.div`
+export const TextChoose = styled.div`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 16px;
 `;
 
-export const AmountText = styled.p`
+export const FormAmount = styled.p`
   font-size: 16px;
   line-height: 1.2;
   margin-bottom: 12px;
@@ -52,8 +55,8 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 
     border-radius: 30px;
-    border: 1px solid blue;
-    background: white;
+    border: var(1px solid --secondary-blue);
+    background: var(--secondary-white);
 
     box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
 
@@ -72,13 +75,22 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 
     border-radius: 40px;
-    background: blue;
-    color: white;
+    background: var(--secondary-lightblue);
+    color: var(--blue);
 
     font-size: 18px;
     font-weight: 700;
     line-height: 1.33;
   }
+`;
+
+export const StyledPlusIcon = styled(PlusIcon)`
+  stroke: var(--blue);
+`;
+
+export const StyledMinusIcon = styled(MinusIcon)`
+  stroke: var(--blue);
+  fill: var(--blue);
 `;
 
 export const FormStyled = styled.form`
@@ -100,11 +112,11 @@ export const FormStyled = styled.form`
 
     outline: none;
     border-radius: 6px;
-    border: 1px solid blue;
+    border: 1px solid var(--secondary-blue);
 
     appearance: none;
 
-    color: white;
+    color: var(--blue);
     font-size: 16px;
     line-height: 1.25;
     text-align: left;
@@ -133,7 +145,7 @@ export const ButtonSaveWrapper = styled.div`
   gap: 16px;
 
   p {
-    color: black;
+    color: --blue;
     font-size: 18px;
     font-weight: 700;
     align-items: center;
@@ -154,8 +166,8 @@ export const ButtonSaveWrapper = styled.div`
     border-radius: 10px;
     border: none;
 
-    color: white;
-    background: blue;
+    color: var(--white);
+    background: var(--blue);
 
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
 
@@ -164,6 +176,10 @@ export const ButtonSaveWrapper = styled.div`
     line-height: 1.33;
 
     cursor: pointer;
+
+    transition:
+      background-color: var(--animationDuration, --animationCubicBezier),
+      box-shadow: var(--animationDuration, --animationCubicBezier);
   }
 
   @media screen and (min-width: 768px) {
@@ -185,12 +201,17 @@ export const GlassContainer = styled.div`
   padding: 8px 24px;
   border-radius: 10px;
   gap: 12px;
-  background-color: blue;
+  background-color: var(--secondary-white);
   margin-bottom: 24px;
 `;
 
+export const GlassStyle = styled(Glass)`
+  width: 36px;
+  height: 36px;
+`;
+
 export const TextAmount = styled.p`
-  color: blue;
+  color: var(--blue);
   font-size: 18px;
   line-height: 1.3;
   margin-right: 4px;

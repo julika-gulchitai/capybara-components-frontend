@@ -14,7 +14,7 @@ import {
   TextTime,
   TextVolume,
   TodayStyle,
-  TodayStyledDiv,
+  StyledDiv,
   UlStyle,
   WrapBtn,
   StyledQuestion,
@@ -78,7 +78,7 @@ const TodayWaterList = () => {
   ));
 
   return (
-    <TodayStyledDiv>
+    <StyledDiv>
       <TodayStyle>Today</TodayStyle>
       <ListAddDiv>
         <UlStyle>
@@ -108,7 +108,7 @@ const TodayWaterList = () => {
           />
         </ModalWindow>
       )}
-    </TodayStyledDiv>
+    </StyledDiv>
   );
 };
 

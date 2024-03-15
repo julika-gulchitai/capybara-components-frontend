@@ -4,12 +4,12 @@ export const IconWrapper = styled.div`
   svg {
     width: 26px;
     height: 26px;
-    fill: --blue;
+    fill: var(--blue);
     margin-right: 12px;
   }
 `;
 
-export const TodayStyledDiv = styled.div`
+export const StyledDiv = styled.div`
   min-width: 264px;
   max-height: 258px;
   display: flex;
@@ -28,7 +28,7 @@ export const TodayStyledDiv = styled.div`
 export const TodayStyle = styled.h2`
   margin: 0 0 16px 0;
   text-align: left;
-  color: --black;
+  color: var(--black);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.23;
@@ -62,18 +62,18 @@ export const UlStyle = styled.ul`
 
   &::-webkit-scrollbar-track {
     margin-block: 5px;
-    background: --secondary-lightblue;
+    background: var(--secondary-lightblue);
     border-radius: 50px;
-    border: 1px solid --secondary-white;
+    border: 1px solid var(--secondary-white);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: --secondary-blue;
+    background: var(--secondary-blue);
     border-radius: 50px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: --blue;
+    background: var(--blue);
   }
 `;
 
@@ -85,7 +85,7 @@ export const ListItem = styled.li`
   gap: 38px;
   padding: 12px 0 12px 0;
   margin: 0 4px 0 0;
-  border-bottom: 1px solid --secondary-lightblue;
+  border-bottom: 1px solid var(--secondary-lightblue);
 `;
 
 export const InfoWrap = styled.div`
@@ -105,7 +105,7 @@ export const InfoWrap = styled.div`
     @media only screen and (min-width: 1440px) {
     }
     & use {
-      fill: --blue;
+      fill: var(--blue);
     }
   }
 `;
@@ -122,7 +122,7 @@ export const WrapBtn = styled.div`
 `;
 
 export const TextVolume = styled.p`
-  color: --blue;
+  color: var(--blue);
   font-size: 18px;
   line-height: 1.33;
   margin: 0 12px 0 0;
@@ -133,7 +133,7 @@ export const TextVolume = styled.p`
 `;
 
 export const TextTime = styled.p`
-  color: --black;
+  color: var(--black);
   font-size: 12px;
   line-height: 2;
 `;
@@ -145,11 +145,11 @@ export const EditBtn = styled.button`
   border: none;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  color: --secondary-blue;
+  color: var(--secondary-blue);
 
   &:hover,
   &:focus {
-    border-bottom: 1px solid --secondary-blue;
+    border-bottom: 1px solid var(--secondary-blue);
     cursor: pointer;
   }
 `;
@@ -161,41 +161,12 @@ export const DeleteBtn = styled.button`
   border: none;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  color: --secondary-red;
+  color: var(--secondary-red);
 
   &:hover,
   &:focus {
-    border-bottom: 1px solid --secondary-red;
+    border-bottom: 1px solid var(--secondary-red);
     cursor: pointer;
-  }
-`;
-
-export const AddBtnStyle = styled.button`
-  display: flex;
-  gap: 8px;
-  margin-left: 5px;
-  color: --blue;
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.25;
-
-  & svg {
-    width: 16px;
-    height: 16px;
-    & use {
-      fill: --blue;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    color: --secondary-orange;
-    & use {
-      fill: --secondary-orange;
-    }
   }
 `;
 
@@ -208,8 +179,37 @@ export const StyledQuestion = styled.p`
   justify-content: center;
   align-items: center;
   height: 100px;
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-size: 18px;
   font-weight: 500;
   line-height: 133.3%;
+`;
+
+export const AddBtnStyle = styled.button`
+  display: flex;
+  gap: 8px;
+  margin-left: 5px;
+  color: var(--blue);
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+
+  & svg {
+    width: 16px;
+    height: 16px;
+    & use {
+      fill: var(--blue);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: var(--secondary-orange);
+    & use {
+      fill: var(--secondary-orange);
+    }
+  }
 `;

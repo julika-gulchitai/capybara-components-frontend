@@ -4,14 +4,14 @@ import { paramsForNotify } from '../../redux/notifications';
 
 import {
   AddWater,
-  ChooseText,
-  AmountText,
+  TextChoose,
+  TextAmount,
   ButtonWrapper,
   FormStyled,
   ButtonSaveWrapper,
   StyledAddWaterModal,
   GlassContainer,
-  TextAmount,
+  FormAmount,
   TimeValue,
 } from './TodayListModal.styled';
 
@@ -80,7 +80,7 @@ const TodayListModal = ({ isEditing, data, onClose }) => {
       <div>
         {isEditing && (
           <GlassContainer>
-            <TextAmount>{data.amountWater}ml</TextAmount>
+            <FormAmount>{data.amountWater}ml</FormAmount>
             <TimeValue>
               {new Date(data.time).toLocaleTimeString([], {
                 hour: '2-digit',
@@ -91,11 +91,11 @@ const TodayListModal = ({ isEditing, data, onClose }) => {
         )}
       </div>
 
-      <ChooseText>
+      <TextChoose>
         {isEditing ? 'Correct entered data:' : 'Choose a value:'}
-      </ChooseText>
+      </TextChoose>
 
-      <AmountText>Amount of water:</AmountText>
+      <TextAmount>Amount of water:</TextAmount>
 
       <ButtonWrapper>
         <button
