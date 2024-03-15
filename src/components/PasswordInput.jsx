@@ -8,13 +8,15 @@ import {
   OutlinedInput, ThemeProvider
 } from '@mui/material';
 import svgSprite from '../assets/sprite.svg';
+import theme from '../css/VariablesJSX.jsx';
 
 function PasswordInput({
                          id,
                          width,
                          register,
                          error,
-                         placeholder = 'Password'
+                         placeholder = 'Password',
+                         autoComplete = 'on'
                        }) {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -34,23 +36,23 @@ function PasswordInput({
             '&:hover': {
               '.MuiOutlinedInput-notchedOutline': {
                 border: '1px solid',
-                borderColor: error ? '#ef5050' : '#d7e3ff',
+                borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue
               }
             },
 
             '&.Mui-focused': {
               '.MuiOutlinedInput-notchedOutline': {
                 border: '1px solid',
-                borderColor: error ? '#ef5050' : '#d7e3ff',
+                borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue
               }
             },
 
-            backgroundColor:'#fff',
+            backgroundColor: theme.colors.white,
             width: `${width}px`,
             height: '44px',
 
-            "& input::placeholder": {
-              color: '#9ebbff',
+            '& input::placeholder': {
+              color: theme.colors.secondaryBlue,
               opacity: 1
             },
 
@@ -59,12 +61,12 @@ function PasswordInput({
               boxSizing: 'border-box',
               borderRadius: '6px',
               border: '1px solid',
-              borderColor: error ? '#ef5050' : '#d7e3ff',
-              m: 0,
+              borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue,
+              m: 0
             },
             '& .MuiOutlinedInput-input': {
               lineHeight: '1.25',
-              color: error ? '#ef5050' : '#407bff',
+              color: error ? theme.colors.secondaryRed : theme.colors.blue,
               fontSize: 16,
               height: '44px',
               padding: '12px 10px',
@@ -79,11 +81,13 @@ function PasswordInput({
   return (
     <ThemeProvider theme={themePassword}>
       <FormControl
+        autoComplete={autoComplete}
         variant='outlined'
       >
         <OutlinedInput
           {...register(id)}
           placeholder={placeholder}
+          autoComplete={autoComplete}
           name={id}
           id={id}
           type={showPassword ? 'text' : 'password'}
@@ -98,10 +102,10 @@ function PasswordInput({
                 {showPassword ? (
                   <EyeSlashedIcon
                     fontSize='small'
-                    sx={{color: '#407bff', fontSize: 16}}
+                    sx={{color: theme.colors.blue, fontSize: 16}}
                   />
                 ) : (
-                  <EyeIcon sx={{color: '#407bff', fontSize: 16}}/>
+                  <EyeIcon sx={{color: theme.colors.blue, fontSize: 16}}/>
                 )}
               </IconButton>
             </InputAdornment>
@@ -112,7 +116,7 @@ function PasswordInput({
           sx={{
             '&.MuiFormHelperText-root': {
               margin: '0px',
-              color: '#ef5050',
+              color: theme.colors.secondaryRed,
               height: '15px',
               marginTop: '-3px'
             }
