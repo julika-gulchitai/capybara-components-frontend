@@ -16,11 +16,30 @@ export const UserMenuButton = styled.button`
     margin-right: 8px;
   }
   
-  img{
-    margin-right: 4px;
-  }
-  
   svg{
     fill: var(--blue)
+  }
+`;
+
+export const AvatarWrapper = styled.div`
+  margin-right: 4px;
+  width: 28px;
+  height: 28px;
+  overflow: clip;
+  border-radius: 50px;
+  border: 1px solid ${({$borderColor}) => $borderColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    object-fit: cover;
+  }
+
+  span {
+    font-weight: 500;
+    color: var(--blue);
+    margin: 2px 0 0;
+    
   }
 `;
