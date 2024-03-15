@@ -8,7 +8,7 @@ export const StyledSectionWaterList = styled.div`
   gap: 24px;
 
   border-radius: 10px;
-  background: --secondary-lightblue;
+  background: var(--secondary-lightblue);
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
 
   @media screen and (min-width: 768px) {
