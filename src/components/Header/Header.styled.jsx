@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  padding: 0 20px;
   height: 64px;
+  width: 100%;
 
   @media only screen and (min-width: 768px) {
     height: 80px;
