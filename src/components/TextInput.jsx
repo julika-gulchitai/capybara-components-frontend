@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, FormHelperText, OutlinedInput } from '@mui/material';
+import {createTheme, FormControl, FormHelperText, OutlinedInput, ThemeProvider} from '@mui/material';
 
 function TextInput({
   type,
@@ -10,45 +10,60 @@ function TextInput({
   placeholder,
   defaultValue,
 }) {
+
+ const themeText = createTheme({
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            '&:hover': {
+              '.MuiOutlinedInput-notchedOutline': {
+                border: '1px solid',
+                borderColor: error ? '#ef5050' : '#d7e3ff',
+              }
+            },
+
+            '&.Mui-focused': {
+              '.MuiOutlinedInput-notchedOutline': {
+                border: '1px solid',
+                borderColor: error ? '#ef5050' : '#d7e3ff',
+              }
+            },
+
+            backgroundColor:'#fff',
+            width: `${width}px`,
+            height: '44px',
+
+            "& input::placeholder": {
+              color: '#9ebbff',
+              opacity: 1
+            },
+
+            '.MuiOutlinedInput-notchedOutline': {
+              paddingRight: '12px',
+              boxSizing: 'border-box',
+              borderRadius: '6px',
+              border: '1px solid',
+              borderColor: error ? '#ef5050' : '#d7e3ff',
+              m: 0,
+            },
+            '& .MuiOutlinedInput-input': {
+              lineHeight: '1.25',
+              color: error ? '#ef5050' : '#407bff',
+              fontSize: 16,
+              height: '44px',
+              padding: '12px 10px',
+              boxSizing: 'border-box'
+            }
+          }
+        }
+      }
+    }
+  });
+
   return (
+    <ThemeProvider theme={themeText}>
     <FormControl
-      sx={{
-        m: 0,
-        width: `${width}px`,
-        '& .MuiOutlinedInput-root': {
-          paddingRight: '12px',
-
-          '& fieldset': {
-            boxSizing: 'border-box',
-            borderRadius: '6px',
-            border: '1px solid',
-            borderColor: error ? '#ef5050' : '#d7e3ff',
-            height: '53px',
-            top: '-10px',
-            m: 0,
-          },
-          '&:hover fieldset': {
-            border: '1px solid',
-            borderColor: error ? '#ef5050' : '#d7e3ff',
-          },
-          '&.Mui-focused fieldset': {
-            border: '1px solid',
-            borderColor: error ? '#ef5050' : '#d7e3ff',
-          },
-        },
-
-        '& .MuiInputBase-input': {
-          boxSizing: 'border-box',
-          width: '100%',
-          lineHeight: '1.25',
-          color: error ? '#ef5050' : '#407bff',
-          fontSize: 16,
-          height: '44px',
-          padding: '12px 10px',
-          fontFamily: [].join(','),
-          backgroundColor: 'white',
-        },
-      }}
       variant="outlined"
     >
       <OutlinedInput
@@ -73,6 +88,7 @@ function TextInput({
         {error?.message}
       </FormHelperText>
     </FormControl>
+    </ThemeProvider>
   );
 }
 
