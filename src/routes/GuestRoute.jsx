@@ -5,10 +5,8 @@ import { selectIsLoggedIn } from '../redux/User/selectors';
 
 const GuestRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  if (isLoggedIn) {
-    return <Navigate to="/home" />;
-  }
-  return children;
+
+  return isLoggedIn ? <Navigate to="/home" /> : { children };
 };
 
 export default GuestRoute;
