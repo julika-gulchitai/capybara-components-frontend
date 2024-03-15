@@ -30,13 +30,6 @@ export const Form = styled.form`
     gap: 8px;
   }
 
-  span{
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.11;
-    color: var(--black);
-  }
-
   h3{
     font-weight: 500;
     font-size: 18px;
@@ -45,6 +38,13 @@ export const Form = styled.form`
     margin-bottom: 12px;
   }
 `
+
+export const LabelText = styled.span`
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  color: var(--black);
+`;
 
 export const InfoWrapper = styled.div`
   display: flex;
@@ -81,24 +81,24 @@ export const RightContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   @media only screen and (min-width: 768px) {
     width: 392px;
   }
-  
-  span {
-    font-size: 16px;
-    line-height: 1.25;
-    font-weight: 400;
-    color: var(--black);
-  }
 `
+
+export const PasswordLabelText = styled.span`
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: var(--black);
+`;
 
 export const AvatarRow = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 8px;
   
   button{
     display: flex;
@@ -109,6 +109,7 @@ export const AvatarRow = styled.div`
     color: var(--blue);
     background-color: transparent;
     border:none;
+    padding: 0;
 
     svg{
       fill:currentColor;
@@ -121,7 +122,7 @@ export const AvatarRow = styled.div`
   }
 `
 
-export const Avatar = styled.div`
+export const AvatarWrapper = styled.div`
   width: 80px;
   height: 80px;
   overflow: clip;
