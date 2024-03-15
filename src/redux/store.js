@@ -15,7 +15,7 @@ import { userReduser } from './User/UserSlices';
 import { waterReducer } from './Water/WaterSlices';
 
 const persistUserConfig = {
-  key: 'auth',
+  key: 'user',
   storage,
   whitelist: ['token'],
 };
