@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import './variables.css';
-import bgDesc from '../assets/desktop/background-main-page.svg';
-import bgTab from '../assets/tablet/background-main-page.svg';
-import bgMob from '../assets/mobile/background-main-page.svg';
+import bgDesc from '../assets/desktop/background-element-main-page.svg';
+import bgTab from '../assets/tablet/background-element-home-screen.svg';
+import bgMob from '../assets/mobile/background-element-home-screen.svg';
 
 const Global = createGlobalStyle`
 
