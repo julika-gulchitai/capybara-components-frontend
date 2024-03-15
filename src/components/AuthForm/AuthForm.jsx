@@ -10,12 +10,11 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { loginThunk, registerThunk } from '../../redux/User/UserThunks';
-import { selectUser } from '../../redux/User/selectors';
 
 const AuthForm = ({ signUp }) => {
   const dispatch = useDispatch();
