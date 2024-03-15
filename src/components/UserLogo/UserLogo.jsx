@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import defaultAvatar from '../../assets/images/default_avatar.webp';
-import {UserMenuButton} from './UserLogo.styled.jsx';
+import {AvatarWrapper, UserMenuButton} from './UserLogo.styled.jsx';
 import svgSprite from '../../assets/sprite.svg';
 import {Popover} from '@mui/material';
 import UserLogoModal from '../UserLogoModal/UserLogoModal.jsx';
@@ -8,9 +7,16 @@ import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import Settings from '../Settings/Settings.jsx';
 
 function UserLogo() {
+  const user = {
+    username: 'Alejandro',
+    email: 'mail.alejandro@hmail.com',
+    gender: 'man',
+    avatarURL: 'http://res.cloudinary.com/dooyixxpr/image/upload/v1710449074/avatars/r1ssxvpja8byyihes4t8.png'};
+
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const {username, email, avatarURL} = user
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -31,8 +37,14 @@ function UserLogo() {
   return (
     <>
       <UserMenuButton onClick={handleClick}>
-        <span>Alejandro</span>
-        <img src={defaultAvatar} width={28} height={28} alt='user avatar'/>
+        {username && (<span>{username}</span>)}
+        <AvatarWrapper $borderColor={avatarURL ? 'transparent' : '#2f2f2f'}>
+          {avatarURL
+            ? (<img src={avatarURL} width={28} height={28} alt='user avatar'/>)
+            : username ? (<span>{username[0].toUpperCase()}</span>) : (<span>{email[0].toUpperCase()}</span>)}
+
+        </AvatarWrapper>
+
         <svg width={16} height={16}>
           <use href={`${svgSprite}#icon-arrow_down`}/>
         </svg>
