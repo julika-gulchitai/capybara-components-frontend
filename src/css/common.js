@@ -38,7 +38,7 @@ body{
   font-family: 'Roboto Regular';
   min-height: 100vh;
   color: var(--black);
-  background-image: url(${bgDesc});
+ // background-image: url(${bgDesc});
   background-position: bottom;
   background-size: 100%;
    background-repeat: no-repeat;
@@ -54,7 +54,7 @@ input:-webkit-autofill:active {
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
     
-    background-image: url(${bgTab});
+   // background-image: url(${bgTab});
     background-position: bottom;
     background-size: 100%;
     min-height: 100vh;
@@ -63,7 +63,7 @@ input:-webkit-autofill:active {
 @media screen and (max-width: 767px) {
   body {
     height: fit-content;
-    background-image: url(${bgMob});
+  //  background-image: url(${bgMob});
     background-position: bottom;
     background-size: 100%;
     min-height: 100vh;
@@ -74,9 +74,8 @@ input:-webkit-autofill:active {
   body {
     height: 100vh;
     max-height: 100vh;
-  }
-  } */
-
+  }*/
+}
 `;
 
 export default Global;

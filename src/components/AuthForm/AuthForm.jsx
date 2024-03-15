@@ -10,8 +10,11 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
+import { useDispatch } from 'react-redux';
 
 const AuthForm = ({ signUp }) => {
+  const dispatch = useDispatch();
+
   const schema = yup
     .object()
     .shape({
