@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { selectIsLogged } from '../redux/selectors.js';
+import { selectIsLoggedIn } from '../redux/User/selectors';
 
-const PublicRoute = ({ children }) => {
-  const isLoggedIn = useSelector(selectIsLogged);
+const GuestRoute = ({ children }) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   if (isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
   return children;
 };
 
-export default PublicRoute;
+export default GuestRoute;
