@@ -4,7 +4,7 @@ import svgSprite from '../../assets/sprite.svg';
 import {Popover} from '@mui/material';
 import UserLogoModal from '../UserLogoModal/UserLogoModal.jsx';
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
-import Settings from '../Settings/Settings.jsx';
+import SettingModal from '../SettingModal/SettingModal.jsx';
 
 function UserLogo() {
   const user = {
@@ -66,7 +66,7 @@ function UserLogo() {
           openLogOut={()=>{setIsLogOutModalOpen(true)}}/>
       </Popover>
       <ModalWindow open={isSettingsModalOpen || isLogOutModalOpen} onClose={() => closeModal() }>
-        <Settings close={() => setIsSettingsModalOpen(false)}/>
+        <SettingModal close={() => setIsSettingsModalOpen(false)}/>
       </ModalWindow>
     </>
   );
