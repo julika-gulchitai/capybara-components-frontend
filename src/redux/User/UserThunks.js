@@ -21,10 +21,10 @@ export const loginThunk = createAsyncThunk(
     try {
       const response = await api.post('users/login', credentials);
       setToken(response.data.token);
-      console.log(response.data.token);
+      
       return response.data;
     } catch (error) {
-      console.log(error.response.data.message)
+      
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }

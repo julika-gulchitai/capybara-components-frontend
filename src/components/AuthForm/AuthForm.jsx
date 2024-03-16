@@ -52,7 +52,7 @@ const AuthForm = ({ signUp }) => {
       dispatch(registerThunk(user))
         .unwrap()
         .then(() => {
-          navigate('/home');
+          navigate('/signin');
           Notify.success('Welcome!');
         })
         .catch((err) => {
