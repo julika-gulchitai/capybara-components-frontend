@@ -10,15 +10,21 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { loginThunk, registerThunk } from '../../redux/User/UserThunks';
+import { selectUser } from '../../redux/User/selectors';
+import { useMediaQuery } from 'react-responsive';
 
 const AuthForm = ({ signUp }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1439px)' });
+
   const schema = yup
     .object()
     .shape({
@@ -51,8 +57,8 @@ const AuthForm = ({ signUp }) => {
       dispatch(registerThunk(user))
         .unwrap()
         .then(() => {
-          navigate('/');
-          Notify.success('Welcome!');
+          navigate('/signin');
+          Notify.success('You can sign in now!');
         })
         .catch((err) => {
           Notify.warning(err);
@@ -61,7 +67,7 @@ const AuthForm = ({ signUp }) => {
       dispatch(loginThunk(user))
         .unwrap()
         .then(() => {
-          navigate('/');
+          navigate('/home');
           Notify.success('Welcome!');
         })
         .catch((err) => {
@@ -79,17 +85,6 @@ const AuthForm = ({ signUp }) => {
     resolver: yupResolver(schema),
   });
 
-  // const handleClick = () => {
-  //   navigate('/signin');
-  // };
-
-  // const user = useSelector(selectUser);
-  // console.log(user);
-  // if (user.email.length !== 0) {
-  //   console.log('home');
-  //   return navigate('/home');
-  // }
-
   return (
     <WrapForm>
       <form onSubmit={handleSubmit(submit)}>
@@ -99,7 +94,7 @@ const AuthForm = ({ signUp }) => {
             register={register}
             error={errors.email}
             id="email"
-            width={280}
+            width={isDesktop ? 384 : isTablet ? 336 : 280}
             type="email"
             placeholder="E-mail"
           />
@@ -111,7 +106,7 @@ const AuthForm = ({ signUp }) => {
             error={errors.password}
             register={register}
             id="password"
-            width={280}
+            width={isDesktop ? 384 : isTablet ? 336 : 280}
             type="password"
             placeholder="Password"
           />
@@ -124,7 +119,7 @@ const AuthForm = ({ signUp }) => {
               error={errors.repeat_password}
               register={register}
               id="repeat_password"
-              width={280}
+              width={isDesktop ? 384 : isTablet ? 336 : 280}
               type="repeat_password"
               placeholder="Password"
             />
