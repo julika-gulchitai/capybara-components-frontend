@@ -44,6 +44,10 @@ export const StyledNavlink = styled(NavLink)`
   margin-top: 16px;
   cursor: pointer;
   z-index: 100;
+
+  &:hover {
+    color: var(--secondary-orange);
+  }
 `;
 export const MarginBetween = styled.div`
   margin-top: 16px;
