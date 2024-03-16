@@ -10,11 +10,12 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { loginThunk, registerThunk } from '../../redux/User/UserThunks';
+import { selectUser } from '../../redux/User/selectors';
 
 const AuthForm = ({ signUp }) => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const AuthForm = ({ signUp }) => {
       dispatch(registerThunk(user))
         .unwrap()
         .then(() => {
-          navigate('/');
+          navigate('/home');
           Notify.success('Welcome!');
         })
         .catch((err) => {
@@ -61,7 +62,7 @@ const AuthForm = ({ signUp }) => {
       dispatch(loginThunk(user))
         .unwrap()
         .then(() => {
-          navigate('/');
+          navigate('/home');
           Notify.success('Welcome!');
         })
         .catch((err) => {
@@ -79,16 +80,7 @@ const AuthForm = ({ signUp }) => {
     resolver: yupResolver(schema),
   });
 
-  // const handleClick = () => {
-  //   navigate('/signin');
-  // };
 
-  // const user = useSelector(selectUser);
-  // console.log(user);
-  // if (user.email.length !== 0) {
-  //   console.log('home');
-  //   return navigate('/home');
-  // }
 
   return (
     <WrapForm>
