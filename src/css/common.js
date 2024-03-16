@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import './variables.css';
 import bgDesc from '../assets/desktop/background-element-main-page.svg';
-import bgTab from '../assets/tablet/background-main-page.svg';
-import bgMob from '../assets/mobile/background-main-page.svg';
+import bgTab from '../assets/tablet/background-element-home-screen.svg';
+import bgMob from '../assets/mobile/background-element-home-screen.svg';
 
 const Global = createGlobalStyle`
 h1,
@@ -30,7 +30,7 @@ button {
 }
 body{
 
-  min-height: 100vh;
+  min-height: 100svh;
   color: var(--black);
   background-image: url(${bgDesc});
   background-position: bottom;
@@ -49,7 +49,7 @@ input:-webkit-autofill:active {
     background-image: url(${bgTab});
     background-position: bottom;
     background-size: 100%;
-    min-height: 100vh;
+    min-height: 100svh;
 }
 @media screen and (max-width: 767px) {
   body {
@@ -57,15 +57,9 @@ input:-webkit-autofill:active {
     background-image: url(${bgMob});
     background-position: bottom;
     background-size: 100%;
-    min-height: 100vh;
+    min-height: 100svh;
   }
-/* 
-@media screen (min-width: 1140px) {
-  body {
-    height: 100vh;
-    max-height: 100vh;
-  }
-  } */
+
 `;
 
 export default Global;
