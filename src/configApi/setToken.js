@@ -1,4 +1,4 @@
-import { api } from '../configApi/api';
+import { api } from './api';
 
 export const setToken = (token) => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;

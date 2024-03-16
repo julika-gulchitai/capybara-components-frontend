@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clearToken, setToken } from '../../utils/setToken';
+import { clearToken, setToken } from '../../configApi/setToken';
 import { api } from '../../configApi/api';
 
 export const registerThunk = createAsyncThunk(
@@ -38,7 +38,8 @@ export const updateUserThunk = createAsyncThunk(
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.message);
     }
-  });
+  }
+);
 
 export const getCurrentThunk = createAsyncThunk(
   'auth/refresh',
