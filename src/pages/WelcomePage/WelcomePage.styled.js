@@ -55,6 +55,7 @@ h3{
   line-height: 1.11111;
   @media only screen and (min-width: 1440px) {
     margin-top: .5rem;
+    margin-bottom: 1rem;
 }
 }
 `
