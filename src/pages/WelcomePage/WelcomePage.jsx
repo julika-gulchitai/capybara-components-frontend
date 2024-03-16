@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { StyledFullPage, StyledMainContainer, StyledInnerContainerLeft, StyledMainTitle, StyledTitle, StyledListLeft, StyledNameList, StyledWelcomeButton, StyledInnerContainerRight, StyledListRight, StyledIconWrapper } from './WelcomePage.styled';
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
 import sprite from '../../assets/sprite.svg';
 
 const WelcomePage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  useEffect(() => {
-    isOpenModal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible'
-  }, [isOpenModal])
   const handleShowModal = () => {
     setIsOpenModal(true);
   }
@@ -40,7 +37,7 @@ const WelcomePage = () => {
           </StyledListRight>
         </StyledInnerContainerRight>
       </StyledMainContainer>
-      <ModalWindow open={isOpenModal} onClose={() => setIsOpenModal(false)}> Modal Window</ModalWindow>
+      {isOpenModal && <ModalWindow onClose={() => setIsOpenModal(false)}> Modal Window</ModalWindow>}
     </StyledFullPage>
   );
 };

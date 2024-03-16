@@ -6,9 +6,16 @@ import {
 } from './ModalWindow.styled';
 import ReactDom from 'react-dom';
 import sprite from '../../assets/sprite.svg';
+import { useEffect } from 'react';
 
-const ModalWindow = ({ open, onClose, children }) => {
-  if (!open) return null;
+const ModalWindow = ({ onClose, children }) => {
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   const clickOutside = (e) => {
     if (e.target === e.currentTarget) {
@@ -16,8 +23,21 @@ const ModalWindow = ({ open, onClose, children }) => {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        onClose()
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [onClose])
+
   return ReactDom.createPortal(
-    <ModalWrapper onClick={clickOutside}>
+    <ModalWrapper onMouseDown={clickOutside}>
       <ModalContent>
         {children}
         <ModalButtonClose onClick={onClose}>
@@ -27,7 +47,7 @@ const ModalWindow = ({ open, onClose, children }) => {
         </ModalButtonClose>
       </ModalContent>
     </ModalWrapper>,
-    document.getElementById('portal')
+    document.querySelector('#portal')
   );
 };
 
