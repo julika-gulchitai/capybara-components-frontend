@@ -12,6 +12,7 @@ export const Title = styled.h1`
   line-height: 1.23077;
   color: var(--black);
   margin-bottom: 16px;
+  margin-top:24px;
 `;
 
 export const StyledNavlink = styled(NavLink)`

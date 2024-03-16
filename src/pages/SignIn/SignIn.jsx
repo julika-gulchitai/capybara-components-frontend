@@ -7,7 +7,6 @@ const SignIn = () => {
   return (
     <Wrapper>
       <Title>Sign In</Title>
-
       <AuthForm />
       <MarginBetween></MarginBetween>
       <StyledNavlink to="/signup">Sign Up</StyledNavlink>

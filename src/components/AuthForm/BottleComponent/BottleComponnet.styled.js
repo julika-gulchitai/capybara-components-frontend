@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import bottle from '../../../assets/mobile/bottle-sign-in.svg';
 
 export const Bottle = styled.div`
