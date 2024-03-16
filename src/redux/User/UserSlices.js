@@ -1,11 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { setToken } from '../../utils/setToken.js';
+import { setToken } from '../../configApi/setToken.js';
 import {
   getCurrentThunk,
   loginThunk,
   logoutThunk,
   registerThunk,
-  updateUserThunk
+  updateUserThunk,
 } from './UserThunks.js';
 const initialState = {
   user: {
@@ -57,7 +57,7 @@ const userSlices = createSlice({
         state.token = '';
       })
       .addCase(updateUserThunk.fulfilled, (state, { payload }) => {
-        const {username, email, gender, avatarURL} = payload?.user
+        const { username, email, gender, avatarURL } = payload?.user;
         state.user.username = username;
         state.user.email = email;
         state.user.gender = gender;
