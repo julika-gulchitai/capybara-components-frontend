@@ -1,8 +1,13 @@
 import styled from 'styled-components';
-import bottle from '../../../assets/mobile/bottle-sign-in.svg';
 
 export const Bottle = styled.div`
-  height: 210px;
-  width: 280px;
-  background-image: url(${bottle});
+margin-bottom: 20px;
+  img {
+    @media only screen and (min-width: 768px) {
+      margin-top: 35px;
+      margin-left: -250px;
+    }
+    @media only screen and (min-width: 1440px) {
+    }
+  }
 `;
