@@ -49,7 +49,13 @@ function SettingModal({close}) {
       email: yup
         .string()
         .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ , 'Please enter valid e-mail'),
-      new_password: yup.string().test('len', 'Must be at least 8 characters', val => ((val.length >= 8 && val.length <= 64) || val.length === 0))
+      new_password: yup.string().test('len', 'Must be at least 8 characters', val => ((val.length >= 8 && val.length <= 64) || val.length === 0)),
+      repeat_new_password: yup
+        .string()
+        .oneOf(
+          [yup.ref('new_password'), null],
+          "Passwords don't match, please try again."
+        )
     })
     .required();
 
@@ -90,6 +96,10 @@ function SettingModal({close}) {
 
     if (data.email !== email) {
       userData.append('email', data.email);
+    }
+
+    if (data.gender !== gender) {
+      userData.append('gender', data.gender);
     }
 
     if(data.old_password) {
