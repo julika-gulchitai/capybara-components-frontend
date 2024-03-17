@@ -3,16 +3,13 @@ import { useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
 import { logoutThunk } from '../../redux/User/UserThunks.js';
 import {
-  LogOutBtns,
-  LogOutClose,
+  LogOutBtns,  
   LogOutHeader,
   LogOutText,
   LogOutWindow,
   ButtonEsc,
-  ButtonLogOut, 
-  HoverCloseBtn, 
+  ButtonLogOut,   
 } from './UserLogoutModal.styled.jsx';
-import sprite from '../../assets/sprite.svg';
 
 
 
@@ -39,14 +36,7 @@ const UserLogoutModal = ({ onClose }) => {
   return (
     <LogOutWindow>
       <LogOutHeader>
-        <p>Log out</p>
-        <LogOutClose onClick={handleCancel}>
-          <HoverCloseBtn>
-            <svg>
-              <use href={sprite + 'x-mark'}></use>
-            </svg>
-          </HoverCloseBtn>
-        </LogOutClose>
+        <p>Log out</p>        
       </LogOutHeader>
       <LogOutText>
         <p>Do you really want to leave?</p>
