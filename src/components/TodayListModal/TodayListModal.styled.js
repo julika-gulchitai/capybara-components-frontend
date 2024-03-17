@@ -56,7 +56,7 @@ export const ButtonWrapper = styled.div`
 
     border-radius: 30px;
     border: var(1px solid --secondary-blue);
-    background: var(--secondary-white);
+    background: var(--white);
 
     box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
 
@@ -176,10 +176,6 @@ export const ButtonSaveWrapper = styled.div`
     line-height: 1.33;
 
     cursor: pointer;
-
-    transition:
-      background-color: var(--animationDuration, --animationCubicBezier),
-      box-shadow: var(--animationDuration, --animationCubicBezier);
   }
 
   @media screen and (min-width: 768px) {
