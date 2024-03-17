@@ -7,6 +7,8 @@ export const WaterWrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
+  width: 592px;
+  height: 90px;
 `;
 
 export const RatioContainer = styled.div`
@@ -14,8 +16,6 @@ export const RatioContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  width: 356px;
-  height: 106px;
 `;
 
 export const TodayText = styled.p`
