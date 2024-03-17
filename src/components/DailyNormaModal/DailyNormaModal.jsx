@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Notify } from 'notiflix';
 
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
 
@@ -14,20 +15,30 @@ import {
   WeightAndSports,
 } from './DailyNormaModal.styled';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { editWaterRateThunk } from '../../redux/User/UserThunks';
+import { selectUser } from '../../redux/User/selectors';
+import { paramsForNotify } from '../../constants/notifications';
 
 const DailyNormaModal = ({ onClose }) => {
   const [weight, setWeight] = useState(0);
   const [sports, setSports] = useState(0);
   const [dailyNorma, setDailyNorma] = useState(1.8);
   const [isFemale, setIsFemale] = useState(true);
+  const dispatch = useDispatch();
+  const { gender } = useSelector(selectUser);
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     mode: 'onChange',
-    // defaultValues: {
-    //   weight: 0,
-    //   sports: 0,
-    //   norma: dailyNorma,
-    // },
+    defaultValues: {
+      // weight: 0,
+      // sports: 0,
+      // norma: dailyNorma,
+    },
   });
 
   useEffect(() => {
@@ -40,6 +51,28 @@ const DailyNormaModal = ({ onClose }) => {
       setDailyNorma(norma.toFixed(1));
     }
   }, [weight, sports, dailyNorma, isFemale]);
+
+  async function onSubmit(data) {
+    const waterRate = data.norma * 1000;
+    const newWaterRate = { waterRate: waterRate.toString() };
+    dispatch(editWaterRateThunk(newWaterRate))
+      .unwrap()
+      .then(() => {
+        onClose();
+      })
+      .catch((error) => {
+        console.log(error);
+        Notify.failure(error.message, paramsForNotify);
+      });
+  }
+
+  function getGender() {
+    if (gender === 'female' || gender === '') {
+      return 'female';
+    } else {
+      return 'male';
+    }
+  }
 
   return (
     <DailyNormaContainer>
@@ -59,14 +92,9 @@ const DailyNormaModal = ({ onClose }) => {
         must set 0)
       </Explanation>
       <h3>Calculate your rate:</h3>
-      <form
-        action=""
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
-      >
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
         <RadioGroup
-          defaultValue="female"
+          defaultValue={getGender()}
           name="radio-buttons-group"
           row
           sx={{
@@ -156,6 +184,7 @@ const DailyNormaModal = ({ onClose }) => {
               onBlur={(e) => (e.target.placeholder = '0')}
               autoComplete="off"
             />
+            <p>{errors.weight?.message}</p>
           </InputWrapper>
           <InputWrapper>
             <label htmlFor="sports-time">
@@ -197,9 +226,7 @@ const DailyNormaModal = ({ onClose }) => {
           />
         </DailyNorma>
         <BtnWrapper>
-          <ButtonStyled type="submit" onClick={onClose}>
-            Save
-          </ButtonStyled>
+          <ButtonStyled type="submit">Save</ButtonStyled>
         </BtnWrapper>
       </form>
     </DailyNormaContainer>

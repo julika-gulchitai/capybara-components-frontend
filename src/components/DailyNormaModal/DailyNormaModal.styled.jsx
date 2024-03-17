@@ -104,6 +104,9 @@ export const Explanation = styled.p`
 export const RequiredNorma = styled.div`
   display: flex;
   align-items: center;
+
+  margin-bottom: 24px;
+
   @media (min-width: 768px) {
     gap: 6px;
   }
@@ -161,5 +164,14 @@ export const BtnWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;
+  }
+`;
+
+export const RadioBtns = styled.div`
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  input {
+    width: auto;
   }
 `;
