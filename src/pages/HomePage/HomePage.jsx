@@ -1,5 +1,6 @@
 import DailyNorma from '../../components/DailyNorma/DailyNorma';
 import SectionWaterList from '../../components/SectionWaterList/SectionWaterList';
+import WaterRatioPanel from '../../components/WaterRatioPanel/WaterRatioPanel.jsx';
 import {
   HomeContainer,
   LeftContainer,

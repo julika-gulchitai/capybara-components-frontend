@@ -31,3 +31,4 @@ const WaterRatioPanel = () => {
     </ContainerWater>
   );
 };
+export default WaterRatioPanel;
