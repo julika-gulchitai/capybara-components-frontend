@@ -13,13 +13,27 @@ export const HomeContainer = styled(AdaptiveContainer)`
 `;
 
 export const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 441px;
+  
+  @media only screen and (min-width: 768px) {
+    height: 492px;
+  }
+  
   @media only screen and (min-width: 1440px) {
-    width: calc((100% / 2) - 16px );
+    width: calc((100% / 2) - 16px);
+    height: 680px;
+    padding-top: 16px;
+    padding-bottom: 32px;
   }
 `;
 
 export const RightContainer = styled.div`
   @media only screen and (min-width: 1440px) {
     width: calc((100% / 2) - 16px );
+    height: 680px;
   }
 `;
