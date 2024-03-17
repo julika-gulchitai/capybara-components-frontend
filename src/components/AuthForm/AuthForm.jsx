@@ -58,7 +58,7 @@ const AuthForm = ({ signUp }) => {
         .unwrap()
         .then(() => {
           navigate('/signin');
-          Notify.success('You can sign in now!');
+          // Notify.success('You can sign in now!');
         })
         .catch((err) => {
           Notify.warning(err);
@@ -68,7 +68,7 @@ const AuthForm = ({ signUp }) => {
         .unwrap()
         .then(() => {
           navigate('/home');
-          Notify.success('Welcome!');
+          // Notify.success('Welcome!');
         })
         .catch((err) => {
           Notify.warning(err);
