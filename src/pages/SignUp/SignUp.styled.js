@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
 `;
 
 export const WraperForm = styled.div`
+  z-index: 100;
   @media only screen and (min-width: 768px) {
     margin-left: 32px;
   }

@@ -10,12 +10,12 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { loginThunk, registerThunk } from '../../redux/User/UserThunks';
-import { selectUser } from '../../redux/User/selectors';
+
 import { useMediaQuery } from 'react-responsive';
 
 const AuthForm = ({ signUp }) => {
@@ -30,13 +30,13 @@ const AuthForm = ({ signUp }) => {
     .shape({
       email: yup
         .string()
-        .email('Please write valid email')
-        .required('Email is required'),
+        .email( 'Please write valid email')
+        .required( 'Email is required'),
       password: yup
         .string()
-        .min(8, 'Password must be at least 8 characters')
+        .min( 8 ,'Password must be at least 8 characters' )
         .max(64)
-        .required('Password is required'),
+        .required('Password is required' ),
 
       repeat_password: signUp
         ? yup
@@ -58,7 +58,7 @@ const AuthForm = ({ signUp }) => {
         .unwrap()
         .then(() => {
           navigate('/signin');
-          Notify.success('You can sign in now!');
+          
         })
         .catch((err) => {
           Notify.warning(err);
@@ -68,7 +68,7 @@ const AuthForm = ({ signUp }) => {
         .unwrap()
         .then(() => {
           navigate('/home');
-          Notify.success('Welcome!');
+      
         })
         .catch((err) => {
           Notify.warning(err);
@@ -81,7 +81,7 @@ const AuthForm = ({ signUp }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onChange',
+    mode: signUp ? 'onChange' : 'onSubmit',
     resolver: yupResolver(schema),
   });
 
