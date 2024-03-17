@@ -4,22 +4,20 @@ import {
   WaterWrap,
   RatioContainer,
   TodayText,
+  StyledInput,
   WrapperPercentage,
 } from './WaterRatioPanel.styled';
 
 const WaterRatioPanel = () => {
-  const currentDayWater = 70;
+  const MyDailyNorma = 2000;
+  const currentDayWater = 1500;
+  const rater = (currentDayWater / MyDailyNorma) * 100;
+  // const a = b > 100 ? b : 100;
   return (
     <WaterWrap>
       <RatioContainer>
         <TodayText>Today</TodayText>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={currentDayWater}
-          disabled
-        />
+        <StyledInput type="range" min="0" max="100" value={rater} disabled />
         <WrapperPercentage>
           <span>0%</span>
           <span>50%</span>
@@ -27,7 +25,9 @@ const WaterRatioPanel = () => {
         </WrapperPercentage>
       </RatioContainer>
       <AddBtn>
-        <use href={`${sprite}#plus-circle`} />
+        <svg width={24} height={24}>
+          <use href={`${sprite}#plus-circle`} />
+        </svg>
         Add water
       </AddBtn>
     </WaterWrap>

@@ -59,7 +59,7 @@ input:-webkit-autofill:active {
     background-size: 100%;
     min-height: 100svh;
   }
-
+}
 `;
 
 export default Global;
