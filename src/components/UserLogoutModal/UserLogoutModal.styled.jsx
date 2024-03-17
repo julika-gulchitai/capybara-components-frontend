@@ -89,27 +89,6 @@ export const LogOutBtn = styled.button`
   }
 `;
 
-export const LogOutClose = styled.button`
-  background-color: ${theme.colors.white};
-  transition: transform 0.5s ease-out;
-  padding: 4px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  svg {
-    width: 24px;
-    height: 24px;
-    fill: ${theme.colors.white};
-    stroke: ${theme.colors.blue};
-  }
-  &:active {
-    svg {
-      transform: scale(0.9);
-    }
-  }
-`;
 
 export const ButtonEsc = styled.button`display: flex;
 justify-content: center;
@@ -193,9 +172,9 @@ cursor: pointer;
   cursor: not-allowed;
 }
 @media screen and (min-width: 768px) {
-  width: 100%};
-  margin-left: 24px};
-  margin-right:  24px};
+  width: ${props => props.$width || '100%'};
+  margin-left: ${props => props.$marginLeft || ''};
+  margin-right: ${props => props.$marginRight || ''};
   font-size: 18px;
   line-height: calc(24 / 18);
   padding: 10px 30px;
@@ -207,16 +186,4 @@ svg {
   fill: none;
   stroke: ${theme.colors.white};
 }
-`;
-export const HoverCloseBtn = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  padding: 4px;
-  border-radius: 100%;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    background-color: ${theme.colors.secondaryLightBlue};
-  }
 `;
