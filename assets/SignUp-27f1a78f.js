@@ -1,1 +1,0 @@
-import{j as s}from"./index-0e43c7af.js";import{W as r,a as n,T as e,A as t,M as i,S as a,B as o}from"./BottleComponent-06ee0ba9.js";const j=()=>s.jsxs(r,{children:[s.jsxs(n,{children:[s.jsx(e,{children:"Sign Up"}),s.jsx(t,{signUp:!0}),s.jsx(i,{}),s.jsx(a,{to:"/signin",children:"Sign In"})]}),s.jsx(o,{})]});export{j as default};
