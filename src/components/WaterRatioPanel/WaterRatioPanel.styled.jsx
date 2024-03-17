@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 
-export const ContainerWater = styled.div`
+export const WaterWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,22 +61,13 @@ export const WrapperPercentage = styled.div`
   }
 `;
 
-export const AddBtn = styled.button`
-  width: 100%;
+export const AddBtn = styled(ButtonStyled)`
+  width: 178px;
   display: inline-flex;
-  padding: 10px 30px;
   justify-content: center;
   align-items: center;
-  height: 44px;
   gap: 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--blue);
-  color: var(--white);
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  cursor: pointer;
-
   svg {
-    stroke: var(--white);
+    color: var(--white);
   }
 `;

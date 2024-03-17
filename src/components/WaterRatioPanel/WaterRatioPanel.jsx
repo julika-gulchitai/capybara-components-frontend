@@ -1,7 +1,7 @@
 import sprite from '../../assets/sprite.svg';
 import {
   AddBtn,
-  ContainerWater,
+  WaterWrap,
   InputContainer,
   InputRange,
   TodayText,
@@ -11,7 +11,7 @@ import {
 const WaterRatioPanel = () => {
   const currentDayWater = 1000;
   return (
-    <ContainerWater>
+    <WaterWrap>
       <InputContainer>
         <TodayText>Today</TodayText>
         <InputRange
@@ -27,11 +27,11 @@ const WaterRatioPanel = () => {
           <span>100%</span>
         </WrapperPercentage>
       </InputContainer>
-      <AddBtn type="button">
+      <AddBtn>
         <use href={`${sprite}#plus-circle`} />
         Add water
       </AddBtn>
-    </ContainerWater>
+    </WaterWrap>
   );
 };
 export default WaterRatioPanel;
