@@ -1,46 +1,25 @@
-import { Link } from 'react-router-dom';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
+import {AdaptiveContainer} from '../../components/Container/Container.styled.jsx';
 
-export const Container = styled.div`
+export const HomeContainer = styled(AdaptiveContainer)`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 500px;
-`;
-export const Block = styled.div`
-  text-align: center;
-`;
-export const Title = styled.h1`
-  color: #ffffff;
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
+  flex-direction: column;
+  gap: 40px;
+
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 32px;
+  }
 `;
 
-export const StyledLink = styled(Link)`
-  padding: 8px 16px;
-  color: #ffffff; /* White text color */
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
-  transition:
-    color 0.3s,
-    text-shadow 0.3s;
-  display: block;
-  &:hover,
-  &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
-      0 0 5px #00baff,
-      0 0 10px #00baff,
-      0 0 20px #00baff,
-      0 0 40px #00baff,
-      0 0 80px #00baff;
+export const LeftContainer = styled.div`
+  @media only screen and (min-width: 1440px) {
+    width: calc((100% / 2) - 16px );
+  }
+`;
+
+export const RightContainer = styled.div`
+  @media only screen and (min-width: 1440px) {
+    width: calc((100% / 2) - 16px );
   }
 `;
