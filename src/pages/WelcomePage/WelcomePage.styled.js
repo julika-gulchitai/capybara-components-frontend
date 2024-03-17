@@ -3,6 +3,7 @@ import bgMainDesctop from '../../assets/desktop/background-main-page-layers.svg'
 import waveRight from '../../assets/mobile/background-wave-right.svg';
 import waveLeft from '../../assets/mobile/background-wave-left.svg';
 import bgMain from '../../assets/tablet/background-main-page-f.svg'
+import { Link } from "react-router-dom";
 
 export const StyledFullPage = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const StyledFullPage = styled.div`
       background-size: 100%;
   }
     @media only screen and (min-width: 1440px) {
-      height: 100%;
+      height: calc(100svh - 72px);
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -162,7 +163,7 @@ li{
 }
 }
 `
-export const StyledWelcomeButton = styled.button`
+export const StyledWelcomeLink = styled(Link)`
 border-radius: 10px;
 border: none;
 padding: .5rem;
@@ -173,6 +174,7 @@ background: var(--blue);
 font-weight: 500;
 font-size: 18px;
 line-height: 1.33333;
+text-align: center;
 color: var(--white);
 width: 100%;
 @media only screen and (min-width: 768px) {
@@ -182,6 +184,4 @@ width: 100%;
   width: 24rem;
   margin-top: .5rem;
 }
-
 `
-

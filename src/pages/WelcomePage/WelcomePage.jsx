@@ -1,13 +1,7 @@
-import { useState } from 'react';
-import { StyledFullPage, StyledMainContainer, StyledInnerContainerLeft, StyledMainTitle, StyledTitle, StyledListLeft, StyledNameList, StyledWelcomeButton, StyledInnerContainerRight, StyledListRight, StyledIconWrapper } from './WelcomePage.styled';
-import ModalWindow from '../../components/ModalWindow/ModalWindow';
+import { StyledFullPage, StyledMainContainer, StyledInnerContainerLeft, StyledMainTitle, StyledTitle, StyledListLeft, StyledNameList, StyledInnerContainerRight, StyledListRight, StyledIconWrapper, StyledWelcomeLink } from './WelcomePage.styled';
 import sprite from '../../assets/sprite.svg';
 
 const WelcomePage = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const handleShowModal = () => {
-    setIsOpenModal(true);
-  }
 
   return (
     <StyledFullPage>
@@ -22,7 +16,7 @@ const WelcomePage = () => {
             <li> <StyledIconWrapper><use href={`${sprite}#presentation-chart-bar`} /></StyledIconWrapper>View statistics</li>
             <li> <StyledIconWrapper><use href={`${sprite}#wrench-schewdriver`} /></StyledIconWrapper>Personal rate setting</li>
           </StyledListLeft>
-          <StyledWelcomeButton onClick={handleShowModal}>Try tracker</StyledWelcomeButton>
+          <StyledWelcomeLink to='/signup'>Try tracker</StyledWelcomeLink>
         </StyledInnerContainerLeft>
         <StyledInnerContainerRight>
           <StyledListRight>
@@ -37,7 +31,6 @@ const WelcomePage = () => {
           </StyledListRight>
         </StyledInnerContainerRight>
       </StyledMainContainer>
-      {isOpenModal && <ModalWindow onClose={() => setIsOpenModal(false)}> Modal Window</ModalWindow>}
     </StyledFullPage>
   );
 };
