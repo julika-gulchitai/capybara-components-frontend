@@ -33,7 +33,7 @@ function App() {
     <AppWrapper>
       <Routes>
         <Route path='/' element={<SharedLayout/>}>
-          {/*   <Route index element={<Navigate to={isLoggedIn ? '/home' : '/welcome'}/>}/>*/}
+          <Route index element={<Navigate to={isLoggedIn ? '/home' : '/welcome'}/>}/>
           <Route path='/welcome' element={<GuestRoute component={<WelcomePage/>}/>}/>
           <Route path='/home' element={<PrivateRoute component={<HomePage/>}/>}/>
           <Route path='/signup' element={<GuestRoute component={<SignUp/>}/>}/>
