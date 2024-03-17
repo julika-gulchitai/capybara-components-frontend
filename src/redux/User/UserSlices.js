@@ -7,6 +7,7 @@ import {
   registerThunk,
   updateUserThunk,
 } from './UserThunks.js';
+
 const initialState = {
   user: {
     username: '',
@@ -17,7 +18,7 @@ const initialState = {
   },
   token: '',
   isLoggedIn: false,
-  isRefresh: false,
+  isRefreshing: false,
   isLoading: false,
   isError: null,
 };
@@ -39,17 +40,16 @@ const userSlices = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(getCurrentThunk.fulfilled, (state, actions) => {
-        state.user.name = actions.payload.name;
-        state.token = actions.payload.token;
+      .addCase(getCurrentThunk.fulfilled, (state, {payload}) => {
+        state.user = payload.user;
         state.isLoggedIn = true;
-        state.isRefresh = false;
+        state.isRefreshing = false;
       })
-      .addCase(getCurrentThunk.pending, (state, actions) => {
-        state.isRefresh = true;
+      .addCase(getCurrentThunk.pending, (state) => {
+        state.isRefreshing = true;
       })
       .addCase(getCurrentThunk.rejected, (state) => {
-        state.isRefresh = false;
+        state.isRefreshing = false;
       })
       .addCase(logoutThunk.fulfilled, (state) => {
         state.user = initialState.user;
@@ -93,5 +93,5 @@ const userSlices = createSlice({
   },
 });
 
-export const userReduser = userSlices.reducer;
+export const userReducer = userSlices.reducer;
 export const { setStateToken } = userSlices.actions;

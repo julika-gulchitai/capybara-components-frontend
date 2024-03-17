@@ -45,11 +45,12 @@ export const updateUserThunk = createAsyncThunk(
 export const getCurrentThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    const savedToken = thunkAPI.getState().auth.token;
+    const state = thunkAPI.getState();
+    const savedToken = state.user.token;
     if (savedToken) {
       setToken(savedToken);
     } else {
-      return thunkAPI.rejectWithValue('Token is not exist');
+      return thunkAPI.rejectWithValue('No token!');
     }
     try {
       const response = await api.get('users/current');
