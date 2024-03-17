@@ -41,14 +41,18 @@ const TodayWaterList = () => {
   const handleOpenModalTodayListEdit = (item, event) => {
     setCurrentItem(item);
     setOpenModalTodayList(true);
-    setIsEditing(true);
-    event.stopPropagation(); // Зупиняє подальше спливання подій
+    setIsEditing(false);
+    event.stopPropagation();
+  };
+
+  const handleCloseModalTodayList = () => {
+    setOpenModalTodayList(false);
   };
 
   const handleOpenModalTodayListAdd = (event) => {
     setOpenModalTodayList(true);
     setIsEditing(false);
-    event.stopPropagation(); // Зупиняє подальше спливання подій
+    event.stopPropagation();
   };
 
   const handleModalDel = (item) => {
@@ -99,10 +103,10 @@ const TodayWaterList = () => {
         <ModalWindow
           $position={'center'}
           open={openModalTodayList}
-          setOpenModal={setOpenModalTodayList}
+          onClose={handleCloseModalTodayList}
         >
           <TodayListModal
-            onClose={setOpenModalTodayList}
+            onClose={handleCloseModalTodayList}
             isEditing={isEditing}
             data={currentItem}
           />

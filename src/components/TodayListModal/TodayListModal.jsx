@@ -6,10 +6,13 @@ import {
   AddWater,
   TextChoose,
   TextAmount,
+  StyledPlusIcon,
+  StyledMinusIcon,
   ButtonWrapper,
   FormStyled,
   ButtonSaveWrapper,
   StyledAddWaterModal,
+  GlassStyle,
   GlassContainer,
   FormAmount,
   TimeValue,
@@ -80,6 +83,7 @@ const TodayListModal = ({ isEditing, data, onClose }) => {
       <div>
         {isEditing && (
           <GlassContainer>
+            <GlassStyle />
             <FormAmount>{data.amountWater}ml</FormAmount>
             <TimeValue>
               {new Date(data.time).toLocaleTimeString([], {
@@ -103,11 +107,15 @@ const TodayListModal = ({ isEditing, data, onClose }) => {
           name="minus"
           onClick={handleAmountChange}
           disabled={amountWater === 0}
-        ></button>
+        >
+          <StyledMinusIcon aria-label="minus_button" />
+        </button>
 
         <span>{amountWater}ml</span>
 
-        <button type="button" name="plus" onClick={handleAmountChange}></button>
+        <button type="button" name="plus" onClick={handleAmountChange}>
+          <StyledPlusIcon aria-label="plus_button" />
+        </button>
       </ButtonWrapper>
 
       <FormStyled>
