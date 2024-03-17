@@ -1,4 +1,4 @@
-import{u as i,r as l,a as U,j as e,R as q,F as z,b as L,B as K,M as N,c as v,N as D,p as O,A as Q}from"./index-cc4d2bea.js";const X=i.div`
+import{u as i,r as l,a as U,j as e,R as q,F as z,b as L,B as K,M as N,c as v,N as D,p as O,A as Q}from"./index-72a1b328.js";const X=i.div`
   box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
   background: var(--white);
   border: 1px solid var(--secondary-white);
@@ -753,11 +753,25 @@ import{u as i,r as l,a as U,j as e,R as q,F as z,b as L,B as K,M as N,c as v,N a
     gap: 32px;
   }
 `,he=i.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 441px;
+  
+  @media only screen and (min-width: 768px) {
+    height: 492px;
+  }
+  
   @media only screen and (min-width: 1440px) {
-    width: calc((100% / 2) - 16px );
+    width: calc((100% / 2) - 16px);
+    height: 680px;
+    padding-top: 16px;
+    padding-bottom: 32px;
   }
 `,xe=i.div`
   @media only screen and (min-width: 1440px) {
     width: calc((100% / 2) - 16px );
+    height: 680px;
   }
 `,ge=()=>e.jsxs(pe,{children:[e.jsx(he,{className:"left",children:e.jsx(d1,{})}),e.jsx(xe,{className:"right",children:e.jsx(ce,{})})]});export{ge as default};
