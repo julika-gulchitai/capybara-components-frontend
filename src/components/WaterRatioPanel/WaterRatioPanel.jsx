@@ -1,5 +1,4 @@
-// import { ReactComponent as AddIcon } from '../../images/svg/plus_circle.svg';
-
+import sprite from '../../assets/sprite.svg';
 import {
   AddBtn,
   ContainerWater,
@@ -10,7 +9,7 @@ import {
 } from './WaterRatioPanel.styled';
 
 const WaterRatioPanel = () => {
-  const currentDayWater = 1500;
+  const currentDayWater = 1000;
   return (
     <ContainerWater>
       <InputContainer>
@@ -28,6 +27,10 @@ const WaterRatioPanel = () => {
           <span>100%</span>
         </WrapperPercentage>
       </InputContainer>
+      <AddBtn type="button">
+        <use href={`${sprite}#plus-circle`} />
+        Add water
+      </AddBtn>
     </ContainerWater>
   );
 };

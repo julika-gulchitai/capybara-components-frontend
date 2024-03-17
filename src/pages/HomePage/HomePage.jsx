@@ -12,7 +12,7 @@ const HomePage = () => {
     <HomeContainer>
       <LeftContainer className="left">
         <DailyNorma />
-        <WaterRatioPanel></WaterRatioPanel>
+        <WaterRatioPanel />
       </LeftContainer>
       <RightContainer className="right">
         <SectionWaterList />
