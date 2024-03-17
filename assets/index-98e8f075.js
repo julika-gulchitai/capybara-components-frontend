@@ -861,21 +861,25 @@ width: 100%;
     justify-content: flex-end;
   }
 `,WA=({onClose:e})=>{const[t,n]=E.useState(0),[r,i]=E.useState(0),[o,s]=E.useState(1.8),[a,l]=E.useState(!0),{register:u,handleSubmit:f}=Hh({mode:"onChange"});return E.useEffect(()=>{if(a&&t>0){const c=t*.03+r*.4;s(c.toFixed(1))}if(!a&&t>0){const c=t*.04+r*.6;s(c.toFixed(1))}},[t,r,o,a]),b.jsxs(MA,{children:[b.jsx("h2",{children:"My daily norma"}),b.jsxs(FA,{children:[b.jsxs("p",{children:["For girl: ",b.jsx("span",{children:"V=(M*0,03) + (T*0,4)"})]}),b.jsxs("p",{children:["For man: ",b.jsx("span",{children:"V=(M*0,04) + (T*0,6)"})]})]}),b.jsxs(zA,{children:[b.jsx("span",{children:"*"})," V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"]}),b.jsx("h3",{children:"Calculate your rate:"}),b.jsxs("form",{action:"",onSubmit:f(c=>{console.log(c)}),children:[b.jsxs(mw,{defaultValue:"female",name:"radio-buttons-group",row:!0,sx:{marginBottom:"16px"},children:[b.jsx(_u,{value:"female",control:b.jsx(Ru,{}),label:"For woman",onChange:()=>l(!0),sx:{"& .MuiSvgIcon-root":{fontSize:18},"& .MuiFormControlLabel-label":{fontSize:16,lineHeight:1.25,letterSpacing:"0"},"& .MuiRadio-colorPrimary":{color:"#407bff"},"& .MuiRadio-colorPrimary.Mui-checked":{color:"#407bff"}}}),b.jsx(_u,{value:"male",control:b.jsx(Ru,{}),label:"For man",onChange:()=>l(!1),sx:{"& .MuiSvgIcon-root":{fontSize:18},"& .MuiFormControlLabel-label":{fontSize:16,lineHeight:1.25},"& .MuiRadio-colorPrimary":{color:"#407bff"},"& .MuiRadio-colorPrimary.Mui-checked":{color:"#407bff"}}})]}),b.jsxs(LA,{children:[b.jsxs(Iy,{children:[b.jsx("label",{htmlFor:"weight",children:"Your weight in kilograms:"}),b.jsx("input",{type:"text",...u("weight"),name:"weight",id:"weight",placeholder:"0",onChange:c=>n(c.target.value),onFocus:c=>c.target.placeholder="",onBlur:c=>c.target.placeholder="0",autoComplete:"off"})]}),b.jsxs(Iy,{children:[b.jsx("label",{htmlFor:"sports-time",children:"The time of active participation in sports or other activities with a high physical load in hours:"}),b.jsx("input",{type:"text",...u("sports"),name:"sports",id:"sports-time",placeholder:"0",onChange:c=>i(c.target.value),onFocus:c=>c.target.placeholder="",onBlur:c=>c.target.placeholder="0",autoComplete:"off"})]})]}),b.jsxs(IA,{children:[b.jsx("p",{children:"The required amount of water in liters per day:"}),b.jsx("p",{children:b.jsxs("span",{children:[o," L"]})})]}),b.jsxs(DA,{children:[b.jsx("label",{htmlFor:"norma",children:"Write down how much water you will drink:"}),b.jsx("input",{type:"text",...u("norma",{max:15}),name:"norma",id:"norma",placeholder:"0",onFocus:c=>c.target.placeholder="",onBlur:c=>c.target.placeholder="0",autoComplete:"off"})]}),b.jsx(BA,{children:b.jsx(Ih,{type:"submit",onClick:e,children:"Save"})})]})]})},UA=()=>{const[e,t]=E.useState(!1);return b.jsxs(b.Fragment,{children:[b.jsxs(AA,{children:[b.jsx("h2",{children:"My daily norma"}),b.jsxs(jA,{children:[b.jsx("p",{children:"1.5 L"}),b.jsx("button",{onClick:()=>t(!0),children:"Edit"})]})]}),e&&b.jsx(zh,{open,onClose:()=>t(!1),children:b.jsx(WA,{onClose:()=>t(!1)})})]})},VA=ee.div`
-  margin-bottom: 40px;
-  padding: 24px 8px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 209px;
+
+  width: 592px;
+  height: 680px;
+
+  margin-left: 736px;
+  margin-top: calc(-80px + 0px);
 
   border-radius: 10px;
-  background: var(--secondary-lightblue);
+  background: var(--secondary-white);
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 44px;
-    padding: 32px 24px;
-    height: 688px;
   }
+
   @media only screen and (min-width: 1440px) {
     height: 680px;
   }
