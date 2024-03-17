@@ -67,10 +67,12 @@ function UserLogo() {
             setIsLogOutModalOpen(true);
           }}/>
       </Popover>
-      <ModalWindow open={isSettingsModalOpen || isLogOutModalOpen} onClose={() => closeModal()}>
-        {isSettingsModalOpen && (<SettingModal close={() => setIsSettingsModalOpen(false)}/>)}
-        {/*  {isLogOutModalOpen && (<UserLogoutModal close={() => setIsLogOutModalOpen(false)}/>)}*/}
-      </ModalWindow>
+      {(isSettingsModalOpen || isLogOutModalOpen) &&
+        <ModalWindow onClose={() => closeModal()}>
+          {isSettingsModalOpen && (<SettingModal close={() => setIsSettingsModalOpen(false)}/>)}
+         {/* {isLogOutModalOpen && (<UserLogoutModal close={() => setIsLogOutModalOpen(false)}/>)}*/}
+        </ModalWindow>
+      }
     </>
   );
 }
