@@ -1,6 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { setToken } from '../../configApi/setToken.js';
 import {
+  editWaterRateThunk,
   getCurrentThunk,
   loginThunk,
   logoutThunk,
@@ -40,7 +41,7 @@ const userSlices = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(getCurrentThunk.fulfilled, (state, {payload}) => {
+      .addCase(getCurrentThunk.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.isLoggedIn = true;
         state.isRefreshing = false;
@@ -62,6 +63,20 @@ const userSlices = createSlice({
         state.user.email = email;
         state.user.gender = gender;
         state.user.avatarURL = avatarURL;
+      })
+      .addCase(editWaterRateThunk.fulfilled, (state, { payload }) => {
+        state.user.waterRate = payload.waterRate;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+
+      })
+      .addCase(editWaterRateThunk.pending, (state) => {
+        state.isLoading = true;
+        state.isError = null;
+      })
+      .addCase(editWaterRateThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isError = payload;
       })
       .addMatcher(
         isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
