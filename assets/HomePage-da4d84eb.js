@@ -1,4 +1,4 @@
-import{u as i,r as l,a as q,j as e,R as K,F,b as L,B as E,M as N,c as y,N as D,p as O,s as Q,A as X}from"./index-c9f6dadd.js";const e1=i.div`
+import{u as i,r as l,a as q,j as e,R as K,F,b as L,B as E,M as N,c as y,N as D,p as O,s as Q,A as X}from"./index-7ce6ea2c.js";const e1=i.div`
   box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
   background: var(--white);
   border: 1px solid var(--secondary-white);
@@ -749,13 +749,13 @@ import{u as i,r as l,a as q,j as e,R as K,F,b as L,B as E,M as N,c as y,N as D,p
   justify-content: center;
   align-items: center;
   gap: 24px;
+  width: 592px;
+  height: 90px;
 `,xe=i.div`
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
-  width: 356px;
-  height: 106px;
 `,ue=i.p`
   color: var(--blue);
   font-size: 18px;
