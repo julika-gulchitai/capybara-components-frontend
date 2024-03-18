@@ -7,6 +7,7 @@ import {
 import ReactDom from 'react-dom';
 import sprite from '../../assets/sprite.svg';
 import { useEffect } from 'react';
+import theme from '../../css/VariablesJSX'
 
 const ModalWindow = ({ onClose, children }) => {
 
@@ -38,7 +39,7 @@ const ModalWindow = ({ onClose, children }) => {
 
   return ReactDom.createPortal(
     <ModalWrapper onMouseDown={clickOutside}>
-      <ModalContent>
+      <ModalContent theme={theme}>
         {children}
         <ModalButtonClose onClick={onClose}>
           <StyledIconWrapper>
