@@ -1,4 +1,4 @@
-import{u as i,r as a,a as ee,b as A,c as I,d as te,j as e,R as ne,F as E,e as N,B as Z,f as ie,n as re,p as L,M as D,g as j,N as P,s as oe,A as ae}from"./index-229c4cdd.js";const le=i.div`
+import{u as i,r as a,a as ee,b as A,c as I,d as te,j as e,R as ne,F as E,e as N,B as Z,f as ie,n as re,p as L,M as D,g as j,N as P,s as oe,A as ae}from"./index-3caec627.js";const le=i.div`
   box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
   background: var(--white);
   border: 1px solid var(--secondary-white);
@@ -366,8 +366,7 @@ import{u as i,r as a,a as ee,b as A,c as I,d as te,j as e,R as ne,F as E,e as N,
   width: 592px;
   height: 680px;
 
-  margin-left: 736px;
-  margin-top: calc(-80px + 0px);
+  margin-top: calc(-10px + 0px);
 
   border-radius: 10px;
   background: var(--secondary-white);
