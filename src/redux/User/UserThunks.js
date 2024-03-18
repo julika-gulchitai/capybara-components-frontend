@@ -85,3 +85,31 @@ export const editWaterRateThunk = createAsyncThunk(
   }
 )
 
+export const forgotPassword = createAsyncThunk(
+  'users/forgot_password',
+  async (email, thunkAPI) => {
+    try {
+      const { data } = await api.post('users/forgot_password', {email});
+      return data;
+    }
+    catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message)
+    }
+  }
+)
+
+//http://localhost:4000/api/users/reset_password&id=65f82e965538347e7dea7d4f
+
+export const resetPassword = createAsyncThunk(
+  'users/reset_password',
+  async (_id, thunkAPI) => {
+    try {
+      const { data } = await api.post('users/reset_password', {_id});
+      console.log(data)
+      return data;
+    }
+    catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)

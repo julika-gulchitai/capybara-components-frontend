@@ -45,7 +45,7 @@ const AuthForm = ({ signUp }) => {
               [yup.ref('password'), null],
               "Passwords don't match, please try again."
             )
-            .min(6, 'Password must be at least 8 characters')
+            .min(8, 'Password must be at least 8 characters')
             .required('Confirm password is required')
         : yup.string(),
     })
@@ -67,7 +67,6 @@ const AuthForm = ({ signUp }) => {
               messageMaxLength:500,
               fontSize:"14px",
               position:"center-top",
-              background:"#ff9d43"
             }
           );
         })

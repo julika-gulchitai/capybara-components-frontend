@@ -33,6 +33,7 @@ if (message) {
         <AuthForm />
         <MarginBetween></MarginBetween>
         <StyledNavlink to="/signup">Sign Up</StyledNavlink>
+        <StyledNavlink to='/forgot_password'>Forgot your password?</StyledNavlink>
       </WraperForm>
       <BottleComponent></BottleComponent>
     </Wrapper>
