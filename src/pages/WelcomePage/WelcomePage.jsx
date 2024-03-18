@@ -1,10 +1,11 @@
 import { StyledFullPage, StyledMainContainer, StyledInnerContainerLeft, StyledMainTitle, StyledTitle, StyledListLeft, StyledNameList, StyledInnerContainerRight, StyledListRight, StyledIconWrapper, StyledWelcomeLink } from './WelcomePage.styled';
 import sprite from '../../assets/sprite.svg';
+import theme from '../../css/VariablesJSX';
 
 const WelcomePage = () => {
 
   return (
-    <StyledFullPage>
+    <StyledFullPage theme={theme}>
       <StyledMainContainer>
         <StyledInnerContainerLeft>
           <StyledMainTitle>Water consumption tracker</StyledMainTitle>
@@ -16,7 +17,7 @@ const WelcomePage = () => {
             <li> <StyledIconWrapper><use href={`${sprite}#presentation-chart-bar`} /></StyledIconWrapper>View statistics</li>
             <li> <StyledIconWrapper><use href={`${sprite}#wrench-schewdriver`} /></StyledIconWrapper>Personal rate setting</li>
           </StyledListLeft>
-          <StyledWelcomeLink to='/signup'>Try tracker</StyledWelcomeLink>
+          <StyledWelcomeLink theme={theme} to='/signup'>Try tracker</StyledWelcomeLink>
         </StyledInnerContainerLeft>
         <StyledInnerContainerRight>
           <StyledListRight>
