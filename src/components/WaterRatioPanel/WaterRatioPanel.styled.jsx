@@ -9,6 +9,7 @@ export const WaterWrap = styled.div`
   align-items: center;
   gap: 24px;
   width: 280px;
+  width: 100%;
   height: 82px;
 
   @media screen and (min-width: 768px) {
@@ -21,7 +22,7 @@ export const WaterWrap = styled.div`
     flex-direction: row;
     width: 592px;
     height: 106px;
-    gap: 42px;
+    gap: 32px;
   }
 `;
 
@@ -36,9 +37,10 @@ export const TodayText = styled.p`
   color: var(--blue);
   font-size: 18px;
   line-height: 1.3;
-  margin-bottom: 8px;
+  margin-bottom: 17px;
 `;
 export const StyledInput = styled.input`
+
   &[type='range'] {
     height: 8px;
     border-radius: 8px;
@@ -52,6 +54,7 @@ export const StyledInput = styled.input`
     );
     margin-left: 10px;
     margin-bottom: 4px;
+    margin-right: 14px;
   }
   &[type='range']::-webkit-slider-thumb {
     width: 14px;
@@ -60,7 +63,6 @@ export const StyledInput = styled.input`
     border-radius: 50%;
     border: solid 1px var(--blue);
     appearance: none;
-    margin-top: -2px;
   }
   @media screen and (min-width: 768px) {
     width: 322px;
@@ -70,7 +72,10 @@ export const StyledInput = styled.input`
     width: 360px;
   }
   @media screen and (max-width: 767px) {
-    width: 255px;
+    /* max-width: 255px; */
+    padding-right: 10px
+    width: 100%;
+    m
   }
 `;
 
