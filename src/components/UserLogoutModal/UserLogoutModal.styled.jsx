@@ -1,189 +1,71 @@
 import styled from 'styled-components';
-import { theme } from '../../css/VariablesJSX.jsx';
+import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 
 export const LogOutWindow = styled.div`
-  background-color: ${theme.colors.white};
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-  width: 280px;
-  padding: 32px 24px;
+  padding: 8px 12px;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  display: flex;
+  gap: 24px;
+  width: 280px;
+  height: 260px;
+
   @media screen and (min-width: 768px) {
     width: 592px;
+    height: 208px;
   }
 `;
 
 export const LogOutHeader = styled.div`
   font-size: 26px;
   font-weight: 500;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  line-height: 1.15;
 `;
 
 export const LogOutText = styled.div`
   font-size: 18px;
-  margin-bottom: 24px;
-  line-height: 20px;
+  font-weight: 500;
+  line-height: 1.1;
 `;
 
-export const LogOutBtns = styled.div`
+export const WrapBtn = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   gap: 24px;
+  width: 100%;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: flex-end;
   }
+
   @media screen and (min-width: 1440px) {
     justify-content: flex-start;
   }
 `;
 
-export const LogOutBtn = styled.button`
-  display: flex;
-  justify-content: center;
+export const LogoutBtn = styled(ButtonStyled)`
+  background-color: var(--secondary-red);
+  color: var(--white);
   align-items: center;
-  border-radius: 10px;
-  background-color: ${theme.colors.secondaryRed};
-  color: ${theme.colors.white};
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease,
-    width 0.3s ease;
-  width: 232px;
-  height: 36px;
-  padding: 8px 30px;
-  &:not(:first-child) {
-    margin-bottom: 24px;
-  }
-  &:not(:last-child) {
-    background-color: ${theme.colors.secondaryLightBlue};
-    color: ${theme.colors.blue};
-  }
-  &:hover {
-    box-shadow: 0px 8px 16px 0px rgba(64, 123, 255, 0.5);
-    transform: scale(1.05);
-  }
+  width: 100%;
+  margin-top: 0;
+
   @media screen and (min-width: 768px) {
     width: 160px;
-    height: 44px;
-    font-size: 18px;
-    padding: 10px 30px;
-    &:not(:last-child) {
-      margin-right: 24px;
-      margin-bottom: 0;
-    }
-    &:not(:first-child) {
-      margin-bottom: 0;
-    }
   }
 `;
+export const LogoutCancelBtn = styled(ButtonStyled)`
+  background-color: var(--secondary-lightblue);
+  color: var(--blue);
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  box-shadow: 0 0 0 0;
 
-
-export const ButtonEsc = styled.button`display: flex;
-justify-content: center;
-align-items: center;
-gap: 10px;
-
-font-size: 16px;
-line-height: calc(20 / 16);
-font-weight: 500;
-text-align: center;
-color: ${theme.colors.blue};
-width: 100%;
-padding: 8px 30px;
-
-outline: none;
-border: none;
-border-radius: 10px;
-background-color: ${theme.colors.secondaryLightBlue};
-box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-
-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);;
-cursor: pointer;
-
-&:hover {
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-}
-&:active {
-  box-shadow: none;
-}
-&:disabled {
-  background-color: ${theme.colors.secondaryBlue};
-  cursor: not-allowed;
-}
-@media screen and (min-width: 768px) {
-  width: 100%};
-  margin-left: 24px};
-  margin-right:  24px};
-  font-size: 18px;
-  line-height: calc(24 / 18);
-  padding: 10px 30px;
-}
-
-svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: ${theme.colors.white};
-}
-`;
-
-export const ButtonLogOut = styled.button`display: flex;
-justify-content: center;
-align-items: center;
-gap: 10px;
-
-font-size: 16px;
-line-height: calc(20 / 16);
-font-weight: 500;
-text-align: center;
-color: ${theme.colors.white};
-width: 100%;
-padding: 8px 30px;
-
-outline: none;
-border: none;
-border-radius: 10px;
-background-color: ${theme.colors.secondaryRed};
-box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-
-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-cursor: pointer;
-
-&:hover {
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-}
-&:active {
-  box-shadow: none;
-}
-&:disabled {
-  background-color: ${theme.colors.secondaryBlue};
-  cursor: not-allowed;
-}
-@media screen and (min-width: 768px) {
-  width: ${props => props.$width || '100%'};
-  margin-left: ${props => props.$marginLeft || ''};
-  margin-right: ${props => props.$marginRight || ''};
-  font-size: 18px;
-  line-height: calc(24 / 18);
-  padding: 10px 30px;
-}
-
-svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: ${theme.colors.white};
-}
+  @media screen and (min-width: 768px) {
+    width: 160px;
+  }
 `;
