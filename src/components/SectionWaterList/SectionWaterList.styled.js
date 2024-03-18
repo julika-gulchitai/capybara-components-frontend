@@ -9,8 +9,7 @@ export const StyledSectionWaterList = styled.div`
   width: 592px;
   height: 680px;
 
-  margin-left: 736px;
-  margin-top: calc(-80px + 0px);
+  margin-top: calc(-10px + 0px);
 
   border-radius: 10px;
   background: var(--secondary-white);
