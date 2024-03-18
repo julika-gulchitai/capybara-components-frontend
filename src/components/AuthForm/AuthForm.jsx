@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix';
@@ -30,13 +30,13 @@ const AuthForm = ({ signUp }) => {
     .shape({
       email: yup
         .string()
-        .email( 'Please write valid email')
-        .required( 'Email is required'),
+        .email('Please write valid email')
+        .required('Email is required'),
       password: yup
         .string()
-        .min( 8 ,'Password must be at least 8 characters' )
+        .min(8, 'Password must be at least 8 characters')
         .max(64)
-        .required('Password is required' ),
+        .required('Password is required'),
 
       repeat_password: signUp
         ? yup
@@ -58,7 +58,18 @@ const AuthForm = ({ signUp }) => {
         .unwrap()
         .then(() => {
           navigate('/signin');
-          
+          Notify.success(
+            'A message with a confirmation link has been sent to your email address. Please folow the link to activate your account.',
+            {
+              timeout: 5000,
+              width: '460px',
+              height:'200px',
+              messageMaxLength:500,
+              fontSize:"14px",
+              position:"center-top",
+              background:"#ff9d43"
+            }
+          );
         })
         .catch((err) => {
           Notify.warning(err);
@@ -68,7 +79,6 @@ const AuthForm = ({ signUp }) => {
         .unwrap()
         .then(() => {
           navigate('/home');
-      
         })
         .catch((err) => {
           Notify.warning(err);

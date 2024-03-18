@@ -7,6 +7,7 @@ import {
   logoutThunk,
   registerThunk,
   updateUserThunk,
+
 } from './UserThunks.js';
 
 const initialState = {
@@ -68,7 +69,6 @@ const userSlices = createSlice({
         state.user.waterRate = payload.waterRate;
         state.isLoggedIn = true;
         state.isLoading = false;
-
       })
       .addCase(editWaterRateThunk.pending, (state) => {
         state.isLoading = true;
@@ -104,7 +104,8 @@ const userSlices = createSlice({
           state.isLoading = false;
           state.isError = actions.payload;
         }
-      );
+      )
+      
   },
 });
 
