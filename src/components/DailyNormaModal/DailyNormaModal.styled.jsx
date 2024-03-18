@@ -175,3 +175,10 @@ export const RadioBtns = styled.div`
     width: auto;
   }
 `;
+
+export const Error = styled.p`
+  margin-top: -16px;
+  color: var(--secondary-red);
+  font-size: 14px;
+  line-height: 1.29;
+`;
