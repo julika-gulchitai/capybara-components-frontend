@@ -1,6 +1,4 @@
 import { useDispatch } from 'react-redux';
-import Notiflix from 'notiflix';
-import { NOTIFICATIONS, paramsForNotify } from '../../constants/notifications';
 
 import { logoutThunk } from '../../redux/User/UserThunks.js';
 import {
@@ -16,14 +14,13 @@ const UserLogoutModal = ({ close }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logoutThunk());
-    Notiflix.Notify.success(NOTIFICATIONS.SUCCESS.LOGOUT, paramsForNotify);
+    dispatch(logoutThunk()).unwrap();
   };
 
   return (
     <>
       <LogOutWindow>
-        <LogOutHeader onClick={handleLogout}>Log out</LogOutHeader>
+        <LogOutHeader onClick={handleLogout()}>Log out</LogOutHeader>
         <LogOutText>Do you really want to leave?</LogOutText>
         <WrapBtn>
           <LogoutBtn>Log out</LogoutBtn>
