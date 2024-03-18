@@ -89,7 +89,7 @@ export const forgotPassword = createAsyncThunk(
   'users/forgot_password',
   async (email, thunkAPI) => {
     try {
-      const { data } = await api.post('users/forgot_password', {email});
+      const { data } = await api.post('users/forgot-password', {email});
       return data;
     }
     catch (error) {
@@ -102,9 +102,9 @@ export const forgotPassword = createAsyncThunk(
 
 export const resetPassword = createAsyncThunk(
   'users/reset_password',
-  async (_id, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const { data } = await api.post('users/reset_password', {_id});
+      const { data } = await api.post(`users/reset-password/${id}`);
       console.log(data)
       return data;
     }
