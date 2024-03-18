@@ -1,55 +1,36 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import ReactModal from 'react-modal';
+import Notiflix from 'notiflix';
+import { NOTIFICATIONS, paramsForNotify } from '../../constants/notifications';
+
 import { logoutThunk } from '../../redux/User/UserThunks.js';
 import {
-  LogOutBtns,  
   LogOutHeader,
   LogOutText,
   LogOutWindow,
-  ButtonEsc,
-  ButtonLogOut,   
+  WrapBtn,
+  LogoutBtn,
+  LogoutCancelBtn,
 } from './UserLogoutModal.styled.jsx';
 
-
-
-ReactModal.setAppElement('#root');
-
-const UserLogoutModal = ({ onClose }) => {
+const UserLogoutModal = ({ close }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logoutThunk())
-      .then(() => {
-        dispatch({ type: 'CLEAR_USER_DATA' });
-        onClose();
-      })
-      .catch(error => {
-        console.error('Error logging out:', error);
-      });
-  };
-
-  const handleCancel = () => {
-    onClose();
+    dispatch(logoutThunk());
+    Notiflix.Notify.success(NOTIFICATIONS.SUCCESS.LOGOUT, paramsForNotify);
   };
 
   return (
-    <LogOutWindow>
-      <LogOutHeader>
-        <p>Log out</p>        
-      </LogOutHeader>
-      <LogOutText>
-        <p>Do you really want to leave?</p>
-      </LogOutText>
-      <LogOutBtns>
-        <ButtonEsc  $width="160px" onClick={handleCancel}>
-          Cancel
-        </ButtonEsc>
-        <ButtonLogOut  $width="160px" onClick={handleLogout}>
-          Log out
-        </ButtonLogOut>
-      </LogOutBtns>
-    </LogOutWindow>
+    <>
+      <LogOutWindow>
+        <LogOutHeader onClick={handleLogout}>Log out</LogOutHeader>
+        <LogOutText>Do you really want to leave?</LogOutText>
+        <WrapBtn>
+          <LogoutBtn>Log out</LogoutBtn>
+          <LogoutCancelBtn onClick={close}>Cancel</LogoutCancelBtn>
+        </WrapBtn>
+      </LogOutWindow>
+    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
-// import { theme } from '../../css/VariablesJSX';
 
 export const WaterWrap = styled.div`
   display: flex;
