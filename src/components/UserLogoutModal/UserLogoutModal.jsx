@@ -14,16 +14,16 @@ const UserLogoutModal = ({ close }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    // dispatch(logoutThunk()).unwrap();
+    dispatch(logoutThunk());
   };
 
   return (
     <>
       <LogOutWindow>
-        <LogOutHeader onClick={handleLogout()}>Log out</LogOutHeader>
+        <LogOutHeader>Log out</LogOutHeader>
         <LogOutText>Do you really want to leave?</LogOutText>
         <WrapBtn>
-          <LogoutBtn>Log out</LogoutBtn>
+          <LogoutBtn onClick={handleLogout()}>Log out</LogoutBtn>
           <LogoutCancelBtn onClick={close}>Cancel</LogoutCancelBtn>
         </WrapBtn>
       </LogOutWindow>
