@@ -4,6 +4,7 @@ import bgWelcomeMobile from '../../assets/mobile/background-welcome-page.svg'
 import bgWelcomeTab from '../../assets/tablet/background-main-page-f.svg';
 import bgHomeScreen from '../../assets/desktop/background-element-main-page.svg'
 import { Link } from "react-router-dom";
+import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
 
 export const StyledFullPage = styled.div`
   display: flex;
@@ -32,19 +33,26 @@ export const StyledFullPage = styled.div`
       justify-content: center;
   }
 `
+export const AdaptContainer = styled(AdaptiveContainer)`
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    }
+`;
 export const StyledMainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin:1rem 1.25rem 2.5rem 1.25rem;
+  margin: 1rem 0;
   @media only screen and (min-width: 768px) {
-      margin: 1.5rem 2rem;
+      margin: 1.5rem 0;
       align-items: flex-start;
   }
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
-    margin: 4.2rem 6.5rem;
+    margin: 4.2rem 5.5rem 4.2rem 6.5rem;
     gap: 5rem;
   }
 `
@@ -56,6 +64,9 @@ export const StyledInnerContainerLeft = styled.div`
 h3{
   font-size: 18px;
   line-height: 1.11111;
+  @media only screen and (min-width: 768px) {
+    margin-top: .5rem;
+  }
   @media only screen and (min-width: 1440px) {
     margin-top: .5rem;
     margin-bottom: 1rem;
@@ -63,6 +74,7 @@ h3{
   }
 `
 export const StyledMainTitle = styled.h1`
+ font-size: 1.75rem;
 margin: 0;
   @media only screen and (min-width: 768px) {
     font-size: 2.25rem;
@@ -130,7 +142,7 @@ export const StyledInnerContainerRight = styled.div`
   @media only screen and (min-width: 768px) {
     margin-top: 1.25rem;
   }
-`
+  `
 export const StyledNameList = styled.h3`
   font-size: 18px;
   line-height: 1.11111;
@@ -148,6 +160,7 @@ export const StyledListRight = styled.ul`
   @media only screen and (min-width: 768px) {
     padding: 2rem 2.5rem;
   }
+
   li{
     margin: 1rem 0 0;
     line-height: 1.25;
