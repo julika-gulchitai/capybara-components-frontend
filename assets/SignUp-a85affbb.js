@@ -1,1 +1,0 @@
-import{j as s,W as r,q as n,t,v as e,S as i}from"./index-cc7623e4.js";import{A as a,B as o}from"./BottleComponent-90712044.js";import"./AuthForm.styled-89a1eb3a.js";const l=()=>s.jsxs(r,{children:[s.jsxs(n,{children:[s.jsx(t,{children:"Sign Up"}),s.jsx(a,{signUp:!0}),s.jsx(e,{}),s.jsx(i,{to:"/signin",children:"Sign In"})]}),s.jsx(o,{})]});export{l as default};
