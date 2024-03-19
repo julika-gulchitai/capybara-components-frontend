@@ -2,11 +2,14 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { setToken } from '../../configApi/setToken.js';
 import {
   editWaterRateThunk,
+  forgotPassword,
   getCurrentThunk,
   loginThunk,
   logoutThunk,
   registerThunk,
+  resetPassword,
   updateUserThunk,
+
 } from './UserThunks.js';
 
 const initialState = {
@@ -68,7 +71,6 @@ const userSlices = createSlice({
         state.user.waterRate = payload.waterRate;
         state.isLoggedIn = true;
         state.isLoading = false;
-
       })
       .addCase(editWaterRateThunk.pending, (state) => {
         state.isLoading = true;
@@ -78,15 +80,30 @@ const userSlices = createSlice({
         state.isLoading = false;
         state.isError = payload;
       })
-      .addMatcher(
-        isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
-        (state, actions) => {
-          state.user = actions.payload.user;
-
-          state.token = actions.payload.token;
-          state.isLoggedIn = true;
-        }
-      )
+      .addCase(forgotPassword.fulfilled,(state, action)=> {
+        state.user.email = action.payload;
+      })
+      .addCase(forgotPassword.pending,(state, action)=> {
+        state.isLoading = true;
+        state.isError = null;
+      })
+      .addCase(resetPassword.fulfilled, (state, action)=>{
+        state.user.password = action.payload;
+      })
+      .addCase(forgotPassword.rejected,(state, action)=> {
+        state.isLoading = false;
+        state.isError = action.payload;
+      })
+      .addCase(registerThunk.fulfilled, (state, action)=>{
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = false;
+      })
+      .addCase(loginThunk.fulfilled, (state, action)=>{
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+      })
       .addMatcher(
         isAnyOf(loginThunk.pending, registerThunk.pending, logoutThunk.pending),
         (state) => {
@@ -104,7 +121,8 @@ const userSlices = createSlice({
           state.isLoading = false;
           state.isError = actions.payload;
         }
-      );
+      )
+      
   },
 });
 

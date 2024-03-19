@@ -7,6 +7,9 @@ import {lazy, useEffect} from 'react';
 import {getCurrentThunk} from './redux/User/UserThunks.js';
 import GuestRoute from './routes/GuestRoute.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
+
+
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -24,6 +27,7 @@ function App() {
   const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
   const SignIn = lazy(() => import('./pages/SignIn/SignIn.jsx'));
   const SignUp = lazy(() => import('./pages/SignUp/SignUp.jsx'));
+  const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword.jsx'));
 
   return isRefreshing ? (
     /*<Loader visible={isLoading}/>*/
@@ -38,6 +42,8 @@ function App() {
           <Route path='/home' element={<PrivateRoute component={<HomePage/>}/>}/>
           <Route path='/signup' element={<GuestRoute component={<SignUp/>}/>}/>
           <Route path='/signin' element={<GuestRoute component={<SignIn/>}/>}/>
+          <Route path='/forgot_password' element={<ForgotPassword /> }/>
+          <Route path='/reset-password' element={<ResetPassword /> }/>
           <Route path='*' element={<Navigate to='/welcome'/>}/>
         </Route>
       </Routes>
