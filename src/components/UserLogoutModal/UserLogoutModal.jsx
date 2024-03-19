@@ -23,7 +23,7 @@ const UserLogoutModal = ({ close }) => {
         <LogOutHeader>Log out</LogOutHeader>
         <LogOutText>Do you really want to leave?</LogOutText>
         <WrapBtn>
-          <LogoutBtn onClick={handleLogout()}>Log out</LogoutBtn>
+          <LogoutBtn onClick={handleLogout}>Log out</LogoutBtn>
           <LogoutCancelBtn onClick={close}>Cancel</LogoutCancelBtn>
         </WrapBtn>
       </LogOutWindow>
