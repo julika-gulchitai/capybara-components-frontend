@@ -4,7 +4,7 @@ import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 export const LogOutWindow = styled.div`
   /* padding: 8px 12px; */
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   display: flex;
   gap: 24px;
   width: 280px;
@@ -54,7 +54,7 @@ export const LogoutBtn = styled(ButtonStyled)`
   margin-top: 0;
 
   @media screen and (min-width: 768px) {
-    width: 100%;
+    width: 160px;
     align-self: end;
   }
 `;
