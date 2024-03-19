@@ -14,7 +14,7 @@ const UserLogoutModal = ({ close }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logoutThunk()).unwrap();
+    // dispatch(logoutThunk()).unwrap();
   };
 
   return (
