@@ -7,10 +7,9 @@ import {
 import ReactDom from 'react-dom';
 import sprite from '../../assets/sprite.svg';
 import { useEffect } from 'react';
-import theme from '../../css/VariablesJSX'
+import ThemeComponent from '../ThemeComponent/ThemeComponent';
 
 const ModalWindow = ({ onClose, children }) => {
-
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
@@ -38,16 +37,19 @@ const ModalWindow = ({ onClose, children }) => {
   }, [onClose])
 
   return ReactDom.createPortal(
-    <ModalWrapper onMouseDown={clickOutside}>
-      <ModalContent theme={theme}>
-        {children}
-        <ModalButtonClose onClick={onClose}>
-          <StyledIconWrapper>
-            <use href={`${sprite}#x-mark`} />
-          </StyledIconWrapper>
-        </ModalButtonClose>
-      </ModalContent>
-    </ModalWrapper>,
+    <ThemeComponent>
+      <ModalWrapper onMouseDown={clickOutside}>
+        <ModalContent>
+          {children}
+          <ModalButtonClose onClick={onClose}>
+            <StyledIconWrapper>
+              <use href={`${sprite}#x-mark`} />
+            </StyledIconWrapper>
+          </ModalButtonClose>
+        </ModalContent>
+      </ModalWrapper>
+    </ThemeComponent>
+    ,
     document.querySelector('#portal')
   );
 };

@@ -27,13 +27,14 @@ export const StyledFullPage = styled.div`
       justify-content: space-between;
   }
   @media only screen and (min-width: 1440px) {
+      background-size: contain;
       height: calc(100svh - 72px);
       display: flex;
       align-items: flex-start;
       justify-content: center;
   }
 `
-export const AdaptContainer = styled(AdaptiveContainer)`
+export const AdaptivContainer = styled(AdaptiveContainer)`
   display: flex;
   flex-direction: column;
   @media only screen and (min-width: 1440px) {
@@ -119,7 +120,6 @@ export const StyledListLeft = styled.ul`
     }
   }
 `
-
 export const StyledIconWrapper = styled.svg`
   width: ${(props) => props.size || '32px'};
   height: ${(props) => props.size || '32px'};

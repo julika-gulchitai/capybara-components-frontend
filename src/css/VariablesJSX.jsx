@@ -11,6 +11,8 @@ const theme = Object.freeze({
     secondaryOrange: '#FF9D43',
     secondaryGray: '#8F8F8F',
 
+    buttonClose: '#407bff',
+
     fontSizes: {
       tiny: '12px',
       small: '16px',

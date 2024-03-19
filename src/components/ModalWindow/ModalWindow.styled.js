@@ -29,7 +29,7 @@ export const ModalButtonClose = styled.button`
   background: #fcfcfc;
   border:none;
   position: absolute;
-  color: #407bff;
+  color: ${props => props.theme.colors.buttonClose};
   padding: 0;
   right: 12px;
   top: 24px;
