@@ -8,6 +8,7 @@ import {
   BtnWrapper,
   DailyNorma,
   DailyNormaContainer,
+  Error,
   Explanation,
   Formula,
   InputWrapper,
@@ -20,10 +21,23 @@ import { editWaterRateThunk } from '../../redux/User/UserThunks';
 import { selectUser } from '../../redux/User/selectors';
 import { paramsForNotify } from '../../constants/notifications';
 
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+const schema = yup.object().shape({
+  norma: yup
+    .string()
+    .matches(
+      /^(0\.1|[1-9](\.\d)?|1[0-4](\.\d)?|15)$/,
+      'The amount of water must be a number in a range from 0.1 to 15 (one digit after the decimal point is allowed)'
+    )
+    .required(),
+});
+
 const DailyNormaModal = ({ onClose }) => {
-  const [weight, setWeight] = useState(0);
-  const [sports, setSports] = useState(0);
-  const [dailyNorma, setDailyNorma] = useState(1.8);
+  const [weight, setWeight] = useState('0');
+  const [sports, setSports] = useState('0');
+  const [dailyNorma, setDailyNorma] = useState('1.8');
   const [isFemale, setIsFemale] = useState(true);
   const dispatch = useDispatch();
   const { gender } = useSelector(selectUser);
@@ -39,6 +53,7 @@ const DailyNormaModal = ({ onClose }) => {
       // sports: 0,
       // norma: dailyNorma,
     },
+    resolver: yupResolver(schema),
   });
 
   useEffect(() => {
@@ -179,12 +194,14 @@ const DailyNormaModal = ({ onClose }) => {
               name="weight"
               id="weight"
               placeholder="0"
-              onChange={(e) => setWeight(e.target.value)}
+              onChange={(e) => {
+                setWeight(e.target.value);
+              }}
               onFocus={(e) => (e.target.placeholder = '')}
               onBlur={(e) => (e.target.placeholder = '0')}
               autoComplete="off"
             />
-            <p>{errors.weight?.message}</p>
+            {errors.weight && <Error>{errors.weight.message}</Error>}
           </InputWrapper>
           <InputWrapper>
             <label htmlFor="sports-time">
@@ -224,6 +241,7 @@ const DailyNormaModal = ({ onClose }) => {
             onBlur={(e) => (e.target.placeholder = '0')}
             autoComplete="off"
           />
+          {errors.norma && <Error>{errors.norma.message}</Error>}
         </DailyNorma>
         <BtnWrapper>
           <ButtonStyled type="submit">Save</ButtonStyled>

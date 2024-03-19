@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import './variables.css';
-import bgDesc from '../assets/desktop/background-element-main-page.svg';
-import bgTab from '../assets/tablet/background-element-home-screen.svg';
-import bgMob from '../assets/mobile/background-element-home-screen.svg';
+// import bgDesc from '../assets/desktop/background-element-main-page.svg';
+// import bgTab from '../assets/tablet/background-element-home-screen.svg';
+// import bgMob from '../assets/mobile/background-element-home-screen.svg';
 
 const Global = createGlobalStyle`
 h1,
@@ -32,9 +32,9 @@ body{
 
   min-height: 100svh;
   color: var(--black);
-  background-image: url(${bgDesc});
+  ${'' /* background-image: url(${bgDesc});
   background-position: bottom;
-  background-size: 100%;
+  background-size: 100%; */}
    background-repeat: no-repeat;
 }
 input:-webkit-autofill,
@@ -46,17 +46,17 @@ input:-webkit-autofill:active {
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
     
-    background-image: url(${bgTab});
+    ${'' /* background-image: url(${bgTab});
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100%; */}
     min-height: 100svh;
 }
 @media screen and (max-width: 767px) {
   body {
     height: fit-content;
-    background-image: url(${bgMob});
+    ${'' /* background-image: url(${bgMob});
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100%; */}
     min-height: 100svh;
   }
 }

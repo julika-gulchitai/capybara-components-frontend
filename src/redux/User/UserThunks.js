@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { clearToken, setToken } from '../../configApi/setToken';
 import { api } from '../../configApi/api';
+import Notiflix from 'notiflix';
+import { NOTIFICATIONS, paramsForNotify } from '../../constants/notifications';
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
@@ -24,7 +26,6 @@ export const loginThunk = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -65,8 +66,10 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       await api.post('users/logout');
+
       clearToken();
     } catch (error) {
+      Notiflix.Notify.failure(NOTIFICATIONS.FAILURE.LOGOUT, paramsForNotify);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -78,9 +81,8 @@ export const editWaterRateThunk = createAsyncThunk(
     try {
       const { data } = await api.patch('users/water-rate', newWaterRate);
       return data;
-    }
-    catch (error) {
-      return thunkAPI.rejectWithValue(error.message)
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 )

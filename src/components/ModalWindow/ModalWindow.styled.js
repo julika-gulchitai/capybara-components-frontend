@@ -17,14 +17,11 @@ export const ModalContent = styled.div`
   border-radius: 10px;
   padding: 24px 12px;
   margin: 40px 20px;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   overflow: auto;
   @media only screen and (min-width: 768px) {
      padding: 32px 24px;
      margin: 40px 32px;
-  }
-  @media only screen and (min-width: 1440px) {
-    max-width: 592px;
   }
 `;
 
@@ -48,6 +45,6 @@ export const ModalButtonClose = styled.button`
 export const StyledIconWrapper = styled.svg`
 width: ${(props) => props.size || '24px'};
 height: ${(props) => props.size || '24px'};
-display: inline - block;
+display: inline-block;
 padding:0;
 `;
