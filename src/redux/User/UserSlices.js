@@ -7,6 +7,7 @@ import {
   loginThunk,
   logoutThunk,
   registerThunk,
+  resetPassword,
   updateUserThunk,
 
 } from './UserThunks.js';
@@ -86,19 +87,23 @@ const userSlices = createSlice({
         state.isLoading = true;
         state.isError = null;
       })
+      .addCase(resetPassword.fulfilled, (state, action)=>{
+        state.user.password = action.payload;
+      })
       .addCase(forgotPassword.rejected,(state, action)=> {
         state.isLoading = false;
         state.isError = action.payload;
       })
-      .addMatcher(
-        isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
-        (state, actions) => {
-          state.user = actions.payload.user;
-
-          state.token = actions.payload.token;
-          state.isLoggedIn = true;
-        }
-      )
+      .addCase(registerThunk.fulfilled, (state, action)=>{
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = false;
+      })
+      .addCase(loginThunk.fulfilled, (state, action)=>{
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+      })
       .addMatcher(
         isAnyOf(loginThunk.pending, registerThunk.pending, logoutThunk.pending),
         (state) => {

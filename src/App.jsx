@@ -7,6 +7,7 @@ import {lazy, useEffect} from 'react';
 import {getCurrentThunk} from './redux/User/UserThunks.js';
 import GuestRoute from './routes/GuestRoute.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
 
 
 
@@ -42,7 +43,7 @@ function App() {
           <Route path='/signup' element={<GuestRoute component={<SignUp/>}/>}/>
           <Route path='/signin' element={<GuestRoute component={<SignIn/>}/>}/>
           <Route path='/forgot_password' element={<ForgotPassword /> }/>
-          <Route path='/reset_password/:id' element={<ForgotPassword /> }/>
+          <Route path='/reset-password' element={<ResetPassword /> }/>
           <Route path='*' element={<Navigate to='/welcome'/>}/>
         </Route>
       </Routes>
