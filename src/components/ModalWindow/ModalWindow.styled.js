@@ -7,22 +7,22 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
   z-index: 100;
+  overflow: auto;
   @media only screen and (min-width: 1440px) {
     align-items: center;
-      }
-  `;
+  }
+`;
 
 export const ModalContent = styled.div`
   position: relative;
   border-radius: 10px;
   padding: 24px 12px;
-  margin: 40px 20px 0 20px;
-  background-color: ${props => props.theme.colors.white};
-  overflow: auto;
-  height: max-content;
+  margin: 40px 20px ;
+  background-color: white;
+  height: fit-content;
   @media only screen and (min-width: 768px) {
      padding: 32px 24px;
-     margin: 40px 32px 0 32px;
+     margin: 40px 32px ;
   }
 `;
 

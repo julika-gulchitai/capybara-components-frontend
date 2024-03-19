@@ -13,7 +13,7 @@ import {
   AdaptivContainer,
 } from './WelcomePage.styled';
 import sprite from '../../assets/sprite.svg';
-import ThemeComponent from '../../components/ThemeComponent/ThemeComponent';
+
 // import {
 //   StyledFullPage,
 //   StyledMainContainer,
@@ -28,12 +28,15 @@ import ThemeComponent from '../../components/ThemeComponent/ThemeComponent';
 //   StyledWelcomeLink,
 // } from './WelcomePage.styled';
 // import sprite from '../../assets/sprite.svg';
-import theme from '../../css/VariablesJSX';
+
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
-const WelcomePage = () => {
+const WelcomePage = ({ setTheme }) => {
   const { t } = useTranslation();
+  const changeTheme = (e) => {
+    setTheme(e.target.checked)
+  }
 
   return (
     // <ThemeComponent>
@@ -69,7 +72,10 @@ const WelcomePage = () => {
 
     //   </StyledFullPage>
     // </ThemeComponent>
-    <ThemeComponent>
+    <>
+      {/* <ThemeComponent> */}
+
+      <input type='checkbox' onChange={changeTheme} />
       <StyledFullPage>
         <AdaptivContainer>
           <StyledMainContainer>
@@ -104,7 +110,7 @@ const WelcomePage = () => {
                   {t('welcomePage.Personal rate setting')}
                 </li>
               </StyledListLeft>
-              <StyledWelcomeLink theme={theme} to="/signup">
+              <StyledWelcomeLink to="/signup">
                 {t('welcomePage.Try tracker')}
               </StyledWelcomeLink>
             </StyledInnerContainerLeft>
@@ -139,7 +145,8 @@ const WelcomePage = () => {
           </StyledMainContainer>
         </AdaptivContainer>
       </StyledFullPage>
-    </ThemeComponent>
+      {/* </ThemeComponent> */}
+    </>
   );
 };
 
