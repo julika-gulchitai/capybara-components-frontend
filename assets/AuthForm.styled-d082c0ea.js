@@ -1,4 +1,4 @@
-import{u as i,B as t}from"./index-68836ba5.js";const p=i.div`
+import{u as i,B as t}from"./index-f0d94fe7.js";const p=i.div`
   display: block;
   margin: 0 auto;
 
