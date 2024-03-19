@@ -1,19 +1,17 @@
-import { Blocks } from 'react-loader-spinner';
+import {ThreeDots} from 'react-loader-spinner';
 import { Loading } from './Loader.styled';
-import { theme } from '../../css/VariablesJSX'
+import theme from '../../css/VariablesJSX'
 
 
-export const Loader = () => {
+export const Loader = ({ visible }) => {
   return (
     <Loading>
-      <Blocks
-        height="80"
-        width="80"
+      <ThreeDots
+        height="100"
+        width="100"
+        visible={visible}
         color={theme.colors.blue}
-        ariaLabel="circles-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
+        ariaLabel="dots-loading"
       />
     </Loading>
   );

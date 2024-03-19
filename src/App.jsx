@@ -8,15 +8,13 @@ import {getCurrentThunk} from './redux/User/UserThunks.js';
 import GuestRoute from './routes/GuestRoute.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
-
-
-
-const test = import.meta.env.VITE_API_TEST;
+import {Loader} from './components/Loader/Loader.jsx';
+import {selectIsLoading} from './redux/global/selectors.js';
 
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectRefreshing);
-  /*const isLoading = useSelector(selectIsLoading);*/
+  const isLoading = useSelector(selectIsLoading);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
@@ -30,24 +28,25 @@ function App() {
   const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword.jsx'));
 
   return isRefreshing ? (
-    /*<Loader visible={isLoading}/>*/
-    <p>Loading...</p>
+    <Loader visible={isLoading}/>
   ) : (
-
-    <AppWrapper>
-      <Routes>
-        <Route path='/' element={<SharedLayout/>}>
-          <Route index element={<Navigate to={isLoggedIn ? '/home' : '/welcome'}/>}/>
-          <Route path='/welcome' element={<GuestRoute component={<WelcomePage/>}/>}/>
-          <Route path='/home' element={<PrivateRoute component={<HomePage/>}/>}/>
-          <Route path='/signup' element={<GuestRoute component={<SignUp/>}/>}/>
-          <Route path='/signin' element={<GuestRoute component={<SignIn/>}/>}/>
-          <Route path='/forgot_password' element={<ForgotPassword /> }/>
-          <Route path='/reset-password' element={<ResetPassword /> }/>
-          <Route path='*' element={<Navigate to='/welcome'/>}/>
-        </Route>
-      </Routes>
-    </AppWrapper>
+    <>
+      <AppWrapper>
+        <Routes>
+          <Route path='/' element={<SharedLayout/>}>
+            <Route index element={<Navigate to={isLoggedIn ? '/home' : '/welcome'}/>}/>
+            <Route path='/welcome' element={<GuestRoute component={<WelcomePage/>}/>}/>
+            <Route path='/home' element={<PrivateRoute component={<HomePage/>}/>}/>
+            <Route path='/signup' element={<GuestRoute component={<SignUp/>}/>}/>
+            <Route path='/signin' element={<GuestRoute component={<SignIn/>}/>}/>
+            <Route path='/forgot_password' element={<ForgotPassword /> }/>
+            <Route path='/reset-password' element={<ResetPassword /> }/>
+            <Route path='*' element={<Navigate to='/welcome'/>}/>
+          </Route>
+        </Routes>
+      </AppWrapper>
+      <Loader visible={isLoading}/>
+    </>
   );
 }
 

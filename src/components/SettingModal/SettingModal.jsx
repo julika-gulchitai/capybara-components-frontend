@@ -98,6 +98,7 @@ function SettingModal({ close }) {
     }
 
     if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
+      Notiflix.Notify.warning('Only .jpeg or .png files!', paramsForNotify);
       return;
     }
 
