@@ -2,17 +2,13 @@ import styled from 'styled-components';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 
 export const LogOutWindow = styled.div`
-  /* padding: 8px 12px; */
+  padding: 8px 12px;
   flex-direction: column;
-  justify-content: center;
   display: flex;
   gap: 24px;
-  width: 280px;
-  height: 260px;
 
   @media screen and (min-width: 768px) {
-    width: 592px;
-    height: 208px;
+    padding: 0;
   }
 `;
 
