@@ -82,7 +82,7 @@ const DailyNormaModal = ({ onClose }) => {
   }
 
   function getGender() {
-    if (gender === 'female' || gender === '') {
+    if (gender === 'female' || gender === null) {
       return 'female';
     } else {
       return 'male';
