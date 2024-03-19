@@ -19,6 +19,7 @@ export const ModalContent = styled.div`
   margin: 40px 20px 0 20px;
   background-color: ${props => props.theme.colors.white};
   overflow: auto;
+  height: max-content;
   @media only screen and (min-width: 768px) {
      padding: 32px 24px;
      margin: 40px 32px 0 32px;
