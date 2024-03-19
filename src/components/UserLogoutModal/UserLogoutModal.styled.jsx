@@ -6,9 +6,11 @@ export const LogOutWindow = styled.div`
   flex-direction: column;
   display: flex;
   gap: 24px;
+  width: 280px;
 
   @media screen and (min-width: 768px) {
     padding: 0;
+    width: 592px;
   }
 `;
 
