@@ -9,14 +9,12 @@ import store, { persistedStore } from './redux/store.js';
 import Global from './css/common.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistedStore}>
-        <BrowserRouter basename="/capybara-components-frontend">
-          <App />
-          <Global />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <PersistGate persistor={persistedStore}>
+      <BrowserRouter basename="/capybara-components-frontend">
+        <App />
+        <Global />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
 );
