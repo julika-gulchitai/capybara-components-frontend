@@ -1,4 +1,4 @@
-import{u as i,b as s,L as d,j as e,t as a,s as t}from"./index-5d7514aa.js";const l="/capybara-components-frontend/assets/background-main-page-layers-5141a367.svg",o="/capybara-components-frontend/assets/background-welcome-page-e568c387.svg",m="/capybara-components-frontend/assets/background-main-page-f-382561be.svg",c=i.div`
+import{u as i,b as s,L as d,j as e,t as a,s as t}from"./index-d8183cab.js";const l="/capybara-components-frontend/assets/background-main-page-layers-5141a367.svg",o="/capybara-components-frontend/assets/background-welcome-page-e568c387.svg",m="/capybara-components-frontend/assets/background-main-page-f-382561be.svg",c=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
