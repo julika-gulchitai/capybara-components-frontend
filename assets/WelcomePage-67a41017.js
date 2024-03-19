@@ -1,4 +1,4 @@
-import{u as i,b as s,L as d,j as e,t as a,s as t}from"./index-d8183cab.js";const l="/capybara-components-frontend/assets/background-main-page-layers-5141a367.svg",o="/capybara-components-frontend/assets/background-welcome-page-e568c387.svg",m="/capybara-components-frontend/assets/background-main-page-f-382561be.svg",c=i.div`
+import{u as i,b as a,A as s,L as d,j as e,T as o,s as t}from"./index-9934a8e4.js";const l="/capybara-components-frontend/assets/background-main-page-layers-5141a367.svg",c="/capybara-components-frontend/assets/background-welcome-page-e568c387.svg",m="/capybara-components-frontend/assets/background-main-page-f-382561be.svg",h=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,40 +6,47 @@ import{u as i,b as s,L as d,j as e,t as a,s as t}from"./index-d8183cab.js";const
   background-repeat: no-repeat;
   background-position: bottom;
   @media only screen and (max-width: 320px){
-    background-image: url(${o});
+    background-image: url(${c});
   }
   @media (min-width:321px) and (max-width: 768px){
     background-image:url(${m});
   }
   @media (min-width:769px) {
-    background-image: url(${l}), url(${s});    
+    background-image: url(${l}), url(${a});    
   }
 
   @media only screen and (min-width: 768px) {
       justify-content: space-between;
   }
   @media only screen and (min-width: 1440px) {
+      background-size: contain;
       height: calc(100svh - 72px);
       display: flex;
       align-items: flex-start;
       justify-content: center;
   }
-`,h=i.div`
+`,p=i(s)`
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    }
+`,x=i.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin:1rem 1.25rem 2.5rem 1.25rem;
+  margin: 1rem 0;
   @media only screen and (min-width: 768px) {
-      margin: 1.5rem 2rem;
+      margin: 1.5rem 0;
       align-items: flex-start;
   }
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
-    margin: 4.2rem 6.5rem;
+    margin: 4.2rem 5.5rem 4.2rem 6.5rem;
     gap: 5rem;
   }
-`,p=i.div`
+`,g=i.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -47,12 +54,16 @@ import{u as i,b as s,L as d,j as e,t as a,s as t}from"./index-d8183cab.js";const
 h3{
   font-size: 18px;
   line-height: 1.11111;
+  @media only screen and (min-width: 768px) {
+    margin-top: .5rem;
+  }
   @media only screen and (min-width: 1440px) {
     margin-top: .5rem;
     margin-bottom: 1rem;
   }
   }
-`,g=i.h1`
+`,y=i.h1`
+ font-size: 1.75rem;
 margin: 0;
   @media only screen and (min-width: 768px) {
     font-size: 2.25rem;
@@ -61,14 +72,14 @@ margin: 0;
   @media only screen and (min-width: 1440px) {
     line-height: 1.16667;
   }
-`,x=i.h2`
+`,f=i.h2`
   font-weight: 400;
   line-height: 1.25;
   margin: 1rem 0;
   @media only screen and (min-width: 768px) {
     letter-spacing: 1px;
   }
-`,y=i.ul`
+`,u=i.ul`
   margin: 0;
   padding: 0;
   text-align: left;
@@ -104,7 +115,7 @@ margin: 0;
     width: ${n=>n.size||"40px"};
     height: ${n=>n.size||"40px"};
   }
-`,f=i.div`
+`,w=i.div`
   border-radius: 10px;
   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
   background: var(--secondary-white);
@@ -114,13 +125,13 @@ margin: 0;
   @media only screen and (min-width: 768px) {
     margin-top: 1.25rem;
   }
-`,u=i.h3`
+  `,b=i.h3`
   font-size: 18px;
   line-height: 1.11111;
   margin: 0 -1rem;
   @media only screen and (min-width: 1440px) {
     margin-top: .5rem;
-  }`,b=i.ul`
+  }`,j=i.ul`
   padding: 1.5rem 1rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -129,6 +140,7 @@ margin: 0;
   @media only screen and (min-width: 768px) {
     padding: 2rem 2.5rem;
   }
+
   li{
     margin: 1rem 0 0;
     line-height: 1.25;
@@ -143,7 +155,7 @@ margin: 0;
       margin-right: 6px;
     }
   }
-`,w=i(d)`
+`,k=i(d)`
   border-radius: 10px;
   border: none;
   padding: .5rem;
@@ -164,4 +176,4 @@ margin: 0;
     width: 24rem;
     margin-top: .5rem;
   }
-`,k=()=>e.jsx(c,{theme:a,children:e.jsxs(h,{children:[e.jsxs(p,{children:[e.jsx(g,{children:"Water consumption tracker"}),e.jsx(x,{children:"Record daily water intake and track"}),e.jsx("h3",{children:"Tracker Benefits"}),e.jsxs(y,{children:[e.jsxs("li",{children:[" ",e.jsx(r,{children:e.jsx("use",{href:`${t}#calendar`})}),"Habit drive"]}),e.jsxs("li",{children:[" ",e.jsx(r,{children:e.jsx("use",{href:`${t}#presentation-chart-bar`})}),"View statistics"]}),e.jsxs("li",{children:[" ",e.jsx(r,{children:e.jsx("use",{href:`${t}#wrench-schewdriver`})}),"Personal rate setting"]})]}),e.jsx(w,{theme:a,to:"/signup",children:"Try tracker"})]}),e.jsx(f,{children:e.jsxs(b,{children:[e.jsx(u,{children:"Why drink water"}),e.jsx("li",{children:"Supply of nutrients to all organs"}),e.jsx("li",{children:"Providing oxygen to the lungs"}),e.jsx("li",{children:e.jsx("span",{children:"Maintaining the work of the heart"})}),e.jsx("li",{children:"Release of processed substances"}),e.jsx("li",{children:"Ensuring the stability of the internal environment"}),e.jsx("li",{children:"Maintaining within the normal temperature"}),e.jsx("li",{children:"Maintaining an immune system capable of resisting disease"})]})})]})});export{k as default};
+`,$=()=>e.jsx(o,{children:e.jsx(h,{children:e.jsx(p,{children:e.jsxs(x,{children:[e.jsxs(g,{children:[e.jsx(y,{children:"Water consumption tracker"}),e.jsx(f,{children:"Record daily water intake and track"}),e.jsx("h3",{children:"Tracker Benefits"}),e.jsxs(u,{children:[e.jsxs("li",{children:[" ",e.jsx(r,{children:e.jsx("use",{href:`${t}#calendar`})}),"Habit drive"]}),e.jsxs("li",{children:[" ",e.jsx(r,{children:e.jsx("use",{href:`${t}#presentation-chart-bar`})}),"View statistics"]}),e.jsxs("li",{children:[" ",e.jsx(r,{children:e.jsx("use",{href:`${t}#wrench-schewdriver`})}),"Personal rate setting"]})]}),e.jsx(k,{to:"/signup",children:"Try tracker"})]}),e.jsx(w,{children:e.jsxs(j,{children:[e.jsx(b,{children:"Why drink water"}),e.jsx("li",{children:"Supply of nutrients to all organs"}),e.jsx("li",{children:"Providing oxygen to the lungs"}),e.jsx("li",{children:e.jsx("span",{children:"Maintaining the work of the heart"})}),e.jsx("li",{children:"Release of processed substances"}),e.jsx("li",{children:"Ensuring the stability of the internal environment"}),e.jsx("li",{children:"Maintaining within the normal temperature"}),e.jsx("li",{children:"Maintaining an immune system capable of resisting disease"})]})})]})})})});export{$ as default};
