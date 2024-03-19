@@ -11,6 +11,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
 import { useDispatch } from 'react-redux';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
 
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix';
@@ -22,6 +24,7 @@ const AuthForm = ({ signUp }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   const isDesktop = useMediaQuery({ query: '(min-width: 1439px)' });
 
@@ -63,10 +66,10 @@ const AuthForm = ({ signUp }) => {
             {
               timeout: 5000,
               width: '460px',
-              height:'200px',
-              messageMaxLength:500,
-              fontSize:"14px",
-              position:"center-top",
+              height: '200px',
+              messageMaxLength: 500,
+              fontSize: '14px',
+              position: 'center-top',
             }
           );
         })
@@ -98,44 +101,46 @@ const AuthForm = ({ signUp }) => {
     <WrapForm>
       <form onSubmit={handleSubmit(submit)}>
         <WrapInput>
-          <LabelStyled>Enter your email</LabelStyled>
+          <LabelStyled>{t('enterEmail')}</LabelStyled>
           <TextInput
             register={register}
             error={errors.email}
             id="email"
             width={isDesktop ? 384 : isTablet ? 336 : 280}
             type="email"
-            placeholder="E-mail"
+            placeholder={t('email')}
           />
         </WrapInput>
 
         <WrapInput>
-          <LabelStyled>Enter your password</LabelStyled>
+          <LabelStyled>{t('enterPassword')}</LabelStyled>
           <PasswordInput
             error={errors.password}
             register={register}
             id="password"
             width={isDesktop ? 384 : isTablet ? 336 : 280}
             type="password"
-            placeholder="Password"
+            placeholder={t('password')}
           />
         </WrapInput>
 
         {signUp && (
           <WrapInput>
-            <LabelStyled>Repeat password</LabelStyled>
+            <LabelStyled>{t('repeatPassword')}</LabelStyled>
             <PasswordInput
               error={errors.repeat_password}
               register={register}
               id="repeat_password"
               width={isDesktop ? 384 : isTablet ? 336 : 280}
               type="repeat_password"
-              placeholder="Password"
+              placeholder={t('password')}
             />
           </WrapInput>
         )}
 
-        <SignButton type="submit">{signUp ? 'Sign Up' : 'Sign In'}</SignButton>
+        <SignButton type="submit">
+          {signUp ? t('signup') : t('signin')}
+        </SignButton>
       </form>
     </WrapForm>
   );
