@@ -34,7 +34,7 @@ export const RatioContainer = styled.div`
 `;
 
 export const TodayText = styled.p`
-  color: var(--blue);
+  color: ${props => props.theme.colors.primaryBlue};
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 17px;
@@ -59,9 +59,9 @@ export const StyledInput = styled.input`
   &[type='range']::-webkit-slider-thumb {
     width: 14px;
     height: 14px;
-    background: var(--white);
+    background: ${props => props.theme.colors.mainBg};
     border-radius: 50%;
-    border: solid 1px var(--blue);
+    border: solid 1px ${props => props.theme.colors.primaryBlue};
     appearance: none;
   }
   @media screen and (min-width: 768px) {
@@ -73,9 +73,8 @@ export const StyledInput = styled.input`
   }
   @media screen and (max-width: 767px) {
     /* max-width: 255px; */
-    padding-right: 10px
+    padding-right: 10px;
     width: 100%;
-    m
   }
 `;
 
@@ -83,7 +82,7 @@ export const WrapperPercentage = styled.div`
   display: flex;
   justify-content: space-between;
   span {
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     font-size: 12px;
     line-height: 1.3;
   }
@@ -98,6 +97,6 @@ export const AddBtn = styled(ButtonStyled)`
 
   svg {
     fill: none;
-    stroke: var(--white);
+    stroke: ${props => props.theme.colors.mainBg};
   }
 `;

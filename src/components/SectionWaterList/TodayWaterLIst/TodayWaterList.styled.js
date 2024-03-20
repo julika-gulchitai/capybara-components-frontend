@@ -4,7 +4,7 @@ export const IconWrapper = styled.div`
   svg {
     width: 26px;
     height: 26px;
-    fill: var(--blue);
+    fill: ${props => props.theme.colors.primaryBlue};
     margin-right: 12px;
   }
 `;
@@ -28,7 +28,7 @@ export const StyledDiv = styled.div`
 export const TodayStyle = styled.h2`
   margin: 0 0 16px 0;
   text-align: left;
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
   font-size: 24px;
   font-weight: 600;
   line-height: 1.23;
@@ -73,7 +73,7 @@ export const UlStyle = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: var(--blue);
+    background: ${props => props.theme.colors.primaryBlue};
   }
 `;
 
@@ -105,7 +105,7 @@ export const InfoWrap = styled.div`
     @media only screen and (min-width: 1440px) {
     }
     & use {
-      fill: var(--blue);
+      fill: ${props => props.theme.colors.primaryBlue};
     }
   }
 `;
@@ -122,7 +122,7 @@ export const WrapBtn = styled.div`
 `;
 
 export const TextVolume = styled.p`
-  color: var(--blue);
+  color: ${props => props.theme.colors.primaryBlue};
   font-size: 18px;
   line-height: 1.33;
   margin: 0 12px 0 0;
@@ -133,7 +133,7 @@ export const TextVolume = styled.p`
 `;
 
 export const TextTime = styled.p`
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
   font-size: 12px;
   line-height: 2;
 `;
@@ -145,7 +145,7 @@ export const EditBtn = styled.button`
   border: none;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  color: var(--secondary-blue);
+  color: red;
 
   &:hover,
   &:focus {
@@ -161,11 +161,11 @@ export const DeleteBtn = styled.button`
   border: none;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  color: var(--secondary-red);
+  color: ${props => props.theme.colors.secondaryRed};
 
   &:hover,
   &:focus {
-    border-bottom: 1px solid var(--secondary-red);
+    border-bottom: 1px solid ${props => props.theme.colors.secondaryRed};
     cursor: pointer;
   }
 `;
@@ -179,7 +179,7 @@ export const StyledQuestion = styled.p`
   justify-content: center;
   align-items: center;
   height: 100px;
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
   font-size: 18px;
   font-weight: 500;
   line-height: 133.3%;
@@ -189,7 +189,7 @@ export const AddBtnStyle = styled.button`
   display: flex;
   gap: 8px;
   margin-left: 5px;
-  color: var(--blue);
+  color: ${props => props.theme.colors.primaryBlue};
   border: none;
   background-color: transparent;
   font-size: 16px;
@@ -207,9 +207,9 @@ export const AddBtnStyle = styled.button`
   &:hover,
   &:focus {
     cursor: pointer;
-    color: var(--secondary-orange);
+    color: ${props => props.theme.colors.secondaryOrange};
     & use {
-      fill: var(--secondary-orange);
+      fill: ${props => props.theme.colors.secondaryOrange};
     }
   }
 `;
