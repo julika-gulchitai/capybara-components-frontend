@@ -7,7 +7,6 @@ import {
 import ReactDom from 'react-dom';
 import sprite from '../../assets/sprite.svg';
 import { useEffect } from 'react';
-import ThemeComponent from '../ThemeComponent/ThemeComponent';
 
 const ModalWindow = ({ onClose, children }) => {
   useEffect(() => {
@@ -37,18 +36,16 @@ const ModalWindow = ({ onClose, children }) => {
   }, [onClose])
 
   return ReactDom.createPortal(
-    <ThemeComponent>
-      <ModalWrapper onMouseDown={clickOutside}>
-        <ModalContent>
-          {children}
-          <ModalButtonClose onClick={onClose}>
-            <StyledIconWrapper>
-              <use href={`${sprite}#x-mark`} />
-            </StyledIconWrapper>
-          </ModalButtonClose>
-        </ModalContent>
-      </ModalWrapper>
-    </ThemeComponent>
+    <ModalWrapper onMouseDown={clickOutside}>
+      <ModalContent>
+        {children}
+        <ModalButtonClose onClick={onClose}>
+          <StyledIconWrapper>
+            <use href={`${sprite}#x-mark`} />
+          </StyledIconWrapper>
+        </ModalButtonClose>
+      </ModalContent>
+    </ModalWrapper>
     ,
     document.querySelector('#portal')
   );

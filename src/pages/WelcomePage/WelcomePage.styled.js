@@ -1,8 +1,4 @@
 import styled from "styled-components";
-import bgMainDesctop from '../../assets/desktop/background-main-page-layers.svg'
-import bgWelcomeMobile from '../../assets/mobile/background-welcome-page.svg'
-import bgWelcomeTab from '../../assets/tablet/background-main-page-f.svg';
-import bgHomeScreen from '../../assets/desktop/background-element-main-page.svg'
 import { Link } from "react-router-dom";
 import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
 
@@ -10,17 +6,18 @@ export const StyledFullPage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color:${props => props.theme.colors.white};
+  background-color:${props => props.theme.colors.mainBg};
   background-repeat: no-repeat;
   background-position: bottom;
+  color: ${props => props.theme.colors.textColor};
   @media only screen and (max-width: 320px){
-    background-image: url(${bgWelcomeMobile});
+    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageMob});
   }
   @media (min-width:321px) and (max-width: 768px){
-    background-image:url(${bgWelcomeTab});
+    background-image:url(${props => props.theme.backgroundImage.backgroundWelcomePageTablet});
   }
   @media (min-width:769px) {
-    background-image: url(${bgMainDesctop}), url(${bgHomeScreen});    
+    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp});
   }
 
   @media only screen and (min-width: 768px) {
@@ -123,7 +120,7 @@ export const StyledListLeft = styled.ul`
 export const StyledIconWrapper = styled.svg`
   width: ${(props) => props.size || '32px'};
   height: ${(props) => props.size || '32px'};
-  fill: ${(props) => props.color || '#fffff'};
+  fill: ${(props) => props.color || props.theme.colors.mainBg};
   display: inline - block;
   margin-right: 5px;
   @media only screen and (min-width: 768px) {
@@ -134,8 +131,8 @@ export const StyledIconWrapper = styled.svg`
 
 export const StyledInnerContainerRight = styled.div`
   border-radius: 10px;
-  box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
-  background: var(--secondary-white);
+  box-shadow: ${props => props.theme.shadows.windowShadowContainer};
+  background: ${props => props.theme.colors.secondaryBg};
   text-align: left;
   list-style-position: inside;
   display: flex;
@@ -171,7 +168,7 @@ export const StyledListRight = styled.ul`
       width: .5rem;
       height: .5rem;
       border-radius: 50%;
-      background-color: var(--blue);
+      background-color: ${props => props.theme.colors.blue};
       margin-right: 6px;
     }
   }
@@ -182,13 +179,13 @@ export const StyledWelcomeLink = styled(Link)`
   padding: .5rem;
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+  box-shadow: ${props => props.theme.shadows.buttonShadow};
   background: ${props => props.theme.colors.blue};
   font-weight: 500;
   font-size: 18px;
   line-height: 1.33333;
   text-align: center;
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.mainBg};
   width: 100%;
   @media only screen and (min-width: 768px) {
     width: 50%;
