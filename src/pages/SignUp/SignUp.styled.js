@@ -29,7 +29,7 @@ export const Title = styled.h1`
   font-weight: 500;
   font-size: 26px;
   line-height: 1.23077;
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
   margin-bottom: 16px;
   margin-top: 30px;
   @media only screen and (min-width: 1440px) {
@@ -41,13 +41,13 @@ export const StyledNavlink = styled(NavLink)`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  color: var(--blue);
+  color: ${props => props.theme.colors.primaryBlue};
   margin-top: 16px;
   cursor: pointer;
   z-index: 100;
 
   &:hover {
-    color: var(--secondary-orange);
+    color: ${props => props.theme.colors.secondaryOrange};
   }
 `;
 export const MarginBetween = styled.div`
