@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   todayInfo: {},
-  isLoading: false,
 };
 
 const waterSlice = createSlice({
