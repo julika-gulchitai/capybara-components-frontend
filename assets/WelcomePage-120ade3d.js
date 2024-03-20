@@ -1,4 +1,4 @@
-import{u as t,A as s,L as d,a as m,j as n,s as a}from"./index-d8cfc156.js";const c=t.div`
+import{u as t,A as s,L as d,a as m,j as n,s as a}from"./index-4ddc607c.js";const c=t.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,15 +6,18 @@ import{u as t,A as s,L as d,a as m,j as n,s as a}from"./index-d8cfc156.js";const
   background-repeat: no-repeat;
   background-position: bottom;
   color: ${e=>e.theme.colors.textColor};
+  height: calc(100svh - 64px);
   @media only screen and (max-width: 320px){
-    background-image: url(${e=>e.theme.backgroundImage.backgroundWelcomePageMob});
-  }
+    background-image: url(${e=>e.theme.backgroundImage.backgroundWelcomePageMob}), url(${e=>e.theme.backgroundImage.bgElemMainPageMob});
+      }
   @media (min-width:321px) and (max-width: 768px){
-    background-image:url(${e=>e.theme.backgroundImage.backgroundWelcomePageTablet});
-  }
+    background-image:url(${e=>e.theme.backgroundImage.backgroundWelcomePageTablet}), url(${e=>e.theme.backgroundImage.bgElemMainPageTab});
+      }
   @media (min-width:769px) {
-    background-image: url(${e=>e.theme.backgroundImage.backgroundWelcomePageDsctp});
-  }
+    background-image: url(${e=>e.theme.backgroundImage.backgroundWelcomePageDsctp}), url(${e=>e.theme.backgroundImage.bgElemMainPageDsctp});
+    background-position: bottom, bottom;
+    height: calc(100svh - 80px);
+     }
 
   @media only screen and (min-width: 768px) {
       justify-content: space-between;
@@ -80,13 +83,12 @@ margin: 0;
   @media only screen and (min-width: 768px) {
     letter-spacing: 1px;
   }
-`,y=t.ul`
+`,u=t.ul`
   margin: 0;
   padding: 0;
   text-align: left;
   @media only screen and (min-width: 768px) {
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
   @media only screen and (min-width: 1440px) {
@@ -116,7 +118,7 @@ margin: 0;
     width: ${e=>e.size||"40px"};
     height: ${e=>e.size||"40px"};
   }
-`,u=t.div`
+`,y=t.div`
   border-radius: 10px;
   box-shadow: ${e=>e.theme.shadows.windowShadowContainer};
   background: ${e=>e.theme.colors.secondaryBg};
@@ -126,13 +128,13 @@ margin: 0;
   @media only screen and (min-width: 768px) {
     margin-top: 1.25rem;
   }
-  `,f=t.h3`
+  `,b=t.h3`
   font-size: 18px;
   line-height: 1.11111;
   margin: 0 -1rem;
   @media only screen and (min-width: 1440px) {
     margin-top: .5rem;
-  }`,b=t.ul`
+  }`,f=t.ul`
   padding: 1.5rem 1rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -152,7 +154,7 @@ margin: 0;
       width: .5rem;
       height: .5rem;
       border-radius: 50%;
-      background-color: ${e=>e.theme.colors.blue};
+      background-color: ${e=>e.theme.colors.primaryBlue};
       margin-right: 6px;
     }
   }
@@ -163,7 +165,7 @@ margin: 0;
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
   box-shadow: ${e=>e.theme.shadows.buttonShadow};
-  background: ${e=>e.theme.colors.blue};
+  background: ${e=>e.theme.colors.primaryBlue};
   font-weight: 500;
   font-size: 18px;
   line-height: 1.33333;
@@ -177,4 +179,4 @@ margin: 0;
     width: 24rem;
     margin-top: .5rem;
   }
-`,P=({setTheme:e})=>{const{t:i}=m(),o=l=>{e(l.target.checked)};return n.jsxs(n.Fragment,{children:[n.jsx("input",{type:"checkbox",onChange:o}),n.jsx(c,{children:n.jsx(h,{children:n.jsxs(g,{children:[n.jsxs(x,{children:[n.jsx(p,{children:i("welcomePage.Water consumption tracker")}),n.jsx(w,{children:i("welcomePage.Record daily water intake and track")}),n.jsx("h3",{children:i("welcomePage.Tracker Benefits")}),n.jsxs(y,{children:[n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#calendar`})}),i("welcomePage.Habit drive")]}),n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#presentation-chart-bar`})}),i("welcomePage.View statistics")]}),n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#wrench-schewdriver`})}),i("welcomePage.Personal rate setting")]})]}),n.jsx(j,{to:"/signup",children:i("welcomePage.Try tracker")})]}),n.jsx(u,{children:n.jsxs(b,{children:[n.jsx(f,{children:i("welcomePage.Why drink water")}),n.jsx("li",{children:i("welcomePage.Supply of nutrients to all organs")}),n.jsx("li",{children:i("welcomePage.Providing oxygen to the lungs")}),n.jsx("li",{children:n.jsx("span",{children:i("welcomePage.Maintaining the work of the heart")})}),n.jsx("li",{children:i("welcomePage.Release of processed substances")}),n.jsx("li",{children:i("welcomePage.Ensuring the stability of the internal environment")}),n.jsx("li",{children:i("welcomePage.Maintaining within the normal temperature")}),n.jsx("li",{children:i("welcomePage.Maintaining an immune system capable of resisting disease")})]})})]})})})]})};export{P as default};
+`,P=({setTheme:e})=>{const{t:i}=m(),o=l=>{e(l.target.checked)};return n.jsx(n.Fragment,{children:n.jsx(c,{children:n.jsx(h,{children:n.jsxs(g,{children:[n.jsxs(x,{children:[n.jsx(p,{children:i("welcomePage.Water consumption tracker")}),n.jsx(w,{children:i("welcomePage.Record daily water intake and track")}),n.jsx("h3",{children:i("welcomePage.Tracker Benefits")}),n.jsxs(u,{children:[n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#calendar`})}),i("welcomePage.Habit drive")]}),n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#presentation-chart-bar`})}),i("welcomePage.View statistics")]}),n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#wrench-schewdriver`})}),i("welcomePage.Personal rate setting")]})]}),n.jsx(j,{to:"/signup",children:i("welcomePage.Try tracker")})]}),n.jsx(y,{children:n.jsxs(f,{children:[n.jsxs(b,{children:[i("welcomePage.Why drink water"),n.jsx("input",{type:"checkbox",onChange:o})]}),n.jsx("li",{children:i("welcomePage.Supply of nutrients to all organs")}),n.jsx("li",{children:i("welcomePage.Providing oxygen to the lungs")}),n.jsx("li",{children:n.jsx("span",{children:i("welcomePage.Maintaining the work of the heart")})}),n.jsx("li",{children:i("welcomePage.Release of processed substances")}),n.jsx("li",{children:i("welcomePage.Ensuring the stability of the internal environment")}),n.jsx("li",{children:i("welcomePage.Maintaining within the normal temperature")}),n.jsx("li",{children:i("welcomePage.Maintaining an immune system capable of resisting disease")})]})})]})})})})};export{P as default};
