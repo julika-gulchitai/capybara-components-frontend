@@ -53,3 +53,8 @@ export const StyledNavlink = styled(NavLink)`
 export const MarginBetween = styled.div`
   margin-top: 16px;
 `;
+
+
+export const ForgotNavLink = styled(StyledNavlink)`
+  margin-left: 16px;
+  `
