@@ -4,11 +4,12 @@ import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
 import {
+  ForgotNavLink,
   MarginBetween,
   StyledNavlink,
   Title,
   WraperForm,
-  Wrapper,
+  Wrapper
 } from '../SignUp/SignUp.styled';
 import BottleComponent from '../../components/AuthForm/BottleComponent/BottleComponent';
 import { Notify } from 'notiflix';
@@ -36,9 +37,9 @@ const SignIn = () => {
         <AuthForm />
         <MarginBetween></MarginBetween>
         <StyledNavlink to="/signup">{t('signup')}</StyledNavlink>
-        <StyledNavlink to="/forgot_password">
+        <ForgotNavLink to="/forgot_password">
           {t('forgotPassword')}
-        </StyledNavlink>
+        </ForgotNavLink>
       </WraperForm>
       <BottleComponent></BottleComponent>
     </Wrapper>
