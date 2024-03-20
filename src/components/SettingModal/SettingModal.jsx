@@ -173,6 +173,7 @@ function SettingModal({close}) {
             render={({field}) => (
               <ThemeSwitch
                 {...field}
+                defaultChecked={userTheme === 'dark'}
               />
             )}/>
           <Controller
@@ -181,6 +182,7 @@ function SettingModal({close}) {
             render={({field}) => (
               <LangSwitch
                 {...field}
+                defaultChecked={language === 'en'}
               />
             )}/>
         </SwitchesBlock>
