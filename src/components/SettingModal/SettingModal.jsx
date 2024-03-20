@@ -28,12 +28,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/User/selectors.js';
 import { updateUserThunk } from '../../redux/User/UserThunks.js';
 import { paramsForNotify } from '../../constants/notifications.js';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
 
 function SettingModal({ close }) {
   const [avatar, setAvatar] = useState('');
   const dispatch = useDispatch();
   const { username, email, gender, avatarURL } = useSelector(selectUser);
   const [photo, setPhoto] = useState(null);
+  const { t } = useTranslation();
 
   const userData = new FormData();
 
@@ -160,10 +163,10 @@ function SettingModal({ close }) {
 
   return (
     <SettingsContainer>
-      <h2>Setting</h2>
+      <h2>{t('settingModal.Setting')}</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <LabelText>Your photo</LabelText>
+          <LabelText>{t('settingModal.Your photo')}</LabelText>
           <AvatarRow>
             <AvatarWrapper>
               <img
@@ -177,7 +180,7 @@ function SettingModal({ close }) {
               <svg width={16} height={16}>
                 <use href={`${svgSprite}#icon-upload`} />
               </svg>
-              Upload a photo
+              {t('settingModal.Upload a photo')}
             </button>
             <input
               ref={inputRef}
@@ -191,7 +194,7 @@ function SettingModal({ close }) {
         <InfoWrapper>
           <LeftContainer>
             <GenderLabel>
-              <LabelText>Your gender identity</LabelText>
+              <LabelText>{t('settingModal.Your gender identity')}</LabelText>
               <Controller
                 rules={{ required: true }}
                 control={control}
@@ -214,7 +217,7 @@ function SettingModal({ close }) {
                     <FormControlLabel
                       value="female"
                       control={<Radio />}
-                      label="Woman"
+                      label={t('woman')}
                       labelPlacement="end"
                       sx={{
                         '&.Mui-checked': {
@@ -225,7 +228,7 @@ function SettingModal({ close }) {
                     <FormControlLabel
                       value="male"
                       control={<Radio />}
-                      label="Man"
+                      label={t('man')}
                       labelPlacement="end"
                       sx={{
                         '&.Mui-checked': {
@@ -238,19 +241,19 @@ function SettingModal({ close }) {
               />
             </GenderLabel>
             <label>
-              <LabelText>Your name</LabelText>
+              <LabelText>{t('settingModal.Your name')}</LabelText>
               <TextInput
                 error={errors.username}
                 register={register}
                 id="username"
                 width={isTabletOrDesktop ? 392 : '100%'}
                 defaultValue={username}
-                placeholder="Name"
+                placeholder={t('settingModal.Name')}
                 type="text"
               />
             </label>
             <label>
-              <LabelText>E-mail</LabelText>
+              <LabelText>{t('email')}</LabelText>
               <TextInput
                 error={errors.email}
                 register={register}
@@ -258,43 +261,52 @@ function SettingModal({ close }) {
                 width={isTabletOrDesktop ? 392 : '100%'}
                 type="email"
                 defaultValue={email}
-                placeholder="E-mail"
+                placeholder={t('email')}
               />
             </label>
           </LeftContainer>
 
           <RightContainer>
-            <h3>Password</h3>
+            <h3>{t('password')}</h3>
             <label>
-              <PasswordLabelText>Outdated password:</PasswordLabelText>
+              <PasswordLabelText>
+                {t('settingModal.Outdated password')}:
+              </PasswordLabelText>
               <PasswordInput
                 register={register}
                 id="old_password"
                 width={isTabletOrDesktop ? 392 : '100%'}
+                placeholder={t('password')}
               />
             </label>
             <label>
-              <PasswordLabelText>New Password:</PasswordLabelText>
+              <PasswordLabelText>
+                {t('settingModal.New Password')}:
+              </PasswordLabelText>
               <PasswordInput
                 error={errors.new_password}
                 register={register}
                 id="new_password"
                 width={isTabletOrDesktop ? 392 : '100%'}
+                placeholder={t('password')}
               />
             </label>
             <label>
-              <PasswordLabelText>Repeat new password:</PasswordLabelText>
+              <PasswordLabelText>
+                {t('settingModal.Repeat new password')}:
+              </PasswordLabelText>
               <PasswordInput
                 error={errors.repeat_new_password}
                 register={register}
                 id="repeat_new_password"
                 width={isTabletOrDesktop ? 392 : '100%'}
+                placeholder={t('password')}
               />
             </label>
           </RightContainer>
         </InfoWrapper>
 
-        <SaveButton type="submit">Save</SaveButton>
+        <SaveButton type="submit">{t('save')}</SaveButton>
       </Form>
     </SettingsContainer>
   );
