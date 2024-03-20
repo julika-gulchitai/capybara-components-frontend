@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@mui/icons-material": "^5.15.12",
     "@mui/material": "^5.15.12",
+    "@mui/system": "^5.15.14",
     "@reduxjs/toolkit": "^2.2.1",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.6.7",

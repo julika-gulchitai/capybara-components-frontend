@@ -19,6 +19,8 @@ const initialState = {
     gender: '',
     avatarURL: '',
     waterRate: '',
+    language: 'en',
+    theme: 'light'
   },
   token: '',
   isLoggedIn: false,
@@ -61,11 +63,7 @@ const userSlices = createSlice({
         state.token = '';
       })
       .addCase(updateUserThunk.fulfilled, (state, { payload }) => {
-        const { username, email, gender, avatarURL } = payload?.user;
-        state.user.username = username;
-        state.user.email = email;
-        state.user.gender = gender;
-        state.user.avatarURL = avatarURL;
+        state.user = payload.user;
       })
       .addCase(editWaterRateThunk.fulfilled, (state, { payload }) => {
         state.user.waterRate = payload.waterRate;
@@ -83,7 +81,7 @@ const userSlices = createSlice({
       .addCase(forgotPassword.fulfilled,(state, action)=> {
         state.user.email = action.payload;
       })
-      .addCase(forgotPassword.pending,(state, action)=> {
+      .addCase(forgotPassword.pending,(state)=> {
         state.isLoading = true;
         state.isError = null;
       })

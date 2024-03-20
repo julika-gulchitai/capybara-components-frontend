@@ -1,8 +1,12 @@
 import styled from 'styled-components';
-import { RadioGroup } from '@mui/material';
+import {RadioGroup} from '@mui/material';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled.jsx';
+import theme from '../../css/VariablesJSX.jsx';
+/*import {styled} from '@mui/system';*/
 
 export const SettingsContainer = styled.div`
+  position: relative;
+  
   h2 {
     font-weight: 500;
     font-size: 26px;
@@ -93,7 +97,7 @@ export const PasswordLabelText = styled.span`
   color: var(--black);
 `;
 
-export const AvatarRow = styled.div`
+export const AvatarBlock = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -158,3 +162,15 @@ export const GenderRadio = styled(RadioGroup)`
     }
   }
 `;
+
+export const SwitchesBlock = styled.div`
+  width: fit-content;
+`;
+
+export const SettingsHeader = styled.div`
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-right: 30px;
+`;
+
