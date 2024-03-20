@@ -1,4 +1,4 @@
-import{u as i,c as te,b as ne,d as I,e as A,r as l,f as ie,g as re,o as ae,j as e,R as oe,F as E,h as N,B as Z,i as le,n as se,p as L,M as D,k as j,N as P,s as de,H as ce,l as pe,m as he}from"./index-b4160e3e.js";const xe=i.div`
+import{u as i,c as te,b as ne,d as I,e as A,r as l,f as ie,g as re,o as ae,j as e,R as oe,F as E,h as N,B as Z,i as le,n as se,p as L,M as D,k as j,N as P,s as de,H as ce,l as pe,m as he}from"./index-3eeef145.js";const xe=i.div`
   box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
   background: var(--white);
   border: 1px solid var(--secondary-white);
@@ -762,7 +762,7 @@ import{u as i,c as te,b as ne,d as I,e as A,r as l,f as ie,g as re,o as ae,j as 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  /* gap: 24px; */
   width: 280px;
   width: 100%;
   height: 82px;
@@ -784,6 +784,7 @@ import{u as i,c as te,b as ne,d as I,e as A,r as l,f as ie,g as re,o as ae,j as 
   flex-direction: column;
   position: relative;
   width: 100%;
+  margin-top: 20px;
 `,z1=i.p`
   color: var(--blue);
   font-size: 18px;
