@@ -1,16 +1,22 @@
 import lightBgWelcomePageDsctp from '../assets/desktop/light-bg-welcome-page.svg'
 import lightBgWelcomePageTab from '../assets/tablet/light-bg-welcome-page.svg'
 import lightBgWelcomePageMob from '../assets/mobile/light-bg-welcome-page.svg'
+import lightBgElMainPageDsctp from '../assets/desktop/background-element-main-page.svg'
+import lightBgElMainPageTab from '../assets/tablet/background-element-home-screen.svg'
+import lightBgElMainPageMob from '../assets/mobile/background-element-home-screen.svg'
 
 import darkBgWelcomePageDsctp from '../assets/desktop/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageTab from '../assets/tablet/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-page.svg'
+import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
+import darkBgElMainPageTab from '../assets/tablet/darkTheme/dark-bg-el-home-screen-tab.svg'
+import darkBgElMainPageMob from '../assets/mobile/darkTheme/dark-bg-el-home-screen-mob.svg'
 
 export const themeLight = Object.freeze({
   colors: {
     mainBg: '#ffffff',
     textColor: '#2F2F2F',
-    blue: '#407BFF',
+    primaryBlue: '#407BFF',
     secondaryBg: '#ECF2FF',
     secondaryLightblue: '#D7E3FF',
     secondaryBlue: '#9EBBFF',
@@ -40,10 +46,18 @@ export const themeLight = Object.freeze({
     buttonShadow: '0 4px 8px 0 rgba(64, 123, 255, 0.34)',
     windowShadowContainer: '0 4px 14px 0 rgba(64, 123, 255, 0.3)',
   },
+
+  hovers: {
+    buttonShadow: '0 4px 14px 0 rgba(64, 123, 255, 0.54)',
+  },
+
   backgroundImage: {
     backgroundWelcomePageDsctp: lightBgWelcomePageDsctp,
     backgroundWelcomePageTablet: lightBgWelcomePageTab,
     backgroundWelcomePageMob: lightBgWelcomePageMob,
+    bgElemMainPageDsctp: lightBgElMainPageDsctp,
+    bgElemMainPageTab: lightBgElMainPageTab,
+    bgElemMainPageMob: lightBgElMainPageMob,
   },
 
 
@@ -52,13 +66,13 @@ export const themeDark = Object.freeze({
   colors: {
     mainBg: '#1c1d26',
     textColor: '#d5dff5',
-    blue: '#5082f2',
+    primaryBlue: '#5082f2',
 
     secondaryBg: '#1f2438',
     // secondaryLightblue: '#D7E3FF',
-    // secondaryBlue: '#9EBBFF',
-    // secondaryRed: '#EF5050',
-    // secondaryOrange: '#FF9D43',
+    secondaryBlue: '#2f3875',
+    secondaryRed: '#f16161',
+    secondaryOrange: '#ffa756',
     // secondaryBlueMedium: '#c6d7ff',
     // secondaryGrayMedium: '#f5f5f5',
 
@@ -84,10 +98,17 @@ export const themeDark = Object.freeze({
     windowShadowContainer: '0 4px 14px 0 rgba(0, 0, 0, 0.2)'
   },
 
+  hovers: {
+    buttonShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.54)',
+  },
+
   backgroundImage: {
     backgroundWelcomePageDsctp: darkBgWelcomePageDsctp,
     backgroundWelcomePageTablet: darkBgWelcomePageTab,
     backgroundWelcomePageMob: darkBgWelcomePageMob,
+    bgElemMainPageDsctp: darkBgElMainPageDsctp,
+    bgElemMainPageTab: darkBgElMainPageTab,
+    bgElemMainPageMob: darkBgElMainPageMob,
   },
 });
 

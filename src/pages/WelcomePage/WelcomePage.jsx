@@ -75,7 +75,7 @@ const WelcomePage = ({ setTheme }) => {
     <>
       {/* <ThemeComponent> */}
 
-      <input type='checkbox' onChange={changeTheme} />
+
       <StyledFullPage>
         <AdaptivContainer>
           <StyledMainContainer>
@@ -118,6 +118,7 @@ const WelcomePage = ({ setTheme }) => {
               <StyledListRight>
                 <StyledNameList>
                   {t('welcomePage.Why drink water')}
+                  <input type='checkbox' onChange={changeTheme} />
                 </StyledNameList>
                 <li>{t('welcomePage.Supply of nutrients to all organs')}</li>
                 <li>{t('welcomePage.Providing oxygen to the lungs')}</li>

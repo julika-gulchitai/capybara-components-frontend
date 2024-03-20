@@ -10,15 +10,18 @@ export const StyledFullPage = styled.div`
   background-repeat: no-repeat;
   background-position: bottom;
   color: ${props => props.theme.colors.textColor};
+  height: calc(100svh - 64px);
   @media only screen and (max-width: 320px){
-    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageMob});
-  }
+    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageMob}), url(${props => props.theme.backgroundImage.bgElemMainPageMob});
+      }
   @media (min-width:321px) and (max-width: 768px){
-    background-image:url(${props => props.theme.backgroundImage.backgroundWelcomePageTablet});
-  }
+    background-image:url(${props => props.theme.backgroundImage.backgroundWelcomePageTablet}), url(${props => props.theme.backgroundImage.bgElemMainPageTab});
+      }
   @media (min-width:769px) {
-    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp});
-  }
+    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp}), url(${props => props.theme.backgroundImage.bgElemMainPageDsctp});
+    background-position: bottom, bottom;
+    height: calc(100svh - 80px);
+     }
 
   @media only screen and (min-width: 768px) {
       justify-content: space-between;
@@ -96,7 +99,6 @@ export const StyledListLeft = styled.ul`
   text-align: left;
   @media only screen and (min-width: 768px) {
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
   @media only screen and (min-width: 1440px) {
@@ -168,7 +170,7 @@ export const StyledListRight = styled.ul`
       width: .5rem;
       height: .5rem;
       border-radius: 50%;
-      background-color: ${props => props.theme.colors.blue};
+      background-color: ${props => props.theme.colors.primaryBlue};
       margin-right: 6px;
     }
   }
@@ -180,7 +182,7 @@ export const StyledWelcomeLink = styled(Link)`
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
   box-shadow: ${props => props.theme.shadows.buttonShadow};
-  background: ${props => props.theme.colors.blue};
+  background: ${props => props.theme.colors.primaryBlue};
   font-weight: 500;
   font-size: 18px;
   line-height: 1.33333;

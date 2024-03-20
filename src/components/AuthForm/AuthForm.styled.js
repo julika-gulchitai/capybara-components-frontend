@@ -13,7 +13,7 @@ export const LabelStyled = styled.div`
   margin-bottom: 8px;
   line-height: 1.33333;
 
-  color: var(--black);
+  color:${props => props.theme.colors.textColor};
 `;
 export const SignButton = styled(ButtonStyled)`
   font-size: 16px;
@@ -37,4 +37,4 @@ export const SignButton = styled(ButtonStyled)`
 `;
 export const WrapInput = styled.div`
   margin-bottom: 6px;
-`;
+ `;
