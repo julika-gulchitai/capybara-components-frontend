@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../redux/User/selectors';
+
 import { Notify } from 'notiflix';
-
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+import { editWaterRateThunk } from '../../redux/User/UserThunks';
+
+import { paramsForNotify } from '../../constants/notifications';
 import {
   BtnWrapper,
   DailyNorma,
@@ -16,13 +23,6 @@ import {
   WeightAndSports,
 } from './DailyNormaModal.styled';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { editWaterRateThunk } from '../../redux/User/UserThunks';
-import { selectUser } from '../../redux/User/selectors';
-import { paramsForNotify } from '../../constants/notifications';
-
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 const schema = yup.object().shape({
   norma: yup
@@ -35,12 +35,14 @@ const schema = yup.object().shape({
 });
 
 const DailyNormaModal = ({ onClose }) => {
+  const { gender } = useSelector(selectUser);
+
   const [weight, setWeight] = useState('0');
   const [sports, setSports] = useState('0');
   const [dailyNorma, setDailyNorma] = useState('1.8');
-  const [isFemale, setIsFemale] = useState(true);
+  const [isFemale, setIsFemale] = useState(() => getGenderForState());
+
   const dispatch = useDispatch();
-  const { gender } = useSelector(selectUser);
 
   const {
     register,
@@ -48,11 +50,6 @@ const DailyNormaModal = ({ onClose }) => {
     formState: { errors },
   } = useForm({
     mode: 'onChange',
-    defaultValues: {
-      // weight: 0,
-      // sports: 0,
-      // norma: dailyNorma,
-    },
     resolver: yupResolver(schema),
   });
 
@@ -79,6 +76,14 @@ const DailyNormaModal = ({ onClose }) => {
         console.log(error);
         Notify.failure(error.message, paramsForNotify);
       });
+  }
+
+  function getGenderForState() {
+    if (gender === 'female' || gender === null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   function getGender() {
@@ -160,31 +165,6 @@ const DailyNormaModal = ({ onClose }) => {
             }}
           />
         </RadioGroup>
-        {/* <RadioBtns>
-          <label htmlFor="gender-choice-female">
-            <input
-              type="radio"
-              id="gender-choice-female"
-              {...register('gender')}
-              name="gender"
-              value="female"
-              defaultChecked
-              onInput={() => setIsFemale(true)}
-            />
-            For woman
-          </label>
-          <label htmlFor="gender-choice-male">
-            <input
-              type="radio"
-              id="gender-choice-male"
-              {...register('gender')}
-              name="gender"
-              value="male"
-              onInput={() => setIsFemale(false)}
-            />
-            For man
-          </label>
-        </RadioBtns> */}
         <WeightAndSports>
           <InputWrapper>
             <label htmlFor="weight">Your weight in kilograms:</label>
@@ -199,6 +179,10 @@ const DailyNormaModal = ({ onClose }) => {
               }}
               onFocus={(e) => (e.target.placeholder = '')}
               onBlur={(e) => (e.target.placeholder = '0')}
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/(\.\d{1})\d+/, '$1');
+                e.target.value = e.target.value.replace(',', '.');
+              }}
               autoComplete="off"
             />
             {errors.weight && <Error>{errors.weight.message}</Error>}
@@ -217,6 +201,10 @@ const DailyNormaModal = ({ onClose }) => {
               onChange={(e) => setSports(e.target.value)}
               onFocus={(e) => (e.target.placeholder = '')}
               onBlur={(e) => (e.target.placeholder = '0')}
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/(\.\d{1})\d+/, '$1');
+                e.target.value = e.target.value.replace(',', '.');
+              }}
               autoComplete="off"
             />
           </InputWrapper>
@@ -239,6 +227,10 @@ const DailyNormaModal = ({ onClose }) => {
             placeholder="0"
             onFocus={(e) => (e.target.placeholder = '')}
             onBlur={(e) => (e.target.placeholder = '0')}
+            onInput={(e) => {
+              e.target.value = e.target.value.replace(/(\.\d{1})\d+/, '$1');
+              e.target.value = e.target.value.replace(',', '.');
+            }}
             autoComplete="off"
           />
           {errors.norma && <Error>{errors.norma.message}</Error>}
