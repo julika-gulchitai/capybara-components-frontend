@@ -4,6 +4,9 @@ import lightBgWelcomePageMob from '../assets/mobile/light-bg-welcome-page.svg'
 import lightBgElMainPageDsctp from '../assets/desktop/background-element-main-page.svg'
 import lightBgElMainPageTab from '../assets/tablet/background-element-home-screen.svg'
 import lightBgElMainPageMob from '../assets/mobile/background-element-home-screen.svg'
+import lightBottleHscDesc from '../assets/desktop/botle-home-screen.svg'
+import lightBottleHscTab from '../assets/tablet/bottle-home-screen.svg'
+import lightBottleHscMob from '../assets/mobile/bottle-home-screen.svg'
 
 import darkBgWelcomePageDsctp from '../assets/desktop/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageTab from '../assets/tablet/darkTheme/background-welcome-page.svg'
@@ -11,6 +14,9 @@ import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-
 import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
 import darkBgElMainPageTab from '../assets/tablet/darkTheme/dark-bg-el-home-screen-tab.svg'
 import darkBgElMainPageMob from '../assets/mobile/darkTheme/dark-bg-el-home-screen-mob.svg'
+import darktBottleHscDesc from '../assets/desktop/darkTheme/bottle-home-screen-dark-desc.svg'
+import darktBottleHscTab from '../assets/tablet/darkTheme/bottle-home-screen-dark-tab.svg'
+import darktBottleHscMob from '../assets/mobile/darkTheme/bottle-home-screen-dark-mob.svg'
 
 export const themeLight = Object.freeze({
   colors: {
@@ -58,6 +64,9 @@ export const themeLight = Object.freeze({
     bgElemMainPageDsctp: lightBgElMainPageDsctp,
     bgElemMainPageTab: lightBgElMainPageTab,
     bgElemMainPageMob: lightBgElMainPageMob,
+    bgtBottleHscDesc: lightBottleHscDesc,
+    bgtBottleHscTab: lightBottleHscTab,
+    bgtBottleHscMob: lightBottleHscMob,
   },
 
 
@@ -109,6 +118,9 @@ export const themeDark = Object.freeze({
     bgElemMainPageDsctp: darkBgElMainPageDsctp,
     bgElemMainPageTab: darkBgElMainPageTab,
     bgElemMainPageMob: darkBgElMainPageMob,
+    bgtBottleHscDesc: darktBottleHscDesc,
+    bgtBottleHscTab: darktBottleHscTab,
+    bgtBottleHscMob: darktBottleHscMob,
   },
 });
 

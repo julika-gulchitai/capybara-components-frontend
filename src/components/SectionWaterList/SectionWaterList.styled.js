@@ -12,8 +12,8 @@ export const StyledSectionWaterList = styled.div`
   margin-top: calc(-10px + 0px);
 
   border-radius: 10px;
-  background: var(--secondary-white);
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+  background: ${props => props.theme.colors.secondaryBg};
+  box-shadow: ${props => props.theme.shadows.windowShadowContainer};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 44px;
