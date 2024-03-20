@@ -1,12 +1,16 @@
 export const en = {
     "signin": "Sign in",
     "signup": "Sign Up",
+    "logout": "Log out",
     "enterEmail": "Enter your email",
     "enterPassword": "Enter your password",
     "repeatPassword": "Repeat password",
     "password": "Password",
     "email": "E-mail",
     "forgotPassword": "Forgot your password?",
+    "save": "Save",
+    "woman": "Woman",
+    "man": "Man",
     welcomePage: {
         "Water consumption tracker": "Water consumption tracker",
         "Record daily water intake and track": "Record daily water intake and track",
@@ -23,7 +27,17 @@ export const en = {
         "Ensuring the stability of the internal environment": "Ensuring the stability of the internal environment",
         "Maintaining within the normal temperature": "Maintaining within the normal temperature",
         "Maintaining an immune system capable of resisting disease": "Maintaining an immune system capable of resisting disease",
-
+    },
+    settingModal: {
+        "Setting": "Setting",
+        "Your photo": "Your photo",
+        "Upload a photo": "Upload a photo",
+        "Your gender identity": "Your gender identity",
+        "Your name": "Your name",
+        "Name": "Name",
+        "Outdated password": "Outdated password",
+        "New Password": "New Password",
+        "Repeat new password": "Repeat new password",
 
     }
 }
