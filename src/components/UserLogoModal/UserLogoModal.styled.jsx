@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MenuContainer = styled.div`
   border-radius: 10px;
   padding: 16px;
-  width: 118px;
+  min-width: 118px;
   height: 88px;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
   background-color: var(--white);
