@@ -2,22 +2,25 @@ import DailyNorma from '../../components/DailyNorma/DailyNorma';
 import SectionWaterList from '../../components/SectionWaterList/SectionWaterList';
 import WaterRatioPanel from '../../components/WaterRatioPanel/WaterRatioPanel.jsx';
 import {
+  BackgroundContainer,
   HomeContainer,
   LeftContainer,
-  RightContainer,
+  RightContainer
 } from './HomePage.styled.js';
 
 const HomePage = () => {
   return (
-    <HomeContainer>
-      <LeftContainer className="left">
-        <DailyNorma />
-        <WaterRatioPanel />
+    <BackgroundContainer id='beckground'>
+      <HomeContainer>
+      <LeftContainer>
+        <DailyNorma/>
+        <WaterRatioPanel/>
       </LeftContainer>
-      <RightContainer className="right">
-        <SectionWaterList />
+      <RightContainer>
+        <SectionWaterList/>
       </RightContainer>
     </HomeContainer>
+    </BackgroundContainer>
   );
 };
 

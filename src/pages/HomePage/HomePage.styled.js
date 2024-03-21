@@ -1,35 +1,26 @@
 import styled from 'styled-components';
 import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
-// import bgDesc from '../../assets/desktop/background-element-main-page.svg';
-// import bgTab from '../../assets/tablet/background-element-home-screen.svg';
-// import bgMob from '../../assets/mobile/background-element-home-screen.svg';
-// import bottleDesc from '../../assets/desktop/botle-home-screen.svg';
-// import bottleTab from '../../assets/tablet/bottle-home-screen.svg';
-// import bottleMob from '../../assets/mobile/bottle-home-screen.svg';
+import bgDesk from '../../assets/desktop/bg-home-desktop.svg';
+import bgTablet from '../../assets/tablet/bg-home-tablet.svg';
+import bgMob from '../../assets/mobile/bg-home-mob.svg';
 
 export const HomeContainer = styled(AdaptiveContainer)`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-bottom: 39px;
-  background-color: ${(props) => props.theme.colors.mainBg};
-  background-image: url(${(props) =>
-    props.theme.backgroundImage.bgElemMainPageMob});
-  /* height: calc(100vh - 72px); 
-  background-position: top;
-  */
+  padding-bottom: 40px;
+  background-color: transparent;
+  padding-top: 16px;
 
   @media only screen and (min-width: 768px) {
-    background-image: url(${(props) =>
-      props.theme.backgroundImage.bgElemMainPageTab});
+    padding-top: 32px;
   }
 
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 32px;
-    background-image: url(${(props) =>
-      props.theme.backgroundImage.bgElemMainPageDsctp});
-    /* background-position: bottom; */
+    padding-top: 8px;
+    padding-bottom: 0;
   }
 `;
 
@@ -38,27 +29,17 @@ export const LeftContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-repeat: no-repeat;
-  padding-top: 16px;
-  background-image: url(${(props) =>
-    props.theme.backgroundImage.bgtBottleHscTab});
   height: 440px;
 
   @media only screen and (min-width: 768px) {
     height: 492px;
-    background-image: url(${(props) =>
-      props.theme.backgroundImage.bgtBottleHscTab});
-    /* background-position: top; */
   }
 
   @media only screen and (min-width: 1440px) {
     width: calc((100% / 2) - 16px);
     height: 680px;
-    padding-top: 40px;
+    padding-top: 32px;
     padding-bottom: 16px;
-    /* background-position: top; */
-    background-image: url(${(props) =>
-        props.theme.backgroundImage.bgtBottleHscDesc}),
-      url(${(props) => props.theme.backgroundImage.bgElemMainPageDsctp});
   }
 `;
 
@@ -66,5 +47,25 @@ export const RightContainer = styled.div`
   @media only screen and (min-width: 1440px) {
     width: calc((100% / 2) - 16px);
     height: 680px;
+  }
+`;
+
+export const BackgroundContainer = styled.div`
+  height: max-content;
+  background-repeat: no-repeat;
+  min-height: calc(100% - 64px);
+  background-image: url(${bgMob});
+  background-position: calc(50% + 3px) 44px;
+  
+  @media only screen and (min-width: 768px) {
+    min-height: calc(100% - 80px);
+    background-image: url(${bgTablet});
+    background-position: calc(50% + 9px) 8px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    min-height: calc(100% - 72px);
+    background-image: url(${bgDesk});
+    background-position: calc(50% - 10px) 46px;
   }
 `;
