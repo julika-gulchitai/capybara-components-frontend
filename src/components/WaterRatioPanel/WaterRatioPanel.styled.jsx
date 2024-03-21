@@ -1,44 +1,55 @@
 import styled from 'styled-components';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 
-export const WaterWrap = styled.div`
+export const WateRatioContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 24px; */
   width: 100%;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    gap: 12px;
     width: 704px;
-    height: 90px;
-    gap: 24px;
+    height: 95px;
   }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+    gap: 23px;
     width: 592px;
-    height: 106px;
-    gap: 32px;
+    height: 90px;
   }
 `;
 
-export const RatioContainer = styled.div`
+export const RatioScale = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 100%;
-  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 356px;
+    height: 95px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 391px;
+    height: 95px;
+  }
 `;
 
 export const TodayText = styled.p`
-  color: ${props => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.primaryBlue};
   font-size: 18px;
   line-height: 1.3;
-  margin-bottom: 17px;
-`;
-export const StyledInput = styled.input`
+  margin-bottom: 8px;
 
+  @media screen and (min-width: 768px) {
+    margin-bottom: 16px;
+  }
+`;
+
+export const StyledInput = styled.input`
   &[type='range'] {
     height: 8px;
     border-radius: 8px;
@@ -51,15 +62,15 @@ export const StyledInput = styled.input`
       var(--secondary-lightblue) 100%
     );
     margin-left: 10px;
+    margin-right: 20px;
     margin-bottom: 4px;
-    margin-right: 14px;
   }
   &[type='range']::-webkit-slider-thumb {
     width: 14px;
     height: 14px;
-    background: ${props => props.theme.colors.mainBg};
+    background: ${(props) => props.theme.colors.mainBg};
     border-radius: 50%;
-    border: solid 1px ${props => props.theme.colors.primaryBlue};
+    border: solid 1px ${(props) => props.theme.colors.primaryBlue};
     appearance: none;
   }
   @media screen and (min-width: 768px) {
@@ -69,21 +80,46 @@ export const StyledInput = styled.input`
   @media screen and (min-width: 1440px) {
     width: 360px;
   }
-  @media screen and (max-width: 767px) {
-    /* max-width: 255px; */
-    padding-right: 10px;
-    width: 100%;
-  }
 `;
 
-export const WrapperPercentage = styled.div`
+export const Percentage = styled.div`
   display: flex;
   justify-content: space-between;
   span {
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 12px;
     line-height: 1.3;
-  }
+    
+
+    &::before {
+      height: 8px;
+      content: '|';
+      color: ${(props) => props.theme.colors.secondaryLightblue};
+      margin-top: 4px;
+      margin-bottom: 4px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:first-child {
+      font-size: ${(props) => (props.$rater === 0 ? `16px` : `12px`)};
+      font-weight: ${(props) => (props.$rater === 0 ? `500` : `400`)};
+      /* margin-left: 4px; */
+    }
+
+    &:nth-child(2) {
+      font-size: ${(props) =>
+        (props.$rater >= 50) & (props.$rater < 100) ? `16px` : `12px`};
+      font-weight: ${(props) =>
+        (props.$rater >= 50) & (props.$rater < 100) ? `500` : `400`};
+    }
+    &:last-child {
+      font-size: ${(props) => (props.$rater >= 100 ? `16px` : `12px`)};
+      font-weight: ${(props) => (props.$raterrater >= 100 ? `500` : `400`)};
+      /* margin-left: 4px; */
+    }
 `;
 
 export const AddBtn = styled(ButtonStyled)`
@@ -92,9 +128,19 @@ export const AddBtn = styled(ButtonStyled)`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 8px;
 
   svg {
     fill: none;
-    stroke: ${props => props.theme.colors.mainBg};
+    stroke: ${(props) => props.theme.colors.mainBg};
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin-top: -8px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 178px;
   }
 `;
