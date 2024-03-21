@@ -55,8 +55,8 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 
     border-radius: 30px;
-    border: var(1px solid --secondary-blue);
-    background: var(--white);
+    border: 1px solid ${props => props.theme.colors.secondaryBlue};
+    background: ${props => props.theme.colors.mainBg};
 
     box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
 
@@ -75,8 +75,8 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 
     border-radius: 40px;
-    background: var(--secondary-lightblue);
-    color: var(--blue);
+    background: ${props => props.theme.colors.secondaryLightblue};
+    color: ${props => props.theme.colors.primaryBlue};
 
     font-size: 18px;
     font-weight: 700;
@@ -85,12 +85,12 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const StyledPlusIcon = styled(PlusIcon)`
-  stroke: var(--blue);
+  stroke: ${props => props.theme.colors.primaryBlue};
 `;
 
 export const StyledMinusIcon = styled(MinusIcon)`
-  stroke: var(--blue);
-  fill: var(--blue);
+  stroke: ${props => props.theme.colors.primaryBlue};
+  fill: ${props => props.theme.colors.primaryBlue};
 `;
 
 export const FormStyled = styled.form`
@@ -112,11 +112,11 @@ export const FormStyled = styled.form`
 
     outline: none;
     border-radius: 6px;
-    border: 1px solid var(--secondary-blue);
+    border: 1px solid ${props => props.theme.colors.secondaryBlue};
 
     appearance: none;
 
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     font-size: 16px;
     line-height: 1.25;
     text-align: left;
@@ -166,10 +166,10 @@ export const ButtonSaveWrapper = styled.div`
     border-radius: 10px;
     border: none;
 
-    color: var(--white);
-    background: var(--blue);
+    color: ${props => props.theme.colors.mainBg};
+    background: ${props => props.theme.colors.primaryBlue};
 
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+    box-shadow: ${props => props.theme.shadows.buttonShadow};
 
     font-size: 18px;
     font-weight: 500;
@@ -197,7 +197,7 @@ export const GlassContainer = styled.div`
   padding: 8px 24px;
   border-radius: 10px;
   gap: 12px;
-  background-color: var(--secondary-white);
+  background-color: ${props => props.theme.colors.secondaryBg};
   margin-bottom: 24px;
 `;
 
@@ -207,7 +207,7 @@ export const GlassStyle = styled(Glass)`
 `;
 
 export const TextAmount = styled.p`
-  color: var(--blue);
+  color: ${props => props.theme.colors.primaryBlue};
   font-size: 18px;
   line-height: 1.3;
   margin-right: 4px;

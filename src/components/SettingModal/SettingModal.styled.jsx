@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import {RadioGroup} from '@mui/material';
+import { RadioGroup } from '@mui/material';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled.jsx';
-import theme from '../../css/VariablesJSX.jsx';
 /*import {styled} from '@mui/system';*/
 
 export const SettingsContainer = styled.div`
@@ -94,7 +93,7 @@ export const PasswordLabelText = styled.span`
   font-size: 16px;
   line-height: 1.25;
   font-weight: 400;
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
 `;
 
 export const AvatarBlock = styled.div`
@@ -109,7 +108,7 @@ export const AvatarBlock = styled.div`
     font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     background-color: transparent;
     border: none;
     padding: 0;
@@ -152,11 +151,11 @@ export const GenderRadio = styled(RadioGroup)`
     margin-right: 0;
 
     span {
-      color: var(--blue);
+      color: ${props => props.theme.colors.primaryBlue};
     }
 
     span.MuiFormControlLabel-label {
-      color: var(--black);
+      color: ${props => props.theme.colors.textColor};
       font-size: 16px;
       line-height: 1.25;
     }

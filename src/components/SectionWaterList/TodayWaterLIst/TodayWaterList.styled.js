@@ -62,13 +62,13 @@ export const UlStyle = styled.ul`
 
   &::-webkit-scrollbar-track {
     margin-block: 5px;
-    background: var(--secondary-lightblue);
+    background: ${props => props.theme.colors.secondaryLightblue};
     border-radius: 50px;
-    border: 1px solid var(--secondary-white);
+    border: 1px solid ${props => props.theme.colors.secondaryBg};
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var(--secondary-blue);
+    background: ${props => props.theme.colors.secondaryBlue};
     border-radius: 50px;
   }
 
@@ -85,7 +85,7 @@ export const ListItem = styled.li`
   gap: 38px;
   padding: 12px 0 12px 0;
   margin: 0 4px 0 0;
-  border-bottom: 1px solid var(--secondary-lightblue);
+  border-bottom: 1px solid ${props => props.theme.colors.secondaryLightblue};
 `;
 
 export const InfoWrap = styled.div`
@@ -149,7 +149,7 @@ export const EditBtn = styled.button`
 
   &:hover,
   &:focus {
-    border-bottom: 1px solid var(--secondary-blue);
+    border-bottom: 1px solid ${props => props.theme.colors.secondaryBlue};
     cursor: pointer;
   }
 `;
@@ -200,7 +200,7 @@ export const AddBtnStyle = styled.button`
     width: 16px;
     height: 16px;
     & use {
-      fill: var(--blue);
+      fill: ${props => props.theme.colors.primaryBlue};
     }
   }
 

@@ -4,13 +4,13 @@ export const LanguageContainer = styled.div`
   display: flex;
   gap: 8px;
   button {
-    background-color: var(--secondary-blue);
+    background-color: ${props => props.theme.colors.secondaryBlue};
     border: none;
-    color: var(--white);
+    color: ${props => props.theme.colors.mainBg};
     font-size: 10px;
     border-radius: 2px;
     &:disabled {
-      background-color: var(--secondary-lightblue);
+      background-color: ${props => props.theme.colors.secondaryLightblue};
     }
   }
 `;
