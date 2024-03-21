@@ -2,11 +2,11 @@ import { useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import {
   AddBtn,
-  WaterWrap,
-  RatioContainer,
+  WateRatioContainer,
+  RatioScale,
   TodayText,
   StyledInput,
-  WrapperPercentage,
+  Percentage,
 } from './WaterRatioPanel.styled';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import TodayListModal from '../TodayListModal/TodayListModal';
@@ -29,16 +29,16 @@ const WaterRatioPanel = () => {
     setOpenModalTodayList(false);
   };
   return (
-    <WaterWrap>
-      <RatioContainer>
+    <WateRatioContainer>
+      <RatioScale>
         <TodayText>Today</TodayText>
         <StyledInput type="range" min="0" max="100" value={rater} disabled />
-        <WrapperPercentage>
+        <Percentage>
           <span>0%</span>
           <span>50%</span>
           <span>100%</span>
-        </WrapperPercentage>
-      </RatioContainer>
+        </Percentage>
+      </RatioScale>
       <AddBtn onClick={(event) => handleOpenModalTodayListAdd(event)}>
         <svg width={24} height={24}>
           <use href={`${sprite}#plus-circle`} />
@@ -58,7 +58,7 @@ const WaterRatioPanel = () => {
           />
         </ModalWindow>
       )}
-    </WaterWrap>
+    </WateRatioContainer>
   );
 };
 export default WaterRatioPanel;
