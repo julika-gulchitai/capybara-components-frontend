@@ -26,7 +26,13 @@ export const RatioScale = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   @media screen and (min-width: 768px) {
+    width: 356px;
+    height: 95px;
+  }
+
+  @media screen and (min-width: 1440px) {
     width: 391px;
     height: 95px;
   }
@@ -117,12 +123,12 @@ export const Percentage = styled.div`
 `;
 
 export const AddBtn = styled(ButtonStyled)`
-  margin-top: -8px;
   width: 100%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 8px;
 
   svg {
     fill: none;
@@ -131,10 +137,10 @@ export const AddBtn = styled(ButtonStyled)`
 
   @media screen and (min-width: 768px) {
     width: 336px;
+    margin-top: -8px;
   }
 
   @media screen and (min-width: 1440px) {
-    /* padding: 10px  */
     width: 178px;
   }
 `;
