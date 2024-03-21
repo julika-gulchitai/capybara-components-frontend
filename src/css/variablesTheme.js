@@ -33,8 +33,6 @@ export const themeLight = Object.freeze({
 
     secondaryGray: '#8F8F8F',
 
-    buttonClose: '#407bff',
-
     fontSizes: {
       tiny: '12px',
       small: '16px',
@@ -78,7 +76,7 @@ export const themeDark = Object.freeze({
     primaryBlue: '#5082f2',
 
     secondaryBg: '#1f2438',
-    // secondaryLightblue: '#D7E3FF',
+    secondaryLightblue: '#2a3052',
     secondaryBlue: '#2f3875',
     secondaryRed: '#f16161',
     secondaryOrange: '#ffa756',

@@ -12,12 +12,12 @@ export const UserMenuButton = styled.button`
     font-size: 18px;
     line-height: 1.33;
     text-align: right;
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     margin-right: 8px;
   }
   
   svg{
-    fill: var(--blue)
+    fill: ${props => props.theme.colors.primaryBlue}
   }
 `;
 
@@ -27,7 +27,7 @@ export const AvatarWrapper = styled.div`
   height: 28px;
   overflow: clip;
   border-radius: 50px;
-  border: 1px solid ${({$borderColor}) => $borderColor};
+  border: 1px solid ${({ $borderColor }) => $borderColor};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ export const AvatarWrapper = styled.div`
 
   span {
     font-weight: 500;
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     margin: 2px 0 0;
     
   }

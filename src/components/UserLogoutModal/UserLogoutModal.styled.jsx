@@ -45,11 +45,12 @@ export const WrapBtn = styled.div`
 `;
 
 export const LogoutBtn = styled(ButtonStyled)`
-  background-color: var(--secondary-red);
-  color: var(--white);
+  background-color: ${props => props.theme.colors.secondaryRed};
+  color: ${props => props.theme.colors.mainBg};
   align-items: center;
   width: 100%;
   margin-top: 0;
+  box-shadow: none;
 
   @media screen and (min-width: 768px) {
     width: 160px;
@@ -57,12 +58,12 @@ export const LogoutBtn = styled(ButtonStyled)`
   }
 `;
 export const LogoutCancelBtn = styled(ButtonStyled)`
-  background-color: var(--secondary-lightblue);
-  color: var(--blue);
+  background-color: ${props => props.theme.colors.secondaryLightblue};
+  color: ${props => props.theme.colors.primaryBlue};
   align-items: center;
   width: 100%;
   margin-top: 0;
-  box-shadow: 0 0 0 0;
+  box-shadow: none;
 
   @media screen and (min-width: 768px) {
     width: 160px;

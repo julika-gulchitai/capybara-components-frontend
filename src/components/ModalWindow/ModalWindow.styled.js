@@ -18,8 +18,9 @@ export const ModalContent = styled.div`
   border-radius: 10px;
   padding: 24px 12px;
   margin: 40px 20px ;
-  background-color: white;
+  background-color: ${props => props.theme.colors.mainBg};
   height: fit-content;
+  color:${props => props.theme.colors.textColor};
   @media only screen and (min-width: 768px) {
      padding: 32px 24px;
      margin: 40px 32px ;
@@ -27,10 +28,10 @@ export const ModalContent = styled.div`
 `;
 
 export const ModalButtonClose = styled.button`
-  background: #fcfcfc;
+  background: transparent;
   border:none;
   position: absolute;
-  color: ${props => props.theme.colors.buttonClose};
+  color: ${props => props.theme.colors.primaryBlue};
   padding: 0;
   right: 12px;
   top: 24px;
