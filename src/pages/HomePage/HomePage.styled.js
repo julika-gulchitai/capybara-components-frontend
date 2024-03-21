@@ -11,63 +11,60 @@ export const HomeContainer = styled(AdaptiveContainer)`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  position: relative;
-  /* height: calc(100vh - 48px); */
-  background-color:${props => props.theme.colors.mainBg};
-  background-image: url(${props => props.theme.backgroundImage.bgElemMainPageMob});
+  padding-bottom: 39px;
+  background-color: ${(props) => props.theme.colors.mainBg};
+  background-image: url(${(props) =>
+    props.theme.backgroundImage.bgElemMainPageMob});
+  /* height: calc(100vh - 72px); 
   background-position: top;
-     padding-top: 16px;
-    padding-bottom: 82px; 
-  
+  */
 
   @media only screen and (min-width: 768px) {
-    background-image: url(${props => props.theme.backgroundImage.bgElemMainPageTab});
-
+    background-image: url(${(props) =>
+      props.theme.backgroundImage.bgElemMainPageTab});
   }
 
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 32px;
-    background-position: bottom;
-    background-image: url(${props => props.theme.backgroundImage.bgElemMainPageDsctp});
-    padding-bottom: 0; 
+    background-image: url(${(props) =>
+      props.theme.backgroundImage.bgElemMainPageDsctp});
+    /* background-position: bottom; */
   }
-`
+`;
 
 export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(${props => props.theme.backgroundImage.bgtBottleHscTab});
-  height: 448px;
-  margin-bottom: 40px;
+  padding-top: 16px;
+  background-image: url(${(props) =>
+    props.theme.backgroundImage.bgtBottleHscTab});
+  height: 440px;
 
   @media only screen and (min-width: 768px) {
-    height: 564px;
-    background-position: top;
-    background-image: url(${props => props.theme.backgroundImage.bgtBottleHscTab});
-    height: 481px;
-    background-position: top;
-    margin-bottom: 20px;
+    height: 492px;
+    background-image: url(${(props) =>
+      props.theme.backgroundImage.bgtBottleHscTab});
+    /* background-position: top; */
   }
 
   @media only screen and (min-width: 1440px) {
     width: calc((100% / 2) - 16px);
-    height: 690px;
-    padding-top: 16px;
-    padding-bottom: 32px;
-    background-position: top;
-    background-image: url(${props => props.theme.backgroundImage.bgtBottleHscDesc}), url(${props => props.theme.backgroundImage.bgElemMainPageDsctp});;
-     }
-  `;
+    height: 680px;
+    padding-top: 40px;
+    padding-bottom: 16px;
+    /* background-position: top; */
+    background-image: url(${(props) =>
+        props.theme.backgroundImage.bgtBottleHscDesc}),
+      url(${(props) => props.theme.backgroundImage.bgElemMainPageDsctp});
+  }
+`;
 
 export const RightContainer = styled.div`
   @media only screen and (min-width: 1440px) {
     width: calc((100% / 2) - 16px);
     height: 680px;
-    position: absolute;
-    right: -10px;
   }
 `;
