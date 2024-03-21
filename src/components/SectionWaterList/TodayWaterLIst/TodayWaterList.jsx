@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { CiTrash } from 'react-icons/ci';
 import { FaRegEdit } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa';
@@ -19,7 +21,6 @@ import {
   WrapBtn,
   StyledQuestion,
 } from './TodayWaterList.styled';
-import { useState } from 'react';
 
 import ModalWindow from '../../../components/ModalWindow/ModalWindow';
 import TodayListModal from 'components/TodayListModal/TodayListModal';

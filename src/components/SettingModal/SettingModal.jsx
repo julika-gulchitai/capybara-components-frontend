@@ -25,13 +25,18 @@ import { useTranslation } from 'react-i18next';
 import {LangSwitch, ThemeSwitch} from './SettingsSwitchStyled.jsx';
 
 function SettingModal({close}) {
-  const [avatar, setAvatar] = useState('');
-  const dispatch = useDispatch();
   const {username, email, gender, avatarURL, theme: userTheme, language} = useSelector(selectUser);
-  const [photo, setPhoto] = useState(null);
-  const { t } = useTranslation();
 
+  const dispatch = useDispatch();
+  const isTabletOrDesktop = useMediaQuery({query: '(min-width: 768px)'});
   const userData = new FormData();
+
+  const [avatar, setAvatar] = useState('');
+  const [photo, setPhoto] = useState(null);
+  const [themeValue, setThemeValue] = useState(false)
+  const [languageValue, setLanguageValue] = useState(false)
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (avatarURL) {
@@ -39,7 +44,13 @@ function SettingModal({close}) {
     }
   }, [avatarURL]);
 
-  const isTabletOrDesktop = useMediaQuery({query: '(min-width: 768px)'});
+  useEffect(() => {
+    setThemeValue(userTheme === 'dark')
+  }, [userTheme]);
+
+  useEffect(() => {
+    setLanguageValue(language === 'en')
+  }, [language]);
 
   const schema = yup
     .object({
@@ -61,10 +72,8 @@ function SettingModal({close}) {
         ),
       repeat_new_password: yup
         .string()
-        .oneOf(
-          [yup.ref('new_password'), null],
-          'Passwords don\'t match, please try again.'
-        )
+        .when('new_password', (new_password, field) =>
+          new_password ? field.oneOf([yup.ref('new_password')], 'Passwords don\'t match!') : field)
     })
     .required();
 
@@ -170,19 +179,29 @@ function SettingModal({close}) {
           <Controller
             control={control}
             name='theme'
-            render={({field}) => (
+            defaultValue={userTheme === 'dark'}
+            render={({field: {onChange, ...field}}) => (
               <ThemeSwitch
                 {...field}
-                defaultChecked={userTheme === 'dark'}
+                checked={themeValue}
+                onChange={({ target: { checked } }) => {
+                  onChange(checked);
+                  setThemeValue(checked)
+                }}
               />
             )}/>
           <Controller
             control={control}
             name='language'
-            render={({field}) => (
+            defaultValue={language === 'en'}
+            render={({field: { onChange, ...field}}) => (
               <LangSwitch
                 {...field}
-                defaultChecked={language === 'en'}
+                checked={languageValue}
+                onChange={({ target: { checked } }) => {
+                  onChange(checked);
+                  setLanguageValue(checked);
+                }}
               />
             )}/>
         </SwitchesBlock>
