@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { DailyNormaContainer, NormaWrapper } from './DailyNorma.styled';
-import DailyNormaModal from '../DailyNormaModal/DailyNormaModal';
-import ModalWindow from '../ModalWindow/ModalWindow';
 import { useSelector } from 'react-redux';
+
 import { selectUser } from '../../redux/User/selectors';
+
+import ModalWindow from '../ModalWindow/ModalWindow';
+import DailyNormaModal from '../DailyNormaModal/DailyNormaModal';
+
+import { DailyNormaContainer, NormaWrapper } from './DailyNorma.styled';
 
 const DailyNorma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

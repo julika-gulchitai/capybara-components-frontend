@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 
 export const DailyNormaContainer = styled.div`
-  /* padding: 24px 12px; */
-  /* width: 280px; */
-  /* display: flex; */
-  /* flex-direction: column; */
   width: 256px;
-  overflow: auto;
   @media (min-width: 768px) {
     width: 656px;
   }
@@ -28,28 +23,11 @@ export const DailyNormaContainer = styled.div`
     margin-bottom: 16px;
   }
   button {
-    /* box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-    background: var(--blue);
-    border-radius: 10px;
-    padding: 8px 30px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    text-align: center;
-    color: var(--white);
-    border: none; */
     width: 256px;
     @media (min-width: 768px) {
       width: 160px;
       align-self: flex-end;
     }
-    /* &:hover,
-    &:focus {
-      box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
-    } */
-    /* &:active {
-      box-shadow: none;
-    } */
   }
   label {
     line-height: 1.25;
@@ -124,15 +102,6 @@ export const RequiredNorma = styled.div`
   }
 `;
 
-// export const RadioBtns = styled.div`
-//   display: flex;
-//   gap: 24px;
-//   margin-bottom: 16px;
-//   input {
-//     width: auto;
-//   }
-// `;
-
 export const WeightAndSports = styled.div`
   display: flex;
   flex-direction: column;
@@ -140,6 +109,7 @@ export const WeightAndSports = styled.div`
 `;
 
 export const InputWrapper = styled.div`
+  position: relative;
   &:last-child {
     margin-bottom: 16px;
   }
@@ -149,6 +119,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const DailyNorma = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -177,8 +148,12 @@ export const RadioBtns = styled.div`
 `;
 
 export const Error = styled.p`
-  margin-top: -16px;
+  position: absolute;
+  bottom: -33px;
   color: var(--secondary-red);
   font-size: 14px;
   line-height: 1.29;
+  @media (min-width: 768px) {
+    bottom: -17px;
+  }
 `;
