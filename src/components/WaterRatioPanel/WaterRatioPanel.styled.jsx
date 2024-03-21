@@ -7,9 +7,7 @@ export const WaterWrap = styled.div`
   justify-content: center;
   align-items: center;
   /* gap: 24px; */
-  width: 280px;
   width: 100%;
-  height: 82px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
