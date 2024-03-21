@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const SignInLink = styled(NavLink)`
   display: flex;
@@ -8,11 +8,11 @@ export const SignInLink = styled(NavLink)`
   align-items: center;
   font-size: 16px;
   line-height: 1.25;
-  color: var(--blue);
+  color: ${props => props.theme.colors.primaryBlue};
   transition: color 250ms ease-in-out;
 
   &:hover,
   &:focus {
-    color: var(--secondary-orange);
+    color: ${props => props.theme.colors.secondaryOrange};
   }
 `;

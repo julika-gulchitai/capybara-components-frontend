@@ -6,8 +6,7 @@ export const WateRatioContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  /* height: 134px; */
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

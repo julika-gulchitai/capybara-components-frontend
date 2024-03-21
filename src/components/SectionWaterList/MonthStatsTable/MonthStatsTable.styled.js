@@ -13,7 +13,7 @@ export const MonthNav = styled.div`
 `;
 
 export const MonthTitle = styled.h2`
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
   font-size: 24px;
   font-weight: 600;
   line-height: 1.25;
@@ -35,11 +35,11 @@ export const Button = styled.button`
   .nav {
     width: 14px;
     height: 14px;
-    fill: var(--blue);
+    fill: ${props => props.theme.colors.primaryBlue};
   }
 
   &:disabled {
-    fill: var(--secondary-blue);
+    fill: ${props => props.theme.colors.secondaryBlue};
     cursor: not-allowed;
   }
 `;
@@ -81,11 +81,11 @@ export const Popup = styled.div`
   width: 280px;
   height: 188px;
 
-  background-color: var(--white);
+  background-color: ${props => props.theme.colors.mainBg};
   border-radius: 10px;
   padding: 24px 13px;
   z-index: 2;
-  box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
+  box-shadow: ${props => props.theme.shadows.windowShadowContainer};
 
   @media screen and (max-width: 768px) {
     position: fixed;
@@ -102,19 +102,19 @@ export const Popup = styled.div`
   }
 
   h3 {
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     font-size: 16px;
     line-height: 1.25;
     margin: 0;
   }
   span {
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     font-weight: 500;
     line-height: 1.33;
     font-size: 18px;
   }
   p {
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     font-size: 16px;
     line-height: 1.25;
   }
@@ -174,7 +174,7 @@ export const Day = styled.div`
 `;
 
 export const DaySumPer = styled.span`
-  color: var(--secondary-blue);
+  color: ${props => props.theme.colors.secondaryBlue};
 
   font-size: 10px;
   font-style: normal;
