@@ -13,7 +13,7 @@ import TodayListModal from '../TodayListModal/TodayListModal';
 
 const WaterRatioPanel = () => {
   const MyDailyNorma = 2000;
-  const currentDayWater = 1500;
+  const currentDayWater = 1700;
   const rater = (currentDayWater / MyDailyNorma) * 100;
   // const a = b > 100 ? b : 100;
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
@@ -33,7 +33,7 @@ const WaterRatioPanel = () => {
       <RatioScale>
         <TodayText>Today</TodayText>
         <StyledInput type="range" min="0" max="100" value={rater} disabled />
-        <Percentage>
+        <Percentage $rater={rater}>
           <span>0%</span>
           <span>50%</span>
           <span>100%</span>

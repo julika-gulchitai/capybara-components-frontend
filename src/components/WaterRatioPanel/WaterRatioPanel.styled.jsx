@@ -6,22 +6,20 @@ export const WateRatioContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 24px; */
-  width: 280px;
-  width: 100%;
-  height: 134px;
+  gap: 24px;
+  /* height: 134px; */
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    width: 708px;
+    gap: 12px;
+    width: 704px;
     height: 95px;
-    gap: 24px;
   }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+    gap: 23px;
     width: 592px;
-    /* height: 90px; */
-    gap: 32px;
+    height: 90px;
   }
 `;
 
@@ -29,6 +27,10 @@ export const RatioScale = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 391px;
+    height: 95px;
+  }
 `;
 
 export const TodayText = styled.p`
@@ -36,10 +38,12 @@ export const TodayText = styled.p`
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 8px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
   }
 `;
+
 export const StyledInput = styled.input`
   &[type='range'] {
     height: 8px;
@@ -53,8 +57,8 @@ export const StyledInput = styled.input`
       var(--secondary-lightblue) 100%
     );
     margin-left: 10px;
+    margin-right: 20px;
     margin-bottom: 4px;
-    margin-right: 14px;
   }
   &[type='range']::-webkit-slider-thumb {
     width: 14px;
@@ -71,12 +75,6 @@ export const StyledInput = styled.input`
   @media screen and (min-width: 1440px) {
     width: 360px;
   }
-
-  @media screen and (max-width: 767px) {
-    /* max-width: 255px; */
-    padding-right: 10px;
-    width: 100%;
-  }
 `;
 
 export const Percentage = styled.div`
@@ -86,6 +84,7 @@ export const Percentage = styled.div`
     color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 12px;
     line-height: 1.3;
+    
 
     &::before {
       height: 8px;
@@ -100,19 +99,21 @@ export const Percentage = styled.div`
     }
 
     &:first-child {
-      margin-left: 4px;
+      font-size: ${(props) => (props.$rater === 0 ? `16px` : `12px`)};
+      font-weight: ${(props) => (props.$rater === 0 ? `500` : `400`)};
+      /* margin-left: 4px; */
     }
+
     &:nth-child(2) {
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 1.3;
-
-      position: absolute;
-      top: 80%;
-      left: 49.5%; 
-      transform: translate(-50%, -50%);
-      
-
+      font-size: ${(props) =>
+        (props.$rater >= 50) & (props.$rater < 100) ? `16px` : `12px`};
+      font-weight: ${(props) =>
+        (props.$rater >= 50) & (props.$rater < 100) ? `500` : `400`};
+    }
+    &:last-child {
+      font-size: ${(props) => (props.$rater >= 100 ? `16px` : `12px`)};
+      font-weight: ${(props) => (props.$raterrater >= 100 ? `500` : `400`)};
+      /* margin-left: 4px; */
     }
 `;
 
@@ -134,6 +135,7 @@ export const AddBtn = styled(ButtonStyled)`
   }
 
   @media screen and (min-width: 1440px) {
+    /* padding: 10px  */
     width: 178px;
   }
 `;
