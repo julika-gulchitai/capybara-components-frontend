@@ -7,7 +7,7 @@ import { forgotPassword } from '../../redux/User/UserThunks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/User/selectors';
 import { paramsForNotify } from '../../constants/notifications';
-import {  WraperForm, Wrapper } from '../SignUp/SignUp.styled';
+import { WraperForm, Wrapper } from '../SignUp/SignUp.styled';
 import TextInput from '../../components/TextInput';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   const schema = yup
     .object()
     .shape({
-      email: yup.string().required('Email is required'),
+      email: yup.string().required(t('forgotPass.Email is required')),
     })
     .required();
 
@@ -35,19 +35,25 @@ const ForgotPassword = () => {
     dispatch(forgotPassword(data.email))
       .unwrap()
       .then(() => {
-        Notify.success('Password reset link is sent to your email!', {
-          timeout: 3000,
-          width: '300px',
-          height: '200px',
-          fontSize: '14px',
-          position: 'center-top',
-        });
+        Notify.success(
+          t('forgotPass.Password reset link is sent to your email!'),
+          {
+            timeout: 3000,
+            width: '300px',
+            height: '200px',
+            fontSize: '14px',
+            position: 'center-top',
+          }
+        );
       })
       .catch((err) => {
         Notify.warning(err);
       });
     if (!user) {
-      Notify.warning('Please enter your correct email', paramsForNotify);
+      Notify.warning(
+        t('forgotPass.Please enter your correct email'),
+        paramsForNotify
+      );
       return;
     }
   };

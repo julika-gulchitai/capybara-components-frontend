@@ -9,7 +9,7 @@ import {
   StyledNavlink,
   Title,
   WraperForm,
-  Wrapper
+  Wrapper,
 } from '../SignUp/SignUp.styled';
 import BottleComponent from '../../components/AuthForm/BottleComponent/BottleComponent';
 import { Notify } from 'notiflix';
@@ -19,14 +19,17 @@ const SignIn = () => {
   const message = params.get('message');
 
   if (message) {
-    Notify.success('You have activated your account. Now you can login.', {
-      timeout: 5000,
-      width: '460px',
-      height: '200px',
-      messageMaxLength: 500,
-      fontSize: '14px',
-      position: 'center-top',
-    });
+    Notify.success(
+      t('signIn.You have activated your account. Now you can login.'),
+      {
+        timeout: 5000,
+        width: '460px',
+        height: '200px',
+        messageMaxLength: 500,
+        fontSize: '14px',
+        position: 'center-top',
+      }
+    );
   }
   const { t } = useTranslation();
 

@@ -5,6 +5,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
 
 import { selectUser } from '../../redux/User/selectors';
 
@@ -15,26 +17,27 @@ import {
 } from '../DailyNormaModal/DailyNormaModal.styled';
 import { Error } from './DailyNormaCalculator.styled';
 
-const schema = yup.object({
-  weight: yup
-    .number()
-    .typeError('Weight must be a number')
-    .min(3, 'Weight must be more than 3kg')
-    .max(300, 'Weight must be less than 300kg'),
-  sports: yup
-    .number()
-    .typeError('Time must be a number')
-    .positive('Time must be more than 0'),
-});
-
 const DailyNormaCalculator = () => {
   const { gender } = useSelector(selectUser);
 
   const [weight, setWeight] = useState('0');
   const [sports, setSports] = useState('0');
   const [dailyNorma, setDailyNorma] = useState('1.8');
-
   const [isFemale, setIsFemale] = useState(() => getGenderForState());
+
+  const { t } = useTranslation();
+
+  const schema = yup.object({
+    weight: yup
+      .number()
+      .typeError(t('normaModal.Weight must be a number'))
+      .min(3, t('normaModal.Weight must be more than 3kg'))
+      .max(300, t('normaModal.Weight must be less than 300kg')),
+    sports: yup
+      .number()
+      .typeError(t('normaModal.Time must be a number'))
+      .positive(t('normaModal.Time must be more than 0')),
+  });
 
   const {
     control,
@@ -89,7 +92,7 @@ const DailyNormaCalculator = () => {
           <FormControlLabel
             value="female"
             control={<Radio />}
-            label="For woman"
+            label={t('normaModal.For woman')}
             onChange={() => setIsFemale(true)}
             sx={{
               '& .MuiSvgIcon-root': {
@@ -111,7 +114,7 @@ const DailyNormaCalculator = () => {
           <FormControlLabel
             value="male"
             control={<Radio />}
-            label="For man"
+            label={t('normaModal.For man')}
             onChange={() => setIsFemale(false)}
             sx={{
               '& .MuiSvgIcon-root': {
@@ -132,7 +135,9 @@ const DailyNormaCalculator = () => {
         </RadioGroup>
         <WeightAndSports>
           <InputWrapper>
-            <label htmlFor="weight">Your weight in kilograms:</label>
+            <label htmlFor="weight">
+              {t('normaModal.Your weight in kilograms')}:
+            </label>
             <Controller
               name="weight"
               control={control}
@@ -164,8 +169,10 @@ const DailyNormaCalculator = () => {
           </InputWrapper>
           <InputWrapper>
             <label htmlFor="sports">
-              The time of active participation in sports or other activities
-              with a high physical load in hours:
+              {t(
+                'normaModal.The time of active participation in sports or other activities with a high physical load in hours'
+              )}
+              :
             </label>
             <Controller
               name="sports"
@@ -199,9 +206,11 @@ const DailyNormaCalculator = () => {
         </WeightAndSports>
       </form>
       <RequiredNorma>
-        <p>The required amount of water in liters per day:</p>
+        <p>{t('normaModal.The required amount of water in liters per day')}:</p>
         <p>
-          <span>{dailyNorma} L</span>
+          <span>
+            {dailyNorma} {t('normaModal.L')}
+          </span>
         </p>
       </RequiredNorma>
     </>

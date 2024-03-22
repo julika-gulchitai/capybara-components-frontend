@@ -1,33 +1,42 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  AvatarWrapper, AvatarBlock, Form, GenderLabel,
-  GenderRadio, InfoWrapper, LabelText, LeftContainer,
-  PasswordLabelText, RightContainer, SaveButton,
-  SettingsContainer, SettingsHeader
+  AvatarWrapper,
+  AvatarBlock,
+  Form,
+  GenderLabel,
+  GenderRadio,
+  InfoWrapper,
+  LabelText,
+  LeftContainer,
+  PasswordLabelText,
+  RightContainer,
+  SaveButton,
+  SettingsContainer,
+  SettingsHeader,
 } from './SettingModal.styled.jsx';
 import defaultAvatar from '../../assets/images/default_avatar.webp';
 import PasswordInput from '../PasswordInput.jsx';
 import svgSprite from '../../assets/sprite.svg';
-import {FormControlLabel, Radio} from '@mui/material';
-import {Controller, useForm} from 'react-hook-form';
+import { FormControlLabel, Radio } from '@mui/material';
+import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import {yupResolver} from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import TextInput from '../TextInput.jsx';
-import {useMediaQuery} from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 import Notiflix from 'notiflix';
 import theme from '../../css/VariablesJSX.jsx';
-import {useDispatch, useSelector} from 'react-redux';
-import {selectUser} from '../../redux/User/selectors.js';
-import {updateUserThunk} from '../../redux/User/UserThunks.js';
-import {paramsForNotify} from '../../constants/notifications.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../redux/User/selectors.js';
+import { updateUserThunk } from '../../redux/User/UserThunks.js';
+import { paramsForNotify } from '../../constants/notifications.js';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
-function SettingModal({close}) {
-  const {username, email, gender, avatarURL} = useSelector(selectUser);
+function SettingModal({ close }) {
+  const { username, email, gender, avatarURL } = useSelector(selectUser);
 
   const dispatch = useDispatch();
-  const isTabletOrDesktop = useMediaQuery({query: '(min-width: 768px)'});
+  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const userData = new FormData();
 
   const [avatar, setAvatar] = useState('');
@@ -45,24 +54,34 @@ function SettingModal({close}) {
     .object({
       username: yup
         .string()
-        .test('len', 'Max length 32 characters', (val) => val?.length <= 32),
+        .test(
+          'len',
+          t('settingModal.Max length 32 characters'),
+          (val) => val?.length <= 32
+        ),
       email: yup
         .string()
         .matches(
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-          'Please enter valid e-mail'
+          t('settingModal.Please enter valid e-mail')
         ),
       new_password: yup
         .string()
         .test(
           'len',
-          'Must be at least 8 characters',
+          t('settingModal.Must be at least 8 characters'),
           (val) => (val.length >= 8 && val.length <= 64) || val.length === 0
         ),
       repeat_new_password: yup
         .string()
         .when('new_password', (new_password, field) =>
-          new_password ? field.oneOf([yup.ref('new_password')], 'Passwords don\'t match!') : field)
+          new_password
+            ? field.oneOf(
+                [yup.ref('new_password')],
+                t("settingModal.Passwords don't match!")
+              )
+            : field
+        ),
     })
     .required();
 
@@ -70,13 +89,13 @@ function SettingModal({close}) {
     register,
     handleSubmit,
     control,
-    formState: {errors}
+    formState: { errors },
   } = useForm({
     defaultValues: {
-      gender: gender
+      gender: gender,
     },
     mode: 'onChange',
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
   });
 
   const inputRef = useRef(null);
@@ -92,7 +111,10 @@ function SettingModal({close}) {
     }
 
     if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-      Notiflix.Notify.warning('Only .jpeg or .png files!', paramsForNotify);
+      Notiflix.Notify.warning(
+        t('settingModal.Only .jpeg or .png files!'),
+        paramsForNotify
+      );
       return;
     }
 
@@ -116,18 +138,24 @@ function SettingModal({close}) {
 
     if (data.old_password) {
       if (!data.new_password) {
-        Notiflix.Notify.warning('Please enter new password', paramsForNotify);
+        Notiflix.Notify.warning(
+          t('settingModal.Please enter new password'),
+          paramsForNotify
+        );
         return;
       }
 
       if (!data.repeat_new_password) {
-        Notiflix.Notify.warning('Please repeat new password', paramsForNotify);
+        Notiflix.Notify.warning(
+          t('settingModal.Please repeat new password'),
+          paramsForNotify
+        );
         return;
       }
 
       if (data.new_password !== data.repeat_new_password) {
         Notiflix.Notify.warning(
-          'New password and repeated password are different',
+          t('settingModal.New password and repeated password are different'),
           paramsForNotify
         );
         return;
@@ -164,22 +192,22 @@ function SettingModal({close}) {
             <AvatarWrapper>
               <img
                 src={avatar ? avatar : defaultAvatar}
-                alt='avatar'
+                alt="avatar"
                 width={80}
                 height={80}
               />
             </AvatarWrapper>
-            <button type='button' onClick={handleClick}>
+            <button type="button" onClick={handleClick}>
               <svg width={16} height={16}>
-                <use href={`${svgSprite}#icon-upload`}/>
+                <use href={`${svgSprite}#icon-upload`} />
               </svg>
               {t('settingModal.Upload a photo')}
             </button>
             <input
               ref={inputRef}
-              type='file'
+              type="file"
               onChange={handleFileChange}
-              name='avatar'
+              name="avatar"
             />
           </AvatarBlock>
         </div>
@@ -189,10 +217,10 @@ function SettingModal({close}) {
             <GenderLabel>
               <LabelText>{t('settingModal.Your gender identity')}</LabelText>
               <Controller
-                rules={{required: true}}
+                rules={{ required: true }}
                 control={control}
-                name='gender'
-                render={({field}) => (
+                name="gender"
+                render={({ field }) => (
                   <GenderRadio
                     {...field}
                     sx={{
@@ -200,33 +228,33 @@ function SettingModal({close}) {
                         gap: '24px',
 
                         '& span': {
-                          fontWeight: 400
-                        }
-                      }
+                          fontWeight: 400,
+                        },
+                      },
                     }}
                     row
-                    aria-labelledby='gender select'
+                    aria-labelledby="gender select"
                   >
                     <FormControlLabel
-                      value='female'
-                      control={<Radio/>}
+                      value="female"
+                      control={<Radio />}
                       label={t('woman')}
-                      labelPlacement='end'
+                      labelPlacement="end"
                       sx={{
                         '&.Mui-checked': {
-                          color: theme.colors.blue
-                        }
+                          color: theme.colors.blue,
+                        },
                       }}
                     />
                     <FormControlLabel
-                      value='male'
-                      control={<Radio/>}
+                      value="male"
+                      control={<Radio />}
                       label={t('man')}
-                      labelPlacement='end'
+                      labelPlacement="end"
                       sx={{
                         '&.Mui-checked': {
-                          color: theme.colors.blue
-                        }
+                          color: theme.colors.blue,
+                        },
                       }}
                     />
                   </GenderRadio>
@@ -238,11 +266,11 @@ function SettingModal({close}) {
               <TextInput
                 error={errors.username}
                 register={register}
-                id='username'
+                id="username"
                 width={isTabletOrDesktop ? 392 : '100%'}
                 defaultValue={username}
                 placeholder={t('settingModal.Name')}
-                type='text'
+                type="text"
               />
             </label>
             <label>
@@ -250,9 +278,9 @@ function SettingModal({close}) {
               <TextInput
                 error={errors.email}
                 register={register}
-                id='email'
+                id="email"
                 width={isTabletOrDesktop ? 392 : '100%'}
-                type='email'
+                type="email"
                 defaultValue={email}
                 placeholder={t('email')}
               />
@@ -262,30 +290,36 @@ function SettingModal({close}) {
           <RightContainer>
             <h3>{t('password')}</h3>
             <label>
-              <PasswordLabelText>{t('settingModal.Outdated password')}:</PasswordLabelText>
+              <PasswordLabelText>
+                {t('settingModal.Outdated password')}:
+              </PasswordLabelText>
               <PasswordInput
                 register={register}
-                id='old_password'
+                id="old_password"
                 width={isTabletOrDesktop ? 392 : '100%'}
                 placeholder={t('password')}
               />
             </label>
             <label>
-              <PasswordLabelText>{t('settingModal.New Password')}:</PasswordLabelText>
+              <PasswordLabelText>
+                {t('settingModal.New Password')}:
+              </PasswordLabelText>
               <PasswordInput
                 error={errors.new_password}
                 register={register}
-                id='new_password'
+                id="new_password"
                 width={isTabletOrDesktop ? 392 : '100%'}
                 placeholder={t('password')}
               />
             </label>
             <label>
-              <PasswordLabelText>{t('settingModal.Repeat new password')}:</PasswordLabelText>
+              <PasswordLabelText>
+                {t('settingModal.Repeat new password')}:
+              </PasswordLabelText>
               <PasswordInput
                 error={errors.repeat_new_password}
                 register={register}
-                id='repeat_new_password'
+                id="repeat_new_password"
                 width={isTabletOrDesktop ? 392 : '100%'}
                 placeholder={t('password')}
               />
@@ -293,7 +327,7 @@ function SettingModal({close}) {
           </RightContainer>
         </InfoWrapper>
 
-        <SaveButton type='submit'>{t('save')}</SaveButton>
+        <SaveButton type="submit">{t('save')}</SaveButton>
       </Form>
     </SettingsContainer>
   );

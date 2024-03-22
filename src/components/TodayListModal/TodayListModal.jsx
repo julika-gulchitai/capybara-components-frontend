@@ -4,6 +4,9 @@ import { format } from 'date-fns';
 import { useFormik } from 'formik';
 import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
 
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
+
 import {
   AddWater,
   TextChoose,
@@ -24,6 +27,8 @@ const WATER_AMOUNT_DIFFERENCE = 20;
 
 const TodayListModal = ({ onClose }) => {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   const [localWaterAmount, setLocalWaterAmount] = useState(250);
   const {
@@ -64,9 +69,9 @@ const TodayListModal = ({ onClose }) => {
 
   return (
     <StyledAddWaterModal onSubmit={handleSubmit}>
-      <AddWater>Add Water Title</AddWater>
-      <TextChoose>Choose a value</TextChoose>
-      <TextAmount>Amount of water:</TextAmount>
+      <AddWater>{t('addWater')}</AddWater>
+      <TextChoose>{t('addModal.Choose a value')}</TextChoose>
+      <TextAmount>{t('addModal.Amount of water')}:</TextAmount>
 
       <ButtonWrapper>
         <button onClick={handleReduceWaterAmount} name="minus" type="button">
@@ -74,7 +79,7 @@ const TodayListModal = ({ onClose }) => {
         </button>
         <span className="water-amount-value">
           {waterAmount}
-          ml
+          {t('ml')}
         </span>
         <button onClick={handleAddWaterAmount} name="plus" type="button">
           <StyledPlusIcon aria-label="plus_button" />{' '}
@@ -83,13 +88,13 @@ const TodayListModal = ({ onClose }) => {
 
       <FormStyled>
         <label>
-          Recording time:
+          {t('addModal.Recording time')}:
           <input name="date" type="time" value={date} onBlur={handleChange} />
           {errors.date ? <div>{errors.date}</div> : null}
         </label>
 
         <label>
-          Enter the value of the water used:
+          {t('addModal.Enter the value of the water used')}:
           <input
             name="number"
             value={localWaterAmount}
@@ -102,9 +107,12 @@ const TodayListModal = ({ onClose }) => {
         </label>
 
         <ButtonSaveWrapper>
-          <p>{waterAmount}ml</p>
+          <p>
+            {waterAmount}
+            {t('ml')}
+          </p>
           <button disabled={Object.keys(errors).length > 0} type="submit">
-            Save
+            {t('save')}
           </button>
         </ButtonSaveWrapper>
       </FormStyled>

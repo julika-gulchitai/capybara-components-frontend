@@ -33,23 +33,23 @@ const AuthForm = ({ signUp }) => {
     .shape({
       email: yup
         .string()
-        .email('Please write valid email')
-        .required('Email is required'),
+        .email(t('auth.Please write valid email'))
+        .required(t('forgotPass.Email is required')),
       password: yup
         .string()
-        .min(8, 'Password must be at least 8 characters')
+        .min(8, t('resetPass.Password must be at least 8 characters'))
         .max(64)
-        .required('Password is required'),
+        .required(t('auth.Password is required')),
 
       repeat_password: signUp
         ? yup
             .string()
             .oneOf(
               [yup.ref('password'), null],
-              "Passwords don't match, please try again."
+              t("resetPass.Passwords don't match, please try again.")
             )
-            .min(8, 'Password must be at least 8 characters')
-            .required('Confirm password is required')
+            .min(8, t('resetPass.Password must be at least 8 characters'))
+            .required(t('resetPass.Confirm password is required'))
         : yup.string(),
     })
     .required();
@@ -62,7 +62,9 @@ const AuthForm = ({ signUp }) => {
         .then(() => {
           navigate('/signin');
           Notify.success(
-            'A message with a confirmation link has been sent to your email address. Please folow the link to activate your account.',
+            t(
+              'auth.A message with a confirmation link has been sent to your email address. Please folow the link to activate your account.'
+            ),
             {
               timeout: 5000,
               width: '460px',

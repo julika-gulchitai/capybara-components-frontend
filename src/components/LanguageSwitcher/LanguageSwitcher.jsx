@@ -12,7 +12,6 @@ const LanguageSwitcher = () => {
   };
   return (
     <LanguageContainer>
-      {/* <h2>{i18next.language}</h2> */}
       <button
         disabled={currentLanguage === LOCALS.UK}
         onClick={() => changeLanguage(LOCALS.UK)}

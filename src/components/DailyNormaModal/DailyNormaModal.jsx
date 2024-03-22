@@ -1,10 +1,11 @@
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Notify } from 'notiflix';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
 
 import { editWaterRateThunk } from '../../redux/User/UserThunks';
 
@@ -21,18 +22,20 @@ import {
 } from './DailyNormaModal.styled';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
 
-const schema = yup.object({
-  norma: yup
-    .string()
-    .matches(
-      /^(0\.1|[1-9](\.\d)?|1[0-4](\.\d)?|15)$/,
-      'It must be a number in a range from 0.1 to 15 (one digit after the decimal point)'
-    )
-    .required(),
-});
-
 const DailyNormaModal = ({ onClose }) => {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
+
+  const schema = yup.object({
+    norma: yup
+      .string()
+      .matches(
+        /^(0\.1|[1-9](\.\d)?|1[0-4](\.\d)?|15)$/,
+        t('normaModal.normaError')
+      )
+      .required(),
+  });
 
   const {
     register,
@@ -59,27 +62,24 @@ const DailyNormaModal = ({ onClose }) => {
 
   return (
     <DailyNormaContainer>
-      <h2>My daily norma</h2>
+      <h2>{t('normaModal.My daily norma')}</h2>
       <Formula>
         <p>
-          For girl: <span>V=(M*0,03) + (T*0,4)</span>
+          {t('normaModal.formulaGenderF')}: <span>V=(M*0,03) + (T*0,4)</span>
         </p>
         <p>
-          For man: <span>V=(M*0,04) + (T*0,6)</span>
+          {t('normaModal.formulaGenderM')}: <span>V=(M*0,04) + (T*0,6)</span>
         </p>
       </Formula>
       <Explanation>
-        <span>*</span> V is the volume of the water norm in liters per day, M is
-        your body weight, T is the time of active sports, or another type of
-        activity commensurate in terms of loads (in the absence of these, you
-        must set 0)
+        <span>*</span> {t('normaModal.explanation')}
       </Explanation>
-      <h3>Calculate your rate:</h3>
+      <h3>{t('normaModal.Calculate your rate')}:</h3>
       <DailyNormaCalculator />
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <DailyNorma>
           <label htmlFor="norma">
-            Write down how much water you will drink:
+            {t('normaModal. Write down how much water you will drink')}:
           </label>
           <input
             type="text"
@@ -98,7 +98,7 @@ const DailyNormaModal = ({ onClose }) => {
           {errors.norma && <Error>{errors.norma.message}</Error>}
         </DailyNorma>
         <BtnWrapper>
-          <ButtonStyled type="submit">Save</ButtonStyled>
+          <ButtonStyled type="submit">{t('save')}</ButtonStyled>
         </BtnWrapper>
       </form>
     </DailyNormaContainer>
