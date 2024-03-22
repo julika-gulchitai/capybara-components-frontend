@@ -6,6 +6,7 @@ import {
   apiAddWaterPortion,
   apiGetMonthWaterPortions,
 } from './WaterThunks';
+import { logoutThunk } from '../User/UserThunks';
 
 const INITIAL_STATE = {
   waterData: null,
@@ -16,6 +17,7 @@ const INITIAL_STATE = {
   stats: [],
   error: null,
   waterVolumeSum: [],
+  currentWater: 0,
 };
 
 const waterSlice = createSlice({
@@ -55,6 +57,9 @@ const waterSlice = createSlice({
             : portion
         );
       })
+      .addCase(logoutThunk.fulfilled, () => {
+        return INITIAL_STATE;
+      })
 
       .addMatcher(
         isAnyOf(
@@ -78,7 +83,7 @@ const waterSlice = createSlice({
           apiGetMonthWaterPortions.rejected
         ),
         (state) => {
-          state.isLoading = false;
+          // state.isLoading = false;
           state.error = null;
         }
       ),
