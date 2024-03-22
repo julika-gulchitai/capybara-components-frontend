@@ -11,6 +11,7 @@ export const en = {
     "save": "Save",
     "woman": "Woman",
     "man": "Man",
+    "send":"Send",
     welcomePage: {
         "Water consumption tracker": "Water consumption tracker",
         "Record daily water intake and track": "Record daily water intake and track",
