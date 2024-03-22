@@ -6,28 +6,29 @@ import {
   LeftContainer,
   RightContainer,
 } from './HomePage.styled.js';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { format } from 'date-fns';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { format } from 'date-fns';
 
 import WaterTracker from '../../components/SectionWater/WaterTracker/WaterTracker.jsx';
 
-import { apiGetTodayWaterPortions } from '../../redux/Water/WaterThunks.js';
+// import { apiGetTodayWaterPortions } from '../../redux/Water/WaterThunks.js';
 
-const HomePage = (onClose) => {
-  const dispatch = useDispatch();
+const HomePage = () => {
+  // const HomePage = (onClose) => {
+  //   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const date = `${format(new Date(), 'yyyy')}-${format(
-      new Date(),
-      'mm'
-    )}-${format(new Date(), 'dd')}`;
-    dispatch(apiGetTodayWaterPortions(date));
+  //   useEffect(() => {
+  //     const date = `${format(new Date(), 'yyyy')}-${format(
+  //       new Date(),
+  //       'mm'
+  //     )}-${format(new Date(), 'dd')}`;
+  //     dispatch(apiGetTodayWaterPortions(date));
 
-    return () => {
-      dispatch(onClose());
-    };
-  }, [dispatch]);
+  //     return () => {
+  //       dispatch(onClose());
+  //     };
+  //   }, [dispatch, onClose]);
 
   return (
     <BackgroundContainer id="beckground">
