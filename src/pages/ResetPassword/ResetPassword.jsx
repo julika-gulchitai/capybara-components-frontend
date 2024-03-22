@@ -13,12 +13,21 @@ import {
   SaveButton,
 } from '../../components/SettingModal/SettingModal.styled';
 import PasswordInput from '../../components/PasswordInput';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
 
-  const { token, id } = useParams();
+  //const { token, id } = useParams();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
+  const token = params.get('token');
+  const id = params.get('id');
+
+  // Now you have access to token and id
+  console.log('Token:', token);
+  console.log('ID:', id);
 
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   const isDesktop = useMediaQuery({ query: '(min-width: 1439px)' });
@@ -26,11 +35,6 @@ const ResetPassword = () => {
   const schema = yup
     .object()
     .shape({
-      old_password: yup
-        .string()
-        .min(8, 'Password must be at least 8 characters')
-        .max(64)
-        .required('Password is required'),
       new_password: yup
         .string()
         .min(8, 'New password must be at least 8 characters')
@@ -48,25 +52,24 @@ const ResetPassword = () => {
     .required();
 
   const onSubmit = (data) => {
-    if (data.old_password && data.new_password && data.repeat_new_password) {
-      if (data.new_password !== data.repeat_new_password) {
-        Notify.warning(
-          'New password and repeated password are different',
-          paramsForNotify
-        );
-        return;
-      }
-
-      dispatch(resetPassword(resetPassword({ token, id, ...data })))
-        .unwrap()
-        .then(() => {
-          Notify.success('Password was changed');
-        })
-        .catch((error) => {
-          console.error(error);
-          Notify.failure(error.message, paramsForNotify);
-        });
+    if (data.new_password !== data.repeat_new_password) {
+      Notify.warning(
+        'New password and repeated password are different',
+        paramsForNotify
+      );
+      return;
     }
+    const password = data.new_password;
+    console.log(password)
+    dispatch(resetPassword({ token:token, id:id, password:password }))
+      .unwrap()
+      .then(() => {
+        Notify.success('Password was changed');
+      })
+      .catch((error) => {
+        console.error(error);
+        Notify.failure(error.message, paramsForNotify);
+      });
   };
 
   const {
@@ -84,14 +87,7 @@ const ResetPassword = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <RightContainer>
             <h3>Password</h3>
-            <label>
-              <PasswordLabelText>Outdated password:</PasswordLabelText>
-              <PasswordInput
-                register={register}
-                id="old_password"
-                width={isDesktop ? 384 : isTablet ? 336 : 280}
-              />
-            </label>
+
             <label>
               <PasswordLabelText>New Password:</PasswordLabelText>
               <PasswordInput

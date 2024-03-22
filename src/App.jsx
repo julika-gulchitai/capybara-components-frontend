@@ -42,7 +42,7 @@ function App() {
             <Route path='/home' element={<PrivateRoute component={<HomePage />} />} />
             <Route path='/signup' element={<GuestRoute component={<SignUp />} />} />
             <Route path='/signin' element={<GuestRoute component={<SignIn />} />} />
-            <Route path='/forgot_password' element={<ForgotPassword />} />
+            <Route path='/forgot-password' element={<ForgotPassword />} />
             <Route path='/reset-password' element={<ResetPassword />} />
             <Route path='*' element={<Navigate to='/welcome' />} />
           </Route>
