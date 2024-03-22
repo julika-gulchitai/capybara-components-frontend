@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import Notiflix from 'notiflix';
-import { paramsForNotify } from '../../constants/notifications';
+import { useDispatch } from 'react-redux';
+import { format } from 'date-fns';
+import { useFormik } from 'formik';
+import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
 
 import {
   AddWater,
@@ -12,140 +14,98 @@ import {
   FormStyled,
   ButtonSaveWrapper,
   StyledAddWaterModal,
-  GlassStyle,
-  GlassContainer,
-  FormAmount,
-  TimeValue,
+  // GlassStyle,
+  // GlassContainer,
+  // FormAmount,
+  // TimeValue,
 } from './TodayListModal.styled';
 
-const TodayListModal = ({ isEditing, data, onClose }) => {
-  const [amountWater, setAmountWater] = useState(
-    isEditing ? data.amountWater : 0
-  );
-  const [recordedTime, setRecordedTime] = useState(
-    isEditing ? new Date(data.time) : new Date()
-  );
+const WATER_AMOUNT_DIFFERENCE = 20;
 
-  const handleAmountChange = (evt) => {
-    const { name } = evt.currentTarget;
+const TodayListModal = ({ onClose }) => {
+  const dispatch = useDispatch();
 
-    switch (name) {
-      case 'minus':
-        setAmountWater((state) => Math.max(state - 50, 0));
-        break;
-      case 'plus':
-        setAmountWater((state) => Math.min(state + 50, 5000));
-        break;
-      case 'input':
-        break;
-      default:
-    }
+  const [localWaterAmount, setLocalWaterAmount] = useState(250);
+  const {
+    handleChange,
+    handleSubmit,
+    values: { date, waterAmount },
+    errors,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      waterAmount: '250',
+      date: `${format(new Date(), 'HH')}:${format(new Date(), 'mm')}`,
+    },
+    onSubmit: (values) => {
+      dispatch(apiAddWaterPortion(values))
+        .unwrap()
+        .then(() => {
+          dispatch(onClose());
+        });
+    },
+  });
+
+  const handleBlur = () => {
+    setFieldValue(
+      'waterAmount',
+      localWaterAmount ? localWaterAmount.toString() : '0'
+    );
   };
 
-  const handleTimeChange = (evt) => {
-    const timeString = evt.target.value;
-    const [hours, minutes] = timeString.split(':').map(Number);
-
-    const newRecordedTime = new Date(recordedTime);
-    newRecordedTime.setHours(hours);
-    newRecordedTime.setMinutes(minutes);
-
-    setRecordedTime(newRecordedTime);
+  const handleAddWaterAmount = () => {
+    const number = Number.parseInt(waterAmount) + WATER_AMOUNT_DIFFERENCE;
+    setFieldValue('waterAmount', number.toString());
   };
-
-  const handleSave = (evt) => {
-    evt.preventDefault();
-
-    if (amountWater === 0) {
-      Notiflix.Notify.warning(
-        'A non-zero value must be entered for the amount of water',
-        paramsForNotify
-      );
-      return;
-    }
-
-    if (amountWater < 0 || amountWater === '') {
-      Notiflix.Notify.warning(
-        'It is necessary to enter a positive value for the amount of water',
-        paramsForNotify
-      );
-      return;
-    }
-
-    onClose();
+  const handleReduceWaterAmount = () => {
+    const number = Number.parseInt(waterAmount) - WATER_AMOUNT_DIFFERENCE;
+    setFieldValue('waterAmount', number <= 0 ? '0' : number.toString());
   };
-
-  const title = isEditing ? 'Edit the entered amount of water' : 'Add water';
 
   return (
-    <StyledAddWaterModal>
-      <AddWater>{title}</AddWater>
-      <div>
-        {isEditing && (
-          <GlassContainer>
-            <GlassStyle />
-            <FormAmount>{data.amountWater}ml</FormAmount>
-            <TimeValue>
-              {new Date(data.time).toLocaleTimeString([], {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </TimeValue>
-          </GlassContainer>
-        )}
-      </div>
-
-      <TextChoose>
-        {isEditing ? 'Correct entered data:' : 'Choose a value:'}
-      </TextChoose>
-
+    <StyledAddWaterModal onSubmit={handleSubmit}>
+      <AddWater>Add Water Title</AddWater>
+      <TextChoose>Choose a value</TextChoose>
       <TextAmount>Amount of water:</TextAmount>
 
       <ButtonWrapper>
-        <button
-          type="button"
-          name="minus"
-          onClick={handleAmountChange}
-          disabled={amountWater === 0}
-        >
-          <StyledMinusIcon aria-label="minus_button" />
+        <button onClick={handleReduceWaterAmount} name="minus" type="button">
+          <StyledMinusIcon aria-label="minus_button" />{' '}
         </button>
-
-        <span>{amountWater}ml</span>
-
-        <button type="button" name="plus" onClick={handleAmountChange}>
-          <StyledPlusIcon aria-label="plus_button" />
+        <span className="water-amount-value">
+          {waterAmount}
+          ml
+        </span>
+        <button onClick={handleAddWaterAmount} name="plus" type="button">
+          <StyledPlusIcon aria-label="plus_button" />{' '}
         </button>
       </ButtonWrapper>
 
       <FormStyled>
         <label>
           Recording time:
-          <input
-            type="time"
-            value={recordedTime.toLocaleTimeString([], {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-            onChange={handleTimeChange}
-          />
+          <input name="date" type="time" value={date} onBlur={handleChange} />
+          {errors.date ? <div>{errors.date}</div> : null}
         </label>
 
         <label>
           Enter the value of the water used:
           <input
-            name="input"
-            type="number"
-            value={amountWater}
-            onChange={(evt) => handleAmountChange(evt)}
-            min="1"
-            max="5000"
+            name="number"
+            value={localWaterAmount}
+            onBlur={handleBlur}
+            onChange={({ target: { value } }) =>
+              setLocalWaterAmount(Number.parseInt(value))
+            }
           />
+          {errors.waterAmount ? <div>{errors.waterAmount}</div> : null}
         </label>
 
         <ButtonSaveWrapper>
-          <p>{amountWater}ml</p>
-          <button onClick={handleSave}>Save</button>
+          <p>{waterAmount}ml</p>
+          <button disabled={Object.keys(errors).length > 0} type="submit">
+            Save
+          </button>
         </ButtonSaveWrapper>
       </FormStyled>
     </StyledAddWaterModal>

@@ -1,25 +1,46 @@
 import DailyNorma from '../../components/DailyNorma/DailyNorma';
-import SectionWaterList from '../../components/SectionWaterList/SectionWaterList';
 import WaterRatioPanel from '../../components/WaterRatioPanel/WaterRatioPanel.jsx';
 import {
   BackgroundContainer,
   HomeContainer,
   LeftContainer,
-  RightContainer
+  RightContainer,
 } from './HomePage.styled.js';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { format } from 'date-fns';
 
-const HomePage = () => {
+import WaterTracker from '../../components/SectionWater/WaterTracker/WaterTracker.jsx';
+
+import { apiGetTodayWaterPortions } from '../../redux/Water/WaterThunks.js';
+
+const HomePage = (onClose) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const date = `${format(new Date(), 'yyyy')}-${format(
+      new Date(),
+      'mm'
+    )}-${format(new Date(), 'dd')}`;
+    dispatch(apiGetTodayWaterPortions(date));
+
+    return () => {
+      dispatch(onClose());
+    };
+  }, [dispatch]);
+
   return (
-    <BackgroundContainer id='beckground'>
+    <BackgroundContainer id="beckground">
       <HomeContainer>
-      <LeftContainer>
-        <DailyNorma/>
-        <WaterRatioPanel/>
-      </LeftContainer>
-      <RightContainer>
-        <SectionWaterList/>
-      </RightContainer>
-    </HomeContainer>
+        <LeftContainer>
+          <DailyNorma />
+          <WaterRatioPanel />
+        </LeftContainer>
+        <RightContainer>
+          {/* <SectionWaterList/> */}
+          <WaterTracker />
+        </RightContainer>
+      </HomeContainer>
     </BackgroundContainer>
   );
 };
