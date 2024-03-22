@@ -37,7 +37,7 @@ const SignIn = () => {
         <AuthForm />
         <MarginBetween></MarginBetween>
         <StyledNavlink to="/signup">{t('signup')}</StyledNavlink>
-        <ForgotNavLink to="/forgot_password">
+        <ForgotNavLink to="/forgot-password">
           {t('forgotPassword')}
         </ForgotNavLink>
       </WraperForm>
