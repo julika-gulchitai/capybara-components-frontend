@@ -1,4 +1,4 @@
-import{u as i,A as r,L as o,a as l,j as n,s as t}from"./index-04317029.js";const d=i.div`
+import{u as i,A as r,L as o,a as l,j as n,s as t}from"./index-2b1260cc.js";const d=i.div`
   background-color:${e=>e.theme.colors.mainBg};
   background-repeat: no-repeat;
   background-position: bottom;
