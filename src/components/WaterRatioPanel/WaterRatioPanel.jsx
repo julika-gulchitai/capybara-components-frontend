@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
 import sprite from '../../assets/sprite.svg';
 import {
   AddBtn,
@@ -18,6 +20,7 @@ const WaterRatioPanel = () => {
   // const a = b > 100 ? b : 100;
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const { t } = useTranslation();
 
   const handleOpenModalTodayListAdd = (event) => {
     setOpenModalTodayList(true);
@@ -31,7 +34,7 @@ const WaterRatioPanel = () => {
   return (
     <WateRatioContainer>
       <RatioScale>
-        <TodayText>Today</TodayText>
+        <TodayText>{t('today')}</TodayText>
         <StyledInput type="range" min="0" max="100" value={rater} disabled />
         <Percentage $rater={rater}>
           <span>0%</span>
@@ -43,7 +46,7 @@ const WaterRatioPanel = () => {
         <svg width={24} height={24}>
           <use href={`${sprite}#plus-circle`} />
         </svg>
-        Add water
+        {t('addWater')}
       </AddBtn>
       {openModalTodayList && (
         <ModalWindow

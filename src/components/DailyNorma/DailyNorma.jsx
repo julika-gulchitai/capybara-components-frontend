@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
+
 import { selectUser } from '../../redux/User/selectors';
 
 import ModalWindow from '../ModalWindow/ModalWindow';
@@ -12,15 +15,19 @@ const DailyNorma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { waterRate } = useSelector(selectUser);
 
+  const { t } = useTranslation();
+
   const waterNorma = waterRate / 1000;
 
   return (
     <>
       <DailyNormaContainer>
-        <h2>My daily norma</h2>
+        <h2>{t('normaModal.My daily norma')}</h2>
         <NormaWrapper>
-          <p>{waterNorma} L</p>
-          <button onClick={() => setIsModalOpen(true)}>Edit</button>
+          <p>
+            {waterNorma} {t('normaModal.L')}
+          </p>
+          <button onClick={() => setIsModalOpen(true)}>{t('edit')}</button>
         </NormaWrapper>
       </DailyNormaContainer>
       {isModalOpen && (
