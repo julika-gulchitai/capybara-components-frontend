@@ -3,7 +3,7 @@ import {
   AvatarWrapper, AvatarBlock, Form, GenderLabel,
   GenderRadio, InfoWrapper, LabelText, LeftContainer,
   PasswordLabelText, RightContainer, SaveButton,
-  SettingsContainer, SwitchesBlock, SettingsHeader
+  SettingsContainer, SettingsHeader
 } from './SettingModal.styled.jsx';
 import defaultAvatar from '../../assets/images/default_avatar.webp';
 import PasswordInput from '../PasswordInput.jsx';
@@ -22,10 +22,9 @@ import {updateUserThunk} from '../../redux/User/UserThunks.js';
 import {paramsForNotify} from '../../constants/notifications.js';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
-import {LangSwitch, ThemeSwitch} from './SettingsSwitchStyled.jsx';
 
 function SettingModal({close}) {
-  const {username, email, gender, avatarURL, theme: userTheme, language} = useSelector(selectUser);
+  const {username, email, gender, avatarURL} = useSelector(selectUser);
 
   const dispatch = useDispatch();
   const isTabletOrDesktop = useMediaQuery({query: '(min-width: 768px)'});
@@ -33,8 +32,6 @@ function SettingModal({close}) {
 
   const [avatar, setAvatar] = useState('');
   const [photo, setPhoto] = useState(null);
-  const [themeValue, setThemeValue] = useState(false)
-  const [languageValue, setLanguageValue] = useState(false)
 
   const { t } = useTranslation();
 
@@ -43,14 +40,6 @@ function SettingModal({close}) {
       setAvatar(avatarURL);
     }
   }, [avatarURL]);
-
-  useEffect(() => {
-    setThemeValue(userTheme === 'dark')
-  }, [userTheme]);
-
-  useEffect(() => {
-    setLanguageValue(language === 'en')
-  }, [language]);
 
   const schema = yup
     .object({
@@ -125,14 +114,6 @@ function SettingModal({close}) {
       userData.append('gender', data.gender);
     }
 
-    if (data.language !== (language === 'en')) {
-      userData.append('language', data.language ? 'en' : 'uk');
-    }
-
-    if (data.theme !== (userTheme === 'dark')) {
-      userData.append('theme', data.theme ? 'dark' : 'light');
-    }
-
     if (data.old_password) {
       if (!data.new_password) {
         Notiflix.Notify.warning('Please enter new password', paramsForNotify);
@@ -175,36 +156,6 @@ function SettingModal({close}) {
     <SettingsContainer>
       <SettingsHeader>
         <h2>{t('settingModal.Setting')}</h2>
-        <SwitchesBlock>
-          <Controller
-            control={control}
-            name='theme'
-            defaultValue={userTheme === 'dark'}
-            render={({field: {onChange, ...field}}) => (
-              <ThemeSwitch
-                {...field}
-                checked={themeValue}
-                onChange={({ target: { checked } }) => {
-                  onChange(checked);
-                  setThemeValue(checked)
-                }}
-              />
-            )}/>
-          <Controller
-            control={control}
-            name='language'
-            defaultValue={language === 'en'}
-            render={({field: { onChange, ...field}}) => (
-              <LangSwitch
-                {...field}
-                checked={languageValue}
-                onChange={({ target: { checked } }) => {
-                  onChange(checked);
-                  setLanguageValue(checked);
-                }}
-              />
-            )}/>
-        </SwitchesBlock>
       </SettingsHeader>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div>

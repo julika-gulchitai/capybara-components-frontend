@@ -20,3 +20,7 @@ export const Navigation = styled.nav`
   height: 100%;
 `;
 
+export const SwitchesBlock = styled.div`
+  width: fit-content;
+`;
+
