@@ -30,7 +30,7 @@ export const Carton = styled.span`
 `;
 
 export const Data = styled.span`
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: ${(props) => props.theme.colors.textColor};
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -39,7 +39,7 @@ export const Data = styled.span`
 `;
 
 export const StyleDay = styled.span`
-  color: var(--Primery-Color-Blue, #407bff);
+  color: ${(props) => props.theme.colors.primaryBlue};
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;

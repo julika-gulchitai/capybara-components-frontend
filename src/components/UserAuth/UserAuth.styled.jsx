@@ -15,4 +15,7 @@ export const SignInLink = styled(NavLink)`
   &:focus {
     color: ${props => props.theme.colors.secondaryOrange};
   }
+  svg{
+    fill:${props => props.theme.colors.textColor};
+  }
 `;

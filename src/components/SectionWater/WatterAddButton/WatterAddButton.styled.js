@@ -6,7 +6,7 @@ export const StyledWatterAddBtn = styled.button`
   gap: 8px;
   padding: 0;
 
-  color: var(--accentPrimari);
+  color: ${(props) => props.theme.colors.primaryBlue};
   line-height: 1.25;
   border: none;
   background-color: transparent;

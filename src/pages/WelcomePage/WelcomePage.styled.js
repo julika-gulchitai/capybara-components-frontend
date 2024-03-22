@@ -3,20 +3,17 @@ import { Link } from "react-router-dom";
 import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
 
 export const StyledFullPage = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color:${props => props.theme.colors.mainBg};
   background-repeat: no-repeat;
   background-position: bottom;
   color: ${props => props.theme.colors.textColor};
-  height: calc(100svh - 64px);
+  height: max-content;
   @media only screen and (max-width: 320px){
     background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageMob}), url(${props => props.theme.backgroundImage.bgElemMainPageMob});
       }
   @media (min-width:321px) and (max-width: 768px){
     background-image:url(${props => props.theme.backgroundImage.backgroundWelcomePageTablet}), url(${props => props.theme.backgroundImage.bgElemMainPageTab});
-      }
+          }
   @media (min-width:769px) {
     background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp}), url(${props => props.theme.backgroundImage.bgElemMainPageDsctp});
     background-position: bottom, bottom;
@@ -35,6 +32,7 @@ export const StyledFullPage = styled.div`
   }
 `
 export const AdaptivContainer = styled(AdaptiveContainer)`
+height: fit-content;
   display: flex;
   flex-direction: column;
   @media only screen and (min-width: 1440px) {

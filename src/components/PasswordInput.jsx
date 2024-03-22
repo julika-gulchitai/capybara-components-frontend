@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   createSvgIcon, createTheme,
   FormControl,
@@ -8,16 +8,26 @@ import {
   OutlinedInput, ThemeProvider
 } from '@mui/material';
 import svgSprite from '../assets/sprite.svg';
-import theme from '../css/VariablesJSX.jsx';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../redux/global/selectors.js';
+import { themeDark, themeLight } from '../css/variablesTheme.js';
+
 
 function PasswordInput({
-                         id,
-                         width,
-                         register,
-                         error,
-                         placeholder = 'Password',
-                         autoComplete = 'on'
-                       }) {
+  id,
+  width,
+  register,
+  error,
+  placeholder = 'Password',
+  autoComplete = 'on'
+}) {
+
+  const currentTheme = useSelector(selectTheme);
+  const [theme, setTheme] = useState(themeLight)
+  useEffect(() => {
+    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
+  }, [currentTheme, theme])
+
   const [showPassword, setShowPassword] = React.useState(false);
 
   function handleClickShowPassword() {
@@ -47,7 +57,7 @@ function PasswordInput({
               }
             },
 
-            backgroundColor: theme.colors.white,
+            backgroundColor: theme.colors.mainBg,
             width: `${width}px`,
             height: '44px',
 
@@ -66,7 +76,7 @@ function PasswordInput({
             },
             '& .MuiOutlinedInput-input': {
               lineHeight: '1.25',
-              color: error ? theme.colors.secondaryRed : theme.colors.blue,
+              color: error ? theme.colors.secondaryRed : theme.colors.primaryBlue,
               fontSize: 16,
               height: '44px',
               padding: '12px 10px',
@@ -102,10 +112,10 @@ function PasswordInput({
                 {showPassword ? (
                   <EyeSlashedIcon
                     fontSize='small'
-                    sx={{color: theme.colors.blue, fontSize: 16}}
+                    sx={{ color: theme.colors.primaryBlue, fontSize: 16 }}
                   />
                 ) : (
-                  <EyeIcon sx={{color: theme.colors.blue, fontSize: 16}}/>
+                  <EyeIcon sx={{ color: theme.colors.primaryBlue, fontSize: 16 }} />
                 )}
               </IconButton>
             </InputAdornment>
@@ -131,14 +141,14 @@ function PasswordInput({
 
 const EyeIcon = createSvgIcon(
   <svg fill='currentColor' viewBox='0 0 16 16'>
-    <use href={`${svgSprite}#icon-visible`}/>
+    <use href={`${svgSprite}#icon-visible`} />
   </svg>,
   'Plus'
 );
 
 const EyeSlashedIcon = createSvgIcon(
   <svg fill='currentColor' viewBox='0 0 16 16'>
-    <use href={`${svgSprite}#icon-hidden`}/>
+    <use href={`${svgSprite}#icon-hidden`} />
   </svg>,
   'Plus'
 );

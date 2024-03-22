@@ -4,9 +4,10 @@ import lightBgWelcomePageMob from '../assets/mobile/light-bg-welcome-page.svg'
 import lightBgElMainPageDsctp from '../assets/desktop/background-element-main-page.svg'
 import lightBgElMainPageTab from '../assets/tablet/background-element-home-screen.svg'
 import lightBgElMainPageMob from '../assets/mobile/background-element-home-screen.svg'
-import lightBottleHscDesc from '../assets/desktop/botle-home-screen.svg'
-import lightBottleHscTab from '../assets/tablet/bottle-home-screen.svg'
-import lightBottleHscMob from '../assets/mobile/bottle-home-screen.svg'
+
+// import lightBgHomeDesktop from '../assets/desktop/bg-home-desktop.svg'
+// import lightBgHomeTab from '../assets/tablet/bg-home-tablet.svg'
+// import lightBgHomeMob from '../assets/mobile/bg-home-mob.svg'
 
 import darkBgWelcomePageDsctp from '../assets/desktop/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageTab from '../assets/tablet/darkTheme/background-welcome-page.svg'
@@ -14,9 +15,9 @@ import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-
 import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
 import darkBgElMainPageTab from '../assets/tablet/darkTheme/dark-bg-el-home-screen-tab.svg'
 import darkBgElMainPageMob from '../assets/mobile/darkTheme/dark-bg-el-home-screen-mob.svg'
-import darktBottleHscDesc from '../assets/desktop/darkTheme/bottle-home-screen-dark-desc.svg'
-import darktBottleHscTab from '../assets/tablet/darkTheme/bottle-home-screen-dark-tab.svg'
-import darktBottleHscMob from '../assets/mobile/darkTheme/bottle-home-screen-dark-mob.svg'
+
+
+
 
 export const themeLight = Object.freeze({
   colors: {
@@ -48,7 +49,9 @@ export const themeLight = Object.freeze({
   },
   shadows: {
     buttonShadow: '0 4px 8px 0 rgba(64, 123, 255, 0.34)',
+    secondaryButtonShadow: '0px 2px 4px 0px rgba(64, 123, 255, 0.2)',
     windowShadowContainer: '0 4px 14px 0 rgba(64, 123, 255, 0.3)',
+    secondaryShadowContainer: '0 4px 8px 0 rgba(158, 187, 255, 0.12)',
   },
 
   hovers: {
@@ -62,9 +65,9 @@ export const themeLight = Object.freeze({
     bgElemMainPageDsctp: lightBgElMainPageDsctp,
     bgElemMainPageTab: lightBgElMainPageTab,
     bgElemMainPageMob: lightBgElMainPageMob,
-    bgtBottleHscDesc: lightBottleHscDesc,
-    bgtBottleHscTab: lightBottleHscTab,
-    bgtBottleHscMob: lightBottleHscMob,
+    // bgHomeDesktop: lightBgHomeDesktop,
+    // bgHomeTab: lightBgHomeTab,
+    // bgHomeMob: lightBgHomeMob,
   },
 
 
@@ -83,7 +86,7 @@ export const themeDark = Object.freeze({
     // secondaryBlueMedium: '#c6d7ff',
     // secondaryGrayMedium: '#f5f5f5',
 
-    // secondaryGray: '#8F8F8F',
+    secondaryGray: '#8F8F8F',
 
     // buttonClose: '#407bff',
 
@@ -102,7 +105,10 @@ export const themeDark = Object.freeze({
   },
   shadows: {
     buttonShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.34)',
-    windowShadowContainer: '0 4px 14px 0 rgba(0, 0, 0, 0.2)'
+    secondaryButtonShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+    windowShadowContainer: '0 4px 14px 0 rgba(0, 0, 0, 0.2)',
+    secondaryShadowContainer: '0 4px 14px 0 rgba(0, 0, 0, 0.2)',
+
   },
 
   hovers: {
@@ -116,9 +122,9 @@ export const themeDark = Object.freeze({
     bgElemMainPageDsctp: darkBgElMainPageDsctp,
     bgElemMainPageTab: darkBgElMainPageTab,
     bgElemMainPageMob: darkBgElMainPageMob,
-    bgtBottleHscDesc: darktBottleHscDesc,
-    bgtBottleHscTab: darktBottleHscTab,
-    bgtBottleHscMob: darktBottleHscMob,
+    // bgHomeDesktop: darktBgHomeDesktop,
+    // bgHomeTab: lightBgHomeTab,
+    // bgHomeMob: lightBgHomeMob,
   },
 });
 
