@@ -54,7 +54,6 @@ const WaterRatioPanel = () => {
           <TodayListModal
             onClose={handleCloseModalTodayList}
             isEditing={isEditing}
-            // data={currentItem}
           />
         </ModalWindow>
       )}
