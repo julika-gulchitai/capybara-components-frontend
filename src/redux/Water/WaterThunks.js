@@ -93,5 +93,3 @@ export const apiEditWaterPortion = createAsyncThunk(
     }
   }
 );
-
-export const waterThunk = createAsyncThunk();

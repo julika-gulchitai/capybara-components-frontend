@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, isAnyOf} from '@reduxjs/toolkit';
 import {
   editWaterRateThunk,
   getCurrentThunk,
@@ -7,7 +7,12 @@ import {
   registerThunk,
   updateUserThunk
 } from '../User/UserThunks.js';
-import {waterThunk} from '../Water/WaterThunks.js';
+import {
+  apiAddWaterPortion,
+  apiDeleteWaterPortion,
+  apiEditWaterPortion, apiGetMonthWaterPortions,
+  apiGetTodayWaterPortions,
+} from '../Water/WaterThunks.js';
 import {LOCALS} from '../../i18n/constants.js';
 
 const initialState = {
@@ -44,33 +49,54 @@ const globalSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(getCurrentThunk.fulfilled, handleFulfilled)
-      .addCase(getCurrentThunk.pending, handlePending)
-      .addCase(getCurrentThunk.rejected, handleRejected)
-
-      .addCase(logoutThunk.pending, handlePending)
-      .addCase(logoutThunk.fulfilled, handleFulfilled)
-      .addCase(logoutThunk.rejected, handleRejected)
-
-      .addCase(updateUserThunk.pending, handlePending)
-      .addCase(updateUserThunk.fulfilled,handleFulfilled)
-      .addCase(updateUserThunk.rejected, handleRejected)
-
-      .addCase(registerThunk.pending, handlePending)
-      .addCase(registerThunk.fulfilled, handleFulfilled)
-      .addCase(registerThunk.rejected, handleRejected)
-
-      .addCase(loginThunk.pending, handlePending)
-      .addCase(loginThunk.fulfilled, handleFulfilled)
-      .addCase(loginThunk.rejected, handleRejected)
-
-      .addCase(editWaterRateThunk.pending, handlePending)
-      .addCase(editWaterRateThunk.fulfilled, handleFulfilled)
-      .addCase(editWaterRateThunk.rejected, handleRejected)
-
-      .addCase(waterThunk.pending, handlePending)
-      .addCase(waterThunk.fulfilled, handleFulfilled)
-      .addCase(waterThunk.rejected, handleRejected);
+      .addMatcher(
+        isAnyOf(
+          getCurrentThunk.fulfilled,
+          logoutThunk.fulfilled,
+          updateUserThunk.fulfilled,
+          registerThunk.fulfilled,
+          editWaterRateThunk.fulfilled,
+          loginThunk.fulfilled,
+          apiAddWaterPortion.fulfilled,
+          apiDeleteWaterPortion.fulfilled,
+          apiEditWaterPortion.fulfilled,
+          apiGetTodayWaterPortions.fulfilled,
+          apiGetMonthWaterPortions.fulfilled
+        ),
+        handleFulfilled
+      )
+      .addMatcher(
+        isAnyOf(
+          getCurrentThunk.pending,
+          logoutThunk.pending,
+          updateUserThunk.pending,
+          registerThunk.pending,
+          editWaterRateThunk.pending,
+          loginThunk.pending,
+          apiAddWaterPortion.pending,
+          apiDeleteWaterPortion.pending,
+          apiEditWaterPortion.pending,
+          apiGetTodayWaterPortions.pending,
+          apiGetMonthWaterPortions.pending
+        ),
+        handlePending
+      )
+      .addMatcher(
+        isAnyOf(
+          getCurrentThunk.rejected,
+          logoutThunk.rejected,
+          updateUserThunk.rejected,
+          registerThunk.rejected,
+          editWaterRateThunk.rejected,
+          loginThunk.rejected,
+          apiAddWaterPortion.rejected,
+          apiDeleteWaterPortion.rejected,
+          apiEditWaterPortion.rejected,
+          apiGetTodayWaterPortions.rejected,
+          apiGetMonthWaterPortions.rejected
+        ),
+        handleRejected
+      )
   },
 });
 
