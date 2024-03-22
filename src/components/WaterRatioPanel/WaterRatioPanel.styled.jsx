@@ -110,17 +110,20 @@ export const Percentage = styled.div`
     }
 
     &:first-child {
+      margin-left: 3px;
       font-size: ${(props) => (props.$rater === 0 ? `16px` : `12px`)};
       font-weight: ${(props) => (props.$rater === 0 ? `500` : `400`)};
     }
 
     &:nth-child(2) {
+      margin-left: 15px;
       font-size: ${(props) =>
         (props.$rater >= 50) & (props.$rater < 100) ? `16px` : `12px`};
       font-weight: ${(props) =>
         (props.$rater >= 50) & (props.$rater < 100) ? `500` : `400`};
     }
     &:last-child {
+      margin-right: 3px;
       width: 40px;
       font-size: ${(props) => (props.$rater >= 100 ? `16px` : `12px`)};
       font-weight: ${(props) => (props.$raterrater >= 100 ? `500` : `400`)};

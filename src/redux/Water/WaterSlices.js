@@ -15,7 +15,6 @@ const INITIAL_STATE = {
   waterVolumes: [],
   stats: [],
   waterVolumeSum: [],
-  currentWater: 0,
 };
 
 const waterSlice = createSlice({
@@ -51,7 +50,7 @@ const waterSlice = createSlice({
       })
       .addCase(logoutThunk.fulfilled, () => {
         return INITIAL_STATE;
-      })
+      }),
 });
 
 export const waterReducer = waterSlice.reducer;
