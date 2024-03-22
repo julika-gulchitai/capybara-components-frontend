@@ -16,7 +16,7 @@ export const StyleWrapperDay = styled.li`
 `;
 
 export const Percentage = styled.span`
-  color: var(--blueSecondary);
+  color: ${(props) => props.theme.colors.secondaryBlue};
   font-size: 10px;
   line-height: 1.6;
 
@@ -44,16 +44,16 @@ export const StyledBtn = styled.button`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
-  color: var(--blackPrimari);
-  background-color: #fff;
+  color: ${(props) => props.theme.colors.textColor};
+  background-color: ${(props) => props.theme.colors.mainBg};
   border-radius: 50%;
   padding: 0px;
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  box-shadow: ${(props) => props.theme.shadows.buttonShadow};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #fff;
+    background-color: ${(props) => props.theme.colors.mainBg};
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
   }
   &:active {

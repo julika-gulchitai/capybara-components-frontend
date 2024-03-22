@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AvatarWrapper, UserMenuButton } from './UserLogo.styled.jsx';
 import svgSprite from '../../assets/sprite.svg';
 import { Popover } from '@mui/material';
@@ -8,12 +8,20 @@ import SettingModal from '../SettingModal/SettingModal.jsx';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/User/selectors.js';
 import UserLogoutModal from '../UserLogoutModal/UserLogoutModal.jsx';
+import { selectTheme } from '../../redux/global/selectors.js';
+import { themeDark, themeLight } from '../../css/variablesTheme.js';
 
 function UserLogo() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const { username, email, avatarURL } = useSelector(selectUser);
+
+  const currentTheme = useSelector(selectTheme);
+  const [theme, setTheme] = useState(themeLight)
+  useEffect(() => {
+    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
+  }, [currentTheme, theme])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,7 +43,7 @@ function UserLogo() {
     <>
       <UserMenuButton onClick={handleClick}>
         {username && <span>{username}</span>}
-        <AvatarWrapper $borderColor={avatarURL ? 'transparent' : '#2f2f2f'}>
+        <AvatarWrapper $borderColor={avatarURL ? 'transparent' : theme.colors.textColor}>
           {avatarURL ? (
             <img src={avatarURL} width={28} height={28} alt="user avatar" />
           ) : username ? (

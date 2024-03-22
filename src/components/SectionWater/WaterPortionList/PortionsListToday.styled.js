@@ -25,7 +25,7 @@ export const PortionsList = styled.div`
   .motivation {
     text-align: center;
     font-size: 16px;
-    color: var(--accentPrimari);
+    color: ${(props) => props.theme.colors.primaryBlue};
   }
 `;
 
@@ -45,7 +45,7 @@ export const Portions = styled.ul`
 export const Portion = styled.li`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--lightBlueSecondary);
+  border-bottom: 1px solid ${(props) => props.theme.colors.secondaryLightblue};
 
   .icon-glass {
     width: 26px;
@@ -60,7 +60,7 @@ export const Portion = styled.li`
 `;
 
 export const Volumes = styled.span`
-  color: var(--accentPrimari);
+  color: ${(props) => props.theme.colors.primaryBlue};
   font-size: 18px;
   line-height: 1.33;
   margin-right: 12px;
@@ -73,7 +73,7 @@ export const Volumes = styled.span`
 export const Time = styled.span`
   font-size: 12px;
   line-height: 2;
-  color: var(--blackPrimari);
+  color: ${(props) => props.theme.colors.textColor};
 `;
 
 export const Edit = styled.div`

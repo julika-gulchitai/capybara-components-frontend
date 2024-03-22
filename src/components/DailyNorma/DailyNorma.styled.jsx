@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const DailyNormaContainer = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
+  box-shadow: ${props => props.theme.shadows.secondaryShadowContainer};
   background-color:${props => props.theme.colors.mainBg};
-  border: 1px solid var(--secondary-white);
+  border: 1px solid ${(props) => props.theme.colors.secondaryBg};
   border-radius: 10px;
   padding: 8px 20px;
   width: 164px;
