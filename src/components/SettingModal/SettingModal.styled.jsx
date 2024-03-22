@@ -162,10 +162,6 @@ export const GenderRadio = styled(RadioGroup)`
   }
 `;
 
-export const SwitchesBlock = styled.div`
-  width: fit-content;
-`;
-
 export const SettingsHeader = styled.div`
   display: flex;
   align-items: start;

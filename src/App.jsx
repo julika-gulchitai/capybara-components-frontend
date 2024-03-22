@@ -9,7 +9,7 @@ import GuestRoute from './routes/GuestRoute.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
 import { Loader } from './components/Loader/Loader.jsx';
-import { selectIsLoading } from './redux/global/selectors.js';
+import {selectIsLoading, selectLanguage, selectTheme} from './redux/global/selectors.js';
 import ThemeComponent from './components/ThemeComponent/ThemeComponent.jsx';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
   const isRefreshing = useSelector(selectRefreshing);
   const isLoading = useSelector(selectIsLoading);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const theme = useSelector(selectTheme);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
     <Loader visible={isLoading} />
   ) : (
 
-    <ThemeComponent isDark={isDark}>
+    <ThemeComponent isDark={theme === 'dark'}>
       <AppWrapper>
         <Routes>
           <Route path='/' element={<SharedLayout />}>

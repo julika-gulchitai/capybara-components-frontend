@@ -8,10 +8,13 @@ import {
   updateUserThunk
 } from '../User/UserThunks.js';
 import {waterThunk} from '../Water/WaterThunks.js';
+import {LOCALS} from '../../i18n/constants.js';
 
 const initialState = {
   isLoading: false,
   error: null,
+  theme: 'light',
+  language: LOCALS.EN
 };
 
 function handlePending(state) {
@@ -31,6 +34,14 @@ function handleRejected(state, action) {
 const globalSlice = createSlice({
   name: 'global',
   initialState,
+  reducers: {
+    setTheme: (state, {payload}) => {
+      state.theme = payload
+    },
+    setLanguage: (state, {payload}) => {
+      state.language = payload
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getCurrentThunk.fulfilled, handleFulfilled)
@@ -63,4 +74,5 @@ const globalSlice = createSlice({
   },
 });
 
+export const { setTheme, setLanguage } = globalSlice.actions
 export const globalReducer = globalSlice.reducer;

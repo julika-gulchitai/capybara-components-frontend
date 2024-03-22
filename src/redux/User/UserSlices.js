@@ -19,8 +19,6 @@ const initialState = {
     gender: '',
     avatarURL: '',
     waterRate: '',
-    language: 'en',
-    theme: 'light'
   },
   token: '',
   isLoggedIn: false,
