@@ -1,5 +1,9 @@
 import { useDispatch } from 'react-redux';
-
+// import Notiflix from 'notiflix';
+// import {
+//   NOTIFICATIONS,
+//   paramsForNotify,
+// } from '../../constants/notifications.js';
 import { logoutThunk } from '../../redux/User/UserThunks.js';
 import {
   LogOutHeader,
@@ -11,12 +15,18 @@ import {
 } from './UserLogoutModal.styled.jsx';
 
 const UserLogoutModal = ({ close }) => {
+  //   const params = new URLSearchParams(window.location.search);
+  //   const message = params.get('message');
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logoutThunk());
   };
 
+  // if (message) {
+  //   Notiflix.Notify(NOTIFICATIONS.INFO.LOGOUT, paramsForNotify);
+  // }
   return (
     <>
       <LogOutWindow>
