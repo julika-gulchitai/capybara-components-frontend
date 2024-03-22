@@ -11,6 +11,7 @@ export const uk = {
     "save": "Зберегти",
     "woman": "Жінка",
     "man": "Чоловік",
+    "send":"Надіслати",
     welcomePage: {
 
         "Water consumption tracker": "Трекер споживання води",

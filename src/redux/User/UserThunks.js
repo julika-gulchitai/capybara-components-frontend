@@ -104,7 +104,7 @@ export const forgotPassword = createAsyncThunk(
 export const resetPassword = createAsyncThunk(
   'users/reset-password',
   async (data, thunkAPI) => {
-    
+
     try {
       const response = await api.post('users/reset-password', data);
 

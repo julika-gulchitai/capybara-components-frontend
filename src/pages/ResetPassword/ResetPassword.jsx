@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,19 +6,21 @@ import { resetPassword } from '../../redux/User/UserThunks';
 import { paramsForNotify } from '../../constants/notifications';
 import { Notify } from 'notiflix';
 import { useForm } from 'react-hook-form';
-import { WraperForm, Wrapper } from '../SignUp/SignUp.styled';
-import { RightContainer } from '../HomePage/HomePage.styled';
-import {
-  PasswordLabelText,
-  SaveButton,
-} from '../../components/SettingModal/SettingModal.styled';
+import { MarginBetween, WraperForm, Wrapper } from '../SignUp/SignUp.styled';
+import { PasswordLabelText} from '../../components/SettingModal/SettingModal.styled';
 import PasswordInput from '../../components/PasswordInput';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate  } from 'react-router-dom';
+import { StyledButton } from '../ForgotPassword/ForgotPassword.styled';
+import { LabelStyled } from '../../components/AuthForm/AuthForm.styled';
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
 
-  const { token, id } = useParams();
+  const token = params.get('token');
+  const id = params.get('id');
 
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   const isDesktop = useMediaQuery({ query: '(min-width: 1439px)' });
@@ -26,11 +28,6 @@ const ResetPassword = () => {
   const schema = yup
     .object()
     .shape({
-      old_password: yup
-        .string()
-        .min(8, 'Password must be at least 8 characters')
-        .max(64)
-        .required('Password is required'),
       new_password: yup
         .string()
         .min(8, 'New password must be at least 8 characters')
@@ -48,25 +45,24 @@ const ResetPassword = () => {
     .required();
 
   const onSubmit = (data) => {
-    if (data.old_password && data.new_password && data.repeat_new_password) {
-      if (data.new_password !== data.repeat_new_password) {
-        Notify.warning(
-          'New password and repeated password are different',
-          paramsForNotify
-        );
-        return;
-      }
-
-      dispatch(resetPassword(resetPassword({ token, id, ...data })))
-        .unwrap()
-        .then(() => {
-          Notify.success('Password was changed');
-        })
-        .catch((error) => {
-          console.error(error);
-          Notify.failure(error.message, paramsForNotify);
-        });
+    if (data.new_password !== data.repeat_new_password) {
+      Notify.warning(
+        'New password and repeated password are different',
+        paramsForNotify
+      );
+      return;
     }
+    const password = data.new_password;
+
+    dispatch(resetPassword({ token:token, id:id, password:password }))
+      .unwrap()
+      .then(() => {
+        Notify.success('Password was changed');
+        navigate('/signin')
+      })
+      .catch((error) => {
+        Notify.failure(error.message, paramsForNotify);
+      });
   };
 
   const {
@@ -82,18 +78,9 @@ const ResetPassword = () => {
     <Wrapper>
       <WraperForm>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <RightContainer>
-            <h3>Password</h3>
+            <MarginBetween></MarginBetween>
             <label>
-              <PasswordLabelText>Outdated password:</PasswordLabelText>
-              <PasswordInput
-                register={register}
-                id="old_password"
-                width={isDesktop ? 384 : isTablet ? 336 : 280}
-              />
-            </label>
-            <label>
-              <PasswordLabelText>New Password:</PasswordLabelText>
+              <LabelStyled>Enter your new password:</LabelStyled>
               <PasswordInput
                 error={errors.new_password}
                 register={register}
@@ -102,7 +89,7 @@ const ResetPassword = () => {
               />
             </label>
             <label>
-              <PasswordLabelText>Repeat new password:</PasswordLabelText>
+              <LabelStyled>Repeat new password:</LabelStyled>
               <PasswordInput
                 error={errors.repeat_new_password}
                 register={register}
@@ -110,8 +97,7 @@ const ResetPassword = () => {
                 width={isDesktop ? 384 : isTablet ? 336 : 280}
               />
             </label>
-            <SaveButton type="submit">Save</SaveButton>
-          </RightContainer>
+            <StyledButton $width={isDesktop ? '384px' : isTablet ? '336px' : '280px'} type="submit">Save</StyledButton>
         </form>
       </WraperForm>
     </Wrapper>

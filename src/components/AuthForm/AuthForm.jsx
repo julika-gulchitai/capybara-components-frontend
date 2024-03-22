@@ -138,7 +138,7 @@ const AuthForm = ({ signUp }) => {
           </WrapInput>
         )}
 
-        <SignButton type="submit">
+        <SignButton  type="submit">
           {signUp ? t('signup') : t('signin')}
         </SignButton>
       </form>
