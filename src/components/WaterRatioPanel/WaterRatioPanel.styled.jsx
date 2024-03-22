@@ -85,11 +85,17 @@ export const StyledInput = styled.input`
 export const Percentage = styled.div`
   display: flex;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    /* width: 322px; */
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 391px;
+  }
   span {
     color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 12px;
     line-height: 1.3;
-    
 
     &::before {
       height: 8px;
@@ -106,7 +112,6 @@ export const Percentage = styled.div`
     &:first-child {
       font-size: ${(props) => (props.$rater === 0 ? `16px` : `12px`)};
       font-weight: ${(props) => (props.$rater === 0 ? `500` : `400`)};
-      /* margin-left: 4px; */
     }
 
     &:nth-child(2) {
@@ -116,10 +121,12 @@ export const Percentage = styled.div`
         (props.$rater >= 50) & (props.$rater < 100) ? `500` : `400`};
     }
     &:last-child {
+      width: 40px;
       font-size: ${(props) => (props.$rater >= 100 ? `16px` : `12px`)};
       font-weight: ${(props) => (props.$raterrater >= 100 ? `500` : `400`)};
-      /* margin-left: 4px; */
+      margin-left: 4px;
     }
+  }
 `;
 
 export const AddBtn = styled(ButtonStyled)`
