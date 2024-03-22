@@ -1,18 +1,15 @@
-import{u as t,A as s,L as d,a as m,j as n,s as a}from"./index-f4dcfe33.js";const c=t.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+import{u as i,A as r,L as o,a as l,j as n,s as t}from"./index-04317029.js";const d=i.div`
   background-color:${e=>e.theme.colors.mainBg};
   background-repeat: no-repeat;
   background-position: bottom;
   color: ${e=>e.theme.colors.textColor};
-  height: calc(100svh - 64px);
+  height: max-content;
   @media only screen and (max-width: 320px){
     background-image: url(${e=>e.theme.backgroundImage.backgroundWelcomePageMob}), url(${e=>e.theme.backgroundImage.bgElemMainPageMob});
       }
   @media (min-width:321px) and (max-width: 768px){
     background-image:url(${e=>e.theme.backgroundImage.backgroundWelcomePageTablet}), url(${e=>e.theme.backgroundImage.bgElemMainPageTab});
-      }
+          }
   @media (min-width:769px) {
     background-image: url(${e=>e.theme.backgroundImage.backgroundWelcomePageDsctp}), url(${e=>e.theme.backgroundImage.bgElemMainPageDsctp});
     background-position: bottom, bottom;
@@ -29,13 +26,14 @@ import{u as t,A as s,L as d,a as m,j as n,s as a}from"./index-f4dcfe33.js";const
       align-items: flex-start;
       justify-content: center;
   }
-`,h=t(s)`
+`,s=i(r)`
+height: fit-content;
   display: flex;
   flex-direction: column;
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
     }
-`,g=t.div`
+`,m=i.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +48,7 @@ import{u as t,A as s,L as d,a as m,j as n,s as a}from"./index-f4dcfe33.js";const
     margin: 4.2rem 5.5rem 4.2rem 6.5rem;
     gap: 5rem;
   }
-`,x=t.div`
+`,c=i.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -66,7 +64,7 @@ h3{
     margin-bottom: 1rem;
   }
   }
-`,p=t.h1`
+`,h=i.h1`
  font-size: 1.75rem;
 margin: 0;
   @media only screen and (min-width: 768px) {
@@ -76,14 +74,14 @@ margin: 0;
   @media only screen and (min-width: 1440px) {
     line-height: 1.16667;
   }
-`,w=t.h2`
+`,g=i.h2`
   font-weight: 400;
   line-height: 1.25;
   margin: 1rem 0;
   @media only screen and (min-width: 768px) {
     letter-spacing: 1px;
   }
-`,u=t.ul`
+`,x=i.ul`
   margin: 0;
   padding: 0;
   text-align: left;
@@ -108,7 +106,7 @@ margin: 0;
       margin-bottom: 1rem;
     }
   }
-`,r=t.svg`
+`,a=i.svg`
   width: ${e=>e.size||"32px"};
   height: ${e=>e.size||"32px"};
   fill: ${e=>e.color||e.theme.colors.mainBg};
@@ -118,7 +116,7 @@ margin: 0;
     width: ${e=>e.size||"40px"};
     height: ${e=>e.size||"40px"};
   }
-`,y=t.div`
+`,p=i.div`
   border-radius: 10px;
   box-shadow: ${e=>e.theme.shadows.windowShadowContainer};
   background: ${e=>e.theme.colors.secondaryBg};
@@ -128,13 +126,13 @@ margin: 0;
   @media only screen and (min-width: 768px) {
     margin-top: 1.25rem;
   }
-  `,b=t.h3`
+  `,w=i.h3`
   font-size: 18px;
   line-height: 1.11111;
   margin: 0 -1rem;
   @media only screen and (min-width: 1440px) {
     margin-top: .5rem;
-  }`,f=t.ul`
+  }`,u=i.ul`
   padding: 1.5rem 1rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -158,7 +156,7 @@ margin: 0;
       margin-right: 6px;
     }
   }
-`,j=t(d)`
+`,y=i(o)`
   border-radius: 10px;
   border: none;
   padding: .5rem;
@@ -179,4 +177,4 @@ margin: 0;
     width: 24rem;
     margin-top: .5rem;
   }
-`,P=({setTheme:e})=>{const{t:i}=m(),o=l=>{e(l.target.checked)};return n.jsx(n.Fragment,{children:n.jsx(c,{children:n.jsx(h,{children:n.jsxs(g,{children:[n.jsxs(x,{children:[n.jsx(p,{children:i("welcomePage.Water consumption tracker")}),n.jsx(w,{children:i("welcomePage.Record daily water intake and track")}),n.jsx("h3",{children:i("welcomePage.Tracker Benefits")}),n.jsxs(u,{children:[n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#calendar`})}),i("welcomePage.Habit drive")]}),n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#presentation-chart-bar`})}),i("welcomePage.View statistics")]}),n.jsxs("li",{children:[" ",n.jsx(r,{children:n.jsx("use",{href:`${a}#wrench-schewdriver`})}),i("welcomePage.Personal rate setting")]})]}),n.jsx(j,{to:"/signup",children:i("welcomePage.Try tracker")})]}),n.jsx(y,{children:n.jsxs(f,{children:[n.jsxs(b,{children:[i("welcomePage.Why drink water"),n.jsx("input",{type:"checkbox",onChange:o})]}),n.jsx("li",{children:i("welcomePage.Supply of nutrients to all organs")}),n.jsx("li",{children:i("welcomePage.Providing oxygen to the lungs")}),n.jsx("li",{children:n.jsx("span",{children:i("welcomePage.Maintaining the work of the heart")})}),n.jsx("li",{children:i("welcomePage.Release of processed substances")}),n.jsx("li",{children:i("welcomePage.Ensuring the stability of the internal environment")}),n.jsx("li",{children:i("welcomePage.Maintaining within the normal temperature")}),n.jsx("li",{children:i("welcomePage.Maintaining an immune system capable of resisting disease")})]})})]})})})})};export{P as default};
+`,f=()=>{const{t:e}=l();return n.jsx(d,{children:n.jsx(s,{children:n.jsxs(m,{children:[n.jsxs(c,{children:[n.jsx(h,{children:e("welcomePage.Water consumption tracker")}),n.jsx(g,{children:e("welcomePage.Record daily water intake and track")}),n.jsx("h3",{children:e("welcomePage.Tracker Benefits")}),n.jsxs(x,{children:[n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#calendar`})}),e("welcomePage.Habit drive")]}),n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#presentation-chart-bar`})}),e("welcomePage.View statistics")]}),n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#wrench-schewdriver`})}),e("welcomePage.Personal rate setting")]})]}),n.jsx(y,{to:"/signup",children:e("welcomePage.Try tracker")})]}),n.jsx(p,{children:n.jsxs(u,{children:[n.jsx(w,{children:e("welcomePage.Why drink water")}),n.jsx("li",{children:e("welcomePage.Supply of nutrients to all organs")}),n.jsx("li",{children:e("welcomePage.Providing oxygen to the lungs")}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining the work of the heart")})}),n.jsx("li",{children:e("welcomePage.Release of processed substances")}),n.jsx("li",{children:e("welcomePage.Ensuring the stability of the internal environment")}),n.jsx("li",{children:e("welcomePage.Maintaining within the normal temperature")}),n.jsx("li",{children:e("welcomePage.Maintaining an immune system capable of resisting disease")})]})})]})})})};export{f as default};
