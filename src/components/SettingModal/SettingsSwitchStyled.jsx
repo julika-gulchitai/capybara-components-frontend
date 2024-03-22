@@ -1,8 +1,8 @@
-import {styled} from '@mui/system';
-import {Switch} from '@mui/material';
+import { styled } from '@mui/system';
+import { Switch } from '@mui/material';
 import theme from '../../css/VariablesJSX.jsx';
 
-export const LangSwitch = styled(Switch)(({}) => ({
+export const LangSwitch = styled(Switch)(({ }) => ({
   padding: 8,
   '& .MuiSwitch-switchBase': {
     color: theme.colors.secondaryBlue,
@@ -57,7 +57,7 @@ export const LangSwitch = styled(Switch)(({}) => ({
   }
 }));
 
-export const ThemeSwitch = styled(Switch)(({}) => ({
+export const ThemeSwitch = styled(Switch)(({ }) => ({
   padding: 8,
   '& .MuiSwitch-switchBase': {
     color: theme.colors.secondaryBlue,

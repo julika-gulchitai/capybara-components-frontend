@@ -19,7 +19,6 @@ export const AddWater = styled.h2`
   font-size: 26px;
   font-weight: 500;
   line-height: 1.23;
-
   margin-bottom: 24px;
 `;
 
@@ -57,8 +56,7 @@ export const ButtonWrapper = styled.div`
     border-radius: 30px;
     border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
     background: ${(props) => props.theme.colors.mainBg};
-
-    box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
+    box-shadow: ${(props) => props.theme.shadows.secondaryButtonShadow};
 
     cursor: pointer;
   }
@@ -113,10 +111,9 @@ export const FormStyled = styled.form`
     outline: none;
     border-radius: 6px;
     border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
-
     appearance: none;
-
     color: ${(props) => props.theme.colors.primaryBlue};
+    background-color: ${(props) => props.theme.colors.mainBg};
     font-size: 16px;
     line-height: 1.25;
     text-align: left;

@@ -11,7 +11,7 @@ export const DailyNormaContainer = styled.div`
   h2 {
     font-weight: 500;
     font-size: 26px;
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     line-height: 1.23;
     margin-bottom: 24px;
   }
@@ -19,7 +19,7 @@ export const DailyNormaContainer = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 1.11;
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     margin-bottom: 16px;
   }
   button {
@@ -33,14 +33,14 @@ export const DailyNormaContainer = styled.div`
     line-height: 1.25;
   }
   input {
-    border: 1px solid var(--secondary-lightblue);
+    border: 1px solid ${props => props.theme.colors.secondaryLightblue};
     border-radius: 6px;
     outline: transparent;
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     padding: 12px 10px;
 
     &::placeholder {
-      color: var(--blue);
+      color: ${props => props.theme.colors.primaryBlue};
     }
   }
 `;
@@ -56,26 +56,26 @@ export const Formula = styled.div`
   }
   P {
     line-height: 1.25;
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     margin-bottom: 0;
   }
   span {
     line-height: 1.33;
     font-size: 18px;
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
   }
 `;
 
 export const Explanation = styled.p`
-  border: 1px solid var(--secondary-lightblue);
+  border: 1px solid ${props => props.theme.colors.secondaryLightblue};
   border-radius: 10px;
   padding: 10px;
   font-size: 12px;
   line-height: 1.33;
-  color: #8f8f8f;
+  color: ${props => props.theme.colors.secondaryGray};
   margin-bottom: 24px;
   span {
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
   }
 `;
 
@@ -96,7 +96,7 @@ export const RequiredNorma = styled.div`
   }
   span {
     line-height: 1.33;
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     font-weight: 700;
     font-size: 18px;
   }
@@ -116,6 +116,9 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  input{
+    background-color: ${props => props.theme.colors.mainBg};
+  }
 `;
 
 export const DailyNorma = styled.div`
@@ -128,6 +131,9 @@ export const DailyNorma = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 1.11;
+  }
+  input{
+    background-color: ${props => props.theme.colors.mainBg};
   }
 `;
 
@@ -150,7 +156,7 @@ export const RadioBtns = styled.div`
 export const Error = styled.p`
   position: absolute;
   bottom: -33px;
-  color: var(--secondary-red);
+  color: ${props => props.theme.colors.secondaryRed};
   font-size: 14px;
   line-height: 1.29;
   @media (min-width: 768px) {

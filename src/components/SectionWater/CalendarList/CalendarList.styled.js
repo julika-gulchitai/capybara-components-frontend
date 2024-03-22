@@ -12,7 +12,7 @@ export const WrapperGroup = styled.div`
   gap: 12px;
 
   span {
-    color: var(--accentPrimari);
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 16px;
     line-height: 1.25;
   }
@@ -48,7 +48,7 @@ export const Title = styled.h2`
   font-size: 24px;
   font-weight: 500;
   line-height: 1.25;
-  color: var(--blackPrimari, #2f2f2f);
+  color: ${(props) => props.theme.colors.textColor};
 
   @media screen and (min-width: 768px) {
     font-size: 26px;
