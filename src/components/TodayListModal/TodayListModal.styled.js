@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as PlusIcon } from '../../assets/icon/plus.svg';
-import { ReactComponent as MinusIcon } from '../../assets/icon/minus.svg';
+import { ReactComponent as IconMinus } from '../../assets/icon/minus-small.svg';
+import { ReactComponent as IconPlus } from '../../assets/icon/plus-small.svg';
 import { ReactComponent as Glass } from '../../assets/icon/glass.svg';
 
 export const StyledAddWaterModal = styled.div`
@@ -55,8 +55,8 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 
     border-radius: 30px;
-    border: 1px solid ${props => props.theme.colors.secondaryBlue};
-    background: ${props => props.theme.colors.mainBg};
+    border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
+    background: ${(props) => props.theme.colors.mainBg};
 
     box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
 
@@ -75,8 +75,8 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 
     border-radius: 40px;
-    background: ${props => props.theme.colors.secondaryLightblue};
-    color: ${props => props.theme.colors.primaryBlue};
+    background: ${(props) => props.theme.colors.secondaryLightblue};
+    color: ${(props) => props.theme.colors.primaryBlue};
 
     font-size: 18px;
     font-weight: 700;
@@ -84,13 +84,13 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-export const StyledPlusIcon = styled(PlusIcon)`
-  stroke: ${props => props.theme.colors.primaryBlue};
+export const StyledPlusIcon = styled(IconPlus)`
+  stroke: ${(props) => props.theme.colors.primaryBlue};
 `;
 
-export const StyledMinusIcon = styled(MinusIcon)`
-  stroke: ${props => props.theme.colors.primaryBlue};
-  fill: ${props => props.theme.colors.primaryBlue};
+export const StyledMinusIcon = styled(IconMinus)`
+  stroke: ${(props) => props.theme.colors.primaryBlue};
+  fill: ${(props) => props.theme.colors.primaryBlue};
 `;
 
 export const FormStyled = styled.form`
@@ -112,11 +112,11 @@ export const FormStyled = styled.form`
 
     outline: none;
     border-radius: 6px;
-    border: 1px solid ${props => props.theme.colors.secondaryBlue};
+    border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
 
     appearance: none;
 
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 16px;
     line-height: 1.25;
     text-align: left;
@@ -166,10 +166,10 @@ export const ButtonSaveWrapper = styled.div`
     border-radius: 10px;
     border: none;
 
-    color: ${props => props.theme.colors.mainBg};
-    background: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.mainBg};
+    background: ${(props) => props.theme.colors.primaryBlue};
 
-    box-shadow: ${props => props.theme.shadows.buttonShadow};
+    box-shadow: ${(props) => props.theme.shadows.buttonShadow};
 
     font-size: 18px;
     font-weight: 500;
@@ -197,7 +197,7 @@ export const GlassContainer = styled.div`
   padding: 8px 24px;
   border-radius: 10px;
   gap: 12px;
-  background-color: ${props => props.theme.colors.secondaryBg};
+  background-color: ${(props) => props.theme.colors.secondaryBg};
   margin-bottom: 24px;
 `;
 
@@ -207,7 +207,7 @@ export const GlassStyle = styled(Glass)`
 `;
 
 export const TextAmount = styled.p`
-  color: ${props => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.primaryBlue};
   font-size: 18px;
   line-height: 1.3;
   margin-right: 4px;
