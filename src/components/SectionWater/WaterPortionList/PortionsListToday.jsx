@@ -29,7 +29,7 @@ const PortionsListToday = () => {
             {waterPortions?.map((item) => (
               <Portion key={item._id}>
                 <Icon className="glass" />
-                <Volumes>{`${item.waterAmount} ml`} </Volumes>
+                <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
                 <Time>{getLocaleTime(item.date)}</Time>
                 <Edit></Edit>
               </Portion>

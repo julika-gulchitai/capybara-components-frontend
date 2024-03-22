@@ -66,7 +66,7 @@ const CalendarList = () => {
   return (
     <>
       <HeaderList>
-        <Title>Month</Title>
+        <Title>{i18n.t('month')}</Title>
         <WrapperGroup>
           <ButtonArrow onClick={previousMonth}>
             <IconArrowLeft />
