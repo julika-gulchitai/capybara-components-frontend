@@ -1,6 +1,20 @@
 import styled from "styled-components";
 
 export const StyledDeleteModal = styled.div`
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 544px;
+  }
+  
+  h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.23;
+    color: ${props => props.theme.colors.textColor};
+    margin-bottom: 24px;
+  }
+  
   .text {
     color: #2f2f2f;
     font-size: 18px;
@@ -59,7 +73,7 @@ export const StyledDeleteModal = styled.div`
     }
   }
 
-  .logout-btn {
+  .delete-btn {
     border-radius: 10px;
     background: #ef5050;
     cursor: pointer;

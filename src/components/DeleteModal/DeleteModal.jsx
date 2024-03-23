@@ -1,41 +1,38 @@
-import { Modal } from 'components';
+
 import { StyledDeleteModal } from './DeleteModal.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { apiDeleteWaterPortion } from '../../redux/Water/WaterThunks';
-import { selectDeletingWaterPortionId } from '../../redux/modal/modalsReduser';
 import { useTranslation } from 'react-i18next';
 
-const DeleteModal = (onClose) => {
-  const deletingModalWaterId = useSelector(selectDeletingWaterPortionId);
+const DeleteModal = ({onClose, id}) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
+  function handleDelete() {
+    dispatch(apiDeleteWaterPortion(id))
+      .unwrap()
+      .then(() => onClose());
+  }
+
   return (
-    <Modal title={t('deleteTitle')} styledClass="logout-modal">
       <StyledDeleteModal>
+        <h2>Delete entry</h2>
         <p className="text">{t('deleteQuestion')}</p>
         <div className="wrapper-btn">
           <button
-            onClick={() => {
-              dispatch(onClose());
-            }}
+            onClick={onClose}
             className="cancel-btn"
           >
             {t('cancel')}
           </button>
           <button
-            onClick={() => {
-              dispatch(apiDeleteWaterPortion(deletingModalWaterId))
-                .unwrap()
-                .then(() => dispatch(onClose()));
-            }}
-            className="logout-btn"
+            onClick={handleDelete}
+            className="delete-btn"
           >
             {t('delete')}
           </button>
         </div>
       </StyledDeleteModal>
-    </Modal>
   );
 };
 

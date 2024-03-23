@@ -38,7 +38,10 @@ export const Cross = styled.button`
   background: white;
 `;
 
-export const StyledBtn = styled.button`
+export const StyledBtn = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 32px;
   min-height: 32px;
   font-size: 14px;
@@ -47,17 +50,12 @@ export const StyledBtn = styled.button`
   color: ${(props) => props.theme.colors.textColor};
   background-color: ${(props) => props.theme.colors.mainBg};
   border-radius: 50%;
-  padding: 0px;
-  box-shadow: ${(props) => props.theme.shadows.buttonShadow};
+  cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: ${(props) => props.theme.colors.mainBg};
-    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-  }
-  &:active {
-    box-shadow: none;
+    box-shadow: ${(props) => props.theme.shadows.calendarShadow};
   }
 
   @media screen and (min-width: 768px) {
