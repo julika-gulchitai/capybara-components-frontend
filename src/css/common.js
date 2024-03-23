@@ -1,8 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import './variables.css';
-// import bgDesc from '../assets/desktop/background-element-main-page.svg';
-// import bgTab from '../assets/tablet/background-element-home-screen.svg';
-// import bgMob from '../assets/mobile/background-element-home-screen.svg';
 
 const Global = createGlobalStyle`
 h1,
@@ -29,34 +25,24 @@ button {
   cursor: pointer;
 }
 body{
-
+  background-color: ${props => props.theme.colors.mainBg};
   min-height: 100svh;
-  color: var(--black);
-  ${'' /* background-image: url(${bgDesc});
-  background-position: bottom;
-  background-size: 100%; */}
-   background-repeat: no-repeat;
+  color: ${props => props.theme.colors.textColor};
+  background-repeat: no-repeat;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active { 
-    color: var(--blue);
+    color: ${props => props.theme.colors.primaryBlue};
     transition: background-color 5000s ease-in-out 0s;
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
-    
-    ${'' /* background-image: url(${bgTab});
-    background-position: bottom;
-    background-size: 100%; */}
     min-height: 100svh;
 }
 @media screen and (max-width: 767px) {
   body {
     height: fit-content;
-    ${'' /* background-image: url(${bgMob});
-    background-position: bottom;
-    background-size: 100%; */}
     min-height: 100svh;
   }
 }

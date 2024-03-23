@@ -5,6 +5,8 @@ import lightBgElMainPageDsctp from '../assets/desktop/background-element-main-pa
 import lightBgElMainPageTab from '../assets/tablet/background-element-home-screen.svg'
 import lightBgElMainPageMob from '../assets/mobile/background-element-home-screen.svg'
 
+import lightBgHomeDesktop from '../assets/desktop/bg-home-desktop.svg'
+
 // import lightBgHomeDesktop from '../assets/desktop/bg-home-desktop.svg'
 // import lightBgHomeTab from '../assets/tablet/bg-home-tablet.svg'
 // import lightBgHomeMob from '../assets/mobile/bg-home-mob.svg'
@@ -15,9 +17,6 @@ import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-
 import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
 import darkBgElMainPageTab from '../assets/tablet/darkTheme/dark-bg-el-home-screen-tab.svg'
 import darkBgElMainPageMob from '../assets/mobile/darkTheme/dark-bg-el-home-screen-mob.svg'
-
-
-
 
 export const themeLight = Object.freeze({
   colors: {
@@ -65,7 +64,7 @@ export const themeLight = Object.freeze({
     bgElemMainPageDsctp: lightBgElMainPageDsctp,
     bgElemMainPageTab: lightBgElMainPageTab,
     bgElemMainPageMob: lightBgElMainPageMob,
-    // bgHomeDesktop: lightBgHomeDesktop,
+    bgHomeDesktop: lightBgHomeDesktop,
     // bgHomeTab: lightBgHomeTab,
     // bgHomeMob: lightBgHomeMob,
   },

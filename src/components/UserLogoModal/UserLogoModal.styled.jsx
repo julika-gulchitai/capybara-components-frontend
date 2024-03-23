@@ -5,7 +5,7 @@ export const MenuContainer = styled.div`
   padding: 16px;
   min-width: 118px;
   height: 88px;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
+  box-shadow: ${props => props.theme.shadows.buttonShadow};
   background-color: ${props => props.theme.colors.mainBg};
   display: flex;
   flex-direction: column;

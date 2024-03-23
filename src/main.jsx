@@ -6,14 +6,20 @@ import './index.css';
 import App from './App.jsx';
 import store, { persistedStore } from './redux/store.js';
 import Global from './css/common.js';
+import ThemeComponent from './components/ThemeComponent/ThemeComponent.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <Provider store={store}>
     <PersistGate persistor={persistedStore}>
       <BrowserRouter basename="/capybara-components-frontend">
-        <App />
-        <Global />
+        <ThemeComponent>
+          <App />
+          <Global />
+        </ThemeComponent>
       </BrowserRouter>
     </PersistGate>
   </Provider>
+
+
 );
