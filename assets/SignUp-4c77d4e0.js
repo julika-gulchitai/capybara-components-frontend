@@ -1,1 +1,0 @@
-import{a as r,j as s,W as t,K as e,T as a,N as i,S as o}from"./index-a8358e8c.js";import{A as p,B as l}from"./BottleComponent-a7472fbf.js";const m=()=>{const{t:n}=r();return s.jsxs(t,{children:[s.jsxs(e,{children:[s.jsx(a,{children:n("signup")}),s.jsx(p,{signUp:!0}),s.jsx(i,{}),s.jsx(o,{to:"/signin",children:n("signin")})]}),s.jsx(l,{})]})};export{m as default};
