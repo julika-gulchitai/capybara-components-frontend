@@ -1,21 +1,11 @@
+import { useSelector } from 'react-redux';
 import { themeLight, themeDark } from '../../css/variablesTheme';
 import { ThemeProvider } from 'styled-components';
+import { selectTheme } from '../../redux/global/selectors';
 
-const ThemeComponent = ({ isDark, children }) => {
-  return <ThemeProvider theme={isDark ? themeDark : themeLight}>{children}</ThemeProvider>
+const ThemeComponent = ({ children }) => {
+  const currentTheme = useSelector(selectTheme);
+  return <ThemeProvider theme={(currentTheme === 'dark') ? themeDark : themeLight}>{children}</ThemeProvider>
 }
 
 export default ThemeComponent;
-
-
-// import { useSelector } from 'react-redux';
-// import { themeLight, themeDark } from '../../css/variablesTheme';
-// import { ThemeProvider } from 'styled-components';
-// import { selectUser } from '../../redux/User/selectors';
-
-// const ThemeComponent = ({ children }) => {
-//   const { theme: currentTheme } = useSelector(selectUser)
-//   return <ThemeProvider theme={(currentTheme === 'light') ? themeLight : themeDark}>{children}</ThemeProvider>
-// }
-
-// export default ThemeComponent;

@@ -88,7 +88,8 @@ function UserLogo() {
             <UserLogoutModal close={() => setIsLogOutModalOpen(false)} />
           )}
         </ModalWindow>
-      )}
+      )
+      }
     </>
   );
 }

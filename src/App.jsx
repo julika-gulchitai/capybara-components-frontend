@@ -3,22 +3,19 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { AppWrapper } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectRefreshing } from './redux/User/selectors.js';
-import { lazy, useEffect, useState } from 'react';
+import { lazy, useEffect } from 'react';
 import { getCurrentThunk } from './redux/User/UserThunks.js';
 import GuestRoute from './routes/GuestRoute.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
 import { Loader } from './components/Loader/Loader.jsx';
-import {selectIsLoading, selectLanguage, selectTheme} from './redux/global/selectors.js';
-import ThemeComponent from './components/ThemeComponent/ThemeComponent.jsx';
+import { selectIsLoading } from './redux/global/selectors.js';
 
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectRefreshing);
   const isLoading = useSelector(selectIsLoading);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const theme = useSelector(selectTheme);
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     dispatch(getCurrentThunk());
@@ -33,13 +30,12 @@ function App() {
   return isRefreshing ? (
     <Loader visible={isLoading} />
   ) : (
-
-    <ThemeComponent isDark={theme === 'dark'}>
+    <>
       <AppWrapper>
         <Routes>
           <Route path='/' element={<SharedLayout />}>
             <Route index element={<Navigate to={isLoggedIn ? '/home' : '/welcome'} />} />
-            <Route path='/welcome' element={<GuestRoute component={<WelcomePage setTheme={setIsDark} />} />} />
+            <Route path='/welcome' element={<GuestRoute component={<WelcomePage />} />} />
             <Route path='/home' element={<PrivateRoute component={<HomePage />} />} />
             <Route path='/signup' element={<GuestRoute component={<SignUp />} />} />
             <Route path='/signin' element={<GuestRoute component={<SignIn />} />} />
@@ -50,7 +46,8 @@ function App() {
         </Routes>
       </AppWrapper>
       <Loader visible={isLoading} />
-    </ThemeComponent>
+    </>
+
   );
 }
 

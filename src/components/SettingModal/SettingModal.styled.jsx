@@ -10,7 +10,7 @@ export const SettingsContainer = styled.div`
     font-weight: 500;
     font-size: 26px;
     line-height: 1.23;
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     margin-bottom: 24px;
   }
 `;
@@ -38,7 +38,7 @@ export const Form = styled.form`
     font-weight: 500;
     font-size: 18px;
     line-height: 1.11;
-    color: var(--black);
+    color: ${props => props.theme.colors.textColor};
     margin-bottom: 12px;
   }
 `;
@@ -47,7 +47,7 @@ export const LabelText = styled.span`
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-  color: var(--black);
+  color: ${props => props.theme.colors.textColor};
 `;
 
 export const InfoWrapper = styled.div`
