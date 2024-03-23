@@ -1,4 +1,4 @@
-import{b as An,u as p,c as tt,d as Ea,r as h,a as ce,e as Fa,f as Nn,g as $a,o as Pa,j as o,R as Cs,F as Rn,h as In,C as Wn,i as Ht,k as Ts,B as Ya,l as ks,n as Os,p as Ds,M as It,m as js,q as Ne,t as Es,s as Fs,A as $s,v as gr,w as Aa,x as ot,y as Ps,z as lt,P as Ys,D as As,E as Ns,G as Ln,H as Rs}from"./index-f638197b.js";function Na(e,t,r){const n=An(e,r),a=An(t,r);return+n==+a}const Is=p.div`
+import{b as An,u as p,c as tt,d as Ea,r as h,a as ce,e as Fa,f as Nn,g as $a,o as Pa,j as o,R as Cs,F as Rn,h as In,C as Wn,i as Ht,k as Ts,B as Ya,l as ks,n as Os,p as Ds,M as It,m as js,q as Ne,t as Es,s as Fs,A as $s,v as gr,w as Aa,x as ot,y as Ps,z as lt,P as Ys,D as As,E as Ns,G as Ln,H as Rs}from"./index-49075515.js";function Na(e,t,r){const n=An(e,r),a=An(t,r);return+n==+a}const Is=p.div`
   width: 256px;
   @media (min-width: 768px) {
     width: 656px;
@@ -763,8 +763,6 @@ g.version="2.30.1";dh(W);g.fn=f;g.min=Qf;g.max=e0;g.now=t0;g.utc=fe;g.unix=D2;g.
 
   width: 264px;
   height: 212px;
-  overflow-y: auto;
-  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -784,6 +782,9 @@ g.version="2.30.1";dh(W);g.fn=f;g.min=Qf;g.max=e0;g.now=t0;g.utc=fe;g.unix=D2;g.
     color: ${e=>e.theme.colors.primaryBlue};
   }
 `,fm=p.ul`
+  height: 192px;
+  overflow-y: auto;
+  
   li {
     padding-bottom: 12px;
   }
@@ -844,7 +845,7 @@ g.version="2.30.1";dh(W);g.fn=f;g.min=Qf;g.max=e0;g.now=t0;g.utc=fe;g.unix=D2;g.
   gap: 8px;
   padding: 0;
 
-  color: var(--accentPrimari);
+  color: ${e=>e.theme.colors.primaryBlue};
   line-height: 1.25;
   border: none;
   background-color: transparent;
@@ -1073,7 +1074,7 @@ g.version="2.30.1";dh(W);g.fn=f;g.min=Qf;g.max=e0;g.now=t0;g.utc=fe;g.unix=D2;g.
 `,Em=p.p`
   font-size: 12px;
   line-height: 2;
-`,ja=20,Fm=({onClose:e})=>{const{t}=ce(),r=Ht(),[n]=h.useState(null),i=tt(gi).find(b=>b._id),[s,u]=h.useState(i.waterAmount),{handleChange:d,handleSubmit:c,values:{date:M,waterAmount:C},errors:m,setFieldValue:T}=fi({initialValues:{waterAmount:i.waterAmount.toString(),date:`${us(i.date)}`},onSubmit:b=>{r(Rs({portionId:n,formData:b})).unwrap().then(()=>{r(e())})}}),O=()=>{T("waterAmount",s?s.toString():"0")},P=()=>{const b=Number.parseInt(C)+ja;T("waterAmount",b.toString())},U=()=>{const b=Number.parseInt(C)-ja;T("waterAmount",b<=0?"0":b.toString())};return o.jsxs(bm,{onSubmit:c,children:[o.jsx(_m,{children:"Edit the entered amount of water"}),o.jsxs(jm,{children:[o.jsx(Mm,{}),o.jsxs(Da,{children:[" ",i.waterAmount,t("ml")]}),o.jsxs(Em,{children:[Ne(i.date,"hh"),":",Ne(i.date,"mm")," ",Ne(i.date,"a")]})]}),o.jsx(Sm,{children:"Correct entered data"}),o.jsxs(Da,{children:[t("addModal.Amount of water"),":"]}),o.jsxs(Cm,{children:[o.jsxs("button",{onClick:U,name:"minus",type:"button",children:[o.jsx(km,{"aria-label":"minus_button"})," "]}),o.jsxs("span",{className:"water-amount-value",children:[C,t("ml")]}),o.jsxs("button",{onClick:P,name:"plus",type:"button",children:[o.jsx(Tm,{"aria-label":"plus_button"})," "]})]}),o.jsxs(Om,{children:[o.jsxs("label",{children:[t("addModal.Recording time"),":",o.jsx("input",{name:"date",type:"time",value:M,onBlur:d}),m.date?o.jsx("div",{children:m.date}):null]}),o.jsxs("label",{children:[t("addModal.Enter the value of the water used"),":",o.jsx("input",{name:"number",value:s,onBlur:O,onChange:({target:{value:b}})=>u(Number.parseInt(b))}),m.waterAmount?o.jsx("div",{children:m.waterAmount}):null]}),o.jsxs(Dm,{children:[o.jsxs("p",{children:[C,t("ml")]}),o.jsx("button",{disabled:Object.keys(m).length>0,type:"submit",children:t("save")})]})]})]})},$m=()=>{const[e,t]=h.useState(null),r=tt(gi),[n,a]=h.useState(!1),[i,s]=h.useState(!1),[u,d]=h.useState(!1),{t:c}=ce(),M=O=>{s(!0),d(!1),O.stopPropagation()},C=(O,P)=>{a(!0),t(P),O.stopPropagation()},m=()=>{s(!1)},T=()=>{a(!1)};return o.jsx(hm,{children:r.length===0?o.jsx("p",{className:"motivation",children:c("portionsText")}):o.jsxs(o.Fragment,{children:[o.jsx(fm,{children:r==null?void 0:r.map(O=>o.jsxs(mm,{children:[o.jsx(Jr,{className:"glass"}),o.jsxs(pm,{children:[`${O.waterAmount} ${c("ml")}`," "]}),o.jsx(gm,{children:us(O.date)}),o.jsxs(ym,{children:[o.jsx(Oa,{onClick:P=>C(P),children:o.jsx(vm,{})}),n&&o.jsx(It,{$position:"center",open:a,onClose:T,children:o.jsx(Fm,{onClose:T,isEditing:u,waterPortionId:e})}),o.jsx(Oa,{children:o.jsx(wm,{})})]})]},O._id))}),o.jsxs(xm,{onClick:O=>M(O),children:[o.jsx(Kr,{}),c("addWater")]}),i&&o.jsx(It,{$position:"center",open:i,onClose:m,children:o.jsx(pi,{onClose:m,isEditing:u})})]})})},Pm=()=>{const{t:e}=ce();return o.jsxs(lh,{children:[o.jsx(uh,{children:e("today")}),o.jsx($m,{})]})},Ym=p.div`
+`,ja=20,Fm=({onClose:e})=>{const{t}=ce(),r=Ht(),[n]=h.useState(null),i=tt(gi).find(b=>b._id),[s,u]=h.useState(i.waterAmount),{handleChange:d,handleSubmit:c,values:{date:M,waterAmount:C},errors:m,setFieldValue:T}=fi({initialValues:{waterAmount:i.waterAmount.toString(),date:`${us(i.date)}`},onSubmit:b=>{r(Rs({portionId:n,formData:b})).unwrap().then(()=>{r(e())})}}),O=()=>{T("waterAmount",s?s.toString():"0")},P=()=>{const b=Number.parseInt(C)+ja;T("waterAmount",b.toString())},U=()=>{const b=Number.parseInt(C)-ja;T("waterAmount",b<=0?"0":b.toString())};return o.jsxs(bm,{onSubmit:c,children:[o.jsx(_m,{children:"Edit the entered amount of water"}),o.jsxs(jm,{children:[o.jsx(Mm,{}),o.jsxs(Da,{children:[" ",i.waterAmount,t("ml")]}),o.jsxs(Em,{children:[Ne(i.date,"hh"),":",Ne(i.date,"mm")," ",Ne(i.date,"a")]})]}),o.jsx(Sm,{children:"Correct entered data"}),o.jsxs(Da,{children:[t("addModal.Amount of water"),":"]}),o.jsxs(Cm,{children:[o.jsxs("button",{onClick:U,name:"minus",type:"button",children:[o.jsx(km,{"aria-label":"minus_button"})," "]}),o.jsxs("span",{className:"water-amount-value",children:[C,t("ml")]}),o.jsxs("button",{onClick:P,name:"plus",type:"button",children:[o.jsx(Tm,{"aria-label":"plus_button"})," "]})]}),o.jsxs(Om,{children:[o.jsxs("label",{children:[t("addModal.Recording time"),":",o.jsx("input",{name:"date",type:"time",value:M,onBlur:d}),m.date?o.jsx("div",{children:m.date}):null]}),o.jsxs("label",{children:[t("addModal.Enter the value of the water used"),":",o.jsx("input",{name:"number",value:s,onBlur:O,onChange:({target:{value:b}})=>u(Number.parseInt(b))}),m.waterAmount?o.jsx("div",{children:m.waterAmount}):null]}),o.jsxs(Dm,{children:[o.jsxs("p",{children:[C,t("ml")]}),o.jsx("button",{disabled:Object.keys(m).length>0,type:"submit",children:t("save")})]})]})]})},$m=()=>{const[e,t]=h.useState(null),r=tt(gi),[n,a]=h.useState(!1),[i,s]=h.useState(!1),[u,d]=h.useState(!1),{t:c}=ce(),M=O=>{s(!0),d(!1),O.stopPropagation()},C=(O,P)=>{a(!0),t(P),O.stopPropagation()},m=()=>{s(!1)},T=()=>{a(!1)};return o.jsxs(hm,{children:[o.jsx(fm,{children:r==null?void 0:r.map(O=>o.jsxs(mm,{children:[o.jsx(Jr,{className:"glass"}),o.jsxs(pm,{children:[`${O.waterAmount} ${c("ml")}`," "]}),o.jsx(gm,{children:us(O.date)}),o.jsxs(ym,{children:[o.jsx(Oa,{onClick:P=>C(P),children:o.jsx(vm,{})}),n&&o.jsx(It,{$position:"center",open:a,onClose:T,children:o.jsx(Fm,{onClose:T,isEditing:u,waterPortionId:e})}),o.jsx(Oa,{children:o.jsx(wm,{})})]})]},O._id))}),o.jsxs(xm,{onClick:O=>M(O),children:[o.jsx(Kr,{}),c("addWater")]}),i&&o.jsx(It,{$position:"center",open:i,onClose:m,children:o.jsx(pi,{onClose:m,isEditing:u})})]})},Pm=()=>{const{t:e}=ce();return o.jsxs(lh,{children:[o.jsx(uh,{children:e("today")}),o.jsx($m,{})]})},Ym=p.div`
   width: 280px;
   padding: 24px 8px;
   border-radius: 10px;
