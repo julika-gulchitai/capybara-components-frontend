@@ -15,6 +15,8 @@ export const WrapperGroup = styled.div`
     color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 16px;
     line-height: 1.25;
+    width: 120px;
+    text-align: center;
   }
 `;
 
@@ -26,14 +28,12 @@ export const TableDays = styled.ul`
   column-gap: 26px;
 
   width: 264px;
-  height: 460px;
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     row-gap: 20px;
     column-gap: 34px;
 
     width: 656px;
-    height: 292px;
   }
 
   @media screen and (min-width: 1440px) {

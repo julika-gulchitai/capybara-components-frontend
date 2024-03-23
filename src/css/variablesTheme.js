@@ -49,6 +49,7 @@ export const themeLight = Object.freeze({
   shadows: {
     buttonShadow: '0 4px 8px 0 rgba(64, 123, 255, 0.34)',
     secondaryButtonShadow: '0px 2px 4px 0px rgba(64, 123, 255, 0.2)',
+    calendarShadow: '0px 2px 4px 0px rgba(64, 123, 255, 0.3)',
     windowShadowContainer: '0 4px 14px 0 rgba(64, 123, 255, 0.3)',
     secondaryShadowContainer: '0 4px 8px 0 rgba(158, 187, 255, 0.12)',
   },
@@ -105,6 +106,7 @@ export const themeDark = Object.freeze({
   shadows: {
     buttonShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.34)',
     secondaryButtonShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+    calendarShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.3)',
     windowShadowContainer: '0 4px 14px 0 rgba(0, 0, 0, 0.2)',
     secondaryShadowContainer: '0 4px 14px 0 rgba(0, 0, 0, 0.2)',
 

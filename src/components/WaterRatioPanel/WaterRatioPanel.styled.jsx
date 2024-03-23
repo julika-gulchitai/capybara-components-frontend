@@ -151,5 +151,6 @@ export const AddBtn = styled(ButtonStyled)`
 
   @media screen and (min-width: 1440px) {
     width: 178px;
+    padding: 0;
   }
 `;
