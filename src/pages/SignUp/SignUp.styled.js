@@ -1,5 +1,46 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
+
+export const BackgroundContainer = styled.div`
+  /* height: max-content; */
+  background-repeat: no-repeat;
+  /* margin-top: -64px; */
+  min-height: 100svh;
+  background-image: url(${props => props.theme.backgroundImage.bgSignMob});
+  background-position: calc(50% + 3px) 57px;
+  
+  @media only screen and (min-width: 768px) {
+    min-height: 100svh;
+    background-image: url(${props => props.theme.backgroundImage.bgSignTab});
+    background-position: calc(50% + 30px) 16px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    background-image: url(${props => props.theme.backgroundImage.bgSignDesktop});
+    background-position: calc(50% - 10px) -13px;
+  }
+`;
+export const SignContainer = styled(AdaptiveContainer)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 40px;
+  padding-bottom: 40px;
+  background-color: transparent;
+ margin-top: -15px;
+
+ @media only screen and (min-width: 768px){
+  margin-top: -8px;
+ }
+  
+  @media only screen and (min-width: 1440px) {
+    flex-direction: row;
+    padding-bottom: 0;
+    padding-right: 216px;
+  }
+`;
+
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,10 +60,7 @@ export const Wrapper = styled.div`
 `;
 
 export const WraperForm = styled.div`
-  z-index: 100;
-  @media only screen and (min-width: 768px) {
-    margin-left: 32px;
-  }
+  z-index: 100;  
 `;
 
 export const Title = styled.h1`
@@ -33,7 +71,7 @@ export const Title = styled.h1`
   margin-bottom: 16px;
   margin-top: 30px;
   @media only screen and (min-width: 1440px) {
-    margin-top: 160px;
+    margin-top: 135px;
   }
 `;
 

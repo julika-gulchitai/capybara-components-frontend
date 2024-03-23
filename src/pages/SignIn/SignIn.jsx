@@ -4,14 +4,14 @@ import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
 import {
+  BackgroundContainer,
   ForgotNavLink,
   MarginBetween,
+  SignContainer,
   StyledNavlink,
   Title,
   WraperForm,
-  Wrapper,
 } from '../SignUp/SignUp.styled';
-import BottleComponent from '../../components/AuthForm/BottleComponent/BottleComponent';
 import { Notify } from 'notiflix';
 
 const SignIn = () => {
@@ -34,18 +34,20 @@ const SignIn = () => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
-      <WraperForm>
-        <Title>{t('signin')}</Title>
-        <AuthForm />
-        <MarginBetween></MarginBetween>
-        <StyledNavlink to="/signup">{t('signup')}</StyledNavlink>
-        <ForgotNavLink to="/forgot-password">
-          {t('forgotPassword')}
-        </ForgotNavLink>
-      </WraperForm>
-      <BottleComponent></BottleComponent>
-    </Wrapper>
+    <BackgroundContainer>
+      <SignContainer>
+        <WraperForm>
+          <Title>{t('signin')}</Title>
+          <AuthForm />
+          <MarginBetween></MarginBetween>
+          <StyledNavlink to="/signup">{t('signup')}</StyledNavlink>
+          <ForgotNavLink to="/forgot-password">
+            {t('forgotPassword')}
+          </ForgotNavLink>
+        </WraperForm>
+      </SignContainer>
+    </BackgroundContainer>
+
   );
 };
 

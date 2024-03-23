@@ -2,10 +2,10 @@ import { styled } from '@mui/system';
 import { Switch } from '@mui/material';
 import theme from '../../css/VariablesJSX.jsx';
 
-export const LangSwitch = styled(Switch)(({ }) => ({
+export const LangSwitch = styled(Switch)(() => ({
   padding: 8,
   '& .MuiSwitch-switchBase': {
-    color: theme.colors.secondaryBlue,
+    color: `${props => props.theme.colors.secondaryBlue}`,
     '&.Mui-checked': {
       color: theme.colors.secondaryBlue,
       '& + .MuiSwitch-track': {
@@ -57,12 +57,12 @@ export const LangSwitch = styled(Switch)(({ }) => ({
   }
 }));
 
-export const ThemeSwitch = styled(Switch)(({ }) => ({
+export const ThemeSwitch = styled(Switch)(() => ({
   padding: 8,
   '& .MuiSwitch-switchBase': {
-    color: theme.colors.secondaryBlue,
+    color: `${props => props.theme.colors.secondaryBlue}`,
     '&.Mui-checked': {
-      color: theme.colors.secondaryBlue,
+      color: `${props => props.theme.colors.secondaryBlue}`,
       '& + .MuiSwitch-track': {
         backgroundColor: '#2a3052',
         border: '1px solid #dfdfdf',
@@ -74,6 +74,7 @@ export const ThemeSwitch = styled(Switch)(({ }) => ({
   '& .MuiSwitch-track': {
     borderRadius: 22 / 2,
     backgroundColor: theme.colors.secondaryWhite,
+    // backgroundColor: `${props => props.theme.colors.secondaryBg}`,
     border: '1px solid #dfdfdf',
     opacity: 1,
 

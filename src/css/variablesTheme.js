@@ -1,3 +1,4 @@
+// Images for Light Theme
 import lightBgWelcomePageDsctp from '../assets/desktop/light-bg-welcome-page.svg'
 import lightBgWelcomePageTab from '../assets/tablet/light-bg-welcome-page.svg'
 import lightBgWelcomePageMob from '../assets/mobile/light-bg-welcome-page.svg'
@@ -6,17 +7,28 @@ import lightBgElMainPageTab from '../assets/tablet/background-element-home-scree
 import lightBgElMainPageMob from '../assets/mobile/background-element-home-screen.svg'
 
 import lightBgHomeDesktop from '../assets/desktop/bg-home-desktop.svg'
+import lightBgHomeTab from '../assets/tablet/bg-home-tablet.svg'
+import lightBgHomeMob from '../assets/mobile/bg-home-mob.svg'
 
-// import lightBgHomeDesktop from '../assets/desktop/bg-home-desktop.svg'
-// import lightBgHomeTab from '../assets/tablet/bg-home-tablet.svg'
-// import lightBgHomeMob from '../assets/mobile/bg-home-mob.svg'
+import lightBgSignDesktop from '../assets/desktop/bg-sign-light-desk.svg'
+import lightBgSignTab from '../assets/tablet/bg-sign-light-tab.svg'
+import lightBgSignMob from '../assets/mobile/bg-sign-light-mob.svg'
 
+// Images for Dark Theme
 import darkBgWelcomePageDsctp from '../assets/desktop/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageTab from '../assets/tablet/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-page.svg'
 import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
 import darkBgElMainPageTab from '../assets/tablet/darkTheme/dark-bg-el-home-screen-tab.svg'
 import darkBgElMainPageMob from '../assets/mobile/darkTheme/dark-bg-el-home-screen-mob.svg'
+
+import darkBgHomeDesktop from '../assets/desktop/darkTheme/bg-home-dark-desktop.svg'
+import darkBgHomeTab from '../assets/tablet/darkTheme/bg-home-dark-tablet.svg'
+import darkBgHomeMob from '../assets/mobile/darkTheme/bg-home-dark-mob.svg'
+
+import darkBgSignDesktop from '../assets/desktop/darkTheme/bg-sign-dark-desk.svg'
+import darkBgSignTab from '../assets/tablet/darkTheme/bg-sign-dark-tab.svg'
+import darkBgSignMob from '../assets/mobile/darkTheme/bg-sign-dark-mob.svg'
 
 export const themeLight = Object.freeze({
   colors: {
@@ -66,8 +78,11 @@ export const themeLight = Object.freeze({
     bgElemMainPageTab: lightBgElMainPageTab,
     bgElemMainPageMob: lightBgElMainPageMob,
     bgHomeDesktop: lightBgHomeDesktop,
-    // bgHomeTab: lightBgHomeTab,
-    // bgHomeMob: lightBgHomeMob,
+    bgHomeTab: lightBgHomeTab,
+    bgHomeMob: lightBgHomeMob,
+    bgSignDesktop: lightBgSignDesktop,
+    bgSignTab: lightBgSignTab,
+    bgSignMob: lightBgSignMob,
   },
 
 
@@ -123,9 +138,12 @@ export const themeDark = Object.freeze({
     bgElemMainPageDsctp: darkBgElMainPageDsctp,
     bgElemMainPageTab: darkBgElMainPageTab,
     bgElemMainPageMob: darkBgElMainPageMob,
-    // bgHomeDesktop: darktBgHomeDesktop,
-    // bgHomeTab: lightBgHomeTab,
-    // bgHomeMob: lightBgHomeMob,
+    bgHomeDesktop: darkBgHomeDesktop,
+    bgHomeTab: darkBgHomeTab,
+    bgHomeMob: darkBgHomeMob,
+    bgSignDesktop: darkBgSignDesktop,
+    bgSignTab: darkBgSignTab,
+    bgSignMob: darkBgSignMob,
   },
 });
 
