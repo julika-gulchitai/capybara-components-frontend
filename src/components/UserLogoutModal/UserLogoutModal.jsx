@@ -1,15 +1,6 @@
 import { useDispatch } from 'react-redux';
-
-
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
-
-// import Notiflix from 'notiflix';
-// import {
-//   NOTIFICATIONS,
-//   paramsForNotify,
-// } from '../../constants/notifications.js';
-  
 import { logoutThunk } from '../../redux/User/UserThunks.js';
 import {
   LogOutHeader,
@@ -21,9 +12,6 @@ import {
 } from './UserLogoutModal.styled.jsx';
 
 const UserLogoutModal = ({ close }) => {
-  //   const params = new URLSearchParams(window.location.search);
-  //   const message = params.get('message');
-
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
@@ -32,9 +20,6 @@ const UserLogoutModal = ({ close }) => {
     dispatch(logoutThunk());
   };
 
-  // if (message) {
-  //   Notiflix.Notify(NOTIFICATIONS.INFO.LOGOUT, paramsForNotify);
-  // }
   return (
     <>
       <LogOutWindow>

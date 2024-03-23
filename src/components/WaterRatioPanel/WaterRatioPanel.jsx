@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 import sprite from '../../assets/sprite.svg';
@@ -12,12 +13,11 @@ import {
 } from './WaterRatioPanel.styled';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import TodayListModal from '../TodayListModal/TodayListModal';
+import { selectPercent } from '../../redux/Water/selectors.js';
 
 const WaterRatioPanel = () => {
-  const MyDailyNorma = 2000;
-  const currentDayWater = 1700;
-  const rater = (currentDayWater / MyDailyNorma) * 100;
-  // const a = b > 100 ? b : 100;
+  const currentPersent = useSelector(selectPercent);
+  console.log('!!!', currentPersent);
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const { t } = useTranslation();
@@ -35,8 +35,14 @@ const WaterRatioPanel = () => {
     <WateRatioContainer>
       <RatioScale>
         <TodayText>{t('today')}</TodayText>
-        <StyledInput type="range" min="0" max="100" value={rater} disabled />
-        <Percentage $rater={rater}>
+        <StyledInput
+          type="range"
+          min="0"
+          max="100"
+          value={currentPersent}
+          disabled
+        />
+        <Percentage $rater={currentPersent}>
           <span>0%</span>
           <span>50%</span>
           <span>100%</span>
@@ -57,7 +63,6 @@ const WaterRatioPanel = () => {
           <TodayListModal
             onClose={handleCloseModalTodayList}
             isEditing={isEditing}
-            // data={currentItem}
           />
         </ModalWindow>
       )}
