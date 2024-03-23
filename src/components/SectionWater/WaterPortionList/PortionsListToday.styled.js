@@ -30,6 +30,23 @@ export const PortionsContainer = styled.div`
 export const PortionsList = styled.ul`
   max-height: 192px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background:  ${(props) => props.theme.colors.secondaryBlue};
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background:  ${(props) => props.theme.colors.secondaryBlue};
+  }
   
   li {
     padding-bottom: 12px;
