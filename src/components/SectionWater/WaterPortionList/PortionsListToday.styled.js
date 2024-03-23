@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-export const PortionsList = styled.div`
+export const PortionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
 
   width: 264px;
   height: 212px;
-  overflow-y: auto;
-  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -29,7 +27,10 @@ export const PortionsList = styled.div`
   }
 `;
 
-export const Portions = styled.ul`
+export const PortionsList = styled.ul`
+  height: 192px;
+  overflow-y: auto;
+  
   li {
     padding-bottom: 12px;
   }
@@ -102,7 +103,7 @@ export const StyledWatterAddBtn = styled.button`
   gap: 8px;
   padding: 0;
 
-  color: var(--accentPrimari);
+  color: ${props => props.theme.colors.primaryBlue};
   line-height: 1.25;
   border: none;
   background-color: transparent;
