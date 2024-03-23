@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { format } from 'date-fns';
 import { useFormik } from 'formik';
 import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
+import TimePicker from 'rc-time-picker';
+import moment from 'moment';
+import 'rc-time-picker/assets/index.css';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +30,6 @@ const TodayListModal = ({ onClose }) => {
 
   const [localWaterAmount, setLocalWaterAmount] = useState(250);
   const {
-    handleChange,
     handleSubmit,
     values: { date, waterAmount },
     errors,
@@ -36,7 +37,7 @@ const TodayListModal = ({ onClose }) => {
   } = useFormik({
     initialValues: {
       waterAmount: '250',
-      date: `${format(new Date(), 'HH')}:${format(new Date(), 'mm')}`,
+      date: moment(),
     },
     onSubmit: (values) => {
       dispatch(apiAddWaterPortion(values))
@@ -85,7 +86,14 @@ const TodayListModal = ({ onClose }) => {
       <FormStyled>
         <label>
           {t('addModal.Recording time')}:
-          <input name="date" type="time" value={date} onBlur={handleChange} />
+          <TimePicker
+            defaultValue={moment(date, 'HH:mm')}
+            showSecond={false}
+            minuteStep={5}
+            onChange={(value) => {
+              setFieldValue('date', value && value.format('HH:mm'));
+            }}
+          />
           {errors.date ? <div>{errors.date}</div> : null}
         </label>
 
