@@ -6,6 +6,9 @@ import { getLocaleTime } from '../../services/getLocaleTime';
 import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
 import { selectSelectedWaterPortionId } from '../../redux/Water/selectors.js';
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
+import moment from 'moment';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
@@ -41,7 +44,6 @@ const EditWaterModal = ({ onClose }) => {
     waterPortion.waterAmount
   );
   const {
-    handleChange,
     handleSubmit,
     values: { date, waterAmount },
     errors,
@@ -118,7 +120,14 @@ const EditWaterModal = ({ onClose }) => {
       <FormStyled>
         <label>
           {t('addModal.Recording time')}:
-          <input name="date" type="time" value={date} onBlur={handleChange} />
+          <TimePicker
+            defaultValue={moment(date, 'HH:mm')}
+            showSecond={false}
+            minuteStep={5}
+            onChange={(value) => {
+              setFieldValue('date', value && value.format('HH:mm'));
+            }}
+          />
           {errors.date ? <div>{errors.date}</div> : null}
         </label>
 
