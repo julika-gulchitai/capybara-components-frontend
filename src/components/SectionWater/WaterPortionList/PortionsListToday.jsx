@@ -17,11 +17,11 @@ import {
 
 import { ReactComponent as Icon } from '../../../assets/icon/glass.svg';
 import { ReactComponent as IconPencil } from '../../../assets/icon/pencil-square.svg';
-import { ReactComponent as IconBasket } from '../../../assets/icon/basket.svg';
 import { useTranslation } from 'react-i18next';
 import TodayListModal from '../../TodayListModal/TodayListModal';
 import ModalWindow from '../../ModalWindow/ModalWindow';
 import EditWaterModal from '../../EditWaterModal/EditWaterModal';
+import DeleteButton from '../DeleteButton/DeleteButton.jsx';
 
 const PortionsListToday = () => {
   const [selectedWaterPortionId, setSelectedWaterPortionId] = useState(null);
@@ -53,7 +53,7 @@ const PortionsListToday = () => {
 
   return (
     <PortionsContainer>
-          <PortionsList>
+      {waterPortions.length > 0 && (<PortionsList>
             {waterPortions?.map((item) => (
               <Portion key={item._id}>
                 <Icon className="glass" />
@@ -76,13 +76,12 @@ const PortionsListToday = () => {
                       />
                     </ModalWindow>
                   )}
-                  <Button>
-                    <IconBasket />
-                  </Button>
+                  <DeleteButton id={item._id}/>
                 </Edit>
               </Portion>
             ))}
-          </PortionsList>
+          </PortionsList>)
+      }
           <StyledWatterAddBtn
             onClick={(event) => handleOpenModalTodayAdd(event)}
           >

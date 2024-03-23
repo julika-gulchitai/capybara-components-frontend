@@ -28,7 +28,7 @@ export const PortionsContainer = styled.div`
 `;
 
 export const PortionsList = styled.ul`
-  height: 192px;
+  max-height: 192px;
   overflow-y: auto;
   
   li {
