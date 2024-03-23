@@ -37,7 +37,7 @@ const TodayListModal = ({ onClose }) => {
   } = useFormik({
     initialValues: {
       waterAmount: '250',
-      date: moment(),
+      date: moment().format('HH:mm'),
     },
     onSubmit: (values) => {
       dispatch(apiAddWaterPortion(values))
