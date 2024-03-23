@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
-import bgDesk from '../../assets/desktop/bg-home-desktop.svg';
-import bgTablet from '../../assets/tablet/bg-home-tablet.svg';
-import bgMob from '../../assets/mobile/bg-home-mob.svg';
 
 export const HomeContainer = styled(AdaptiveContainer)`
   display: flex;
@@ -54,18 +51,18 @@ export const BackgroundContainer = styled.div`
   height: max-content;
   background-repeat: no-repeat;
   min-height: calc(100% - 64px);
-  background-image: url(${bgMob});
+  background-image: url(${props => props.theme.backgroundImage.bgHomeMob});
   background-position: calc(50% + 3px) 44px;
   
   @media only screen and (min-width: 768px) {
     min-height: calc(100% - 80px);
-    background-image: url(${bgTablet});
+    background-image: url(${props => props.theme.backgroundImage.bgHomeTab});
     background-position: calc(50% + 9px) 8px;
   }
 
   @media only screen and (min-width: 1440px) {
     min-height: calc(100% - 72px);
-    background-image: url(${bgDesk});
+    background-image: url(${props => props.theme.backgroundImage.bgHomeDesktop});
     background-position: calc(50% - 10px) 46px;
   }
 `;

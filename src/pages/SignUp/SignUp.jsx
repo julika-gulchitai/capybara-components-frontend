@@ -1,30 +1,31 @@
 import AuthForm from '../../components/AuthForm/AuthForm';
-import BottleComponent from '../../components/AuthForm/BottleComponent/BottleComponent';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
 import {
+  BackgroundContainer,
   MarginBetween,
+  SignContainer,
   StyledNavlink,
   Title,
   WraperForm,
-  Wrapper,
 } from './SignUp.styled';
 
 const SignUp = () => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
-      <WraperForm>
-        <Title>{t('signup')}</Title>
-        <AuthForm signUp={true} />
-        <MarginBetween></MarginBetween>
-        <StyledNavlink to="/signin">{t('signin')}</StyledNavlink>
-      </WraperForm>
-      <BottleComponent></BottleComponent>
-    </Wrapper>
+    <BackgroundContainer>
+      <SignContainer>
+        <WraperForm>
+          <Title>{t('signup')}</Title>
+          <AuthForm signUp={true} />
+          <MarginBetween></MarginBetween>
+          <StyledNavlink to="/signin">{t('signin')}</StyledNavlink>
+        </WraperForm>
+      </SignContainer>
+    </BackgroundContainer>
   );
 };
 
