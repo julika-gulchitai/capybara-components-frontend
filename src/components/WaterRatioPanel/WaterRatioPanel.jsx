@@ -17,7 +17,6 @@ import { selectPercent } from '../../redux/Water/selectors.js';
 
 const WaterRatioPanel = () => {
   const currentPersent = useSelector(selectPercent);
-  console.log('!!!', currentPersent);
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const { t } = useTranslation();

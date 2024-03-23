@@ -86,7 +86,6 @@ export const Percentage = styled.div`
   display: flex;
   justify-content: space-between;
   @media screen and (min-width: 768px) {
-    /* width: 322px; */
   }
 
   @media screen and (min-width: 1440px) {
