@@ -15,11 +15,17 @@ const INITIAL_STATE = {
   waterVolumes: [],
   stats: [],
   waterVolumeSum: [],
+  selectedWaterPortionId: null,
 };
 
 const waterSlice = createSlice({
   name: 'water',
   initialState: INITIAL_STATE,
+  reducers: {
+    setSelectedWaterPortionId(state, action) {
+      state.selectedWaterPortionId = action.payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(apiGetTodayWaterPortions.fulfilled, (state, { payload }) => {
@@ -52,5 +58,7 @@ const waterSlice = createSlice({
         return INITIAL_STATE;
       }),
 });
+
+export const { setSelectedWaterPortionId } = waterSlice.actions;
 
 export const waterReducer = waterSlice.reducer;

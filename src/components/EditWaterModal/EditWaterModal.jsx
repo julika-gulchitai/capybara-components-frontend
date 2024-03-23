@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { getLocaleTime } from '../../services/getLocaleTime';
 import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
+import { selectSelectedWaterPortionId } from '../../redux/Water/selectors.js';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
@@ -29,11 +30,12 @@ const WATER_AMOUNT_DIFFERENCE = 20;
 const EditWaterModal = ({ onClose }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [selectedWaterPortionId] = useState(null);
+  const selectedWaterPortionId = useSelector(selectSelectedWaterPortionId);
 
   const waterVolumes = useSelector(selectNotes);
-
-  const waterPortion = waterVolumes.find((portion) => portion._id);
+  const waterPortion = waterVolumes.find(
+    (portion) => portion._id === selectedWaterPortionId
+  );
 
   const [localWaterAmount, setLocalWaterAmount] = useState(
     waterPortion.waterAmount
