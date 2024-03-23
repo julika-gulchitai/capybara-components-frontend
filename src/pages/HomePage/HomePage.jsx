@@ -6,29 +6,13 @@ import {
   LeftContainer,
   RightContainer,
 } from './HomePage.styled.js';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { format } from 'date-fns';
-
 import WaterTracker from '../../components/SectionWater/WaterTracker/WaterTracker.jsx';
-
-// import { apiGetTodayWaterPortions } from '../../redux/Water/WaterThunks.js';
+// import { useSelector } from 'react-redux';
+// import DeleteModal from '../../components/DeleteModal/DeleteModal.jsx';
+// import { selectDeleteWaterModal } from '../../redux/modal/modalsSelectors.js';
 
 const HomePage = () => {
-  // const HomePage = (onClose) => {
-  //   const dispatch = useDispatch();
-
-  //   useEffect(() => {
-  //     const date = `${format(new Date(), 'yyyy')}-${format(
-  //       new Date(),
-  //       'mm'
-  //     )}-${format(new Date(), 'dd')}`;
-  //     dispatch(apiGetTodayWaterPortions(date));
-
-  //     return () => {
-  //       dispatch(onClose());
-  //     };
-  //   }, [dispatch, onClose]);
+  // const isDeleteModalOpen = useSelector(selectDeleteWaterModal);
 
   return (
     <BackgroundContainer id="beckground">
@@ -38,8 +22,8 @@ const HomePage = () => {
           <WaterRatioPanel />
         </LeftContainer>
         <RightContainer>
-          {/* <SectionWaterList/> */}
           <WaterTracker />
+          {/* {isDeleteModalOpen && <DeleteModal />} */}
         </RightContainer>
       </HomeContainer>
     </BackgroundContainer>

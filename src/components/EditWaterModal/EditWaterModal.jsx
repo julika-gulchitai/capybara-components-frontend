@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { format } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
-import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
+import { format } from 'date-fns';
+import { getLocaleTime } from '../../services/getLocaleTime';
+import { selectNotes } from '../../redux/Water/selectors.js';
+import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
 import {
   AddWater,
-  TextChoose,
+  EditText,
   TextAmount,
   StyledPlusIcon,
   StyledMinusIcon,
@@ -17,16 +19,25 @@ import {
   FormStyled,
   ButtonSaveWrapper,
   StyledAddWaterModal,
-} from './TodayListModal.styled';
+  GlassStyle,
+  GlassContainer,
+  TimeValue,
+} from './EditWaterModal.styled.js';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
 
-const TodayListModal = ({ onClose }) => {
-  const dispatch = useDispatch();
-
+const EditWaterModal = ({ onClose }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const [selectedWaterPortionId] = useState(null);
 
-  const [localWaterAmount, setLocalWaterAmount] = useState(250);
+  const waterVolumes = useSelector(selectNotes);
+
+  const waterPortion = waterVolumes.find((portion) => portion._id);
+
+  const [localWaterAmount, setLocalWaterAmount] = useState(
+    waterPortion.waterAmount
+  );
   const {
     handleChange,
     handleSubmit,
@@ -35,11 +46,16 @@ const TodayListModal = ({ onClose }) => {
     setFieldValue,
   } = useFormik({
     initialValues: {
-      waterAmount: '250',
-      date: `${format(new Date(), 'HH')}:${format(new Date(), 'mm')}`,
+      waterAmount: waterPortion.waterAmount.toString(),
+      date: `${getLocaleTime(waterPortion.date)}`,
     },
     onSubmit: (values) => {
-      dispatch(apiAddWaterPortion(values))
+      dispatch(
+        apiEditWaterPortion({
+          portionId: selectedWaterPortionId,
+          formData: values,
+        })
+      )
         .unwrap()
         .then(() => {
           dispatch(onClose());
@@ -54,10 +70,12 @@ const TodayListModal = ({ onClose }) => {
     );
   };
 
-  const handleAddWaterAmount = () => {
+  const handleEditWaterAmount = () => {
     const number = Number.parseInt(waterAmount) + WATER_AMOUNT_DIFFERENCE;
+
     setFieldValue('waterAmount', number.toString());
   };
+
   const handleReduceWaterAmount = () => {
     const number = Number.parseInt(waterAmount) - WATER_AMOUNT_DIFFERENCE;
     setFieldValue('waterAmount', number <= 0 ? '0' : number.toString());
@@ -65,8 +83,21 @@ const TodayListModal = ({ onClose }) => {
 
   return (
     <StyledAddWaterModal onSubmit={handleSubmit}>
-      <AddWater>{t('addWater')}</AddWater>
-      <TextChoose>{t('addModal.Choose a value')}</TextChoose>
+      <AddWater>Edit the entered amount of water</AddWater>
+      <GlassContainer>
+        <GlassStyle />
+        <TextAmount>
+          {' '}
+          {waterPortion.waterAmount}
+          {t('ml')}
+        </TextAmount>
+        <TimeValue>
+          {format(waterPortion.date, 'hh')}:{format(waterPortion.date, 'mm')}{' '}
+          {format(waterPortion.date, 'a')}
+        </TimeValue>
+      </GlassContainer>
+
+      <EditText>Correct entered data</EditText>
       <TextAmount>{t('addModal.Amount of water')}:</TextAmount>
 
       <ButtonWrapper>
@@ -77,7 +108,7 @@ const TodayListModal = ({ onClose }) => {
           {waterAmount}
           {t('ml')}
         </span>
-        <button onClick={handleAddWaterAmount} name="plus" type="button">
+        <button onClick={handleEditWaterAmount} name="plus" type="button">
           <StyledPlusIcon aria-label="plus_button" />{' '}
         </button>
       </ButtonWrapper>
@@ -116,4 +147,4 @@ const TodayListModal = ({ onClose }) => {
   );
 };
 
-export default TodayListModal;
+export default EditWaterModal;
