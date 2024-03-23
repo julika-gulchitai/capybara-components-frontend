@@ -6,8 +6,8 @@ import { ReactComponent as IconPlus } from '../../../assets/icon/plus-small.svg'
 
 import {
   Edit,
+  PortionsContainer,
   PortionsList,
-  Portions,
   Volumes,
   Portion,
   Button,
@@ -52,12 +52,8 @@ const PortionsListToday = () => {
   };
 
   return (
-    <PortionsList>
-      {waterPortions.length === 0 ? (
-        <p className="motivation">{t('portionsText')}</p>
-      ) : (
-        <>
-          <Portions>
+    <PortionsContainer>
+          <PortionsList>
             {waterPortions?.map((item) => (
               <Portion key={item._id}>
                 <Icon className="glass" />
@@ -86,7 +82,7 @@ const PortionsListToday = () => {
                 </Edit>
               </Portion>
             ))}
-          </Portions>
+          </PortionsList>
           <StyledWatterAddBtn
             onClick={(event) => handleOpenModalTodayAdd(event)}
           >
@@ -105,9 +101,7 @@ const PortionsListToday = () => {
               />
             </ModalWindow>
           )}
-        </>
-      )}
-    </PortionsList>
+    </PortionsContainer>
   );
 };
 export default PortionsListToday;
