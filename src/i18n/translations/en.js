@@ -111,5 +111,12 @@ export const en = {
     logOut: {
         "Do you really want to leave?": "Do you really want to leave?",
         "Cancel": "Cancel",
+    },
+    deleteModal: {
+        "Delete entry": "Delete entry",
+        "Are you sure you want to delete the entry?": "Are you sure you want to delete the entry?",
+        "Cancel": "Cancel",
+        "Delete": "Delete",
+
     }
 }
