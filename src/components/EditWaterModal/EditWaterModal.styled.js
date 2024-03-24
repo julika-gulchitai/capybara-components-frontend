@@ -3,8 +3,9 @@ import { ReactComponent as IconMinus } from '../../assets/icon/minus-small.svg';
 import { ReactComponent as IconPlus } from '../../assets/icon/plus-small.svg';
 import { ReactComponent as Glass } from '../../assets/icon/glass.svg';
 
-export const StyledAddWaterModal = styled.div`
+export const StyledEditWaterModal = styled.div`
   width: 100vw;
+  z-index: 100;
   max-width: calc(280px - 24px);
   @media only screen and (min-width: 768px) {
     max-width: calc(704px - 48px);
@@ -15,7 +16,7 @@ export const StyledAddWaterModal = styled.div`
   }
 `;
 
-export const AddWater = styled.h2`
+export const AddEditWater = styled.h2`
   font-size: 26px;
   font-weight: 500;
   line-height: 1.23;
@@ -23,14 +24,7 @@ export const AddWater = styled.h2`
   margin-bottom: 24px;
 `;
 
-export const TextChoose = styled.div`
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.1;
-  margin-bottom: 16px;
-`;
-
-export const EditText = styled.div`
+export const EditWaterText = styled.div`
   font-size: 18px;
   line-height: 1.1;
   margin-bottom: 16px;
@@ -115,6 +109,8 @@ export const ButtonWrapper = styled.div`
 
 export const StyledPlusIcon = styled(IconPlus)`
   stroke: ${(props) => props.theme.colors.primaryBlue};
+  width: 27px;
+  height: 27px;
 `;
 
 export const StyledMinusIcon = styled(IconMinus)`

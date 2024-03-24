@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'; // Add this line
 import { selectNotes } from '../../../redux/Water/selectors';
 import { getLocaleTime } from '../../../services/getLocaleTime';
 import { useState } from 'react';
@@ -22,13 +22,14 @@ import TodayListModal from '../../TodayListModal/TodayListModal';
 import ModalWindow from '../../ModalWindow/ModalWindow';
 import EditWaterModal from '../../EditWaterModal/EditWaterModal';
 import DeleteButton from '../DeleteButton/DeleteButton.jsx';
+import { setEditModal } from '../../../redux/Water/WaterSlices.js';
 
 const PortionsListToday = () => {
-  const [selectedWaterPortionId, setSelectedWaterPortionId] = useState(null);
   const waterPortions = useSelector(selectNotes);
+  const dispatch = useDispatch();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const { t } = useTranslation();
 
   const handleOpenModalTodayAdd = (event) => {
@@ -37,9 +38,14 @@ const PortionsListToday = () => {
     event.stopPropagation();
   };
 
-  const handleOpenModalTodayEdit = (event, waterPortionId) => {
+  const handleOpenModalTodayEdit = (event, item) => {
+    dispatch(
+      setEditModal({
+        isEditModalOpen: true,
+        waterPortionId: item._id,
+      })
+    );
     setIsEditModalOpen(true);
-    setSelectedWaterPortionId(waterPortionId);
     event.stopPropagation();
   };
 
@@ -47,59 +53,51 @@ const PortionsListToday = () => {
     setOpenModalTodayList(false);
   };
 
-  const handleCloseModalEdit = () => {
-    setIsEditModalOpen(false);
-  };
-
   return (
     <PortionsContainer>
-      {waterPortions.length > 0 && (<PortionsList>
-            {waterPortions?.map((item) => (
-              <Portion key={item._id}>
-                <Icon className="glass" />
-                <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
-                <Time>{getLocaleTime(item.date)}</Time>
-                <Edit>
-                  <Button onClick={(event) => handleOpenModalTodayEdit(event)}>
-                    <IconPencil />
-                  </Button>
-                  {isEditModalOpen && (
-                    <ModalWindow
-                      $position={'center'}
-                      open={setIsEditModalOpen}
-                      onClose={handleCloseModalEdit}
-                    >
-                      <EditWaterModal
-                        onClose={handleCloseModalEdit}
-                        isEditing={isEditing}
-                        waterPortionId={selectedWaterPortionId}
-                      />
-                    </ModalWindow>
-                  )}
-                  <DeleteButton id={item._id}/>
-                </Edit>
-              </Portion>
-            ))}
-          </PortionsList>)
-      }
-          <StyledWatterAddBtn
-            onClick={(event) => handleOpenModalTodayAdd(event)}
-          >
-            <IconPlus />
-            {t('addWater')}
-          </StyledWatterAddBtn>
-          {openModalTodayList && (
-            <ModalWindow
-              $position={'center'}
-              open={openModalTodayList}
-              onClose={handleCloseModalTodayList}
-            >
-              <TodayListModal
-                onClose={handleCloseModalTodayList}
-                isEditing={isEditing}
-              />
-            </ModalWindow>
-          )}
+      {waterPortions.length > 0 && (
+        <PortionsList>
+          {waterPortions?.map((item) => (
+            <Portion key={item._id}>
+              <Icon className="glass" />
+              <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
+              <Time>{getLocaleTime(item.date)}</Time>
+              <Edit>
+                <Button
+                  onClick={(event) => handleOpenModalTodayEdit(event, item)}
+                >
+                  <IconPencil />
+                </Button>
+                {isEditModalOpen && (
+                  <ModalWindow onClose={() => setIsEditModalOpen(false)}>
+                    <EditWaterModal
+                      waterPortionId={item._id}
+                      onClose={() => setIsEditModalOpen(false)}
+                    />
+                  </ModalWindow>
+                )}
+                <DeleteButton id={item._id} />
+              </Edit>
+            </Portion>
+          ))}
+        </PortionsList>
+      )}
+      <StyledWatterAddBtn onClick={(event) => handleOpenModalTodayAdd(event)}>
+        <IconPlus />
+        {t('addWater')}
+      </StyledWatterAddBtn>
+      {openModalTodayList && (
+        <ModalWindow
+          $position={'center'}
+          open={openModalTodayList}
+          onClose={handleCloseModalTodayList}
+        >
+          <TodayListModal
+            onClose={handleCloseModalTodayList}
+            isEditing={isEditing}
+          />
+        </ModalWindow>
+      )}
     </PortionsContainer>
   );
 };

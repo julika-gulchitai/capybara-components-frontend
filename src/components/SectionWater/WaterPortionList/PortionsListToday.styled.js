@@ -40,14 +40,14 @@ export const PortionsList = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb {
-    background:  ${(props) => props.theme.colors.secondaryBlue};
+    background: ${(props) => props.theme.colors.secondaryBlue};
     border-radius: 8px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background:  ${(props) => props.theme.colors.secondaryBlue};
+    background: ${(props) => props.theme.colors.secondaryBlue};
   }
-  
+
   li {
     padding-bottom: 12px;
   }
@@ -108,6 +108,10 @@ export const Button = styled.button`
   border: none;
   background-color: transparent;
 
+  &:hover::after {
+    width: 16px;
+  }
+
   & svg {
     width: 16px;
     height: 16px;
@@ -120,7 +124,7 @@ export const StyledWatterAddBtn = styled.button`
   gap: 8px;
   padding: 0;
 
-  color: ${props => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.primaryBlue};
   line-height: 1.25;
   border: none;
   background-color: transparent;
