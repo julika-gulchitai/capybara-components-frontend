@@ -244,4 +244,8 @@ export const StyledTP = styled(TimePicker)`
   & .rc-time-picker-input {
     height: 44px;
   }
+  
+  & .rc-time-picker-clear {
+    top: 10px;
+  }
 `;
