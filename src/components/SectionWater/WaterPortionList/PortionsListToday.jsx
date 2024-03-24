@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux'; // Add this line
+import { useSelector, useDispatch } from 'react-redux';
 import { selectNotes } from '../../../redux/Water/selectors';
 import { getLocaleTime } from '../../../services/getLocaleTime';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ReactComponent as IconPlus } from '../../../assets/icon/plus-small.svg';
 import svgSprite from '../../../assets/sprite.svg';
 
@@ -53,11 +53,17 @@ const PortionsListToday = () => {
     setOpenModalTodayList(false);
   };
 
+  const sortedWaterPortions = [...waterPortions].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
   return (
     <PortionsContainer>
-      {waterPortions.length > 0 && (
+      {sortedWaterPortions.length > 0 && (
         <PortionsList>
-          {waterPortions?.map((item) => (
+          {sortedWaterPortions?.map((item) => (
             <Portion key={item._id}>
               <Icon className="glass" />
               <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
@@ -67,7 +73,7 @@ const PortionsListToday = () => {
                   onClick={(event) => handleOpenModalTodayEdit(event, item)}
                 >
                   <svg>
-                    <use href={`${svgSprite}#icon-edit`}/>
+                    <use href={`${svgSprite}#icon-edit`} />
                   </svg>
                 </Button>
                 {isEditModalOpen && (
