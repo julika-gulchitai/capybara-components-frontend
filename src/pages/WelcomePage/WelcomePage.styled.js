@@ -3,22 +3,10 @@ import { Link } from "react-router-dom";
 import { AdaptiveContainer } from '../../components/Container/Container.styled.jsx';
 
 export const StyledFullPage = styled.div`
-  background-color:${props => props.theme.colors.mainBg};
   background-repeat: no-repeat;
   background-position: bottom;
   color: ${props => props.theme.colors.textColor};
   height: max-content;
-  @media only screen and (max-width: 320px){
-    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageMob}), url(${props => props.theme.backgroundImage.bgElemMainPageMob});
-      }
-  @media (min-width:321px) and (max-width: 768px){
-    background-image:url(${props => props.theme.backgroundImage.backgroundWelcomePageTablet}), url(${props => props.theme.backgroundImage.bgElemMainPageTab});
-          }
-  @media (min-width:769px) {
-    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp}), url(${props => props.theme.backgroundImage.bgElemMainPageDsctp});
-    background-position: bottom, bottom;
-    height: calc(100svh - 80px);
-     }
 
   @media only screen and (min-width: 768px) {
       justify-content: space-between;
@@ -32,27 +20,31 @@ export const StyledFullPage = styled.div`
   }
 `
 export const AdaptivContainer = styled(AdaptiveContainer)`
-height: fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
+  
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
-    }
+  }
 `;
 export const StyledMainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 0;
+  gap: 40px;
+  
   @media only screen and (min-width: 768px) {
-      margin: 1.5rem 0;
-      align-items: flex-start;
+    margin: 1.5rem 0 0;
+    align-items: flex-start;
+    gap: 60px;
   }
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
-    margin: 4.2rem 5.5rem 4.2rem 6.5rem;
-    gap: 5rem;
+    margin: 68px 5.5rem 4.2rem 6.5rem;
+    gap: 81px;
   }
 `
 export const StyledInnerContainerLeft = styled.div`
@@ -60,6 +52,13 @@ export const StyledInnerContainerLeft = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
+  
+  @media only screen and (min-width: 1440px) {
+    width: 439px;
+    min-width: 439px;
+  }
+  
 h3{
   font-size: 18px;
   line-height: 1.11111;
@@ -74,10 +73,13 @@ h3{
 `
 export const StyledMainTitle = styled.h1`
  font-size: 1.75rem;
-margin: 0;
+  margin: 0;
+  width: 246px;
+  
   @media only screen and (min-width: 768px) {
     font-size: 2.25rem;
     line-height: 1.16667;
+    width: auto;
   }
   @media only screen and (min-width: 1440px) {
     line-height: 1.16667;
@@ -87,8 +89,11 @@ export const StyledTitle = styled.h2`
   font-weight: 400;
   line-height: 1.25;
   margin: 1rem 0;
+  width: 246px;
+  
   @media only screen and (min-width: 768px) {
     letter-spacing: 1px;
+    width: auto;
   }
 `
 export const StyledListLeft = styled.ul`
@@ -136,33 +141,44 @@ export const StyledInnerContainerRight = styled.div`
   text-align: left;
   list-style-position: inside;
   display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  gap: 12px;
+
   @media only screen and (min-width: 768px) {
-    margin-top: 1.25rem;
+    height: 332px;
+    width: 494px;
+    padding: 32px 24px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    align-self: flex-end;
   }
   `
 export const StyledNameList = styled.h3`
   font-size: 18px;
-  line-height: 1.11111;
-  margin: 0 -1rem;
-  @media only screen and (min-width: 1440px) {
-    margin-top: .5rem;
-  }`
+  line-height: 1.11;
+  `
 
 export const StyledListRight = styled.ul`
-  padding: 1.5rem 1rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  list-style-position: outside;
-  @media only screen and (min-width: 768px) {
-    padding: 2rem 2.5rem;
-  }
+  gap: 16px;
 
-  li{
-    margin: 1rem 0 0;
+  li {
     line-height: 1.25;
-    text-indent:-1rem;
-    &:before{
+    display: flex;
+    align-items: center;
+
+    span {
+      width: 232px;
+
+      @media only screen and (min-width: 768px) {
+        width: 430px;
+      }
+    }
+
+    &:before {
       content: '';
       display: inline-block;
       width: .5rem;
@@ -178,7 +194,7 @@ export const StyledWelcomeLink = styled(Link)`
   border: none;
   padding: .5rem;
   margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
+
   box-shadow: ${props => props.theme.shadows.buttonShadow};
   background: ${props => props.theme.colors.primaryBlue};
   font-weight: 500;
@@ -193,5 +209,39 @@ export const StyledWelcomeLink = styled(Link)`
   @media only screen and (min-width: 1440px) {
     width: 24rem;
     margin-top: .5rem;
+    margin-bottom: 0;
   }
 `
+
+export const BackgroundContainer = styled.div`
+  height: max-content;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 64px);
+  background-position: calc(50% + 593px) bottom;
+  background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageMob});
+
+  @media only screen and (min-height: 960px) and (min-width: 320px) and (max-width: 767px){
+    background-position-y: bottom;
+  }
+  
+  @media only screen and (min-width: 768px) {  
+    min-height: calc(100vh - 80px);
+    background-position: calc(50% + 370px) -80px;
+    background-image: url(${props => props.theme.backgroundImage.backgroundWelcomePageTablet});
+  }
+
+  @media only screen and (min-height: 800px) and (min-width: 768px){
+    background-position-y: bottom;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    min-height: calc(100vh - 72px);
+    background: no-repeat calc(50% + 480px) 440px url(${props => props.theme.backgroundImage.backgroundWelcomePageDeskBottle}),
+    no-repeat calc(50%) 37px url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp});
+  }
+
+  @media only screen and (min-height: 800px) and (min-width: 1440px){
+    background: no-repeat calc(50% + 480px) 440px url(${props => props.theme.backgroundImage.backgroundWelcomePageDeskBottle}),
+    no-repeat calc(50%) 37px/cover url(${props => props.theme.backgroundImage.backgroundWelcomePageDsctp});
+  }
+`;

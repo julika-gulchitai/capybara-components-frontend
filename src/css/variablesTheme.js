@@ -1,5 +1,6 @@
 // Images for Light Theme
 import lightBgWelcomePageDsctp from '../assets/desktop/light-bg-welcome-page.svg'
+import lightBgWelcomePageDeskBottle from '../assets/desktop/bg-welcome-desk-bottle.svg'
 import lightBgWelcomePageTab from '../assets/tablet/light-bg-welcome-page.svg'
 import lightBgWelcomePageMob from '../assets/mobile/light-bg-welcome-page.svg'
 import lightBgElMainPageDsctp from '../assets/desktop/background-element-main-page.svg'
@@ -16,6 +17,7 @@ import lightBgSignMob from '../assets/mobile/bg-sign-light-mob.svg'
 
 // Images for Dark Theme
 import darkBgWelcomePageDsctp from '../assets/desktop/darkTheme/background-welcome-page.svg'
+import darkBgWelcomePageDeskBottle from '../assets/desktop/darkTheme/bg-welcome-desk-bottle.svg'
 import darkBgWelcomePageTab from '../assets/tablet/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-page.svg'
 import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
@@ -72,6 +74,7 @@ export const themeLight = Object.freeze({
 
   backgroundImage: {
     backgroundWelcomePageDsctp: lightBgWelcomePageDsctp,
+    backgroundWelcomePageDeskBottle: lightBgWelcomePageDeskBottle,
     backgroundWelcomePageTablet: lightBgWelcomePageTab,
     backgroundWelcomePageMob: lightBgWelcomePageMob,
     bgElemMainPageDsctp: lightBgElMainPageDsctp,
@@ -133,6 +136,7 @@ export const themeDark = Object.freeze({
 
   backgroundImage: {
     backgroundWelcomePageDsctp: darkBgWelcomePageDsctp,
+    backgroundWelcomePageDeskBottle: darkBgWelcomePageDeskBottle,
     backgroundWelcomePageTablet: darkBgWelcomePageTab,
     backgroundWelcomePageMob: darkBgWelcomePageMob,
     bgElemMainPageDsctp: darkBgElMainPageDsctp,
