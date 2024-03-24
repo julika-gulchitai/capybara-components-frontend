@@ -56,10 +56,10 @@ export const StyledInput = styled.input`
     appearance: none;
     background: linear-gradient(
       to right,
-      var(--secondary-blue) 0%,
-      var(--secondary-blue) ${(props) => props.value}%,
-      var(--secondary-lightblue) ${(props) => props.value}%,
-      var(--secondary-lightblue) 100%
+      ${(props) => props.theme.colors.secondaryBlue} 0%,
+      ${(props) => props.theme.colors.secondaryBlue} ${(props) => props.value}%,
+      ${(props) => props.theme.colors.secondaryLightblue} ${(props) => props.value}%,
+      ${(props) => props.theme.colors.secondaryLightblue} 100%
     );
     margin-left: 10px;
     margin-right: 20px;
@@ -117,9 +117,9 @@ export const Percentage = styled.div`
     &:nth-child(2) {
       margin-left: 15px;
       font-size: ${(props) =>
-        (props.$rater >= 50) & (props.$rater < 100) ? `16px` : `12px`};
+    (props.$rater >= 50) & (props.$rater < 100) ? `16px` : `12px`};
       font-weight: ${(props) =>
-        (props.$rater >= 50) & (props.$rater < 100) ? `500` : `400`};
+    (props.$rater >= 50) & (props.$rater < 100) ? `500` : `400`};
     }
     &:last-child {
       margin-right: 3px;
