@@ -5,11 +5,11 @@ import theme from '../../css/VariablesJSX.jsx';
 export const LangSwitch = styled(Switch)(() => ({
   padding: 8,
   '& .MuiSwitch-switchBase': {
-    color: `${props => props.theme.colors.secondaryBlue}`,
+    color: theme.colors.secondaryBlue,
     '&.Mui-checked': {
       color: theme.colors.secondaryBlue,
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.colors.secondaryWhite,
+        backgroundColor: 'rgba(156, 201 , 236, .1)',
         border: '1px solid #dfdfdf',
         opacity: 1,
 
@@ -28,7 +28,7 @@ export const LangSwitch = styled(Switch)(() => ({
 
   '& .MuiSwitch-track': {
     borderRadius: 22 / 2,
-    backgroundColor: theme.colors.secondaryWhite,
+    backgroundColor: 'rgba(156, 201 , 236, .1)',
     border: '1px solid #dfdfdf',
     opacity: 1,
 
@@ -64,7 +64,7 @@ export const ThemeSwitch = styled(Switch)(() => ({
     '&.Mui-checked': {
       color: `${props => props.theme.colors.secondaryBlue}`,
       '& + .MuiSwitch-track': {
-        backgroundColor: '#2a3052',
+        backgroundColor: 'rgba(156, 201 , 236, .1)',
         border: '1px solid #dfdfdf',
         opacity: 1
       }
