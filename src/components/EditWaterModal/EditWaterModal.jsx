@@ -75,14 +75,20 @@ const EditWaterModal = ({ onClose }) => {
   };
 
   const handleEditWaterAmount = () => {
-    const number = Number.parseInt(waterAmount) + WATER_AMOUNT_DIFFERENCE;
-
-    setFieldValue('waterAmount', number.toString());
+    const newWaterAmount =
+      Number.parseInt(waterAmount) + WATER_AMOUNT_DIFFERENCE;
+    setFieldValue('waterAmount', newWaterAmount.toString());
+    setLocalWaterAmount(newWaterAmount);
   };
 
   const handleReduceWaterAmount = () => {
-    const number = Number.parseInt(waterAmount) - WATER_AMOUNT_DIFFERENCE;
-    setFieldValue('waterAmount', number <= 0 ? '0' : number.toString());
+    const newWaterAmount =
+      Number.parseInt(waterAmount) - WATER_AMOUNT_DIFFERENCE;
+    setFieldValue(
+      'waterAmount',
+      newWaterAmount <= 0 ? '0' : newWaterAmount.toString()
+    );
+    setLocalWaterAmount(newWaterAmount <= 0 ? 0 : newWaterAmount);
   };
 
   return (
