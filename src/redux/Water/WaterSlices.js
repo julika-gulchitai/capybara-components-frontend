@@ -33,6 +33,7 @@ const waterSlice = createSlice({
         percentage = percentage > 100 ? 100 : percentage;
         state.percentage = percentage;
         state.waterVolumes = payload.waterVolumes;
+        state.waterVolumeSum = payload.waterVolumeSum;
       })
 
       .addCase(apiGetMonthWaterPortions.fulfilled, (state, action) => {
