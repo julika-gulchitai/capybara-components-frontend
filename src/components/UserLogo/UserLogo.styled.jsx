@@ -1,3 +1,4 @@
+import { Popover } from '@mui/material';
 import styled from 'styled-components';
 
 export const UserMenuButton = styled.button`
@@ -43,3 +44,10 @@ export const AvatarWrapper = styled.div`
     
   }
 `;
+
+export const StyledPopover = styled(Popover)(() => ({
+  '& .MuiPopover-paper': {
+    backgroundColor: 'transparent',
+  }
+}))
+

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   AvatarWrapper,
   AvatarBlock,
@@ -24,16 +24,20 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import TextInput from '../TextInput.jsx';
 import { useMediaQuery } from 'react-responsive';
 import Notiflix from 'notiflix';
-import theme from '../../css/VariablesJSX.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/User/selectors.js';
 import { updateUserThunk } from '../../redux/User/UserThunks.js';
 import { paramsForNotify } from '../../constants/notifications.js';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+import { selectTheme } from '../../redux/global/selectors.js';
+import { themeDark, themeLight } from '../../css/variablesTheme.js';
 
 function SettingModal({ close }) {
   const { username, email, gender, avatarURL } = useSelector(selectUser);
+
+  const currentTheme = useSelector(selectTheme);
+  const theme = (currentTheme === 'dark') ? themeDark : themeLight;
 
   const dispatch = useDispatch();
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
@@ -77,9 +81,9 @@ function SettingModal({ close }) {
         .when('new_password', (new_password, field) =>
           new_password
             ? field.oneOf(
-                [yup.ref('new_password')],
-                t("settingModal.Passwords don't match!")
-              )
+              [yup.ref('new_password')],
+              t("settingModal.Passwords don't match!")
+            )
             : field
         ),
     })
@@ -242,7 +246,7 @@ function SettingModal({ close }) {
                       labelPlacement="end"
                       sx={{
                         '&.Mui-checked': {
-                          color: theme.colors.blue,
+                          color: theme.colors.primaryBlue,
                         },
                       }}
                     />
@@ -253,7 +257,7 @@ function SettingModal({ close }) {
                       labelPlacement="end"
                       sx={{
                         '&.Mui-checked': {
-                          color: theme.colors.blue,
+                          color: theme.colors.primaryBlue,
                         },
                       }}
                     />

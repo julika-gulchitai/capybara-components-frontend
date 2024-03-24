@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { AvatarWrapper, UserMenuButton } from './UserLogo.styled.jsx';
+import { AvatarWrapper, StyledPopover, UserMenuButton } from './UserLogo.styled.jsx';
 import svgSprite from '../../assets/sprite.svg';
-import { Popover } from '@mui/material';
 import UserLogoModal from '../UserLogoModal/UserLogoModal.jsx';
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import SettingModal from '../SettingModal/SettingModal.jsx';
@@ -57,7 +56,7 @@ function UserLogo() {
           <use href={`${svgSprite}#icon-arrow_down`} />
         </svg>
       </UserMenuButton>
-      <Popover
+      <StyledPopover
         id={id}
         open={open}
         anchorEl={anchorEl}
@@ -66,6 +65,7 @@ function UserLogo() {
           vertical: 'bottom',
           horizontal: 'left',
         }}
+
       >
         <UserLogoModal
           closeMenu={() => {
@@ -78,7 +78,7 @@ function UserLogo() {
             setIsLogOutModalOpen(true);
           }}
         />
-      </Popover>
+      </StyledPopover>
       {(isSettingsModalOpen || isLogOutModalOpen) && (
         <ModalWindow onClose={() => closeModal()}>
           {isSettingsModalOpen && (
