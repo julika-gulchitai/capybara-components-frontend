@@ -7,12 +7,10 @@ import { paramsForNotify } from '../../constants/notifications';
 import { Notify } from 'notiflix';
 import { useForm } from 'react-hook-form';
 import { MarginBetween, WraperForm, Wrapper } from '../SignUp/SignUp.styled';
-import { PasswordLabelText } from '../../components/SettingModal/SettingModal.styled';
 import PasswordInput from '../../components/PasswordInput';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { StyledButton } from '../ForgotPassword/ForgotPassword.styled';
 import { LabelStyled } from '../../components/AuthForm/AuthForm.styled';
-import { useParams } from 'react-router-dom';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 

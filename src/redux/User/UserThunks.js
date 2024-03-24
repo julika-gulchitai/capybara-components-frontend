@@ -23,7 +23,6 @@ export const loginThunk = createAsyncThunk(
     try {
       const response = await api.post('users/login', credentials);
       setToken(response.data.token);
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -107,6 +106,20 @@ export const resetPassword = createAsyncThunk(
 
     try {
       const response = await api.post('users/reset-password', data);
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const verifiedThunk = createAsyncThunk(
+  'auth/verified',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await api.get('users/verify', credentials);
+      setToken(response.data.token);
 
       return response.data;
     } catch (error) {
