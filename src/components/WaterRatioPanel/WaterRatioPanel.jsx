@@ -13,22 +13,16 @@ import {
 } from './WaterRatioPanel.styled';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import TodayListModal from '../TodayListModal/TodayListModal';
-import {
-  // selectPercent,
-  selectWaterVolumeSum,
-} from '../../redux/Water/selectors.js';
+import { selectWaterVolumeSum } from '../../redux/Water/selectors.js';
 import { selectUser } from '../../redux/User/selectors.js';
 
 const WaterRatioPanel = () => {
-  const [currentPersent, setCurrentPersent] = useState();
+  const [currentPersent, setCurrentPersent] = useState(0);
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const { t } = useTranslation();
-  const {waterRate} = useSelector(selectUser);
-  console.log('waterRate', waterRate);
+  const { waterRate } = useSelector(selectUser);
   const waterVolumSum = useSelector(selectWaterVolumeSum);
-  console.log('waterVolumSum', waterVolumSum);
-
 
   const handleOpenModalTodayListAdd = (event) => {
     setOpenModalTodayList(true);
@@ -39,7 +33,7 @@ const WaterRatioPanel = () => {
   useEffect(() => {
     setCurrentPersent((waterVolumSum / waterRate) * 100);
   }, [waterRate, waterVolumSum]);
-  
+
   const handleCloseModalTodayList = () => {
     setOpenModalTodayList(false);
   };

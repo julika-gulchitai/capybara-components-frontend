@@ -34,4 +34,5 @@ export const paramsForNotify = {
   fontFamily: 'Montserrat',
   cssAnimationStyle: 'from-bottom',
   fontAwesomeIconSize: '20px',
+  background: '#407BFF',
 };
