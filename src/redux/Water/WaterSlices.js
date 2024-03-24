@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   percentage: 0,
   waterVolumes: [],
   stats: [],
-  waterVolumeSum: [],
+  waterVolumeSum: 0,
   selectedWaterPortionId: null,
 };
 
