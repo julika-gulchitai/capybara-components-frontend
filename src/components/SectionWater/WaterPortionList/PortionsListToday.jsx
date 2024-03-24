@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux'; // Add this line
 import { selectNotes } from '../../../redux/Water/selectors';
 import { getLocaleTime } from '../../../services/getLocaleTime';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as IconPlus } from '../../../assets/icon/plus-small.svg';
+import svgSprite from '../../../assets/sprite.svg';
 
 import {
   Edit,
@@ -16,7 +17,6 @@ import {
 } from './PortionsListToday.styled';
 
 import { ReactComponent as Icon } from '../../../assets/icon/glass.svg';
-import { ReactComponent as IconPencil } from '../../../assets/icon/pencil-square.svg';
 import { useTranslation } from 'react-i18next';
 import TodayListModal from '../../TodayListModal/TodayListModal';
 import ModalWindow from '../../ModalWindow/ModalWindow';
@@ -66,7 +66,9 @@ const PortionsListToday = () => {
                 <Button
                   onClick={(event) => handleOpenModalTodayEdit(event, item)}
                 >
-                  <IconPencil />
+                  <svg>
+                    <use href={`${svgSprite}#icon-edit`}/>
+                  </svg>
                 </Button>
                 {isEditModalOpen && (
                   <ModalWindow onClose={() => setIsEditModalOpen(false)}>

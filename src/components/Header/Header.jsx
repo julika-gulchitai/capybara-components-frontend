@@ -12,6 +12,7 @@ import { setLanguage, setTheme } from '../../redux/global/GlobalSlice.js';
 import i18next from 'i18next';
 import { LOCALS } from '../../i18n/constants.js';
 import { useMediaQuery } from 'react-responsive';
+import {themeDark, themeLight} from '../../css/variablesTheme.js';
 
 const Header = () => {
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
@@ -23,9 +24,11 @@ const Header = () => {
 
   const [themeValue, setThemeValue] = useState(false);
   const [languageValue, setLanguageValue] = useState(false);
+  const [realThemeValue, setRealThemeValue] = useState(themeLight);
 
   useEffect(() => {
     setThemeValue(theme === 'dark');
+    setRealThemeValue(theme === 'dark' ? themeDark : themeLight)
   }, [theme]);
 
   useEffect(() => {
@@ -53,6 +56,7 @@ const Header = () => {
                 onChange={handleThemeChange}
               />
               <LangSwitch
+                theme={realThemeValue}
                 checked={languageValue}
                 onChange={handleLanguageChange}
               />
@@ -63,6 +67,7 @@ const Header = () => {
                 onChange={handleThemeChange}
               />
               <LangSwitch
+                theme={realThemeValue}
                 checked={languageValue}
                 onChange={handleLanguageChange}
               />

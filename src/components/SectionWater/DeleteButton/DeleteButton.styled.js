@@ -5,6 +5,7 @@ export const Button = styled.button`
   border: none;
   background-color: transparent;
   position: relative;
+  color: ${props => props.theme.colors.secondaryRed};
   
   &::after {
     content: '';
@@ -13,7 +14,7 @@ export const Button = styled.button`
     position: absolute;
     bottom: 1px;
     left: 0;
-    background-color: ${props => props.theme.colors.secondaryRed};
+    background-color: currentColor;
     
     transition: width 250ms ease-in-out;
   }
@@ -26,5 +27,6 @@ export const Button = styled.button`
   & svg {
     width: 16px;
     height: 16px;
+    fill: currentColor;
   }
 `;
