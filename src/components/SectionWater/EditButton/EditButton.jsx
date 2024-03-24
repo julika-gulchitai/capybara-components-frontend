@@ -15,7 +15,7 @@ function EditButton({ id }) {
     <>
       <Button onClick={handleEditClick}>
         <svg>
-          <use href={`${svgSprite}#icon-trash`} />
+          <use href={`${svgSprite}#icon-edit`}/>
         </svg>
       </Button>
       {isModalOpen && (

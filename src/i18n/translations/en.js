@@ -87,9 +87,9 @@ export const en = {
         "Enter the value of the water used": "Enter the value of the water used",
     },
     forgotPass: {
-        "Email is required": "Email is required",
-        "Password reset link is sent to your email!": "Password reset link is sent to your email!",
-        "Please enter your correct email": "Please enter your correct email",
+        "email": "Email is required",
+        "success-msg": "Password reset link is sent to your email!",
+        "wrong-email-msg": "Please enter your correct email",
     },
     resetPass: {
         "Password must be at least 8 characters": "Password must be at least 8 characters",
@@ -100,7 +100,7 @@ export const en = {
         "Enter your new password": "Enter your new password",
     },
     signIn: {
-        "You have activated your account. Now you can login.": "You have activated your account. Now you can login.",
+        "message": "You have activated your account. Now you can login.",
     },
     auth: {
         "Please write valid email": "Please write valid email",
