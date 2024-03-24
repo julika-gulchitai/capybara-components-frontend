@@ -57,12 +57,19 @@ const TodayListModal = ({ onClose }) => {
   };
 
   const handleAddWaterAmount = () => {
-    const number = Number.parseInt(waterAmount) + WATER_AMOUNT_DIFFERENCE;
-    setFieldValue('waterAmount', number.toString());
+    const newWaterAmounter =
+      Number.parseInt(waterAmount) + WATER_AMOUNT_DIFFERENCE;
+    setFieldValue('waterAmount', newWaterAmounter.toString());
+    setLocalWaterAmount(newWaterAmounter);
   };
   const handleReduceWaterAmount = () => {
-    const number = Number.parseInt(waterAmount) - WATER_AMOUNT_DIFFERENCE;
-    setFieldValue('waterAmount', number <= 0 ? '0' : number.toString());
+    const newWaterAmounter =
+      Number.parseInt(waterAmount) - WATER_AMOUNT_DIFFERENCE;
+    setFieldValue(
+      'waterAmount',
+      newWaterAmounter <= 0 ? '0' : newWaterAmounter.toString()
+    );
+    setLocalWaterAmount(newWaterAmounter <= 0 ? 0 : newWaterAmounter);
   };
 
   return (
