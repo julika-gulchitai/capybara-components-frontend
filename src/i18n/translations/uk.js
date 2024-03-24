@@ -112,5 +112,11 @@ export const uk = {
     logOut: {
         "Do you really want to leave?": "Ви справді хочете вийти?",
         "Cancel": "Скасувати",
+    },
+    deleteModal: {
+        "Delete entry": "Видалити запис",
+        "Are you sure you want to delete the entry?": "Ви впевнені, що хочете видалити запис?",
+        "Cancel": "Відмінити",
+        "Delete": "Видалити",
     }
 }
