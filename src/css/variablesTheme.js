@@ -45,6 +45,10 @@ export const themeLight = Object.freeze({
     secondaryBlueMedium: '#c6d7ff',
     secondaryGrayMedium: '#f5f5f5',
 
+    switchBg: '#ECF2FF',
+    switchButton: '#9EBBFF',
+    switchBorder: '#dfdfdf',
+
     secondaryGray: '#8F8F8F',
 
     fontSizes: {
@@ -105,6 +109,10 @@ export const themeDark = Object.freeze({
     // secondaryGrayMedium: '#f5f5f5',
 
     secondaryGray: '#8F8F8F',
+
+    switchBg: '#2a3052',
+    switchButton: '#9EBBFF',
+    switchBorder: '#dfdfdf',
 
     // buttonClose: '#407bff',
 

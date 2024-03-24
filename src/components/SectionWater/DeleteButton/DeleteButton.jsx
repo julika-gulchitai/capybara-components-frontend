@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {ReactComponent as IconBasket} from '../../../assets/icon/basket.svg';
 import ModalWindow from '../../ModalWindow/ModalWindow.jsx';
 import DeleteModal from '../../DeleteModal/DeleteModal.jsx';
 import {Button} from './DeleteButton.styled.js';
+import svgSprite from '../../../assets/sprite.svg';
 
 function DeleteButton({id}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +14,9 @@ function DeleteButton({id}) {
   return (
     <>
       <Button onClick={handleRemoveClick}>
-        <IconBasket/>
+        <svg>
+          <use href={`${svgSprite}#icon-trash`}/>
+        </svg>
       </Button>
       {isModalOpen && (
         <ModalWindow

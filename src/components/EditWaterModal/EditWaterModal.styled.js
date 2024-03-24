@@ -81,7 +81,7 @@ export const ButtonWrapper = styled.div`
     border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
     background: ${(props) => props.theme.colors.mainBg};
 
-    box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
+    box-shadow: ${(props) => props.theme.shadows.secondaryButtonShadow};
 
     cursor: pointer;
   }
@@ -140,7 +140,7 @@ export const FormStyled = styled.form`
     border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
 
     appearance: none;
-
+background-color: ${(props) => props.theme.colors.mainBg};
     color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 16px;
     line-height: 1.25;
@@ -170,7 +170,7 @@ export const ButtonSaveWrapper = styled.div`
   gap: 16px;
 
   p {
-    color: --blue;
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 18px;
     font-weight: 700;
     align-items: center;
