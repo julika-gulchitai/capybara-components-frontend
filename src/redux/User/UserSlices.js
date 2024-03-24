@@ -1,4 +1,4 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { setToken } from '../../configApi/setToken.js';
 import {
   editWaterRateThunk,
@@ -9,7 +9,6 @@ import {
   registerThunk,
   resetPassword,
   updateUserThunk,
-
 } from './UserThunks.js';
 
 const initialState = {
@@ -23,8 +22,6 @@ const initialState = {
   token: '',
   isLoggedIn: false,
   isRefreshing: false,
-  isLoading: false,
-  isError: null,
 };
 
 const userSlices = createSlice({
@@ -66,59 +63,23 @@ const userSlices = createSlice({
       .addCase(editWaterRateThunk.fulfilled, (state, { payload }) => {
         state.user.waterRate = payload.waterRate;
         state.isLoggedIn = true;
-        state.isLoading = false;
       })
-      .addCase(editWaterRateThunk.pending, (state) => {
-        state.isLoading = true;
-        state.isError = null;
-      })
-      .addCase(editWaterRateThunk.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.isError = payload;
-      })
-      .addCase(forgotPassword.fulfilled,(state, action)=> {
+      .addCase(forgotPassword.fulfilled, (state, action) => {
         state.user.email = action.payload;
       })
-      .addCase(forgotPassword.pending,(state)=> {
-        state.isLoading = true;
-        state.isError = null;
-      })
-      .addCase(resetPassword.fulfilled, (state, action)=>{
+      .addCase(resetPassword.fulfilled, (state, action) => {
         state.user.password = action.payload;
       })
-      .addCase(forgotPassword.rejected,(state, action)=> {
-        state.isLoading = false;
-        state.isError = action.payload;
-      })
-      .addCase(registerThunk.fulfilled, (state, action)=>{
+      .addCase(registerThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = false;
       })
-      .addCase(loginThunk.fulfilled, (state, action)=>{
+      .addCase(loginThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-      })
-      .addMatcher(
-        isAnyOf(loginThunk.pending, registerThunk.pending, logoutThunk.pending),
-        (state) => {
-          state.isLoading = true;
-          state.isError = null;
-        }
-      )
-      .addMatcher(
-        isAnyOf(
-          loginThunk.rejected,
-          registerThunk.rejected,
-          logoutThunk.rejected
-        ),
-        (state, actions) => {
-          state.isLoading = false;
-          state.isError = actions.payload;
-        }
-      )
-      
+      });
   },
 });
 

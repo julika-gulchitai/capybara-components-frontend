@@ -28,7 +28,7 @@ export const paramsForNotify = {
   distance: '16px',
   timeout: 3000,
   width: '300px',
-  fontSize: '16px',
+  fontSize: '20px',
   borderRadius: '10px',
   showOnlyTheLastOne: true,
   fontFamily: 'Montserrat',
