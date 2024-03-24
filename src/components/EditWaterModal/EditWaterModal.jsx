@@ -14,15 +14,15 @@ import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
 import {
-  AddWater,
-  EditText,
+  AddEditWater,
+  EditWaterText,
   TextAmount,
   StyledPlusIcon,
   StyledMinusIcon,
   ButtonWrapper,
   FormStyled,
   ButtonSaveWrapper,
-  StyledAddWaterModal,
+  StyledEditWaterModal,
   GlassStyle,
   GlassContainer,
   TimeValue,
@@ -86,12 +86,11 @@ const EditWaterModal = ({ onClose }) => {
   };
 
   return (
-    <StyledAddWaterModal onSubmit={handleSubmit}>
-      <AddWater>Edit the entered amount of water</AddWater>
+    <StyledEditWaterModal onSubmit={handleSubmit}>
+      <AddEditWater>Edit the entered amount of water</AddEditWater>
       <GlassContainer>
         <GlassStyle />
         <TextAmount>
-          {' '}
           {waterPortion.waterAmount}
           {t('ml')}
         </TextAmount>
@@ -101,7 +100,7 @@ const EditWaterModal = ({ onClose }) => {
         </TimeValue>
       </GlassContainer>
 
-      <EditText>Correct entered data</EditText>
+      <EditWaterText>Correct entered data</EditWaterText>
       <TextAmount>{t('addModal.Amount of water')}:</TextAmount>
 
       <ButtonWrapper>
@@ -154,7 +153,7 @@ const EditWaterModal = ({ onClose }) => {
           </button>
         </ButtonSaveWrapper>
       </FormStyled>
-    </StyledAddWaterModal>
+    </StyledEditWaterModal>
   );
 };
 

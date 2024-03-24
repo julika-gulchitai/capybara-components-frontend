@@ -22,8 +22,8 @@ const waterSlice = createSlice({
   name: 'water',
   initialState: INITIAL_STATE,
   reducers: {
-    setSelectedWaterPortionId(state, action) {
-      state.selectedWaterPortionId = action.payload;
+    setEditModal(state, action) {
+      state.selectedWaterPortionId = action.payload.waterPortionId;
     },
   },
   extraReducers: (builder) =>
@@ -59,6 +59,6 @@ const waterSlice = createSlice({
       }),
 });
 
-export const { setSelectedWaterPortionId } = waterSlice.actions;
+export const { setEditModal } = waterSlice.actions;
 
 export const waterReducer = waterSlice.reducer;

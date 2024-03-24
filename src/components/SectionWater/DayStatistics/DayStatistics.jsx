@@ -1,9 +1,11 @@
+import React from 'react';
 import { StyleDay, Data, Carton } from './DayStatistics.styled';
 import '../../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
 const DayStatistics = ({ item, index, monthName }) => {
   const { waterVolumePercentage, dailyNorma, portions } = item;
+  const displayedPercentage = Math.min(100, waterVolumePercentage); // Restricting percentage to 100%
   const { t } = useTranslation();
 
   return (
@@ -18,7 +20,7 @@ const DayStatistics = ({ item, index, monthName }) => {
       </Data>
       <Data>
         {t('dayStatistics.Fulfillment of the daily norm')}:{' '}
-        <StyleDay>{waterVolumePercentage}%</StyleDay>
+        <StyleDay>{displayedPercentage}%</StyleDay>
       </Data>
       <Data>
         {t('dayStatistics.How many servings of water')}:{' '}

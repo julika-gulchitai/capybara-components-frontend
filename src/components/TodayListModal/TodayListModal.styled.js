@@ -84,6 +84,8 @@ export const ButtonWrapper = styled.div`
 
 export const StyledPlusIcon = styled(IconPlus)`
   stroke: ${(props) => props.theme.colors.primaryBlue};
+  width: 27px;
+  height: 27px;
 `;
 
 export const StyledMinusIcon = styled(IconMinus)`
