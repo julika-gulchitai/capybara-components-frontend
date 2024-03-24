@@ -20,7 +20,7 @@ import {
 import { selectUser } from '../../redux/User/selectors.js';
 
 const WaterRatioPanel = () => {
-  const [currentPersent, setCurrentPersent] = useState(0);
+  const [currentPersent, setCurrentPersent] = useState();
   const [openModalTodayList, setOpenModalTodayList] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const { t } = useTranslation();
