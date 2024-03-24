@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   percentage: 0,
   waterVolumes: [],
   stats: [],
-  waterVolumeSum: [],
+  waterVolumeSum: 0,
   selectedWaterPortionId: null,
 };
 
@@ -38,10 +38,11 @@ const waterSlice = createSlice({
       .addCase(apiGetMonthWaterPortions.fulfilled, (state, action) => {
         state.stats = action.payload;
       })
-      .addCase(apiAddWaterPortion.fulfilled, (state, action) => {
-        state.waterVolumes.push(action.payload);
-        state.waterVolumeSum += action.payload.waterAmount;
+      .addCase(apiAddWaterPortion.fulfilled, (state, { payload }) => {
+        state.waterVolumes.push(payload);
+        state.waterVolumeSum += payload.waterAmount;
       })
+
       .addCase(apiDeleteWaterPortion.fulfilled, (state, action) => {
         state.waterVolumes = state.waterVolumes.filter(
           (portion) => portion._id !== action.payload
