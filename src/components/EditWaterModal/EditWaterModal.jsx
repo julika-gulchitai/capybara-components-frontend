@@ -57,12 +57,12 @@ const EditWaterModal = ({ onClose }) => {
       dispatch(
         apiEditWaterPortion({
           portionId: selectedWaterPortionId,
-          formData: values,
+          credentials: values,
         })
       )
         .unwrap()
         .then(() => {
-          dispatch(onClose());
+          onClose();
         });
     },
   });
