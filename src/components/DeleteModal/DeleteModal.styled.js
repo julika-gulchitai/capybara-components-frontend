@@ -16,7 +16,7 @@ export const StyledDeleteModal = styled.div`
   }
   
   .text {
-    color: #2f2f2f;
+    color: ${props => props.theme.colors.textColor};
     font-size: 18px;
     font-weight: 500;
     line-height: 1.11;
@@ -41,14 +41,14 @@ export const StyledDeleteModal = styled.div`
   }
   .cancel-btn {
     border-radius: 10px;
-    background: #d7e3ff;
+    background: ${props => props.theme.colors.secondaryLightblue};
     cursor: pointer;
     border: none;
     padding: 10px 30px;
     justify-content: center;
     align-items: center;
 
-    color: #407bff;
+    color: ${props => props.theme.colors.primaryBlue};
     text-align: center;
     font-size: 18px;
     font-weight: 500;
@@ -56,7 +56,7 @@ export const StyledDeleteModal = styled.div`
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+      box-shadow: ${props => props.theme.hovers.buttonShadow};
     }
 
     &:active {
@@ -75,13 +75,13 @@ export const StyledDeleteModal = styled.div`
 
   .delete-btn {
     border-radius: 10px;
-    background: #ef5050;
+    background: ${props => props.theme.colors.secondaryRed};
     cursor: pointer;
     border: none;
     padding: 10px 30px;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+    box-shadow: ${props => props.theme.shadows.buttonShadow};
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     color: #fff;
@@ -91,7 +91,7 @@ export const StyledDeleteModal = styled.div`
     line-height: 1.33;
 
     &:hover {
-      box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+      box-shadow: ${props => props.theme.hovers.buttonShadow};
     }
 
     &:active {
