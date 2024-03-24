@@ -24,7 +24,7 @@ export const NOTIFICATIONS = {
 };
 
 export const paramsForNotify = {
-  position: 'center-bottom',
+  position: 'center-top',
   distance: '16px',
   timeout: 3000,
   width: '300px',
@@ -34,5 +34,5 @@ export const paramsForNotify = {
   fontFamily: 'Montserrat',
   cssAnimationStyle: 'from-bottom',
   fontAwesomeIconSize: '20px',
-  background: '#407BFF',
+  backgroundColor: '#407bff',
 };
