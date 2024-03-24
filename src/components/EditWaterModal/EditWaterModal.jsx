@@ -5,8 +5,6 @@ import { format, subHours } from 'date-fns';
 import { getLocaleTime } from '../../services/getLocaleTime';
 import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
-import { selectSelectedWaterPortionId } from '../../redux/Water/selectors.js';
-import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
 
@@ -26,18 +24,18 @@ import {
   GlassStyle,
   GlassContainer,
   TimeValue,
+  StyledTP,
 } from './EditWaterModal.styled.js';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
 
-const EditWaterModal = ({ onClose }) => {
+const EditWaterModal = ({ onClose, id }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const selectedWaterPortionId = useSelector(selectSelectedWaterPortionId);
 
   const waterVolumes = useSelector(selectNotes);
   const waterPortion = waterVolumes.find(
-    (portion) => portion._id === selectedWaterPortionId
+    (portion) => portion._id === id
   );
 
   const [localWaterAmount, setLocalWaterAmount] = useState(
@@ -56,7 +54,7 @@ const EditWaterModal = ({ onClose }) => {
     onSubmit: (values) => {
       dispatch(
         apiEditWaterPortion({
-          portionId: selectedWaterPortionId,
+          portionId: id,
           credentials: values,
         })
       )
@@ -126,7 +124,7 @@ const EditWaterModal = ({ onClose }) => {
       <FormStyled>
         <label>
           {t('addModal.Recording time')}:
-          <TimePicker
+          <StyledTP
             defaultValue={moment(date, 'HH:mm')}
             showSecond={false}
             minuteStep={5}
