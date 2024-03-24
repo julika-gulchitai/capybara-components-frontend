@@ -18,7 +18,8 @@ export const Button = styled.button`
     transition: width 250ms ease-in-out;
   }
 
-  &:hover::after {
+  &:hover::after, 
+  &:focus::after {
     width: 16px;
   }
 
