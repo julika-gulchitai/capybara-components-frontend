@@ -16,7 +16,7 @@ export const requestDeleteWaterData = async (portionId) => {
 
 // Функція редагування даних про воду
 export const requestEditWaterData = async (portionId, credentials) => {
-  const { data } = await api.put(`water/update/${portionId}`, credentials);
+  const { data } = await api.put(`water/${portionId}`, credentials);
   return data;
 };
 

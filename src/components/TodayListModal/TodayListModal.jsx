@@ -5,6 +5,7 @@ import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
 import TimePicker from 'rc-time-picker';
 import moment from 'moment';
 import 'rc-time-picker/assets/index.css';
+import { format } from 'date-fns';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
@@ -37,13 +38,13 @@ const TodayListModal = ({ onClose }) => {
   } = useFormik({
     initialValues: {
       waterAmount: '250',
-      date: moment().format('HH:mm'),
+      date: `${format(new Date(), 'HH')}:${format(new Date(), 'mm')}`,
     },
     onSubmit: (values) => {
       dispatch(apiAddWaterPortion(values))
         .unwrap()
         .then(() => {
-          dispatch(onClose());
+          onClose();
         });
     },
   });
