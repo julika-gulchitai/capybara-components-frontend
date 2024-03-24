@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
-import { format } from 'date-fns';
+import { format, subHours } from 'date-fns';
 import { getLocaleTime } from '../../services/getLocaleTime';
 import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
@@ -101,8 +101,8 @@ const EditWaterModal = ({ onClose }) => {
           {t('ml')}
         </TextAmount>
         <TimeValue>
-          {format(waterPortion.date, 'hh')}:{format(waterPortion.date, 'mm')}{' '}
-          {format(waterPortion.date, 'a')}
+          {' '}
+          {format(subHours(waterPortion.date, 2), 'HH:mm')}
         </TimeValue>
       </GlassContainer>
 
