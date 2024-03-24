@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Popper from '@mui/material/Popper';
 import Box from '@mui/material/Typography';
 import DayStatistics from '../DayStatistics/DayStatistics';
 import { StyledBtn, StyleWrapperDay, Percentage } from './PopoverViev.styled';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../../redux/global/selectors';
+import { themeDark, themeLight } from '../../../css/variablesTheme';
 
 const PopoverViev = ({ item, index, monthName }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -21,6 +24,12 @@ const PopoverViev = ({ item, index, monthName }) => {
   const isLeft =
     anchorEl && anchorEl.getBoundingClientRect().left > window.innerWidth / 2;
 
+  const currentTheme = useSelector(selectTheme);
+  const [theme, setTheme] = useState(themeLight)
+  useEffect(() => {
+    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
+  }, [currentTheme, theme])
+
   return (
     <StyleWrapperDay>
       <StyledBtn
@@ -29,7 +38,7 @@ const PopoverViev = ({ item, index, monthName }) => {
         onMouseLeave={handleClick}
         style={{
           border: displayedPercentage >= 100 ? 'none' : '1px solid',
-          borderColor: displayedPercentage >= 100 ? 'transparent' : '#ff9d43',
+          borderColor: displayedPercentage >= 100 ? 'transparent' : theme.colors.secondaryOrange,
         }}
       >
         {index + 1}
@@ -67,8 +76,8 @@ const PopoverViev = ({ item, index, monthName }) => {
               minHeight: '188px',
               padding: '24px 16px',
               borderRadius: '10px',
-              background: '#FFFFFF',
-              boxShadow: '0px 4px 4px 0px rgba(64, 123, 255, 0.3)',
+              background: theme.colors.mainBg,
+              boxShadow: theme.shadows.calendarShadow,
             }}
             onMouseLeave={handleClick}
             {...TransitionProps}
