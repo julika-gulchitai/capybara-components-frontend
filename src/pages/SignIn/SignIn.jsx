@@ -20,7 +20,7 @@ const SignIn = () => {
 
   if (message) {
     Notify.success(
-      t('signIn.You have activated your account. Now you can login.'),
+      t('signIn.message'),
       {
         timeout: 5000,
         width: '460px',
