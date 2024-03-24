@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { format, subHours } from 'date-fns';
-import { getLocaleTime } from '../../services/getLocaleTime';
 import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
 import 'rc-time-picker/assets/index.css';
@@ -34,9 +33,7 @@ const EditWaterModal = ({ onClose, id }) => {
   const dispatch = useDispatch();
 
   const waterVolumes = useSelector(selectNotes);
-  const waterPortion = waterVolumes.find(
-    (portion) => portion._id === id
-  );
+  const waterPortion = waterVolumes.find((portion) => portion._id === id);
 
   const [localWaterAmount, setLocalWaterAmount] = useState(
     waterPortion.waterAmount
@@ -49,7 +46,7 @@ const EditWaterModal = ({ onClose, id }) => {
   } = useFormik({
     initialValues: {
       waterAmount: waterPortion.waterAmount.toString(),
-      date: `${getLocaleTime(waterPortion.date)}`,
+      date: moment().format('HH:mm'),
     },
     onSubmit: (values) => {
       dispatch(
