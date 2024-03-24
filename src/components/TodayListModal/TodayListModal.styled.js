@@ -207,10 +207,11 @@ export const GlassStyle = styled(Glass)`
 `;
 
 export const TextAmount = styled.p`
-  color: ${(props) => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.textColor};
   font-size: 18px;
   line-height: 1.3;
   margin-right: 4px;
+  margin-bottom: 12px;
 `;
 
 export const TimeValue = styled.p`

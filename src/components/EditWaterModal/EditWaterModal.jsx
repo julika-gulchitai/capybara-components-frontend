@@ -24,6 +24,7 @@ import {
   GlassContainer,
   TimeValue,
   StyledTP,
+  TextAm,
 } from './EditWaterModal.styled.js';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
@@ -103,7 +104,7 @@ const EditWaterModal = ({ onClose, id }) => {
       </GlassContainer>
 
       <EditWaterText>Correct entered data</EditWaterText>
-      <TextAmount>{t('addModal.Amount of water')}:</TextAmount>
+      <TextAm>{t('addModal.Amount of water')}:</TextAm>
 
       <ButtonWrapper>
         <button onClick={handleReduceWaterAmount} name="minus" type="button">
