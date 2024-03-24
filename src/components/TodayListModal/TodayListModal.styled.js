@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ReactComponent as IconMinus } from '../../assets/icon/minus-small.svg';
 import { ReactComponent as IconPlus } from '../../assets/icon/plus-small.svg';
 import { ReactComponent as Glass } from '../../assets/icon/glass.svg';
+import TimePicker from 'rc-time-picker';
 
 export const StyledAddWaterModal = styled.div`
   width: 100vw;
@@ -215,4 +216,9 @@ export const TextAmount = styled.p`
 export const TimeValue = styled.p`
   font-size: 12px;
   line-height: 2;
+`;
+export const StyledTimePicker = styled(TimePicker)`
+  & .rc-time-picker-input {
+    height: 44px;
+  }
 `;

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
-import TimePicker from 'rc-time-picker';
 import moment from 'moment';
 import 'rc-time-picker/assets/index.css';
 import { format } from 'date-fns';
@@ -20,6 +19,7 @@ import {
   FormStyled,
   ButtonSaveWrapper,
   StyledAddWaterModal,
+  StyledTimePicker,
 } from './TodayListModal.styled';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
@@ -94,7 +94,7 @@ const TodayListModal = ({ onClose }) => {
       <FormStyled>
         <label>
           {t('addModal.Recording time')}:
-          <TimePicker
+          <StyledTimePicker
             defaultValue={moment(date, 'HH:mm')}
             showSecond={false}
             minuteStep={5}

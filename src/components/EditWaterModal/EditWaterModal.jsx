@@ -5,7 +5,6 @@ import { format, subHours } from 'date-fns';
 import { getLocaleTime } from '../../services/getLocaleTime';
 import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
-import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
 
@@ -25,6 +24,7 @@ import {
   GlassStyle,
   GlassContainer,
   TimeValue,
+  StyledTP,
 } from './EditWaterModal.styled.js';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
@@ -124,7 +124,7 @@ const EditWaterModal = ({ onClose, id }) => {
       <FormStyled>
         <label>
           {t('addModal.Recording time')}:
-          <TimePicker
+          <StyledTP
             defaultValue={moment(date, 'HH:mm')}
             showSecond={false}
             minuteStep={5}
