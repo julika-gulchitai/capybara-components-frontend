@@ -226,7 +226,7 @@ export const GlassContainer = styled.div`
   gap: 12px;
   background-color: ${(props) => props.theme.colors.secondaryBg};
   margin-bottom: 24px;
-`;
+  `;
 
 export const TextAmount = styled.p`
   color: ${(props) => props.theme.colors.primaryBlue};
@@ -236,8 +236,17 @@ export const TextAmount = styled.p`
 `;
 
 export const TimeValue = styled.p`
+color: ${(props) => props.theme.colors.textColor};
   font-size: 12px;
   line-height: 2;
+`;
+
+export const TextAm = styled.p`
+color: ${(props) => props.theme.colors.textColor};
+font-size: 18px;
+line-height: 1.3;
+margin-right: 4px;
+margin-bottom: 12px;
 `;
 
 export const StyledTP = styled(TimePicker)`
