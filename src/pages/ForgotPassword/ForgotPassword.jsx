@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   const schema = yup
     .object()
     .shape({
-      email: yup.string().required(t('forgotPass.Email is required')),
+      email: yup.string().required(t('forgotPass.email')),
     })
     .required();
 
@@ -36,7 +36,7 @@ const ForgotPassword = () => {
       .unwrap()
       .then(() => {
         Notify.success(
-          t('forgotPass.Password reset link is sent to your email!'),
+          t('forgotPass.success-msg'),
           {
             timeout: 3000,
             width: '300px',
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
       });
     if (!user) {
       Notify.warning(
-        t('forgotPass.Please enter your correct email'),
+        t('forgotPass.wrong-email-msg'),
         paramsForNotify
       );
       return;

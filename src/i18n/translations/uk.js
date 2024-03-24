@@ -87,10 +87,9 @@ export const uk = {
         "Enter the value of the water used": "Вкажіть кількість випитої води",
     },
     forgotPass: {
-        "Email is required": "Адреса електронної пошти є обов'язковою",
-        "Password reset link is sent to your email!": "Посилання для зміни пароля надіслано на вашу електронну адресу!",
-        "Please enter your correct email": "Будь ласка, введіть правильну адресу електронної пошти",
-
+        "email": "Адреса електронної пошти є обов'язковою",
+        "success-msg": "Посилання для зміни пароля надіслано на вашу електронну адресу!",
+        "wrong-email-msg": "Будь ласка, введіть правильну адресу електронної пошти",
     },
     resetPass: {
         "Password must be at least 8 characters": "Пароль має бути не менше 8 символів",
@@ -101,7 +100,7 @@ export const uk = {
         "Enter your new password": "Введіть свій новий пароль",
     },
     signIn: {
-        "You have activated your account. Now you can login.": "Ви активували свій акаунт. Тепер ви можете увійти.",
+        "message": "Ви активували свій акаунт. Тепер ви можете увійти.",
     },
     auth: {
         "Please write valid email": "Будь ласка, напишіть дійсну електронну адресу",
