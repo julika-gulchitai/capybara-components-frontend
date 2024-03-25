@@ -56,7 +56,7 @@ const WaterRatioPanel = () => {
         <Percentage $rater={currentPersent}>
           <span>0%</span>
           <span>50%</span>
-          <span>100%</span>
+          <span>{currentPersent}%</span>
         </Percentage>
       </RatioScale>
       <AddBtn onClick={(event) => handleOpenModalTodayListAdd(event)}>
