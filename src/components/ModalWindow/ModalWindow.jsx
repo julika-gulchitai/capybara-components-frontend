@@ -43,7 +43,7 @@ const ModalWindow = ({ onClose, children }) => {
         {children}
         <ModalButtonClose onClick={onClose}>
           <StyledIconWrapper>
-            <use href={`${sprite}#x-mark`} />
+            <use href={`${sprite}#icon-close`} />
           </StyledIconWrapper>
         </ModalButtonClose>
       </ModalContent>

@@ -114,12 +114,19 @@ export const StyledWatterAddBtn = styled.button`
   border: none;
   background-color: transparent;
 
+  transition: color 250ms ease-in-out;
+
   font-size: 16px;
   font-weight: 500;
+
+  &:hover, &:focus {
+    color: ${(props) => props.theme.colors.secondaryOrange};
+  }
 
   & svg {
     width: 16px;
     height: 16px;
+    fill: currentColor;
   }
 
   @media screen and (min-width: 768px) {
