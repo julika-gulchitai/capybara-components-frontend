@@ -22,7 +22,7 @@ const PopoverViev = ({ item, index, monthName }) => {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popper' : undefined;
 
-  const displayedPercentage = Math.min(100, waterVolumePercentage);
+  const displayedPercentage = waterVolumePercentage;
 
   const isLeft =
     anchorEl && anchorEl.getBoundingClientRect().left > window.innerWidth / 2;
