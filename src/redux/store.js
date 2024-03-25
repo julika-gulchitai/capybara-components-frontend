@@ -23,11 +23,19 @@ const persistUserConfig = {
 
 const persistedUser = persistReducer(persistUserConfig, userReducer);
 
+const persistGlobalConfig = {
+  key: 'global',
+  storage,
+  whitelist: ['language', 'theme']
+};
+
+const persistedGlobal = persistReducer(persistGlobalConfig, globalReducer);
+
 const store = configureStore({
   reducer: {
     user: persistedUser,
     water: waterReducer,
-    global: globalReducer
+    global: persistedGlobal,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

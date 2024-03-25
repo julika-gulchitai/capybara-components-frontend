@@ -1,6 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-
-import { LOCALS } from '../../i18n/constants.js';
+import i18n from '../../i18n/i18n.js';
 
 import {
   editWaterRateThunk,
@@ -23,7 +22,7 @@ const initialState = {
   isLoading: false,
   error: null,
   theme: 'light',
-  language: LOCALS.EN,
+  language: i18n.language,
 };
 
 function handlePending(state) {
