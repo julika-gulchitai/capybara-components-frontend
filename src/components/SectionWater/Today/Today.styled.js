@@ -18,8 +18,7 @@ export const TodayStile = styled.h2`
 `;
 
 export const EmptyNotes = styled.p`
-font-size: 20px;
-opacity:0.7;
- color: #8baeff;
+font-size: 18px;
+ color: ${(props) => props.theme.colors.secondaryBlue};
  margin-bottom: 16px;
 `
