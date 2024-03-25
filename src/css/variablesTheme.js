@@ -3,9 +3,6 @@ import lightBgWelcomePageDsctp from '../assets/desktop/light-bg-welcome-page.svg
 import lightBgWelcomePageDeskBottle from '../assets/desktop/bg-welcome-desk-bottle.svg'
 import lightBgWelcomePageTab from '../assets/tablet/light-bg-welcome-page.svg'
 import lightBgWelcomePageMob from '../assets/mobile/light-bg-welcome-page.svg'
-import lightBgElMainPageDsctp from '../assets/desktop/background-element-main-page.svg'
-import lightBgElMainPageTab from '../assets/tablet/background-element-home-screen.svg'
-import lightBgElMainPageMob from '../assets/mobile/background-element-home-screen.svg'
 
 import lightBgHomeDesktop from '../assets/desktop/bg-home-desktop.svg'
 import lightBgHomeTab from '../assets/tablet/bg-home-tablet.svg'
@@ -20,9 +17,6 @@ import darkBgWelcomePageDsctp from '../assets/desktop/darkTheme/background-welco
 import darkBgWelcomePageDeskBottle from '../assets/desktop/darkTheme/bg-welcome-desk-bottle.svg'
 import darkBgWelcomePageTab from '../assets/tablet/darkTheme/background-welcome-page.svg'
 import darkBgWelcomePageMob from '../assets/mobile/darkTheme/background-welcome-page.svg'
-import darkBgElMainPageDsctp from '../assets/desktop/darkTheme/dark-bg-el-home-screen-desk.svg'
-import darkBgElMainPageTab from '../assets/tablet/darkTheme/dark-bg-el-home-screen-tab.svg'
-import darkBgElMainPageMob from '../assets/mobile/darkTheme/dark-bg-el-home-screen-mob.svg'
 
 import darkBgHomeDesktop from '../assets/desktop/darkTheme/bg-home-dark-desktop.svg'
 import darkBgHomeTab from '../assets/tablet/darkTheme/bg-home-dark-tablet.svg'
@@ -81,9 +75,6 @@ export const themeLight = Object.freeze({
     backgroundWelcomePageDeskBottle: lightBgWelcomePageDeskBottle,
     backgroundWelcomePageTablet: lightBgWelcomePageTab,
     backgroundWelcomePageMob: lightBgWelcomePageMob,
-    bgElemMainPageDsctp: lightBgElMainPageDsctp,
-    bgElemMainPageTab: lightBgElMainPageTab,
-    bgElemMainPageMob: lightBgElMainPageMob,
     bgHomeDesktop: lightBgHomeDesktop,
     bgHomeTab: lightBgHomeTab,
     bgHomeMob: lightBgHomeMob,
@@ -147,9 +138,6 @@ export const themeDark = Object.freeze({
     backgroundWelcomePageDeskBottle: darkBgWelcomePageDeskBottle,
     backgroundWelcomePageTablet: darkBgWelcomePageTab,
     backgroundWelcomePageMob: darkBgWelcomePageMob,
-    bgElemMainPageDsctp: darkBgElMainPageDsctp,
-    bgElemMainPageTab: darkBgElMainPageTab,
-    bgElemMainPageMob: darkBgElMainPageMob,
     bgHomeDesktop: darkBgHomeDesktop,
     bgHomeTab: darkBgHomeTab,
     bgHomeMob: darkBgHomeMob,
