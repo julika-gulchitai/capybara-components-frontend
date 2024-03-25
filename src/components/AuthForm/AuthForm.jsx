@@ -34,7 +34,7 @@ const AuthForm = ({ signUp }) => {
       email: yup
         .string()
         .email(t('auth.Please write valid email'))
-        .required(t('forgotPass.Email is required')),
+        .required(t('forgotPass.email')),
       password: yup
         .string()
         .min(8, t('resetPass.Password must be at least 8 characters'))
@@ -60,7 +60,7 @@ const AuthForm = ({ signUp }) => {
       dispatch(registerThunk(user))
         .unwrap()
         .then(() => {
-          navigate('/signin');
+          navigate('/home');
           Notify.success(
             t(
               'auth.A message with a confirmation link has been sent to your email address. Please folow the link to activate your account.'

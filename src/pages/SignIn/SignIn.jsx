@@ -12,26 +12,12 @@ import {
   Title,
   WraperForm,
 } from '../SignUp/SignUp.styled';
-import { Notify } from 'notiflix';
+
 
 const SignIn = () => {
-  const params = new URLSearchParams(window.location.search);
-  const message = params.get('message');
 
-  if (message) {
-    Notify.success(
-      t('signIn.message'),
-      {
-        timeout: 5000,
-        width: '460px',
-        height: '200px',
-        messageMaxLength: 500,
-        fontSize: '14px',
-        position: 'center-top',
-      }
-    );
-  }
-  const { t } = useTranslation();
+   const { t } = useTranslation();
+
 
   return (
     <BackgroundContainer>
