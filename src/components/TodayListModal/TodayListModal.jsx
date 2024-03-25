@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
@@ -20,11 +20,14 @@ import {
 } from './TodayListModal.styled';
 import 'rc-time-picker/assets/index.css';
 import svgSprite from '../../assets/sprite.svg';
+import {selectSelectedCalendar} from '../../redux/Water/selectors.js';
+import {doesRefreshNeeded} from '../../services/doesRefreshNeeded.js';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
 
 const TodayListModal = ({ onClose }) => {
   const dispatch = useDispatch();
+  const selectedCalendar = useSelector(selectSelectedCalendar)
 
   const { t } = useTranslation();
 
@@ -40,7 +43,10 @@ const TodayListModal = ({ onClose }) => {
       date: moment().format('HH:mm'),
     },
     onSubmit: (values) => {
-      dispatch(apiAddWaterPortion(values))
+      dispatch(apiAddWaterPortion({
+        credentials: values,
+        shouldUpdateMonth: doesRefreshNeeded(selectedCalendar)
+      }))
         .unwrap()
         .then(() => {
           onClose();

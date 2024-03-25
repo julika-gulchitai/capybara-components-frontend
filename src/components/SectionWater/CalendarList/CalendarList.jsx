@@ -24,6 +24,7 @@ import {
   TableDays,
   ButtonArrow,
 } from './CalendarList.styled';
+import {setSelectedCalendar} from '../../../redux/Water/WaterSlices.js';
 
 const currentDate = new Date();
 
@@ -47,6 +48,7 @@ const CalendarList = () => {
 
   useEffect(() => {
     dispatch(apiGetMonthWaterPortions({ year, month: month + 1 }));
+    dispatch(setSelectedCalendar({year, month }))
   }, [dispatch, year, month]);
 
   const previousMonth = () => {

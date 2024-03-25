@@ -11,15 +11,17 @@ import {
 
 export const apiAddWaterPortion = createAsyncThunk(
   'water/addWaterPortion',
-  async (credentials, thunkAPI) => {
+  async ({ credentials, shouldUpdateMonth = false }, thunkAPI) => {
     try {
       const response = await requestAddWaterData(credentials);
-      thunkAPI.dispatch(
-        apiGetMonthWaterPortions({
-          month: format(new Date(), 'LL'),
-          year: format(new Date(), 'yyyy'),
-        })
-      );
+        if (shouldUpdateMonth) {
+            thunkAPI.dispatch(
+                apiGetMonthWaterPortions({
+                    month: format(new Date(), 'LL'),
+                    year: format(new Date(), 'yyyy'),
+                })
+            );
+        }
       return response;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -29,15 +31,17 @@ export const apiAddWaterPortion = createAsyncThunk(
 
 export const apiDeleteWaterPortion = createAsyncThunk(
   'water/deleteWaterPortion',
-  async (portionId, thunkAPI) => {
+  async ({ portionId, shouldUpdateMonth = false }, thunkAPI) => {
     try {
       await requestDeleteWaterData(portionId);
-      thunkAPI.dispatch(
-        apiGetMonthWaterPortions({
-          month: format(new Date(), 'LL'),
-          year: format(new Date(), 'yyyy'),
-        })
-      );
+        if (shouldUpdateMonth) {
+            thunkAPI.dispatch(
+                apiGetMonthWaterPortions({
+                    month: format(new Date(), 'LL'),
+                    year: format(new Date(), 'yyyy'),
+                })
+            );
+        }
       return portionId;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -78,15 +82,17 @@ export const apiGetMonthWaterPortions = createAsyncThunk(
 
 export const apiEditWaterPortion = createAsyncThunk(
   'water/apiEditWaterPortion',
-  async ({ portionId, credentials }, thunkAPI) => {
+  async ({ portionId, credentials, shouldUpdateMonth = false }, thunkAPI) => {
     try {
       const response = await requestEditWaterData(portionId, credentials);
-      thunkAPI.dispatch(
-        apiGetMonthWaterPortions({
-          month: format(new Date(), 'LL'),
-          year: format(new Date(), 'yyyy'),
-        })
-      );
+      if (shouldUpdateMonth) {
+          thunkAPI.dispatch(
+              apiGetMonthWaterPortions({
+                  month: format(new Date(), 'LL'),
+                  year: format(new Date(), 'yyyy'),
+              })
+          );
+      }
 
       return response;
     } catch (e) {
