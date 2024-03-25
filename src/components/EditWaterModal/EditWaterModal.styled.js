@@ -60,17 +60,19 @@ export const ButtonWrapper = styled.div`
 
     cursor: pointer;
 
-    transition: color 250ms ease-in-out,
-    border-color 250ms ease-in-out,
-    box-shadow 250ms ease-in-out;
+    transition:
+      color 250ms ease-in-out,
+      border-color 250ms ease-in-out,
+      box-shadow 250ms ease-in-out;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: ${(props) => props.theme.colors.secondaryOrange};
       border-color: ${(props) => props.theme.colors.secondaryOrange};
       box-shadow: ${(props) => props.theme.shadows.buttonShadow};
     }
 
-    svg{
+    svg {
       fill: currentColor;
       width: 24px;
       height: 24px;
@@ -127,12 +129,13 @@ export const FormStyled = styled.form`
 
     @media screen and (min-width: 768px) {
       width: 544px;
-  }
+    }
 
-  label:nth-child(2) {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.1;
+    label:nth-child(2) {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
   }
 `;
 
@@ -179,8 +182,9 @@ export const ButtonSaveWrapper = styled.div`
 
     transition: box-shadow 250ms ease-in-out;
 
-    &:hover, &:focus {
-      box-shadow: ${props => props.theme.hovers.buttonShadow};
+    &:hover,
+    &:focus {
+      box-shadow: ${(props) => props.theme.hovers.buttonShadow};
     }
 
     &:active {
@@ -239,14 +243,13 @@ export const StyledTP = styled(TimePicker)`
 
   & .rc-time-picker-input {
     height: 44px;
-    border: 1px solid ${props => props.theme.colors.secondaryLightblue};
+    border: 1px solid ${(props) => props.theme.colors.secondaryLightblue};
     border-radius: 6px;
     padding: 12px 10px;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
-    color: ${props => props.theme.colors.primaryBlue};
-
+    color: ${(props) => props.theme.colors.primaryBlue};
   }
 
   & .rc-time-picker-clear {
