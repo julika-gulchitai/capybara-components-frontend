@@ -7,7 +7,7 @@ import moment from 'moment';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
-import { selectNotes } from '../../redux/Water/selectors.js';
+import {selectNotes, selectSelectedCalendar} from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
 
 import 'rc-time-picker/assets/index.css';
@@ -27,12 +27,14 @@ import {
   StyledTP,
   TextAm,
 } from './EditWaterModal.styled.js';
+import {doesRefreshNeeded} from '../../services/doesRefreshNeeded.js';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
 
 const EditWaterModal = ({ onClose, id }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const selectedCalendar = useSelector(selectSelectedCalendar)
 
   const waterVolumes = useSelector(selectNotes);
   const waterPortion = waterVolumes.find((portion) => portion._id === id);
@@ -55,6 +57,7 @@ const EditWaterModal = ({ onClose, id }) => {
         apiEditWaterPortion({
           portionId: id,
           credentials: values,
+          shouldUpdateMonth: doesRefreshNeeded(selectedCalendar)
         })
       )
         .unwrap()

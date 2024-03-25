@@ -61,7 +61,7 @@ const WaterRatioPanel = () => {
       </RatioScale>
       <AddBtn onClick={(event) => handleOpenModalTodayListAdd(event)}>
         <svg width={24} height={24}>
-          <use href={`${sprite}#plus-circle`} />
+          <use href={`${sprite}#icon-plus-in-circle`} />
         </svg>
         {t('addWater')}
       </AddBtn>

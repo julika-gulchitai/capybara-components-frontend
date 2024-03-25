@@ -1,17 +1,23 @@
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import { useTranslation } from 'react-i18next';
 
 import { apiDeleteWaterPortion } from '../../redux/Water/WaterThunks';
 
 import { StyledDeleteModal } from './DeleteModal.styled';
+import {selectSelectedCalendar} from '../../redux/Water/selectors.js';
+import {doesRefreshNeeded} from '../../services/doesRefreshNeeded.js';
 
 const DeleteModal = ({ onClose, id }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const selectedCalendar = useSelector(selectSelectedCalendar)
 
   function handleDelete() {
-    dispatch(apiDeleteWaterPortion(id))
+    dispatch(apiDeleteWaterPortion({
+        portionId: id,
+        shouldUpdateMonth: doesRefreshNeeded(selectedCalendar)
+    }))
       .unwrap()
       .then(() => onClose());
   }
