@@ -36,7 +36,7 @@ const WaterRatioPanel = () => {
   };
 
   useEffect(() => {
-    setCurrentPersent(Math.round(waterVolumSum / waterRate) * 100);
+    setCurrentPersent(Math.round((waterVolumSum / waterRate) * 100));
   }, [waterRate, waterVolumSum]);
 
   const handleCloseModalTodayList = () => {
