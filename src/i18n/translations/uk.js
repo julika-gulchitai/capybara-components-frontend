@@ -73,7 +73,7 @@ export const uk = {
         "Weight must be less than 300kg": "Вага повинна бути менша ніж 300кг",
         "Time must be a number": "Час повинен бути числом",
         "Time must be more than 0": "Час повинен бути більшим за 0",
-        "L": "Л",
+        "L": "л",
     },
     dayStatistics: {
         "Daily norma": "Денна норма",
