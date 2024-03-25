@@ -1,4 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Controller, useForm } from 'react-hook-form';
+import { useMediaQuery } from 'react-responsive';
+
+import { FormControlLabel, Radio } from '@mui/material';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
+import Notiflix from 'notiflix';
+
+import { paramsForNotify } from '../../constants/notifications.js';
+
+import { updateUserThunk } from '../../redux/User/UserThunks.js';
+import { selectUser } from '../../redux/User/selectors.js';
+import { selectTheme } from '../../redux/global/selectors.js';
+
+import PasswordInput from '../PasswordInput.jsx';
+import TextInput from '../TextInput.jsx';
+
 import {
   AvatarWrapper,
   AvatarBlock,
@@ -14,30 +34,16 @@ import {
   SettingsContainer,
   SettingsHeader,
 } from './SettingModal.styled.jsx';
-import defaultAvatar from '../../assets/images/default_avatar.webp';
-import PasswordInput from '../PasswordInput.jsx';
-import svgSprite from '../../assets/sprite.svg';
-import { FormControlLabel, Radio } from '@mui/material';
-import { Controller, useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import TextInput from '../TextInput.jsx';
-import { useMediaQuery } from 'react-responsive';
-import Notiflix from 'notiflix';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '../../redux/User/selectors.js';
-import { updateUserThunk } from '../../redux/User/UserThunks.js';
-import { paramsForNotify } from '../../constants/notifications.js';
-import '../../i18n/i18n.js';
-import { useTranslation } from 'react-i18next';
-import { selectTheme } from '../../redux/global/selectors.js';
 import { themeDark, themeLight } from '../../css/variablesTheme.js';
+
+import defaultAvatar from '../../assets/images/default_avatar.webp';
+import svgSprite from '../../assets/sprite.svg';
 
 function SettingModal({ close }) {
   const { username, email, gender, avatarURL } = useSelector(selectUser);
 
   const currentTheme = useSelector(selectTheme);
-  const theme = (currentTheme === 'dark') ? themeDark : themeLight;
+  const theme = currentTheme === 'dark' ? themeDark : themeLight;
 
   const dispatch = useDispatch();
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
@@ -81,9 +87,9 @@ function SettingModal({ close }) {
         .when('new_password', (new_password, field) =>
           new_password
             ? field.oneOf(
-              [yup.ref('new_password')],
-              t("settingModal.Passwords don't match!")
-            )
+                [yup.ref('new_password')],
+                t("settingModal.Passwords don't match!")
+              )
             : field
         ),
     })
@@ -179,8 +185,7 @@ function SettingModal({ close }) {
         close();
       })
       .catch((error) => {
-        console.log(error);
-        Notiflix.Notify.failure(error.message, paramsForNotify);
+        Notiflix.Notify.failure(error, paramsForNotify);
       });
   }
 

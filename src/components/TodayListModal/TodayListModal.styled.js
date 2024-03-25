@@ -1,18 +1,13 @@
 import styled from 'styled-components';
-import { ReactComponent as IconMinus } from '../../assets/icon/minus-small.svg';
-import { ReactComponent as IconPlus } from '../../assets/icon/plus-small.svg';
-import { ReactComponent as Glass } from '../../assets/icon/glass.svg';
 import TimePicker from 'rc-time-picker';
 
 export const StyledAddWaterModal = styled.div`
-  width: 100vw;
-  max-width: calc(280px - 24px);
   @media only screen and (min-width: 768px) {
-    max-width: calc(704px - 48px);
+    width: 656px;
   }
 
   @media only screen and (min-width: 1440px) {
-    max-width: calc(592px - 48px);
+    width: auto;
   }
 `;
 
@@ -28,12 +23,6 @@ export const TextChoose = styled.div`
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 16px;
-`;
-
-export const FormAmount = styled.p`
-  font-size: 16px;
-  line-height: 1.2;
-  margin-bottom: 12px;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -58,8 +47,27 @@ export const ButtonWrapper = styled.div`
     border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
     background: ${(props) => props.theme.colors.mainBg};
     box-shadow: ${(props) => props.theme.shadows.secondaryButtonShadow};
+    color: ${(props) => props.theme.colors.primaryBlue};
 
     cursor: pointer;
+
+    transition:
+      color 250ms ease-in-out,
+      border-color 250ms ease-in-out,
+      box-shadow 250ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.colors.secondaryOrange};
+      border-color: ${(props) => props.theme.colors.secondaryOrange};
+      box-shadow: ${(props) => props.theme.shadows.buttonShadow};
+    }
+
+    svg {
+      fill: currentColor;
+      width: 24px;
+      height: 24px;
+    }
   }
 
   span {
@@ -83,20 +91,10 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-export const StyledPlusIcon = styled(IconPlus)`
-  stroke: ${(props) => props.theme.colors.primaryBlue};
-  width: 27px;
-  height: 27px;
-`;
-
-export const StyledMinusIcon = styled(IconMinus)`
-  stroke: ${(props) => props.theme.colors.primaryBlue};
-  fill: ${(props) => props.theme.colors.primaryBlue};
-`;
-
 export const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
+  gap: 24px;
 
   label {
     display: flex;
@@ -109,29 +107,25 @@ export const FormStyled = styled.form`
     align-items: flex-start;
     gap: 10px;
     padding: 12px 10px;
-    margin-bottom: 24px;
 
     outline: none;
     border-radius: 6px;
-    border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
+    border: 1px solid ${(props) => props.theme.colors.secondaryLightblue};
     appearance: none;
     color: ${(props) => props.theme.colors.primaryBlue};
     background-color: ${(props) => props.theme.colors.mainBg};
     font-size: 16px;
     line-height: 1.25;
     text-align: left;
-  }
 
-  label:nth-child(2) {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.1;
-  }
+    @media screen and (min-width: 768px) {
+      width: 544px;
+    }
 
-  @media screen and (min-width: 768px) {
-    input,
-    select {
-      width: 100%;
+    label:nth-child(2) {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.1;
     }
   }
 `;
@@ -145,7 +139,7 @@ export const ButtonSaveWrapper = styled.div`
   gap: 16px;
 
   p {
-    color: --blue;
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-size: 18px;
     font-weight: 700;
     align-items: center;
@@ -176,6 +170,17 @@ export const ButtonSaveWrapper = styled.div`
     line-height: 1.33;
 
     cursor: pointer;
+
+    transition: box-shadow 250ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      box-shadow: ${(props) => props.theme.hovers.buttonShadow};
+    }
+
+    &:active {
+      box-shadow: none;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -190,22 +195,6 @@ export const ButtonSaveWrapper = styled.div`
   }
 `;
 
-export const GlassContainer = styled.div`
-  width: 254px;
-  display: flex;
-  align-items: center;
-  padding: 8px 24px;
-  border-radius: 10px;
-  gap: 12px;
-  background-color: ${(props) => props.theme.colors.secondaryBg};
-  margin-bottom: 24px;
-`;
-
-export const GlassStyle = styled(Glass)`
-  width: 36px;
-  height: 36px;
-`;
-
 export const TextAmount = styled.p`
   color: ${(props) => props.theme.colors.textColor};
   font-size: 18px;
@@ -214,15 +203,22 @@ export const TextAmount = styled.p`
   margin-bottom: 12px;
 `;
 
-export const TimeValue = styled.p`
-  font-size: 12px;
-  line-height: 2;
-`;
 export const StyledTimePicker = styled(TimePicker)`
+  &.rc-time-picker {
+    max-width: 544px;
+  }
+
   & .rc-time-picker-input {
     height: 44px;
+    border: 1px solid ${(props) => props.theme.colors.secondaryLightblue};
+    border-radius: 6px;
+    padding: 12px 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: ${(props) => props.theme.colors.primaryBlue};
   }
-  
+
   & .rc-time-picker-clear {
     top: 10px;
   }

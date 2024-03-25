@@ -1,14 +1,22 @@
 import { useEffect, useState } from 'react';
-import { AvatarWrapper, StyledPopover, UserMenuButton } from './UserLogo.styled.jsx';
-import svgSprite from '../../assets/sprite.svg';
+import { useSelector } from 'react-redux';
+
+import { selectUser } from '../../redux/User/selectors.js';
+import { selectTheme } from '../../redux/global/selectors.js';
+
 import UserLogoModal from '../UserLogoModal/UserLogoModal.jsx';
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
-import SettingModal from '../SettingModal/SettingModal.jsx';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/User/selectors.js';
 import UserLogoutModal from '../UserLogoutModal/UserLogoutModal.jsx';
-import { selectTheme } from '../../redux/global/selectors.js';
+import SettingModal from '../SettingModal/SettingModal.jsx';
+
+import {
+  AvatarWrapper,
+  StyledPopover,
+  UserMenuButton,
+} from './UserLogo.styled.jsx';
 import { themeDark, themeLight } from '../../css/variablesTheme.js';
+
+import svgSprite from '../../assets/sprite.svg';
 
 function UserLogo() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
@@ -17,10 +25,10 @@ function UserLogo() {
   const { username, email, avatarURL } = useSelector(selectUser);
 
   const currentTheme = useSelector(selectTheme);
-  const [theme, setTheme] = useState(themeLight)
+  const [theme, setTheme] = useState(themeLight);
   useEffect(() => {
-    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
-  }, [currentTheme, theme])
+    currentTheme === 'dark' ? setTheme(themeDark) : setTheme(themeLight);
+  }, [currentTheme, theme]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -42,7 +50,9 @@ function UserLogo() {
     <>
       <UserMenuButton onClick={handleClick}>
         {username && <span>{username}</span>}
-        <AvatarWrapper $borderColor={avatarURL ? 'transparent' : theme.colors.textColor}>
+        <AvatarWrapper
+          $borderColor={avatarURL ? 'transparent' : theme.colors.textColor}
+        >
           {avatarURL ? (
             <img src={avatarURL} width={28} height={28} alt="user avatar" />
           ) : username ? (
@@ -65,7 +75,6 @@ function UserLogo() {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-
       >
         <UserLogoModal
           closeMenu={() => {
@@ -88,8 +97,7 @@ function UserLogo() {
             <UserLogoutModal close={() => setIsLogOutModalOpen(false)} />
           )}
         </ModalWindow>
-      )
-      }
+      )}
     </>
   );
 }

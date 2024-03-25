@@ -1,34 +1,41 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import Popper from '@mui/material/Popper';
 import Box from '@mui/material/Typography';
-import DayStatistics from '../DayStatistics/DayStatistics';
-import { StyledBtn, StyleWrapperDay, Percentage } from './PopoverViev.styled';
-import { useSelector } from 'react-redux';
+
 import { selectTheme } from '../../../redux/global/selectors';
+
+import DayStatistics from '../DayStatistics/DayStatistics';
+
 import { themeDark, themeLight } from '../../../css/variablesTheme';
+import { StyledBtn, StyleWrapperDay, Percentage } from './PopoverViev.styled';
 
 const PopoverViev = ({ item, index, monthName }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { waterVolumePercentage } = item;
 
   const handleClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+    if (waterVolumePercentage === 0) {
+      setAnchorEl(null);
+    } else {
+      setAnchorEl(anchorEl ? null : event.currentTarget);
+    }
   };
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popper' : undefined;
 
-  const displayedPercentage = Math.min(100, waterVolumePercentage);
+  const displayedPercentage = waterVolumePercentage;
 
-  // Determine if Popper is positioned to the left or right of the anchor element
   const isLeft =
     anchorEl && anchorEl.getBoundingClientRect().left > window.innerWidth / 2;
 
   const currentTheme = useSelector(selectTheme);
-  const [theme, setTheme] = useState(themeLight)
+  const [theme, setTheme] = useState(themeLight);
   useEffect(() => {
-    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
-  }, [currentTheme, theme])
+    currentTheme === 'dark' ? setTheme(themeDark) : setTheme(themeLight);
+  }, [currentTheme, theme]);
 
   return (
     <StyleWrapperDay>
@@ -37,8 +44,12 @@ const PopoverViev = ({ item, index, monthName }) => {
         onMouseEnter={handleClick}
         onMouseLeave={handleClick}
         style={{
-          border: displayedPercentage >= 100 ? 'none' : '1px solid',
-          borderColor: displayedPercentage >= 100 ? 'transparent' : theme.colors.secondaryOrange,
+          borderWidth: displayedPercentage === 0 ? 0 : 1,
+          borderStyle: 'solid',
+          borderColor:
+            displayedPercentage >= 100
+              ? 'transparent'
+              : theme.colors.secondaryOrange,
         }}
       >
         {index + 1}

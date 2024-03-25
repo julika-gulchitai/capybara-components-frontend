@@ -1,4 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import i18n from '../../i18n/i18n.js';
+
 import {
   editWaterRateThunk,
   forgotPassword,
@@ -15,13 +17,12 @@ import {
   apiGetMonthWaterPortions,
   apiGetTodayWaterPortions,
 } from '../Water/WaterThunks.js';
-import { LOCALS } from '../../i18n/constants.js';
 
 const initialState = {
   isLoading: false,
   error: null,
   theme: 'light',
-  language: LOCALS.EN,
+  language: i18n.language,
 };
 
 function handlePending(state) {

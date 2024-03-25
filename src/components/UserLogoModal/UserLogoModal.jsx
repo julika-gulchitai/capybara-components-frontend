@@ -1,12 +1,15 @@
-import { MenuButton, MenuContainer } from './UserLogoModal.styled.jsx';
-import svgSprite from '../../assets/sprite.svg';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 import { Notify } from 'notiflix';
+
 import {
   NOTIFICATIONS,
   paramsForNotify,
 } from '../../constants/notifications.js';
+
+import { MenuButton, MenuContainer } from './UserLogoModal.styled.jsx';
+
+import svgSprite from '../../assets/sprite.svg';
 
 function UserLogoModal({ openSettings, openLogOut, closeMenu }) {
   const { t } = useTranslation();

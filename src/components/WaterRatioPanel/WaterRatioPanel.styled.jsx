@@ -140,8 +140,7 @@ export const AddBtn = styled(ButtonStyled)`
   margin-top: 8px;
 
   svg {
-    fill: none;
-    stroke: ${(props) => props.theme.colors.mainBg};
+    fill: ${(props) => props.theme.colors.mainBg};
   }
 
   @media screen and (min-width: 768px) {

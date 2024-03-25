@@ -1,30 +1,33 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
-import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
-import moment from 'moment';
-import 'rc-time-picker/assets/index.css';
+import { useDispatch, useSelector } from 'react-redux';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+import { useFormik } from 'formik';
+import moment from 'moment';
+
+import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
 
 import {
   AddWater,
   TextChoose,
   TextAmount,
-  StyledPlusIcon,
-  StyledMinusIcon,
   ButtonWrapper,
   FormStyled,
   ButtonSaveWrapper,
   StyledAddWaterModal,
   StyledTimePicker,
 } from './TodayListModal.styled';
+import 'rc-time-picker/assets/index.css';
+import svgSprite from '../../assets/sprite.svg';
+import { selectSelectedCalendar } from '../../redux/Water/selectors.js';
+import { doesRefreshNeeded } from '../../services/doesRefreshNeeded.js';
 
-const WATER_AMOUNT_DIFFERENCE = 20;
+const WATER_AMOUNT_DIFFERENCE = 50;
 
 const TodayListModal = ({ onClose }) => {
   const dispatch = useDispatch();
+  const selectedCalendar = useSelector(selectSelectedCalendar);
 
   const { t } = useTranslation();
 
@@ -40,7 +43,12 @@ const TodayListModal = ({ onClose }) => {
       date: moment().format('HH:mm'),
     },
     onSubmit: (values) => {
-      dispatch(apiAddWaterPortion(values))
+      dispatch(
+        apiAddWaterPortion({
+          credentials: values,
+          shouldUpdateMonth: doesRefreshNeeded(selectedCalendar),
+        })
+      )
         .unwrap()
         .then(() => {
           onClose();
@@ -71,6 +79,12 @@ const TodayListModal = ({ onClose }) => {
     setLocalWaterAmount(newWaterAmounter <= 0 ? 0 : newWaterAmounter);
   };
 
+  function handleValueChange(value) {
+    setLocalWaterAmount(
+      Number.parseInt(!isNaN(Number.parseInt(value)) ? value : 0)
+    );
+  }
+
   return (
     <StyledAddWaterModal onSubmit={handleSubmit}>
       <AddWater>{t('addWater')}</AddWater>
@@ -79,14 +93,18 @@ const TodayListModal = ({ onClose }) => {
 
       <ButtonWrapper>
         <button onClick={handleReduceWaterAmount} name="minus" type="button">
-          <StyledMinusIcon aria-label="minus_button" />{' '}
+          <svg>
+            <use href={`${svgSprite}#icon-minus`} />
+          </svg>
         </button>
         <span className="water-amount-value">
           {waterAmount}
           {t('ml')}
         </span>
         <button onClick={handleAddWaterAmount} name="plus" type="button">
-          <StyledPlusIcon aria-label="plus_button" />{' '}
+          <svg>
+            <use href={`${svgSprite}#icon-plus`} />
+          </svg>
         </button>
       </ButtonWrapper>
 
@@ -110,9 +128,7 @@ const TodayListModal = ({ onClose }) => {
             name="number"
             value={localWaterAmount}
             onBlur={handleBlur}
-            onChange={({ target: { value } }) =>
-              setLocalWaterAmount(Number.parseInt(value))
-            }
+            onChange={({ target: { value } }) => handleValueChange(value)}
           />
           {errors.waterAmount ? <div>{errors.waterAmount}</div> : null}
         </label>

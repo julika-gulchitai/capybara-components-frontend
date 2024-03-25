@@ -42,6 +42,16 @@ export const ModalButtonClose = styled.button`
   @media only screen and (min-width: 1440px) {
     top: 36px;
   }
+  
+  transition: color 250ms ease-in-out;
+  
+  &:hover, &:focus{
+    color: ${(props) => props.theme.colors.secondaryOrange};
+  }
+  
+  svg{
+    fill:currentColor;
+  }
 `;
 
 export const StyledIconWrapper = styled.svg`

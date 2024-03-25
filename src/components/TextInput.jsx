@@ -1,8 +1,17 @@
 import { useEffect, useState } from 'react';
-import { createTheme, FormControl, FormHelperText, OutlinedInput, ThemeProvider } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { themeDark, themeLight } from '../css/variablesTheme.js';
+
+import {
+  createTheme,
+  FormControl,
+  FormHelperText,
+  OutlinedInput,
+  ThemeProvider,
+} from '@mui/material';
+
 import { selectTheme } from '../redux/global/selectors.js';
+
+import { themeDark, themeLight } from '../css/variablesTheme.js';
 
 function TextInput({
   type,
@@ -12,14 +21,13 @@ function TextInput({
   error,
   placeholder,
   defaultValue,
-  autoComplete = 'on'
+  autoComplete = 'on',
 }) {
-
   const currentTheme = useSelector(selectTheme);
-  const [theme, setTheme] = useState(themeLight)
+  const [theme, setTheme] = useState(themeLight);
   useEffect(() => {
-    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
-  }, [currentTheme, theme])
+    currentTheme === 'dark' ? setTheme(themeDark) : setTheme(themeLight);
+  }, [currentTheme, theme]);
 
   const themeText = createTheme({
     components: {
@@ -29,24 +37,28 @@ function TextInput({
             '&:hover': {
               '.MuiOutlinedInput-notchedOutline': {
                 border: '1px solid',
-                borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue,
-              }
+                borderColor: error
+                  ? theme.colors.secondaryRed
+                  : theme.colors.secondaryLightblue,
+              },
             },
 
             '&.Mui-focused': {
               '.MuiOutlinedInput-notchedOutline': {
                 border: '1px solid',
-                borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue,
-              }
+                borderColor: error
+                  ? theme.colors.secondaryRed
+                  : theme.colors.secondaryLightblue,
+              },
             },
 
             backgroundColor: theme.colors.mainBg,
             width: `${width}px`,
             height: '44px',
 
-            "& input::placeholder": {
+            '& input::placeholder': {
               color: theme.colors.secondaryBlue,
-              opacity: 1
+              opacity: 1,
             },
 
             '.MuiOutlinedInput-notchedOutline': {
@@ -54,29 +66,30 @@ function TextInput({
               boxSizing: 'border-box',
               borderRadius: '6px',
               border: '1px solid',
-              borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue,
+              borderColor: error
+                ? theme.colors.secondaryRed
+                : theme.colors.secondaryLightblue,
               m: 0,
             },
             '& .MuiOutlinedInput-input': {
               lineHeight: '1.25',
-              color: error ? theme.colors.secondaryRed : theme.colors.primaryBlue,
+              color: error
+                ? theme.colors.secondaryRed
+                : theme.colors.primaryBlue,
               fontSize: 16,
               height: '44px',
               padding: '12px 10px',
-              boxSizing: 'border-box'
-            }
-          }
-        }
-      }
-    }
+              boxSizing: 'border-box',
+            },
+          },
+        },
+      },
+    },
   });
 
   return (
     <ThemeProvider theme={themeText}>
-      <FormControl
-        autoComplete={autoComplete}
-        variant="outlined"
-      >
+      <FormControl autoComplete={autoComplete} variant="outlined">
         <OutlinedInput
           {...register(id)}
           autoComplete={autoComplete}
@@ -93,8 +106,8 @@ function TextInput({
               margin: '0px',
               color: theme.colors.secondaryRed,
               height: '15px',
-              marginTop: '-3px'
-            }
+              marginTop: '-3px',
+            },
           }}
         >
           {error?.message}

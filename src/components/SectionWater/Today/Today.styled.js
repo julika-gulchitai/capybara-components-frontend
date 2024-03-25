@@ -16,3 +16,9 @@ export const TodayStile = styled.h2`
     line-height: 1.23;
   }
 `;
+
+export const EmptyNotes = styled.p`
+font-size: 18px;
+ color: ${(props) => props.theme.colors.secondaryBlue};
+ margin-bottom: 16px;
+`

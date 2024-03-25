@@ -1,18 +1,19 @@
-import { ThreeDots } from 'react-loader-spinner';
-import { Loading } from './Loader.styled';
-// import theme from '../../css/VariablesJSX'
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../redux/global/selectors';
 import { useEffect, useState } from 'react';
-import { themeDark, themeLight } from '../../css/variablesTheme';
+import { useSelector } from 'react-redux';
 
+import { ThreeDots } from 'react-loader-spinner';
+
+import { selectTheme } from '../../redux/global/selectors';
+
+import { themeDark, themeLight } from '../../css/variablesTheme';
+import { Loading } from './Loader.styled';
 
 export const Loader = ({ visible }) => {
   const currentTheme = useSelector(selectTheme);
-  const [theme, setTheme] = useState(themeLight)
+  const [theme, setTheme] = useState(themeLight);
   useEffect(() => {
-    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
-  }, [currentTheme, theme])
+    currentTheme === 'dark' ? setTheme(themeDark) : setTheme(themeLight);
+  }, [currentTheme, theme]);
 
   return (
     <Loading>

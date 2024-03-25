@@ -1,6 +1,7 @@
-import { StyleDay, Data, Carton } from './DayStatistics.styled';
 import '../../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+
+import { StyleDay, Data, Carton } from './DayStatistics.styled';
 
 const DayStatistics = ({ item, index, monthName }) => {
   const { waterVolumePercentage, dailyNorma, portions } = item;
