@@ -10,7 +10,7 @@ import {
 } from '../../services/waterServices.js';
 
 const dateParam = {
-  month: moment().month(),
+  month: moment().month() + 1,
   year: moment().year(),
 };
 
