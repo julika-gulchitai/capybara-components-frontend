@@ -11,13 +11,12 @@ import { selectNotes } from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
 
 import 'rc-time-picker/assets/index.css';
+import svgSprite from '../../assets/sprite.svg';
 
 import {
   AddEditWater,
   EditWaterText,
   TextAmount,
-  StyledPlusIcon,
-  StyledMinusIcon,
   ButtonWrapper,
   FormStyled,
   ButtonSaveWrapper,
@@ -64,7 +63,6 @@ const EditWaterModal = ({ onClose, id }) => {
         });
     },
   });
-  console.log(waterPortion.date);
 
   const handleBlur = () => {
     setFieldValue(
@@ -90,6 +88,10 @@ const EditWaterModal = ({ onClose, id }) => {
     setLocalWaterAmount(newWaterAmount <= 0 ? 0 : newWaterAmount);
   };
 
+  function handleValueChange(value) {
+    setLocalWaterAmount(Number.parseInt(!isNaN(Number.parseInt(value)) ? value : 0))
+  }
+
   return (
     <StyledEditWaterModal onSubmit={handleSubmit}>
       <AddEditWater>Edit the entered amount of water</AddEditWater>
@@ -110,14 +112,18 @@ const EditWaterModal = ({ onClose, id }) => {
 
       <ButtonWrapper>
         <button onClick={handleReduceWaterAmount} name="minus" type="button">
-          <StyledMinusIcon aria-label="minus_button" />{' '}
+          <svg>
+            <use href={`${svgSprite}#icon-minus`}/>
+          </svg>
         </button>
         <span className="water-amount-value">
           {waterAmount}
           {t('ml')}
         </span>
         <button onClick={handleEditWaterAmount} name="plus" type="button">
-          <StyledPlusIcon aria-label="plus_button" />{' '}
+          <svg>
+            <use href={`${svgSprite}#icon-plus`}/>
+          </svg>
         </button>
       </ButtonWrapper>
 
@@ -141,9 +147,7 @@ const EditWaterModal = ({ onClose, id }) => {
             name="number"
             value={localWaterAmount}
             onBlur={handleBlur}
-            onChange={({ target: { value } }) =>
-              setLocalWaterAmount(Number.parseInt(value))
-            }
+            onChange={({ target: { value } }) => handleValueChange(value)}
           />
           {errors.waterAmount ? <div>{errors.waterAmount}</div> : null}
         </label>

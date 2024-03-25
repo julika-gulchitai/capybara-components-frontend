@@ -12,8 +12,6 @@ import {
   AddWater,
   TextChoose,
   TextAmount,
-  StyledPlusIcon,
-  StyledMinusIcon,
   ButtonWrapper,
   FormStyled,
   ButtonSaveWrapper,
@@ -21,6 +19,7 @@ import {
   StyledTimePicker,
 } from './TodayListModal.styled';
 import 'rc-time-picker/assets/index.css';
+import svgSprite from '../../assets/sprite.svg';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
 
@@ -80,14 +79,18 @@ const TodayListModal = ({ onClose }) => {
 
       <ButtonWrapper>
         <button onClick={handleReduceWaterAmount} name="minus" type="button">
-          <StyledMinusIcon aria-label="minus_button" />{' '}
+          <svg>
+            <use href={`${svgSprite}#icon-minus`}/>
+          </svg>
         </button>
         <span className="water-amount-value">
           {waterAmount}
           {t('ml')}
         </span>
         <button onClick={handleAddWaterAmount} name="plus" type="button">
-          <StyledPlusIcon aria-label="plus_button" />{' '}
+          <svg>
+            <use href={`${svgSprite}#icon-plus`}/>
+          </svg>
         </button>
       </ButtonWrapper>
 

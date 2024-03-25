@@ -8,17 +8,24 @@ export const UserMenuButton = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
+  color: ${props => props.theme.colors.primaryBlue};
   
-  span{
+  transition: color 250ms ease-in-out;
+
+  span {
     font-size: 18px;
     line-height: 1.33;
     text-align: right;
     color: ${props => props.theme.colors.textColor};
     margin-right: 8px;
   }
-  
-  svg{
-    fill: ${props => props.theme.colors.primaryBlue}
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:hover, &:focus {
+    color: ${(props) => props.theme.colors.secondaryOrange};
   }
 `;
 

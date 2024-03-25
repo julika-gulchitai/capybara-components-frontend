@@ -20,9 +20,9 @@ import {
   Time,
   StyledWatterAddBtn,
 } from './PortionsListToday.styled';
+import svgSprite from '../../../assets/sprite.svg';
 
 import { ReactComponent as Icon } from '../../../assets/icon/glass.svg';
-import { ReactComponent as IconPlus } from '../../../assets/icon/plus-small.svg';
 
 const PortionsListToday = () => {
   const waterPortions = useSelector(selectNotes);
@@ -56,7 +56,7 @@ const PortionsListToday = () => {
               <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
               <Time>{getLocaleTime(item.date)}</Time>
               <Edit>
-                <EditButton id={item._id} />
+                <EditButton id={item._id}/>
                 <DeleteButton id={item._id} />
               </Edit>
             </Portion>
@@ -64,7 +64,9 @@ const PortionsListToday = () => {
         </PortionsList>
       )}
       <StyledWatterAddBtn onClick={(event) => handleOpenModalTodayAdd(event)}>
-        <IconPlus />
+        <svg>
+          <use href={`${svgSprite}#icon-plus`}/>
+        </svg>
         {t('addWater')}
       </StyledWatterAddBtn>
       {openModalTodayList && (
