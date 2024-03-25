@@ -10,9 +10,10 @@ import {
   PURGE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import { userReducer } from './User/UserSlices';
 import { waterReducer } from './Water/WaterSlices';
-import {globalReducer} from './global/GlobalSlice.js';
+import { globalReducer } from './global/GlobalSlice.js';
 
 const persistUserConfig = {
   key: 'user',

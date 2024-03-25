@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
+
 import {
   requestEditWaterData,
   requestMonthWaterData,
@@ -66,9 +67,9 @@ export const apiGetMonthWaterPortions = createAsyncThunk(
       return Object.keys(data).length !== 0
         ? data
         : {
-            waterVolumePercentage: '0%',
-            waterVolumes: [],
-          };
+          waterVolumePercentage: '0%',
+          waterVolumes: [],
+        };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

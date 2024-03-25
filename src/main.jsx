@@ -1,15 +1,17 @@
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/lib/integration/react';
-import './index.css';
-import App from './App.jsx';
+
 import store, { persistedStore } from './redux/store.js';
-import Global from './css/common.js';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+
+import App from './App.jsx';
 import ThemeComponent from './components/ThemeComponent/ThemeComponent.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import Global from './css/common.js';
+import './index.css';
 
+ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate persistor={persistedStore}>
       <BrowserRouter basename="/capybara-components-frontend">
@@ -20,6 +22,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </BrowserRouter>
     </PersistGate>
   </Provider>
-
-
 );
