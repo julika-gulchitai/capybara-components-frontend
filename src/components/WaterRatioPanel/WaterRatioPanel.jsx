@@ -36,7 +36,7 @@ const WaterRatioPanel = () => {
   };
 
   useEffect(() => {
-    setCurrentPersent((waterVolumSum / waterRate) * 100);
+    setCurrentPersent(Math.round(waterVolumSum / waterRate) * 100);
   }, [waterRate, waterVolumSum]);
 
   const handleCloseModalTodayList = () => {
@@ -56,7 +56,7 @@ const WaterRatioPanel = () => {
         <Percentage $rater={currentPersent}>
           <span>0%</span>
           <span>50%</span>
-          <span>{currentPersent}%</span>
+          <span>100%</span>
         </Percentage>
       </RatioScale>
       <AddBtn onClick={(event) => handleOpenModalTodayListAdd(event)}>
