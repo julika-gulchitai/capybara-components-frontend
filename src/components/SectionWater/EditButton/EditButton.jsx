@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import { useState } from 'react';
 import svgSprite from '../../../assets/sprite.svg';
 import ModalWindow from '../../ModalWindow/ModalWindow.jsx';
 import EditWaterModal from '../../EditWaterModal/EditWaterModal.jsx';
-import {Button} from './EditButton.styled.js';
+import { Button } from './EditButton.styled.js';
 
-function EditButton({id}) {
+function EditButton({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleEditClick() {
@@ -15,17 +15,12 @@ function EditButton({id}) {
     <>
       <Button onClick={handleEditClick}>
         <svg>
-          <use href={`${svgSprite}#icon-trash`}/>
+          <use href={`${svgSprite}#icon-edit`}/>
         </svg>
       </Button>
       {isModalOpen && (
-        <ModalWindow
-          onClose={() => setIsModalOpen(false)}
-        >
-          <EditWaterModal
-            id={id}
-            onClose={() => setIsModalOpen(false)}
-          />
+        <ModalWindow onClose={() => setIsModalOpen(false)}>
+          <EditWaterModal id={id} onClose={() => setIsModalOpen(false)} />
         </ModalWindow>
       )}
     </>
