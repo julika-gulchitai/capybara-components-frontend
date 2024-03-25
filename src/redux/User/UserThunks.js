@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clearToken, setToken } from '../../configApi/setToken';
-import { api } from '../../configApi/api';
 import Notiflix from 'notiflix';
+
+import { api } from '../../configApi/api';
 import { NOTIFICATIONS, paramsForNotify } from '../../constants/notifications';
+import { clearToken, setToken } from '../../configApi/setToken';
 
 export const registerThunk = createAsyncThunk(
   'auth/register',
@@ -90,7 +91,7 @@ export const forgotPassword = createAsyncThunk(
   'users/forgot-password',
   async (email, thunkAPI) => {
     try {
-      const { data } = await api.post('users/forgot-password', {email});
+      const { data } = await api.post('users/forgot-password', { email });
       return data;
     }
     catch (error) {

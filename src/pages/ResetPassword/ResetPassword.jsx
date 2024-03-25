@@ -1,18 +1,23 @@
 import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { useMediaQuery } from 'react-responsive';
+
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { resetPassword } from '../../redux/User/UserThunks';
-import { paramsForNotify } from '../../constants/notifications';
-import { Notify } from 'notiflix';
-import { useForm } from 'react-hook-form';
-import { MarginBetween, WraperForm, Wrapper } from '../SignUp/SignUp.styled';
-import PasswordInput from '../../components/PasswordInput';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { StyledButton } from '../ForgotPassword/ForgotPassword.styled';
-import { LabelStyled } from '../../components/AuthForm/AuthForm.styled';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+import { Notify } from 'notiflix';
+
+import { paramsForNotify } from '../../constants/notifications';
+
+import { resetPassword } from '../../redux/User/UserThunks';
+
+import PasswordInput from '../../components/PasswordInput';
+
+import { MarginBetween, WraperForm, Wrapper } from '../SignUp/SignUp.styled';
+import { StyledButton } from '../ForgotPassword/ForgotPassword.styled';
+import { LabelStyled } from '../../components/AuthForm/AuthForm.styled';
 
 const ResetPassword = () => {
   const dispatch = useDispatch();

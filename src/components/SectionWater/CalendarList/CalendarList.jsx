@@ -1,11 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { format } from 'date-fns';
 import enLocale from 'date-fns/locale/en-US';
 import ukLocale from 'date-fns/locale/uk';
-import { selectStats } from '../../../redux/Water/selectors';
+import { useTranslation } from 'react-i18next';
+
 import { apiGetMonthWaterPortions } from '../../../redux/Water/WaterThunks';
+import { selectStats } from '../../../redux/Water/selectors';
+
+import { getNameOfMonth } from '../../../services/getNameOfMonth';
+import { getDaysInMonth } from '../../../services/getDaysInMonth';
+import { getNumberDay } from '../../../services/getNumberDay';
+import { createMonthArray } from '../../../services/createMonthArray';
+
 import PopoverViev from '../PopoverViev/PopoverViev';
+
 import {
   HeaderList,
   Title,
@@ -13,13 +23,9 @@ import {
   TableDays,
   ButtonArrow,
 } from './CalendarList.styled';
-import { getNameOfMonth } from '../../../services/getNameOfMonth';
-import { getDaysInMonth } from '../../../services/getDaysInMonth';
-import { getNumberDay } from '../../../services/getNumberDay';
-import { createMonthArray } from '../../../services/createMonthArray';
+
 import { ReactComponent as IconArrowLeft } from '../../../assets/icon/arrow-left.svg';
 import { ReactComponent as IconArrowRight } from '../../../assets/icon/arrow-rigth.svg';
-import { useTranslation } from 'react-i18next';
 
 const currentDate = new Date();
 

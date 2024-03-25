@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import { useTranslation } from 'react-i18next';
+
 import { selectNotes } from '../../../redux/Water/selectors';
 import { getLocaleTime } from '../../../services/getLocaleTime';
-import { useState } from 'react';
-import { ReactComponent as IconPlus } from '../../../assets/icon/plus-small.svg';
+
+import TodayListModal from '../../TodayListModal/TodayListModal';
+import ModalWindow from '../../ModalWindow/ModalWindow';
+import DeleteButton from '../DeleteButton/DeleteButton.jsx';
+import EditButton from '../EditButton/EditButton.jsx';
 
 import {
   Edit,
@@ -15,11 +22,7 @@ import {
 } from './PortionsListToday.styled';
 
 import { ReactComponent as Icon } from '../../../assets/icon/glass.svg';
-import { useTranslation } from 'react-i18next';
-import TodayListModal from '../../TodayListModal/TodayListModal';
-import ModalWindow from '../../ModalWindow/ModalWindow';
-import DeleteButton from '../DeleteButton/DeleteButton.jsx';
-import EditButton from '../EditButton/EditButton.jsx';
+import { ReactComponent as IconPlus } from '../../../assets/icon/plus-small.svg';
 
 const PortionsListToday = () => {
   const waterPortions = useSelector(selectNotes);
@@ -53,7 +56,7 @@ const PortionsListToday = () => {
               <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
               <Time>{getLocaleTime(item.date)}</Time>
               <Edit>
-                <EditButton id={item._id}/>
+                <EditButton id={item._id} />
                 <DeleteButton id={item._id} />
               </Edit>
             </Portion>

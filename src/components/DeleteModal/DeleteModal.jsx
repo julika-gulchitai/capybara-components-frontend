@@ -1,7 +1,10 @@
-import { StyledDeleteModal } from './DeleteModal.styled';
 import { useDispatch } from 'react-redux';
-import { apiDeleteWaterPortion } from '../../redux/Water/WaterThunks';
+
 import { useTranslation } from 'react-i18next';
+
+import { apiDeleteWaterPortion } from '../../redux/Water/WaterThunks';
+
+import { StyledDeleteModal } from './DeleteModal.styled';
 
 const DeleteModal = ({ onClose, id }) => {
   const dispatch = useDispatch();

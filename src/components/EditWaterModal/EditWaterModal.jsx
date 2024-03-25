@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useFormik } from 'formik';
 import { format, subHours } from 'date-fns';
-import { selectNotes } from '../../redux/Water/selectors.js';
-import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
-import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
-
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+
+import { selectNotes } from '../../redux/Water/selectors.js';
+import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
+
+import 'rc-time-picker/assets/index.css';
 
 import {
   AddEditWater,

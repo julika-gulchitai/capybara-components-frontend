@@ -1,24 +1,25 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import '../../i18n/i18n.js';
+import { useTranslation } from 'react-i18next';
+import { Notify } from 'notiflix';
+
+import { loginThunk, registerThunk } from '../../redux/User/UserThunks';
+
+import PasswordInput from '../PasswordInput';
+import TextInput from '../TextInput';
+
 import {
   LabelStyled,
   SignButton,
   WrapForm,
   WrapInput,
 } from './AuthForm.styled';
-
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import PasswordInput from '../PasswordInput';
-import TextInput from '../TextInput';
-import { useDispatch } from 'react-redux';
-import '../../i18n/i18n.js';
-import { useTranslation } from 'react-i18next';
-
-import { useNavigate } from 'react-router-dom';
-import { Notify } from 'notiflix';
-import { loginThunk, registerThunk } from '../../redux/User/UserThunks';
-
-import { useMediaQuery } from 'react-responsive';
 
 const AuthForm = ({ signUp }) => {
   const dispatch = useDispatch();
@@ -140,7 +141,7 @@ const AuthForm = ({ signUp }) => {
           </WrapInput>
         )}
 
-        <SignButton  type="submit">
+        <SignButton type="submit">
           {signUp ? t('signup') : t('signin')}
         </SignButton>
       </form>

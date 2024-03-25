@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
-import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
-import moment from 'moment';
-import 'rc-time-picker/assets/index.css';
 
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+import { useFormik } from 'formik';
+import moment from 'moment';
+
+import { apiAddWaterPortion } from '../../redux/Water/WaterThunks';
 
 import {
   AddWater,
@@ -20,6 +20,7 @@ import {
   StyledAddWaterModal,
   StyledTimePicker,
 } from './TodayListModal.styled';
+import 'rc-time-picker/assets/index.css';
 
 const WATER_AMOUNT_DIFFERENCE = 20;
 
