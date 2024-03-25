@@ -2,13 +2,17 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useFormik } from 'formik';
-import { format, subHours } from 'date-fns';
 import moment from 'moment';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
 
-import {selectNotes, selectSelectedCalendar} from '../../redux/Water/selectors.js';
+import {
+  selectNotes,
+  selectSelectedCalendar,
+} from '../../redux/Water/selectors.js';
 import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
+import { doesRefreshNeeded } from '../../services/doesRefreshNeeded.js';
+import { getLocaleTime } from '../../services/timeServices.js';
 
 import 'rc-time-picker/assets/index.css';
 import svgSprite from '../../assets/sprite.svg';
@@ -27,14 +31,13 @@ import {
   StyledTP,
   TextAm,
 } from './EditWaterModal.styled.js';
-import {doesRefreshNeeded} from '../../services/doesRefreshNeeded.js';
 
-const WATER_AMOUNT_DIFFERENCE = 20;
+const WATER_AMOUNT_DIFFERENCE = 50;
 
 const EditWaterModal = ({ onClose, id }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const selectedCalendar = useSelector(selectSelectedCalendar)
+  const selectedCalendar = useSelector(selectSelectedCalendar);
 
   const waterVolumes = useSelector(selectNotes);
   const waterPortion = waterVolumes.find((portion) => portion._id === id);
@@ -50,14 +53,14 @@ const EditWaterModal = ({ onClose, id }) => {
   } = useFormik({
     initialValues: {
       waterAmount: waterPortion.waterAmount.toString(),
-      date: moment().format('HH:mm'),
+      date: `${getLocaleTime(waterPortion.date)}`,
     },
     onSubmit: (values) => {
       dispatch(
         apiEditWaterPortion({
           portionId: id,
           credentials: values,
-          shouldUpdateMonth: doesRefreshNeeded(selectedCalendar)
+          shouldUpdateMonth: doesRefreshNeeded(selectedCalendar),
         })
       )
         .unwrap()
@@ -92,7 +95,9 @@ const EditWaterModal = ({ onClose, id }) => {
   };
 
   function handleValueChange(value) {
-    setLocalWaterAmount(Number.parseInt(!isNaN(Number.parseInt(value)) ? value : 0))
+    setLocalWaterAmount(
+      Number.parseInt(!isNaN(Number.parseInt(value)) ? value : 0)
+    );
   }
 
   return (
@@ -106,7 +111,7 @@ const EditWaterModal = ({ onClose, id }) => {
         </TextAmount>
         <TimeValue>
           {' '}
-          {format(subHours(waterPortion.date, 2), 'HH:mm')}
+          {moment(waterPortion.date).subtract(2, 'hours').format('HH:mm')}
         </TimeValue>
       </GlassContainer>
 
@@ -116,7 +121,7 @@ const EditWaterModal = ({ onClose, id }) => {
       <ButtonWrapper>
         <button onClick={handleReduceWaterAmount} name="minus" type="button">
           <svg>
-            <use href={`${svgSprite}#icon-minus`}/>
+            <use href={`${svgSprite}#icon-minus`} />
           </svg>
         </button>
         <span className="water-amount-value">
@@ -125,7 +130,7 @@ const EditWaterModal = ({ onClose, id }) => {
         </span>
         <button onClick={handleEditWaterAmount} name="plus" type="button">
           <svg>
-            <use href={`${svgSprite}#icon-plus`}/>
+            <use href={`${svgSprite}#icon-plus`} />
           </svg>
         </button>
       </ButtonWrapper>
