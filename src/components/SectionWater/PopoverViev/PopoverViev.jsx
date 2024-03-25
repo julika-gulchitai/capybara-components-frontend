@@ -24,7 +24,6 @@ const PopoverViev = ({ item, index, monthName }) => {
 
   const displayedPercentage = Math.min(100, waterVolumePercentage);
 
-  // Determine if Popper is positioned to the left or right of the anchor element
   const isLeft =
     anchorEl && anchorEl.getBoundingClientRect().left > window.innerWidth / 2;
 
@@ -41,7 +40,8 @@ const PopoverViev = ({ item, index, monthName }) => {
         onMouseEnter={handleClick}
         onMouseLeave={handleClick}
         style={{
-          border: displayedPercentage >= 100 ? 'none' : '1px solid',
+          borderWidth: displayedPercentage === 0 ? 0 : 1,
+          borderStyle: 'solid',
           borderColor:
             displayedPercentage >= 100
               ? 'transparent'
