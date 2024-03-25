@@ -1,108 +1,94 @@
-# React + Vite template
+<h1 align="center"> 👨‍💻 GOIT Team Project 👩‍💻 </h1>
+<h2 align="center">  TRACK OF WATER  </h2>
 
-Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). Для
-знайомства і налаштування додаткових можливостей
-[звернися до документації](https://vitejs.dev/guide/).
+<span align="center">
 
-## Створення репозиторію за шаблоном
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![Styled components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)&nbsp;
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)&nbsp;
+![React_Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проєкту. Для цього натисни на кнопку `"Use this template"` і
-обери опцію `"Create a new repository"`, як показано на зображенні.
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)&nbsp;
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)&nbsp;
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)&nbsp;
 
-![Creating repo from a template step 1](./src/assets/template-step-1.png)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
+![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)&nbsp;
+![Figma](https://img.shields.io/badge/-Figma-05122A?style=flat&logo=figma)&nbsp;
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`"Create repository from template"`.
+![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)&nbsp;
 
-![Creating repo from a template step 2](./src/assets/template-step-2.png)
+</span>
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+<h3 align="center"> ℹ️ Capybara-component team <h3>
+<span align="center">
 
-![Settings GitHub Actions permissions step 1](./src/assets/gh-actions-perm-1.png)
+<a align="center" href="https://github.com/julika-gulchitai">![GitHub](https://img.shields.io/badge/-Julia-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Ariy83">![GitHub](https://img.shields.io/badge/-Andriy-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/SVTroya">![GitHub](https://img.shields.io/badge/-Lana-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/MartFrida">![GitHub](https://img.shields.io/badge/-Mari-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/UlianaNad">![GitHub](https://img.shields.io/badge/-Uliana-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/YuliaMiha">![GitHub](https://img.shields.io/badge/-Yulia-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/MarianaSko">![GitHub](https://img.shields.io/badge/-Mariana-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Andrii-Hr">![GitHub](https://img.shields.io/badge/-Andrii-05122A?style=flat&logo=github)</a>
 
-Проскроливши сторінку до самого кінця, у секції `"Workflow permissions"` вибери
-опцію `"Read and write permissions"` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проєкту.
+</span>
+<span align="center">
 
-![Settings GitHub Actions permissions step 2](./src/assets/gh-actions-perm-2.png)
 
-Тепер у тебе є особистий репозиторій проєкту, зі структурою файлів і папок
-репозиторія-шаблону. Далі працюй з ним як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй
-їх на GitHub.
+## Description
 
-## Підготовка до роботи
+Water Tracker is a web application that allows users to monitor their daily water intake. The application consists of the following functional components: Home page, Water Journal, and Settings.
 
-1. Переконайся, що на комп'ютері встановлена LTS-версія Node.js.
-   [Скачай і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встановіть базові залежності проекту командою `npm install`.
-3. Запустіть режим розробки, виконавши команду `npm run dev`.
-4. Перейди в браузері за адресою, що зазначено в терміналі.
+<h3 align="center"> Features <h3>
 
-## Деплой
+Home Page: Provides an overview of the application and quick access to other features.
+Water Journal: Allows users to record their water consumption throughout the day.
+Settings: Enables users to customize their profile, including adding a photo, specifying gender, name, and updating password or email.
 
-Продакшн версія проєкту буде автоматично збиратися і деплоїтися на GitHub Pages,
-у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад, після
-прямого пушу або прийнятого пул-реквесту. Для цього необхідно у файлі
-`vite.config.js` відредагувати поле `base`, замінивши `react_vite` на свою назву
-репозиторію `"/your_repo_name"`, і відправити зміни на GitHub.
+<h3 align="center"> Platform Compatibility <h3>
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+The application is designed to be responsive and adaptable to desktop, tablet, and mobile devices. It has three breakpoints: 1440 pixels, 768 pixels, and 320 pixels respectively.
 
-![GitHub Pages settings](./src/assets/repo-settings.png)
+<h3 align="center"> User Authentication <h3>
 
-### Статус деплоя
+Water Tracker includes user registration, login, and password recovery functionalities to ensure user privacy and security.
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+<h3 align="center"> Customization <h3>
 
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час збирання або деплою сталася помилка.
+Users can input their personal information in the Settings section. This includes adding a photo, specifying gender, name, and updating password or email.
 
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і в
-випадаючому вікні перейти за посиланням `Details`.
+<h3 align="center">Water Intake Tracking <h3>
 
-![Deployment status](./src/assets/deploy-status.png)
+Users can log their water intake manually or set a daily water intake goal. The application suggests a recommended water intake based on user weight, but users can also set their own target.
 
-### Жива сторінка
+<h3 align="center"> Statistics and Progress <h3>
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною в налаштуваннях GitHub-репозиторію (`Settings` > `Pages`).
+Users can view their water consumption statistics for the month in a calendar view. Additionally, a progress panel shows the user's water intake progress for the current day.
 
-![GitHub-pages URL](./src/assets/gh-pages-url.png)
 
-Якщо відкривається порожня сторінка, переконайся що у вкладці `Console` немає
-помилок пов'язаних із неправильними шляхами до CSS і JS файлів проекту
-(**404**). Швидше за все найімовірніше, у тебе неправильне значення поля `base`
-у файлі `vite.config.js`.
+## Aim of the project
 
-### Маршрутизація
+The primary objectives of this team project were to learn how to effectively
+work in a team, apply our previously acquired skills, and successfully operate
+within a specified 14-day time frame.
 
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши в пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
+## Task management
 
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-### Додавання змінних в  .env
-Для зберігання конфігураційних даних, таких як API ключі, адреси серверів, порти та інші змінні використовуйте файл `.env`. Для цього необхідно з назви файлу `.env.template` видалити зайві ".template",після чого файл відповідатиме умовам файлу `.ignore` і буде зберігатися лише локально, не публікуючись на віддаленому репозиторії з метою безпеки. Задля використання змінних на GitHub-pages усі змінні, передбачені файлом .env, слід додати до файлу `.github/workflows/deploy.yml`, а також до налаштувань репозиторію. Для цього слід перейти (`Settings` > `Secrets and variables` > `Actions`)
+✅ Yuliia Zaritska - Team Leader Frontend ◼ Setting up repository and common styles ◼ Water rate panel functionality ◼ Codereview
 
-![Add enviroments from .env](./src/assets/secrets.png)
+✅ Andrii Sauliak - Team Leader Backend ◼ Database ◼ Swagger ◼ Codereview
 
-## Як це працює
+✅ Uliana Nadorozhna - Scrum master ◼ User authentication functionality
 
-1. Після кожного пушу в гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) з файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проєкт ініціалізується і
-   проходить збірку перед деплоєм. 3 Якщо всі кроки пройшли успішно, зібрана
-   продакшн-версія файлів проєкту відправляється в гілку `gh-pages`. В іншому
-   випадку, в логах виконання скрипта буде вказано в чому проблема.
+✅ Julia Palamarchuk -  Water statistic functionality
+
+✅ Svitlana Biruk - Update user settings functionality ◼ Codereview
+
+✅ Marina Fridrak - Homepage functionality ◼ Global styles
+
+✅ Mariana Skorynovych - User`s daily norma and language functionality
+
+✅ Andrii Hryb - User logout ◼ Loader
