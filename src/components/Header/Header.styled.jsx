@@ -34,4 +34,5 @@ export const SwitchesFloatingBlock = styled.div`
   background-color:${props => props.theme.colors.mainBg};
   border: 1px solid var(--secondary-white);
   border-radius: 10px;
+  z-index: 100;
 `;

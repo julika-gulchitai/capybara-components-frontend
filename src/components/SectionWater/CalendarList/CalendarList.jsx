@@ -53,22 +53,24 @@ const CalendarList = () => {
     dispatch(setSelectedCalendar({year, month }))
   }, [dispatch, year, month]);
 
-  const previousMonth = () => {
+  const previousMonth = ({currentTarget}) => {
     if (month === 0) {
       setYear((prevYear) => prevYear - 1);
       setMonth(11);
     } else {
       setMonth((prevMonth) => prevMonth - 1);
     }
+    currentTarget.blur()
   };
 
-  const nextMonth = () => {
+  const nextMonth = ({currentTarget}) => {
     if (month === 11) {
       setYear((prevYear) => prevYear + 1);
       setMonth(0);
     } else {
       setMonth((prevMonth) => prevMonth + 1);
     }
+    currentTarget.blur()
   };
 
   return (
