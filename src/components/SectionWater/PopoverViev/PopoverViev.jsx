@@ -16,7 +16,11 @@ const PopoverViev = ({ item, index, monthName }) => {
   const { waterVolumePercentage } = item;
 
   const handleClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+    if (waterVolumePercentage === 0) {
+      setAnchorEl(null);
+    } else {
+      setAnchorEl(anchorEl ? null : event.currentTarget);
+    }
   };
 
   const open = Boolean(anchorEl);

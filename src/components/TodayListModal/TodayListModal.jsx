@@ -23,7 +23,7 @@ import svgSprite from '../../assets/sprite.svg';
 import { selectSelectedCalendar } from '../../redux/Water/selectors.js';
 import { doesRefreshNeeded } from '../../services/doesRefreshNeeded.js';
 
-const WATER_AMOUNT_DIFFERENCE = 20;
+const WATER_AMOUNT_DIFFERENCE = 50;
 
 const TodayListModal = ({ onClose }) => {
   const dispatch = useDispatch();

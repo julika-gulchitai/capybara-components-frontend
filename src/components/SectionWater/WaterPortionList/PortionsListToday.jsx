@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { selectNotes } from '../../../redux/Water/selectors';
-import { getLocaleTime } from '../../../services/getLocaleTime';
+import { getLocaleTime } from '../../../services/timeServices.js';
 
 import TodayListModal from '../../TodayListModal/TodayListModal';
 import ModalWindow from '../../ModalWindow/ModalWindow';
@@ -56,7 +56,7 @@ const PortionsListToday = () => {
               <Volumes>{`${item.waterAmount} ${t('ml')}`} </Volumes>
               <Time>{getLocaleTime(item.date)}</Time>
               <Edit>
-                <EditButton id={item._id}/>
+                <EditButton id={item._id} />
                 <DeleteButton id={item._id} />
               </Edit>
             </Portion>
@@ -65,7 +65,7 @@ const PortionsListToday = () => {
       )}
       <StyledWatterAddBtn onClick={(event) => handleOpenModalTodayAdd(event)}>
         <svg>
-          <use href={`${svgSprite}#icon-plus`}/>
+          <use href={`${svgSprite}#icon-plus`} />
         </svg>
         {t('addWater')}
       </StyledWatterAddBtn>

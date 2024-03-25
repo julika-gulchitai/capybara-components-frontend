@@ -2,17 +2,19 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { format } from 'date-fns';
-import enLocale from 'date-fns/locale/en-US';
 import ukLocale from 'date-fns/locale/uk';
+import enLocale from 'date-fns/locale/en-US';
 import { useTranslation } from 'react-i18next';
 
 import { apiGetMonthWaterPortions } from '../../../redux/Water/WaterThunks';
 import { selectStats } from '../../../redux/Water/selectors';
 
-import { getNameOfMonth } from '../../../services/getNameOfMonth';
-import { getDaysInMonth } from '../../../services/getDaysInMonth';
-import { getNumberDay } from '../../../services/getNumberDay';
-import { createMonthArray } from '../../../services/createMonthArray';
+import {
+  getNameOfMonth,
+  getDaysInMonth,
+  getNumberDay,
+  createMonthArray,
+} from '../../../services/timeServices';
 
 import PopoverViev from '../PopoverViev/PopoverViev';
 import svgSprite from '../../../assets/sprite.svg';
@@ -51,22 +53,24 @@ const CalendarList = () => {
     dispatch(setSelectedCalendar({year, month }))
   }, [dispatch, year, month]);
 
-  const previousMonth = () => {
+  const previousMonth = ({currentTarget}) => {
     if (month === 0) {
       setYear((prevYear) => prevYear - 1);
       setMonth(11);
     } else {
       setMonth((prevMonth) => prevMonth - 1);
     }
+    currentTarget.blur()
   };
 
-  const nextMonth = () => {
+  const nextMonth = ({currentTarget}) => {
     if (month === 11) {
       setYear((prevYear) => prevYear + 1);
       setMonth(0);
     } else {
       setMonth((prevMonth) => prevMonth + 1);
     }
+    currentTarget.blur()
   };
 
   return (
@@ -75,9 +79,9 @@ const CalendarList = () => {
         <Title>{i18n.t('month')}</Title>
         <WrapperGroup>
           <ButtonArrow onClick={previousMonth}>
-              <svg>
-                  <use href={`${svgSprite}#icon-arrow-left`}/>
-              </svg>
+            <svg>
+              <use href={`${svgSprite}#icon-arrow-left`} />
+            </svg>
           </ButtonArrow>
           <span style={{ textTransform: 'capitalize' }}>
             {format(new Date(year, month, 1), 'LLLL', {
@@ -89,9 +93,9 @@ const CalendarList = () => {
             onClick={nextMonth}
             disabled={currentDate < new Date(year, month + 1)}
           >
-              <svg>
-                  <use href={`${svgSprite}#icon-arrow-right`}/>
-              </svg>
+            <svg>
+              <use href={`${svgSprite}#icon-arrow-right`} />
+            </svg>
           </ButtonArrow>
         </WrapperGroup>
       </HeaderList>
