@@ -1,6 +1,8 @@
-import i18next from 'i18next';
 import { useState } from 'react';
+
+import i18next from 'i18next';
 import { LOCALS } from '../../i18n/constants';
+
 import { LanguageContainer } from './LanguageSwitcher.styled';
 
 const LanguageSwitcher = () => {

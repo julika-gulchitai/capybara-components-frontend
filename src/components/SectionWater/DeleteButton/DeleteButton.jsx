@@ -1,7 +1,10 @@
 import { useState } from 'react';
+
 import ModalWindow from '../../ModalWindow/ModalWindow.jsx';
 import DeleteModal from '../../DeleteModal/DeleteModal.jsx';
+
 import { Button } from './DeleteButton.styled.js';
+
 import svgSprite from '../../../assets/sprite.svg';
 
 function DeleteButton({ id }) {

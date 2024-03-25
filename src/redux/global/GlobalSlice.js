@@ -1,4 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+
+import { LOCALS } from '../../i18n/constants.js';
+
 import {
   editWaterRateThunk,
   forgotPassword,
@@ -15,7 +18,6 @@ import {
   apiGetMonthWaterPortions,
   apiGetTodayWaterPortions,
 } from '../Water/WaterThunks.js';
-import { LOCALS } from '../../i18n/constants.js';
 
 const initialState = {
   isLoading: false,

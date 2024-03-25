@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import {
-  createSvgIcon, createTheme,
+  createSvgIcon,
+  createTheme,
   FormControl,
   FormHelperText,
   IconButton,
   InputAdornment,
-  OutlinedInput, ThemeProvider
+  OutlinedInput,
+  ThemeProvider,
 } from '@mui/material';
-import svgSprite from '../assets/sprite.svg';
-import { useSelector } from 'react-redux';
+
 import { selectTheme } from '../redux/global/selectors.js';
+
 import { themeDark, themeLight } from '../css/variablesTheme.js';
 
+import svgSprite from '../assets/sprite.svg';
 
 function PasswordInput({
   id,
@@ -19,14 +24,13 @@ function PasswordInput({
   register,
   error,
   placeholder = 'Password',
-  autoComplete = 'on'
+  autoComplete = 'on',
 }) {
-
   const currentTheme = useSelector(selectTheme);
-  const [theme, setTheme] = useState(themeLight)
+  const [theme, setTheme] = useState(themeLight);
   useEffect(() => {
-    (currentTheme === 'dark') ? setTheme(themeDark) : setTheme(themeLight)
-  }, [currentTheme, theme])
+    currentTheme === 'dark' ? setTheme(themeDark) : setTheme(themeLight);
+  }, [currentTheme, theme]);
 
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -46,15 +50,19 @@ function PasswordInput({
             '&:hover': {
               '.MuiOutlinedInput-notchedOutline': {
                 border: '1px solid',
-                borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue
-              }
+                borderColor: error
+                  ? theme.colors.secondaryRed
+                  : theme.colors.secondaryLightblue,
+              },
             },
 
             '&.Mui-focused': {
               '.MuiOutlinedInput-notchedOutline': {
                 border: '1px solid',
-                borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue
-              }
+                borderColor: error
+                  ? theme.colors.secondaryRed
+                  : theme.colors.secondaryLightblue,
+              },
             },
 
             backgroundColor: theme.colors.mainBg,
@@ -63,7 +71,7 @@ function PasswordInput({
 
             '& input::placeholder': {
               color: theme.colors.secondaryBlue,
-              opacity: 1
+              opacity: 1,
             },
 
             '.MuiOutlinedInput-notchedOutline': {
@@ -71,29 +79,30 @@ function PasswordInput({
               boxSizing: 'border-box',
               borderRadius: '6px',
               border: '1px solid',
-              borderColor: error ? theme.colors.secondaryRed : theme.colors.secondaryLightblue,
-              m: 0
+              borderColor: error
+                ? theme.colors.secondaryRed
+                : theme.colors.secondaryLightblue,
+              m: 0,
             },
             '& .MuiOutlinedInput-input': {
               lineHeight: '1.25',
-              color: error ? theme.colors.secondaryRed : theme.colors.primaryBlue,
+              color: error
+                ? theme.colors.secondaryRed
+                : theme.colors.primaryBlue,
               fontSize: 16,
               height: '44px',
               padding: '12px 10px',
-              boxSizing: 'border-box'
-            }
-          }
-        }
-      }
-    }
+              boxSizing: 'border-box',
+            },
+          },
+        },
+      },
+    },
   });
 
   return (
     <ThemeProvider theme={themePassword}>
-      <FormControl
-        autoComplete={autoComplete}
-        variant='outlined'
-      >
+      <FormControl autoComplete={autoComplete} variant="outlined">
         <OutlinedInput
           {...register(id)}
           placeholder={placeholder}
@@ -102,20 +111,22 @@ function PasswordInput({
           id={id}
           type={showPassword ? 'text' : 'password'}
           endAdornment={
-            <InputAdornment position='end'>
+            <InputAdornment position="end">
               <IconButton
-                aria-label='toggle password visibility'
+                aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
-                edge='end'
+                edge="end"
               >
                 {showPassword ? (
                   <EyeSlashedIcon
-                    fontSize='small'
+                    fontSize="small"
                     sx={{ color: theme.colors.primaryBlue, fontSize: 16 }}
                   />
                 ) : (
-                  <EyeIcon sx={{ color: theme.colors.primaryBlue, fontSize: 16 }} />
+                  <EyeIcon
+                    sx={{ color: theme.colors.primaryBlue, fontSize: 16 }}
+                  />
                 )}
               </IconButton>
             </InputAdornment>
@@ -128,8 +139,8 @@ function PasswordInput({
               margin: '0px',
               color: theme.colors.secondaryRed,
               height: '15px',
-              marginTop: '-3px'
-            }
+              marginTop: '-3px',
+            },
           }}
         >
           {error?.message}
@@ -140,14 +151,14 @@ function PasswordInput({
 }
 
 const EyeIcon = createSvgIcon(
-  <svg fill='currentColor' viewBox='0 0 16 16'>
+  <svg fill="currentColor" viewBox="0 0 16 16">
     <use href={`${svgSprite}#icon-visible`} />
   </svg>,
   'Plus'
 );
 
 const EyeSlashedIcon = createSvgIcon(
-  <svg fill='currentColor' viewBox='0 0 16 16'>
+  <svg fill="currentColor" viewBox="0 0 16 16">
     <use href={`${svgSprite}#icon-hidden`} />
   </svg>,
   'Plus'

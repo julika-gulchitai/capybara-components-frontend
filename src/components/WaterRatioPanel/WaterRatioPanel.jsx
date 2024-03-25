@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
-import sprite from '../../assets/sprite.svg';
+
+import { selectWaterVolumeSum } from '../../redux/Water/selectors.js';
+import { selectUser } from '../../redux/User/selectors.js';
+
+import ModalWindow from '../ModalWindow/ModalWindow';
+import TodayListModal from '../TodayListModal/TodayListModal';
+
 import {
   AddBtn,
   WateRatioContainer,
@@ -11,10 +18,8 @@ import {
   StyledInput,
   Percentage,
 } from './WaterRatioPanel.styled';
-import ModalWindow from '../ModalWindow/ModalWindow';
-import TodayListModal from '../TodayListModal/TodayListModal';
-import { selectWaterVolumeSum } from '../../redux/Water/selectors.js';
-import { selectUser } from '../../redux/User/selectors.js';
+
+import sprite from '../../assets/sprite.svg';
 
 const WaterRatioPanel = () => {
   const [currentPersent, setCurrentPersent] = useState(0);

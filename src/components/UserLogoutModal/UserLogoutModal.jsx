@@ -1,7 +1,10 @@
 import { useDispatch } from 'react-redux';
+
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+
 import { logoutThunk } from '../../redux/User/UserThunks.js';
+
 import {
   LogOutHeader,
   LogOutText,

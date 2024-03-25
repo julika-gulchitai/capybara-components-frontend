@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { setToken } from '../../configApi/setToken.js';
+
 import {
   editWaterRateThunk,
   forgotPassword,

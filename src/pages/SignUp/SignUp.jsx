@@ -1,7 +1,7 @@
-import AuthForm from '../../components/AuthForm/AuthForm';
-
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+
+import AuthForm from '../../components/AuthForm/AuthForm';
 
 import {
   BackgroundContainer,

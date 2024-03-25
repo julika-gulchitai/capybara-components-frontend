@@ -1,8 +1,9 @@
-import React from 'react';
-import { SignInLink } from './UserAuth.styled.jsx';
-import svgSprite from '../../assets/sprite.svg';
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+
+import { SignInLink } from './UserAuth.styled.jsx';
+
+import svgSprite from '../../assets/sprite.svg';
 
 function UserAuth() {
   const { t } = useTranslation();

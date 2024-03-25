@@ -1,7 +1,7 @@
-import AuthForm from '../../components/AuthForm/AuthForm';
-
 import '../../i18n/i18n.js';
 import { useTranslation } from 'react-i18next';
+
+import AuthForm from '../../components/AuthForm/AuthForm';
 
 import {
   BackgroundContainer,
@@ -13,11 +13,8 @@ import {
   WraperForm,
 } from '../SignUp/SignUp.styled';
 
-
 const SignIn = () => {
-
-   const { t } = useTranslation();
-
+  const { t } = useTranslation();
 
   return (
     <BackgroundContainer>
@@ -33,7 +30,6 @@ const SignIn = () => {
         </WraperForm>
       </SignContainer>
     </BackgroundContainer>
-
   );
 };
 
