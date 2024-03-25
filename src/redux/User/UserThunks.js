@@ -38,7 +38,7 @@ export const updateUserThunk = createAsyncThunk(
       const { data } = await api.patch(`users/update`, newUserData);
       return data;
     } catch (error) {
-      return ThunkAPI.rejectWithValue(error.message);
+      return ThunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
