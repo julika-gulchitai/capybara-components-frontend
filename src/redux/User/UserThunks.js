@@ -114,16 +114,3 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
-export const verifiedThunk = createAsyncThunk(
-  'auth/verified',
-  async (credentials, thunkAPI) => {
-    try {
-      const response = await api.get('users/verify', credentials);
-      setToken(response.data.token);
-
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
