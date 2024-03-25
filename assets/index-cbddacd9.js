@@ -128,7 +128,7 @@ Valid keys: `+JSON.stringify(Object.keys(H),null,"  "));var B=T(X,$,P,_,M+"."+$,
   svg{
     fill:${e=>e.theme.colors.textColor};
   }
-`,Tr="/capybara-components-frontend/assets/sprite-cdfedc7f.svg";function m4(){const{t:e}=Za();return O.jsxs(h4,{to:"/signin",children:[e("signin"),O.jsx("svg",{width:28,height:28,children:O.jsx("use",{href:`${Tr}#icon-user`})})]})}const g4=le.div`
+`,Tr="/capybara-components-frontend/assets/sprite-53e41146.svg";function m4(){const{t:e}=Za();return O.jsxs(h4,{to:"/signin",children:[e("signin"),O.jsx("svg",{width:28,height:28,children:O.jsx("use",{href:`${Tr}#icon-user`})})]})}const g4=le.div`
   border-radius: 10px;
   padding: 16px;
   min-width: 118px;
@@ -198,12 +198,22 @@ Valid keys: `+JSON.stringify(Object.keys(H),null,"  "));var B=T(X,$,P,_,M+"."+$,
   @media only screen and (min-width: 1440px) {
     top: 36px;
   }
+  
+  transition: color 250ms ease-in-out;
+  
+  &:hover, &:focus{
+    color: ${e=>e.theme.colors.secondaryOrange};
+  }
+  
+  svg{
+    fill:currentColor;
+  }
 `,b4=le.svg`
   width: ${e=>e.size||"24px"};
   height: ${e=>e.size||"24px"};
   display: inline-block;
   padding: 0;
-`,k4=({onClose:e,children:t})=>{C.useEffect(()=>(document.body.style.overflow="hidden",()=>{document.body.style.overflow="auto"}),[]);const n=r=>{r.target===r.currentTarget&&e()};return C.useEffect(()=>{const r=o=>{o.key==="Escape"&&e()};return document.addEventListener("keydown",r),()=>{document.removeEventListener("keydown",r)}},[e]),Vs.createPortal(O.jsx(v4,{onMouseDown:n,children:O.jsxs(x4,{children:[t,O.jsx(w4,{onClick:e,children:O.jsx(b4,{children:O.jsx("use",{href:`${Tr}#x-mark`})})})]})}),document.querySelector("#portal"))},wf=le.button`
+`,k4=({onClose:e,children:t})=>{C.useEffect(()=>(document.body.style.overflow="hidden",()=>{document.body.style.overflow="auto"}),[]);const n=r=>{r.target===r.currentTarget&&e()};return C.useEffect(()=>{const r=o=>{o.key==="Escape"&&e()};return document.addEventListener("keydown",r),()=>{document.removeEventListener("keydown",r)}},[e]),Vs.createPortal(O.jsx(v4,{onMouseDown:n,children:O.jsxs(x4,{children:[t,O.jsx(w4,{onClick:e,children:O.jsx(b4,{children:O.jsx("use",{href:`${Tr}#icon-close`})})})]})}),document.querySelector("#portal"))},wf=le.button`
   height: 44px;
   width: ${e=>e.$width};
   border-radius: 10px;
@@ -533,17 +543,24 @@ attempted value: ${s}
   background-color: transparent;
   border: none;
   padding: 0;
+  color: ${e=>e.theme.colors.primaryBlue};
   
-  span{
+  transition: color 250ms ease-in-out;
+
+  span {
     font-size: 18px;
     line-height: 1.33;
     text-align: right;
     color: ${e=>e.theme.colors.textColor};
     margin-right: 8px;
   }
-  
-  svg{
-    fill: ${e=>e.theme.colors.primaryBlue}
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:hover, &:focus {
+    color: ${e=>e.theme.colors.secondaryOrange};
   }
 `,Nz=le.div`
   margin-right: 4px;
@@ -806,7 +823,7 @@ to {
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100% 100%;
-`;function s9(){const e=Ga(),t=wt(Kk),n=wt(cN),r=wt(el);C.useEffect(()=>{e($o())},[e]);const o=C.lazy(()=>Fs(()=>import("./WelcomePage-855dac02.js"),[])),i=C.lazy(()=>Fs(()=>import("./HomePage-a1a64d46.js"),["assets/HomePage-a1a64d46.js","assets/HomePage-0f94e955.css"])),s=C.lazy(()=>Fs(()=>import("./SignIn-4c43ae04.js"),["assets/SignIn-4c43ae04.js","assets/AuthForm-d3bff560.js"])),a=C.lazy(()=>Fs(()=>import("./SignUp-f0b6be3c.js"),["assets/SignUp-f0b6be3c.js","assets/AuthForm-d3bff560.js"])),l=C.lazy(()=>Fs(()=>import("./ForgotPassword-edd89059.js"),[]));return t?O.jsx(hx,{visible:n}):O.jsxs(O.Fragment,{children:[O.jsx(i9,{children:O.jsx(UP,{children:O.jsxs(qn,{path:"/",element:O.jsx(Bz,{}),children:[O.jsx(qn,{index:!0,element:O.jsx(tc,{to:r?"/home":"/welcome"})}),O.jsx(qn,{path:"/welcome",element:O.jsx(hp,{component:O.jsx(o,{})})}),O.jsx(qn,{path:"/home",element:O.jsx(Wz,{component:O.jsx(i,{})})}),O.jsx(qn,{path:"/signup",element:O.jsx(hp,{component:O.jsx(a,{})})}),O.jsx(qn,{path:"/signin",element:O.jsx(hp,{component:O.jsx(s,{})})}),O.jsx(qn,{path:"/forgot-password",element:O.jsx(l,{})}),O.jsx(qn,{path:"/reset-password",element:O.jsx(Xz,{})}),O.jsx(qn,{path:"*",element:O.jsx(tc,{to:"/welcome"})})]})})}),O.jsx(hx,{visible:n})]})}const a9=({children:e})=>{const t=wt(Qo);return O.jsx(u4,{theme:t==="dark"?go:Ft,children:e})},l9=d4`
+`;function s9(){const e=Ga(),t=wt(Kk),n=wt(cN),r=wt(el);C.useEffect(()=>{e($o())},[e]);const o=C.lazy(()=>Fs(()=>import("./WelcomePage-75eb903a.js"),[])),i=C.lazy(()=>Fs(()=>import("./HomePage-72b3774c.js"),["assets/HomePage-72b3774c.js","assets/HomePage-0f94e955.css"])),s=C.lazy(()=>Fs(()=>import("./SignIn-3845da07.js"),["assets/SignIn-3845da07.js","assets/AuthForm-d4b18f68.js"])),a=C.lazy(()=>Fs(()=>import("./SignUp-3ca045af.js"),["assets/SignUp-3ca045af.js","assets/AuthForm-d4b18f68.js"])),l=C.lazy(()=>Fs(()=>import("./ForgotPassword-8b3c0412.js"),[]));return t?O.jsx(hx,{visible:n}):O.jsxs(O.Fragment,{children:[O.jsx(i9,{children:O.jsx(UP,{children:O.jsxs(qn,{path:"/",element:O.jsx(Bz,{}),children:[O.jsx(qn,{index:!0,element:O.jsx(tc,{to:r?"/home":"/welcome"})}),O.jsx(qn,{path:"/welcome",element:O.jsx(hp,{component:O.jsx(o,{})})}),O.jsx(qn,{path:"/home",element:O.jsx(Wz,{component:O.jsx(i,{})})}),O.jsx(qn,{path:"/signup",element:O.jsx(hp,{component:O.jsx(a,{})})}),O.jsx(qn,{path:"/signin",element:O.jsx(hp,{component:O.jsx(s,{})})}),O.jsx(qn,{path:"/forgot-password",element:O.jsx(l,{})}),O.jsx(qn,{path:"/reset-password",element:O.jsx(Xz,{})}),O.jsx(qn,{path:"*",element:O.jsx(tc,{to:"/welcome"})})]})})}),O.jsx(hx,{visible:n})]})}const a9=({children:e})=>{const t=wt(Qo);return O.jsx(u4,{theme:t==="dark"?go:Ft,children:e})},l9=d4`
 h1,
 h2,
 h3,
