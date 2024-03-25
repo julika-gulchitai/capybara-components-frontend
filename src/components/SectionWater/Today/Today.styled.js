@@ -16,3 +16,10 @@ export const TodayStile = styled.h2`
     line-height: 1.23;
   }
 `;
+
+export const EmptyNotes = styled.p`
+font-size: 20px;
+opacity:0.7;
+ color: #8baeff;
+ margin-bottom: 16px;
+`
