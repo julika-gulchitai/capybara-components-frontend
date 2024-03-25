@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from 'react-hook-form';
 
 import { Notify } from 'notiflix';
@@ -21,9 +21,14 @@ import {
   Formula,
 } from './DailyNormaModal.styled';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
+import {apiGetMonthWaterPortions} from '../../redux/Water/WaterThunks.js';
+import {selectSelectedCalendar} from '../../redux/Water/selectors.js';
+import {selectUser} from '../../redux/User/selectors.js';
 
 const DailyNormaModal = ({ onClose }) => {
   const dispatch = useDispatch();
+  const selectedCalendar = useSelector(selectSelectedCalendar)
+    const { waterRate } = useSelector(selectUser);
 
   const { t } = useTranslation();
 
@@ -42,6 +47,9 @@ const DailyNormaModal = ({ onClose }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
+      defaultValues: {
+          norma: waterRate / 1000,
+      },
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
@@ -53,6 +61,7 @@ const DailyNormaModal = ({ onClose }) => {
     dispatch(editWaterRateThunk(newWaterRate))
       .unwrap()
       .then(() => {
+        dispatch(apiGetMonthWaterPortions({year: selectedCalendar.year, month: selectedCalendar.month + 1}))
         onClose();
       })
       .catch((error) => {
