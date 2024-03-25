@@ -61,9 +61,18 @@ export const ButtonArrow = styled.button`
   background-color: transparent;
   border: none;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  color: ${(props) => (props.disabled ? 'transparent' : props.theme.colors.primaryBlue)};
 
-  svg {
-    width: 5px;
-    height: 10px;
+
+  transition: color 250ms ease-in-out;
+
+  &:hover, &:focus {
+    color: ${(props) => (props.disabled ? 'transparent' : props.theme.colors.secondaryOrange)};
+  }
+
+  svg{
+    fill: currentColor;
+    width: 14px;
+    height: 14px;
   }
 `;

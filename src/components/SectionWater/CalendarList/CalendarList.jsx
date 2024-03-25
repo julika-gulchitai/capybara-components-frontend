@@ -15,6 +15,7 @@ import { getNumberDay } from '../../../services/getNumberDay';
 import { createMonthArray } from '../../../services/createMonthArray';
 
 import PopoverViev from '../PopoverViev/PopoverViev';
+import svgSprite from '../../../assets/sprite.svg';
 
 import {
   HeaderList,
@@ -23,9 +24,6 @@ import {
   TableDays,
   ButtonArrow,
 } from './CalendarList.styled';
-
-import { ReactComponent as IconArrowLeft } from '../../../assets/icon/arrow-left.svg';
-import { ReactComponent as IconArrowRight } from '../../../assets/icon/arrow-rigth.svg';
 
 const currentDate = new Date();
 
@@ -75,7 +73,9 @@ const CalendarList = () => {
         <Title>{i18n.t('month')}</Title>
         <WrapperGroup>
           <ButtonArrow onClick={previousMonth}>
-            <IconArrowLeft />
+              <svg>
+                  <use href={`${svgSprite}#icon-arrow-left`}/>
+              </svg>
           </ButtonArrow>
           <span style={{ textTransform: 'capitalize' }}>
             {format(new Date(year, month, 1), 'LLLL', {
@@ -87,7 +87,9 @@ const CalendarList = () => {
             onClick={nextMonth}
             disabled={currentDate < new Date(year, month + 1)}
           >
-            <IconArrowRight />
+              <svg>
+                  <use href={`${svgSprite}#icon-arrow-right`}/>
+              </svg>
           </ButtonArrow>
         </WrapperGroup>
       </HeaderList>

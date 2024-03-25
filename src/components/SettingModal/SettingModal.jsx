@@ -185,8 +185,7 @@ function SettingModal({ close }) {
         close();
       })
       .catch((error) => {
-        console.log(error);
-        Notiflix.Notify.failure(error.message, paramsForNotify);
+        Notiflix.Notify.failure(error, paramsForNotify);
       });
   }
 
