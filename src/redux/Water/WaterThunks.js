@@ -14,14 +14,14 @@ export const apiAddWaterPortion = createAsyncThunk(
   async ({ credentials, shouldUpdateMonth = false }, thunkAPI) => {
     try {
       const response = await requestAddWaterData(credentials);
-        if (shouldUpdateMonth) {
-            thunkAPI.dispatch(
-                apiGetMonthWaterPortions({
-                    month: format(new Date(), 'LL'),
-                    year: format(new Date(), 'yyyy'),
-                })
-            );
-        }
+      if (shouldUpdateMonth) {
+        thunkAPI.dispatch(
+          apiGetMonthWaterPortions({
+            month: format(new Date(), 'LL'),
+            year: format(new Date(), 'yyyy'),
+          })
+        );
+      }
       return response;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -34,14 +34,14 @@ export const apiDeleteWaterPortion = createAsyncThunk(
   async ({ portionId, shouldUpdateMonth = false }, thunkAPI) => {
     try {
       await requestDeleteWaterData(portionId);
-        if (shouldUpdateMonth) {
-            thunkAPI.dispatch(
-                apiGetMonthWaterPortions({
-                    month: format(new Date(), 'LL'),
-                    year: format(new Date(), 'yyyy'),
-                })
-            );
-        }
+      if (shouldUpdateMonth) {
+        thunkAPI.dispatch(
+          apiGetMonthWaterPortions({
+            month: format(new Date(), 'LL'),
+            year: format(new Date(), 'yyyy'),
+          })
+        );
+      }
       return portionId;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -66,14 +66,12 @@ export const apiGetMonthWaterPortions = createAsyncThunk(
     try {
       const data = await requestMonthWaterData(month, year);
 
-      thunkAPI.dispatch(apiGetTodayWaterPortions());
-
       return Object.keys(data).length !== 0
         ? data
         : {
-          waterVolumePercentage: '0%',
-          waterVolumes: [],
-        };
+            waterVolumePercentage: '0%',
+            waterVolumes: [],
+          };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -86,12 +84,12 @@ export const apiEditWaterPortion = createAsyncThunk(
     try {
       const response = await requestEditWaterData(portionId, credentials);
       if (shouldUpdateMonth) {
-          thunkAPI.dispatch(
-              apiGetMonthWaterPortions({
-                  month: format(new Date(), 'LL'),
-                  year: format(new Date(), 'yyyy'),
-              })
-          );
+        thunkAPI.dispatch(
+          apiGetMonthWaterPortions({
+            month: format(new Date(), 'LL'),
+            year: format(new Date(), 'yyyy'),
+          })
+        );
       }
 
       return response;
