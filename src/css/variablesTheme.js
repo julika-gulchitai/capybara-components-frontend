@@ -31,6 +31,7 @@ export const themeLight = Object.freeze({
     mainBg: '#ffffff',
     textColor: '#2F2F2F',
     primaryBlue: '#407BFF',
+
     secondaryBg: '#ECF2FF',
     secondaryLightblue: '#D7E3FF',
     secondaryBlue: '#9EBBFF',
@@ -38,25 +39,25 @@ export const themeLight = Object.freeze({
     secondaryOrange: '#FF9D43',
     secondaryBlueMedium: '#c6d7ff',
     secondaryGrayMedium: '#f5f5f5',
+    secondaryGray: '#8F8F8F',
 
     switchBg: '#ECF2FF',
     switchButton: '#9EBBFF',
     switchBorder: '#dfdfdf',
 
-    secondaryGray: '#8F8F8F',
+  },
 
-    fontSizes: {
-      tiny: '12px',
-      small: '16px',
-      medium: '18px',
-      large: '26px',
-      XL: '28px',
-    },
+  fontSizes: {
+    tiny: '12px',
+    small: '16px',
+    medium: '18px',
+    large: '26px',
+    XL: '28px',
+  },
 
-    animation: {
-      duration: '0.3s',
-      cubicBezier: '0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)',
-    },
+  animation: {
+    duration: '0.3s',
+    cubicBezier: '0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)',
   },
 
   shadows: {
@@ -97,9 +98,23 @@ export const themeDark = Object.freeze({
     secondaryRed: '#f16161',
     secondaryOrange: '#ffa756',
     secondaryGray: '#8F8F8F',
+
     switchBg: '#2a3052',
     switchButton: '#9EBBFF',
     switchBorder: '#dfdfdf',
+  },
+
+  fontSizes: {
+    tiny: '12px',
+    small: '16px',
+    medium: '18px',
+    large: '26px',
+    XL: '28px',
+  },
+
+  animation: {
+    duration: '0.3s',
+    cubicBezier: '0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)',
   },
 
   shadows: {

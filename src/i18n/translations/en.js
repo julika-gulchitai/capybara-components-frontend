@@ -86,6 +86,10 @@ export const en = {
         "Recording time": "Recording time",
         "Enter the value of the water used": "Enter the value of the water used",
     },
+    editModal: {
+        "Edit the entered amount of water": "Edit the entered amount of water",
+        "Correct entered data": "Correct entered data",
+    },
     forgotPass: {
         "email": "Email is required",
         "success-msg": "Password reset link is sent to your email!",
