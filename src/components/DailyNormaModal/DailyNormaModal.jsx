@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
 import { Notify } from 'notiflix';
@@ -21,14 +21,14 @@ import {
   Formula,
 } from './DailyNormaModal.styled';
 import { ButtonStyled } from '../CommonStyledComponents/CommonButton.styled';
-import {apiGetMonthWaterPortions} from '../../redux/Water/WaterThunks.js';
-import {selectSelectedCalendar} from '../../redux/Water/selectors.js';
-import {selectUser} from '../../redux/User/selectors.js';
+import { apiGetMonthWaterPortions } from '../../redux/Water/WaterThunks.js';
+import { selectSelectedCalendar } from '../../redux/Water/selectors.js';
+import { selectUser } from '../../redux/User/selectors.js';
 
 const DailyNormaModal = ({ onClose }) => {
   const dispatch = useDispatch();
-  const selectedCalendar = useSelector(selectSelectedCalendar)
-    const { waterRate } = useSelector(selectUser);
+  const selectedCalendar = useSelector(selectSelectedCalendar);
+  const { waterRate } = useSelector(selectUser);
 
   const { t } = useTranslation();
 
@@ -36,7 +36,7 @@ const DailyNormaModal = ({ onClose }) => {
     norma: yup
       .string()
       .matches(
-        /^(0\.1|[1-9](\.\d)?|1[0-4](\.\d)?|15)$/,
+        /^(0\.[1-9]|[1-9](\.\d)?|1[0-4](\.\d)?|15)$/,
         t('normaModal.normaError')
       )
       .required(),
@@ -47,9 +47,9 @@ const DailyNormaModal = ({ onClose }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-      defaultValues: {
-          norma: waterRate / 1000,
-      },
+    defaultValues: {
+      norma: waterRate / 1000,
+    },
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
@@ -61,7 +61,12 @@ const DailyNormaModal = ({ onClose }) => {
     dispatch(editWaterRateThunk(newWaterRate))
       .unwrap()
       .then(() => {
-        dispatch(apiGetMonthWaterPortions({year: selectedCalendar.year, month: selectedCalendar.month + 1}))
+        dispatch(
+          apiGetMonthWaterPortions({
+            year: selectedCalendar.year,
+            month: selectedCalendar.month + 1,
+          })
+        );
         onClose();
       })
       .catch((error) => {

@@ -37,10 +37,16 @@ export const DailyNormaContainer = styled.div`
   button {
     font-family: inherit;
     line-height: 1.25;
-    color: #8baeff;
+    color: ${(props) => props.theme.colors.secondaryBlueLight};
     outline: none;
     border: none;
     background: transparent;
+    transition: color 250ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.colors.secondaryOrange};
+    }
   }
 `;
 
