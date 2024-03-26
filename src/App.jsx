@@ -9,7 +9,6 @@ import { selectIsLoading } from './redux/global/selectors.js';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import GuestRoute from './routes/GuestRoute.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
-import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
 import { Loader } from './components/Loader/Loader.jsx';
 
 import { AppWrapper } from './App.styled';
@@ -19,6 +18,7 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const SignIn = lazy(() => import('./pages/SignIn/SignIn.jsx'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp.jsx'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword.jsx'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword/ResetPassword.jsx'));
 
 function App() {
   const dispatch = useDispatch();
