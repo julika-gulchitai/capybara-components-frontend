@@ -36,9 +36,10 @@
 
 ## Description
 
-Water Tracker is a web application that allows users to monitor their daily
+`Water Tracker` is a web application that allows users to monitor their daily
 water intake. The application consists of the following functional components:
 Welcome page, Home page, Water Journal, and Settings.
+
 ![GitHub actions settings](./src/assets/welcome.jpg)
 
 ## Features
@@ -48,8 +49,10 @@ Welcome page, Home page, Water Journal, and Settings.
 
 - Water Journal: Allows users to record their water consumption throughout the
   day. ![GitHub actions settings](./src/assets/calendar.jpg)
+
 - Settings: Enables users to customize their profile, including adding a photo,
   specifying gender, name, and updating password or email.
+
   ![GitHub actions settings](./src/assets/setting.jpg)
 
 ## Platform Compatibility
@@ -57,6 +60,8 @@ Welcome page, Home page, Water Journal, and Settings.
 The application is designed to be responsive and adaptable to desktop, tablet,
 and mobile devices. It has three breakpoints: 1440 pixels, 768 pixels, and 320
 pixels respectively.
+
+![GitHub actions settings](./src/assets/adapted.jpg)
 
 ## User Authentication
 

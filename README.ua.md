@@ -19,6 +19,7 @@
 </span>
 
 ## <h3 align="center"> ℹ️ Capybara-component team <h3>
+
 <span align="center">
 
 <a align="center" href="https://github.com/julika-gulchitai">![GitHub](https://img.shields.io/badge/-Julia-05122A?style=flat&logo=github)</a>
@@ -33,60 +34,85 @@
 </span>
 <span align="left" >
 
+## Опис
 
-## Description
+`Water Tracker` — це веб-програма, яка дозволяє користувачам контролювати
+щоденне споживання води. Додаток складається з таких функціональних компонентів:
+Домашня сторінка, Водний журнал та Налаштування.
 
-Water Tracker is a web application that allows users to monitor their daily water intake. The application consists of the following functional components: Home page, Water Journal, and Settings.
+![GitHub actions settings](./src/assets/welcome.jpg)
 
-## Features 
+## Особливості
 
-- Home Page: Provides an overview of the application and quick access to other features.
-- Water Journal: Allows users to record their water consumption throughout the day.
-- Settings: Enables users to customize their profile, including adding a photo, specifying gender, name, and updating password or email.
+- Домашня сторінка: надає огляд програми та швидкий доступ до інших функцій.
+  ![GitHub actions settings](./src/assets/home.jpg)
 
-## Platform Compatibility 
+- Водний журнал: дозволяє користувачам записувати споживання води протягом дня.
+  ![GitHub actions settings](./src/assets/calendar.jpg)
 
-The application is designed to be responsive and adaptable to desktop, tablet, and mobile devices. It has three breakpoints: 1440 pixels, 768 pixels, and 320 pixels respectively.
+- Налаштування: дозволяє користувачам налаштовувати свій профіль, зокрема
+  додавати фото, вказувати стать, ім’я та оновлювати пароль або електронну
+  адресу.
 
-## User Authentication 
+  ![GitHub actions settings](./src/assets/setting.jpg)
 
-Water Tracker includes user registration, login, and password recovery functionalities to ensure user privacy and security.
+## Сумісність платформи
 
-## Customization 
+Додаток розроблено таким чином, щоб бути адаптивним до настільних ПК, планшетів
+і мобільних пристроїв. Він має три контрольні точки: 1440 пікселів, 768 пікселів
+і 320 пікселів відповідно.
 
-Users can input their personal information in the Settings section. This includes adding a photo, specifying gender, name, and updating password or email.
+![GitHub actions settings](./src/assets/adapted.jpg)
 
-## Water Intake Tracking 
+## Автентифікація користувача
 
-Users can log their water intake manually or set a daily water intake goal. The application suggests a recommended water intake based on user weight, but users can also set their own target.
+Water Tracker включає функції реєстрації, входу та відновлення пароля для
+забезпечення конфіденційності та безпеки користувачів.
 
-## Statistics and Progress
+## Налаштування
 
-Users can view their water consumption statistics for the month in a calendar view. Additionally, a progress panel shows the user's water intake progress for the current day.
+Користувачі можуть вводити свою особисту інформацію в розділі «Налаштування». Це
+включає додавання фотографії, вказівку статі, імені та оновлення пароля чи
+електронної пошти.
 
+## Відстеження випитої води
 
-## Aim of the project
+Користувачі можуть реєструвати споживання води вручну або встановити ціль
+щоденного споживання води. Додаток пропонує рекомендоване споживання води на
+основі ваги користувача, але користувачі також можуть встановити власну ціль.
 
-The primary objectives of this team project were to learn how to effectively
-work in a team, apply our previously acquired skills, and successfully operate
-within a specified 14-day time frame.
+## Статистика та прогрес
+
+Користувачі можуть переглядати статистику споживання води за місяць у вигляді
+календаря. Крім того, панель прогресу показує прогрес споживання води
+користувачем за поточний день.
+
+## Мета проекту
+
+Основними цілями цього командного проекту було навчитися ефективно працювати в
+команді, застосовувати набуті навички та створити працюючий продукт протягом
+визначеного 14-денного терміну.
 
 ## Task management
 
-✅ Yuliia Zaritska - Team Leader Frontend ◼ Setting up repository and common styles ◼ Water rate panel functionality ◼ Codereview
+✅ Юлія Зарицька - керівник групи Frontend ◼ Налаштування репозиторію та
+загальних стилів ◼ Функціональність панелі витрат води ◼ Перегляд коду
 
-✅ Andrii Sauliak - Team Leader Backend ◼ Database ◼ Swagger ◼ Codereview
+✅ Андрій Сауляк - керівник групи Backend ◼ База даних ◼ Swagger ◼ Перегляд
+коду
 
-✅ Uliana Nadorozhna - Scrum master ◼ User authentication functionality
+✅ Уляна Надорожна - Скрам-майстер команди ◼ Функція аутентифікації
+користувачів
 
-✅ Julia Palamarchuk -  Water statistic functionality
+✅ Юлія Паламарчук - Функціонал статистики води
 
-✅ Svitlana Biruk - Update user settings functionality ◼ Codereview
+✅ Світлана Бірук - Оновлення функціоналу налаштувань користувача ◼
+Функціональність домашньої сторінки ◼ Codereview
 
-✅ Marina Fridrak - Homepage functionality ◼ Global styles
+✅ Марина Фрідрак - Функціональність гостьової сторінки ◼ Глобальні стилі
 
-✅ Mariana Skorynovych - User`s daily norma and language functionality
+✅ Мар'яна Скоринович - Щоденна норма користувача та мовний функціонал
 
-✅ Andrii Hryb - User logout ◼ Loader
+✅ Андрій Гриб - Вихід користувача ◼ Завантажувач
 
 </span>
