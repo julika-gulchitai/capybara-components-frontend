@@ -10,7 +10,7 @@ import {
   selectNotes,
   selectSelectedCalendar,
 } from '../../redux/Water/selectors.js';
-import { apiEditWaterPortion } from '../../redux/Water/WaterThunks.js';
+import {apiEditWaterPortion, apiGetTodayWaterPortions} from '../../redux/Water/WaterThunks.js';
 import { doesRefreshNeeded } from '../../services/doesRefreshNeeded.js';
 import { getLocaleTime } from '../../services/timeServices.js';
 
@@ -65,6 +65,7 @@ const EditWaterModal = ({ onClose, id }) => {
       )
         .unwrap()
         .then(() => {
+          dispatch(apiGetTodayWaterPortions())
           onClose();
         });
     },
