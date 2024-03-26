@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import { useTranslation } from 'react-i18next';
 
-import { apiDeleteWaterPortion } from '../../redux/Water/WaterThunks';
+import {apiDeleteWaterPortion, apiGetTodayWaterPortions} from '../../redux/Water/WaterThunks';
 
 import { StyledDeleteModal } from './DeleteModal.styled';
 import {selectSelectedCalendar} from '../../redux/Water/selectors.js';
@@ -19,7 +19,10 @@ const DeleteModal = ({ onClose, id }) => {
         shouldUpdateMonth: doesRefreshNeeded(selectedCalendar)
     }))
       .unwrap()
-      .then(() => onClose());
+      .then(() => {
+        dispatch(apiGetTodayWaterPortions())
+        onClose()
+      });
   }
 
   return (
