@@ -38,18 +38,19 @@
 
 Water Tracker is a web application that allows users to monitor their daily
 water intake. The application consists of the following functional components:
-Home page, Water Journal, and Settings.
+Welcome page, Home page, Water Journal, and Settings.
+![GitHub actions settings](./src/assets/welcome.png)
 
 ## Features
 
 - Home Page: Provides an overview of the application and quick access to other
-  features. ![GitHub actions settings](./src/assets/welcome.png)
-  ![GitHub actions settings](./src/assets/welcome.jpg)
-  <!-- <img src='../capybara-components-frontend/src/assets/welcome.jpg' > </img> -->
+  features. ![GitHub actions settings](./src/assets/home.png)
+
 - Water Journal: Allows users to record their water consumption throughout the
-  day.
+  day. ![GitHub actions settings](./src/assets/calendar.jpg)
 - Settings: Enables users to customize their profile, including adding a photo,
   specifying gender, name, and updating password or email.
+  ![GitHub actions settings](./src/assets/setting.jpg)
 
 ## Platform Compatibility
 
