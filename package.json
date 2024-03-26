@@ -1,8 +1,10 @@
 {
-  "name": "capybara-components-frontend",
+  "name": "water-tracker",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://julika-gulchitai.github.io/capybara-components-frontend/",
+  "authors": "Team project",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
