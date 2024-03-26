@@ -37,6 +37,7 @@ export const themeLight = Object.freeze({
     secondaryBlue: '#9EBBFF',
     secondaryRed: '#EF5050',
     secondaryOrange: '#FF9D43',
+    secondaryBlueLight: '#8baeff',
     secondaryBlueMedium: '#c6d7ff',
     secondaryGrayMedium: '#f5f5f5',
     secondaryGray: '#8F8F8F',
