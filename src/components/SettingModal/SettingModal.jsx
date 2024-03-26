@@ -134,7 +134,7 @@ function SettingModal({ close }) {
   }
 
   async function onSubmit(data) {
-    if (data.username !== username) {
+    if (data.username !== username && data.username !== '' ) {
       userData.append('username', data.username);
     }
 
