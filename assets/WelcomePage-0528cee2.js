@@ -1,4 +1,4 @@
-import{u as i,A as o,L as r,a as d,j as n,s as t}from"./index-1689b6ca.js";const l=i.div`
+import{u as i,A as o,L as r,a as d,j as n,s as t}from"./index-47e7bfea.js";const l=i.div`
   background-repeat: no-repeat;
   background-position: bottom;
   color: ${e=>e.theme.colors.textColor};
@@ -14,7 +14,7 @@ import{u as i,A as o,L as r,a as d,j as n,s as t}from"./index-1689b6ca.js";const
       align-items: flex-start;
       justify-content: center;
   }
-`,c=i(o)`
+`,s=i(o)`
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ import{u as i,A as o,L as r,a as d,j as n,s as t}from"./index-1689b6ca.js";const
   @media only screen and (min-width: 1440px) {
     flex-direction: row;
   }
-`,s=i.div`
+`,c=i.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,7 +177,6 @@ h3{
   border: none;
   padding: .5rem;
   margin-top: 1.5rem;
-
   box-shadow: ${e=>e.theme.shadows.buttonShadow};
   background: ${e=>e.theme.colors.primaryBlue};
   font-weight: 500;
@@ -186,6 +185,11 @@ h3{
   text-align: center;
   color: ${e=>e.theme.colors.mainBg};
   width: 100%;
+  transition: box-shadow 250ms ease-in-out;
+  &:hover, &:focus {
+    box-shadow: ${e=>e.theme.hovers.buttonShadow};
+  }
+
   @media only screen and (min-width: 768px) {
     width: 50%;
   }
@@ -225,4 +229,4 @@ h3{
     background: no-repeat calc(50% + 480px) 440px url(${e=>e.theme.backgroundImage.backgroundWelcomePageDeskBottle}),
     no-repeat calc(50%) 37px/cover url(${e=>e.theme.backgroundImage.backgroundWelcomePageDsctp});
   }
-`,j=()=>{const{t:e}=d();return n.jsx(b,{id:"background",children:n.jsx(l,{children:n.jsx(c,{children:n.jsxs(s,{children:[n.jsxs(m,{children:[n.jsx(h,{children:e("welcomePage.Water consumption tracker")}),n.jsx(p,{children:e("welcomePage.Record daily water intake and track")}),n.jsx("h3",{children:e("welcomePage.Tracker Benefits")}),n.jsxs(x,{children:[n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#calendar`})}),e("welcomePage.Habit drive")]}),n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#presentation-chart-bar`})}),e("welcomePage.View statistics")]}),n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#wrench-schewdriver`})}),e("welcomePage.Personal rate setting")]})]}),n.jsx(y,{to:"/signup",children:e("welcomePage.Try tracker")})]}),n.jsxs(g,{children:[n.jsx(w,{children:e("welcomePage.Why drink water")}),n.jsxs(u,{children:[n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Supply of nutrients to all organs")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Providing oxygen to the lungs")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining the work of the heart")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Release of processed substances")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Ensuring the stability of the internal environment")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining within the normal temperature")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining an immune system capable of resisting disease")})})]})]})]})})})})};export{j as default};
+`,j=()=>{const{t:e}=d();return n.jsx(b,{id:"background",children:n.jsx(l,{children:n.jsx(s,{children:n.jsxs(c,{children:[n.jsxs(m,{children:[n.jsx(h,{children:e("welcomePage.Water consumption tracker")}),n.jsx(p,{children:e("welcomePage.Record daily water intake and track")}),n.jsx("h3",{children:e("welcomePage.Tracker Benefits")}),n.jsxs(x,{children:[n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#calendar`})}),e("welcomePage.Habit drive")]}),n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#presentation-chart-bar`})}),e("welcomePage.View statistics")]}),n.jsxs("li",{children:[" ",n.jsx(a,{children:n.jsx("use",{href:`${t}#wrench-schewdriver`})}),e("welcomePage.Personal rate setting")]})]}),n.jsx(y,{to:"/signup",children:e("welcomePage.Try tracker")})]}),n.jsxs(g,{children:[n.jsx(w,{children:e("welcomePage.Why drink water")}),n.jsxs(u,{children:[n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Supply of nutrients to all organs")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Providing oxygen to the lungs")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining the work of the heart")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Release of processed substances")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Ensuring the stability of the internal environment")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining within the normal temperature")})}),n.jsx("li",{children:n.jsx("span",{children:e("welcomePage.Maintaining an immune system capable of resisting disease")})})]})]})]})})})})};export{j as default};
