@@ -34,59 +34,55 @@
 <span align="left" >
 
 
-## Description
+## Опис
 
-Water Tracker is a web application that allows users to monitor their daily water intake. The application consists of the following functional components: Home page, Water Journal, and Settings.
+Water Tracker — це веб-програма, яка дозволяє користувачам контролювати щоденне споживання води. Додаток складається з таких функціональних компонентів: Домашня сторінка, Водний журнал та Налаштування.
 
-## Features 
+## Особливості 
 
-- Home Page: Provides an overview of the application and quick access to other features.
-- Water Journal: Allows users to record their water consumption throughout the day.
-- Settings: Enables users to customize their profile, including adding a photo, specifying gender, name, and updating password or email.
+- Домашня сторінка: надає огляд програми та швидкий доступ до інших функцій.
+- Водний журнал: дозволяє користувачам записувати споживання води протягом дня.
+- Налаштування: дозволяє користувачам налаштовувати свій профіль, зокрема додавати фото, вказувати стать, ім’я та оновлювати пароль або електронну адресу.
 
-## Platform Compatibility 
+## Сумісність платформи
 
-The application is designed to be responsive and adaptable to desktop, tablet, and mobile devices. It has three breakpoints: 1440 pixels, 768 pixels, and 320 pixels respectively.
+Додаток розроблено таким чином, щоб бути адаптивним до настільних ПК, планшетів і мобільних пристроїв. Він має три контрольні точки: 1440 пікселів, 768 пікселів і 320 пікселів відповідно.
 
-## User Authentication 
+## Автентифікація користувача
 
-Water Tracker includes user registration, login, and password recovery functionalities to ensure user privacy and security.
+Water Tracker включає функції реєстрації, входу та відновлення пароля для забезпечення конфіденційності та безпеки користувачів.
 
-## Customization 
+## Налаштування
 
-Users can input their personal information in the Settings section. This includes adding a photo, specifying gender, name, and updating password or email.
+Користувачі можуть вводити свою особисту інформацію в розділі «Налаштування». Це включає додавання фотографії, вказівку статі, імені та оновлення пароля чи електронної пошти.
 
-## Water Intake Tracking 
+## Відстеження випитої води
 
-Users can log their water intake manually or set a daily water intake goal. The application suggests a recommended water intake based on user weight, but users can also set their own target.
+Користувачі можуть реєструвати споживання води вручну або встановити ціль щоденного споживання води. Додаток пропонує рекомендоване споживання води на основі ваги користувача, але користувачі також можуть встановити власну ціль.
 
-## Statistics and Progress
+## Статистика та прогрес
 
-Users can view their water consumption statistics for the month in a calendar view. Additionally, a progress panel shows the user's water intake progress for the current day.
+Користувачі можуть переглядати статистику споживання води за місяць у вигляді календаря. Крім того, панель прогресу показує прогрес споживання води користувачем за поточний день.
 
+## Мета проекту
 
-## Aim of the project
+Основними цілями цього командного проекту було навчитися ефективно працювати в команді, застосовувати набуті навички та створити працюючий продукт протягом визначеного 14-денного терміну.
 
-The primary objectives of this team project were to learn how to effectively
-work in a team, apply our previously acquired skills, and successfully operate
-within a specified 14-day time frame.
+## Керування завданнями
+✅ Юлія Заріцька - керівник групи Frontend ◼ Налаштування репозиторію та загальних стилів ◼ Функціональність панелі витрат води ◼ Перегляд коду
 
-## Task management
+✅ Andrii Sauliak - керівник групи Backend ◼ База даних ◼ Swagger ◼ Codereview
 
-✅ Yuliia Zaritska - Team Leader Frontend ◼ Setting up repository and common styles ◼ Water rate panel functionality ◼ Codereview
+✅ Уляна Надорожна - Скрам-майстер команди ◼ Функція аутентифікації користувачів
 
-✅ Andrii Sauliak - Team Leader Backend ◼ Database ◼ Swagger ◼ Codereview
+✅ Юлія Паламарчук - Функціонал статистики води
 
-✅ Uliana Nadorozhna - Scrum master ◼ User authentication functionality
+✅ Світлана Бірук - Оновлення функціоналу налаштувань користувача ◼ Функціональність домашньої сторінки ◼ Codereview
 
-✅ Julia Palamarchuk -  Water statistic functionality
+✅ Марина Фрідрак - Функціональність гостьової сторінки ◼ Глобальні стилі
 
-✅ Svitlana Biruk - Update user settings functionality ◼ Codereview
+✅ Мар'яна Скоринович - Щоденна норма користувача та мовний функціонал
 
-✅ Marina Fridrak - Homepage functionality ◼ Global styles
-
-✅ Mariana Skorynovych - User`s daily norma and language functionality
-
-✅ Andrii Hryb - User logout ◼ Loader
+✅ Андрій Гриб - Вихід користувача ◼ Завантажувач
 
 </span>
