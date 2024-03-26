@@ -14,6 +14,12 @@ import { Loader } from './components/Loader/Loader.jsx';
 
 import { AppWrapper } from './App.styled';
 
+const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage.jsx'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
+const SignIn = lazy(() => import('./pages/SignIn/SignIn.jsx'));
+const SignUp = lazy(() => import('./pages/SignUp/SignUp.jsx'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword.jsx'));
+
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectRefreshing);
@@ -23,14 +29,6 @@ function App() {
   useEffect(() => {
     dispatch(getCurrentThunk());
   }, [dispatch]);
-
-  const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage.jsx'));
-  const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
-  const SignIn = lazy(() => import('./pages/SignIn/SignIn.jsx'));
-  const SignUp = lazy(() => import('./pages/SignUp/SignUp.jsx'));
-  const ForgotPassword = lazy(() =>
-    import('./pages/ForgotPassword/ForgotPassword.jsx')
-  );
 
   return isRefreshing ? (
     <Loader visible={isLoading} />
