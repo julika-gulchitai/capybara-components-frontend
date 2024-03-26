@@ -102,7 +102,7 @@ const EditWaterModal = ({ onClose, id }) => {
 
   return (
     <StyledEditWaterModal onSubmit={handleSubmit}>
-      <AddEditWater>Edit the entered amount of water</AddEditWater>
+      <AddEditWater>{t('editModal.Edit the entered amount of water')}</AddEditWater>
       <GlassContainer>
         <GlassStyle />
         <TextAmount>
@@ -115,7 +115,7 @@ const EditWaterModal = ({ onClose, id }) => {
         </TimeValue>
       </GlassContainer>
 
-      <EditWaterText>Correct entered data</EditWaterText>
+      <EditWaterText>{t('editModal.Correct entered data')}</EditWaterText>
       <TextAm>{t('addModal.Amount of water')}:</TextAm>
 
       <ButtonWrapper>
