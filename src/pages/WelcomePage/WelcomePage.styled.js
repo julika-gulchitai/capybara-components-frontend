@@ -194,7 +194,6 @@ export const StyledWelcomeLink = styled(Link)`
   border: none;
   padding: .5rem;
   margin-top: 1.5rem;
-
   box-shadow: ${props => props.theme.shadows.buttonShadow};
   background: ${props => props.theme.colors.primaryBlue};
   font-weight: 500;
@@ -203,6 +202,11 @@ export const StyledWelcomeLink = styled(Link)`
   text-align: center;
   color: ${props => props.theme.colors.mainBg};
   width: 100%;
+  transition: box-shadow 250ms ease-in-out;
+  &:hover, &:focus {
+    box-shadow: ${props => props.theme.hovers.buttonShadow};
+  }
+
   @media only screen and (min-width: 768px) {
     width: 50%;
   }
