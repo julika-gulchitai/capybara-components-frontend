@@ -1,0 +1,1 @@
+import{a,j as s,$ as r,a0 as i,a1 as e,a2 as t,a3 as o,a4 as l}from"./index-0cdb5cb8.js";import{A as x}from"./AuthForm-49f2765f.js";const d=()=>{const{t:n}=a();return s.jsx(r,{children:s.jsx(i,{children:s.jsxs(e,{children:[s.jsx(t,{children:n("signup")}),s.jsx(x,{signUp:!0}),s.jsx(o,{}),s.jsx(l,{to:"/signin",children:n("signin")})]})})})};export{d as default};
