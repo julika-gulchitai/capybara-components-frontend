@@ -96,6 +96,7 @@ export const themeDark = Object.freeze({
     secondaryBg: '#1f2438',
     secondaryLightblue: '#2a3052',
     secondaryBlue: '#2f3875',
+    secondaryBlueLight: '#8baeff',
     secondaryRed: '#f16161',
     secondaryOrange: '#ffa756',
     secondaryGray: '#8F8F8F',
