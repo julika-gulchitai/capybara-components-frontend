@@ -20,6 +20,7 @@ import {
   WrapForm,
   WrapInput,
 } from './AuthForm.styled';
+import { paramsForNotify } from '../../constants/notifications.js';
 
 const AuthForm = ({ signUp }) => {
   const dispatch = useDispatch();
@@ -66,18 +67,11 @@ const AuthForm = ({ signUp }) => {
             t(
               'auth.A message with a confirmation link has been sent to your email address. Please folow the link to activate your account.'
             ),
-            {
-              timeout: 5000,
-              width: '460px',
-              height: '200px',
-              messageMaxLength: 500,
-              fontSize: '14px',
-              position: 'center-top',
-            }
+            paramsForNotify
           );
         })
         .catch((err) => {
-          Notify.warning(err);
+          Notify.warning(err, paramsForNotify);
         });
     } else {
       dispatch(loginThunk(user))
@@ -86,7 +80,7 @@ const AuthForm = ({ signUp }) => {
           navigate('/home');
         })
         .catch((err) => {
-          Notify.warning(err);
+          Notify.warning(err, paramsForNotify);
         });
     }
   };
