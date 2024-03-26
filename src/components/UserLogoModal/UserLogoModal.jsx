@@ -22,7 +22,7 @@ function UserLogoModal({ openSettings, openLogOut, closeMenu }) {
   function handleLogOutClick() {
     openLogOut();
     closeMenu();
-    Notify.success(NOTIFICATIONS.INFO.LOGOUT, paramsForNotify);
+    Notify.info(NOTIFICATIONS.INFO.LOGOUT, paramsForNotify);
   }
 
   return (

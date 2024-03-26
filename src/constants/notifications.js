@@ -34,5 +34,20 @@ export const paramsForNotify = {
   fontFamily: 'Montserrat',
   cssAnimationStyle: 'from-bottom',
   fontAwesomeIconSize: '20px',
-  backgroundColor: '#407bff',
+  info: {
+    background: '#407bff',
+    notiflixIconColor: '#ffffff',
+  },
+  success: {
+    background: '#407bff',
+    notiflixIconColor: '#ffffff',
+  },
+  failure: {
+    background: '#EF5050',
+    notiflixIconColor: '#ffffff',
+  },
+  warning: {
+    background: '#FF9D43',
+    notiflixIconColor: '#ffffff',
+  },
 };
