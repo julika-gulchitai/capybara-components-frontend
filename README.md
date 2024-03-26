@@ -43,8 +43,9 @@ Home page, Water Journal, and Settings.
 ## Features
 
 - Home Page: Provides an overview of the application and quick access to other
-  features. <img src='../capybara-components-frontend/src/assets/welcome.jpg' >
-  </img>
+  features. ![GitHub actions settings](./src/assets/welcome.png)
+  ![GitHub actions settings](./src/assets/welcome.jpg)
+  <!-- <img src='../capybara-components-frontend/src/assets/welcome.jpg' > </img> -->
 - Water Journal: Allows users to record their water consumption throughout the
   day.
 - Settings: Enables users to customize their profile, including adding a photo,
