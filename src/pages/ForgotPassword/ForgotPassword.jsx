@@ -40,16 +40,10 @@ const ForgotPassword = () => {
     dispatch(forgotPassword(data.email))
       .unwrap()
       .then(() => {
-        Notify.success(t('forgotPass.success-msg'), {
-          timeout: 3000,
-          width: '300px',
-          height: '200px',
-          fontSize: '14px',
-          position: 'center-top',
-        });
+        Notify.success(t('forgotPass.success-msg'), paramsForNotify);
       })
       .catch((err) => {
-        Notify.warning(err);
+        Notify.warning(err, paramsForNotify);
       });
     if (!user) {
       Notify.warning(t('forgotPass.wrong-email-msg'), paramsForNotify);
