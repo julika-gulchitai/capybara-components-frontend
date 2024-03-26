@@ -66,7 +66,7 @@ export const en = {
         "formulaGenderF": "For woman",
         "formulaGenderM": "For man",
         "Your weight in kilograms": "Your weight in kilograms",
-        " The time of active participation in sports or other activities with a high physical load in hours": "  The time of active participation in sports or other activities with a high physical load in hours",
+        "The time of active participation in sports or other activities with a high physical load in hours": "The time of active participation in sports or other activities with a high physical load in hours",
         "The required amount of water in liters per day": "The required amount of water in liters per day",
         "Weight must be a number": "Weight must be a number",
         "Weight must be more than 3kg": "Weight must be more than 3kg",
