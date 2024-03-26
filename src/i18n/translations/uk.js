@@ -86,6 +86,10 @@ export const uk = {
         "Recording time": "Час внесення",
         "Enter the value of the water used": "Вкажіть кількість випитої води",
     },
+    editModal: {
+        "Edit the entered amount of water": "Відредагуйте введену кількість води",
+        "Correct entered data": "Скоригуйте введені дані",
+    },
     forgotPass: {
         "email": "Адреса електронної пошти є обов'язковою",
         "success-msg": "Посилання для зміни пароля надіслано на вашу електронну адресу!",
